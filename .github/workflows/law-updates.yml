@@ -1,0 +1,80 @@
+name: law-updates
+on:
+  schedule:
+    - cron: "0 * * * *"
+  workflow_dispatch:
+concurrency:
+  group: law-updates-hourly
+  cancel-in-progress: true
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - name: Install deps
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      - name: Generate JSON (web)
+        env:
+          LAW_OC: ${{ secrets.LAW_OC }}
+          ASSEMBLY_KEY: ${{ secrets.ASSEMBLY_KEY }}
+          ASSEMBLY_AGE: ${{ secrets.ASSEMBLY_AGE }}
+        run: |
+          python scripts/law_notifier.py --mode web --out public
+      - name: Commit generated files + state
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add public/updates.json public/changes.json public/health.json data/state.json || true
+          git commit -m "Update law feed" || echo "No changes"
+          git push
+      - name: Delay check (fail if stale)
+        env:
+          OUT_DIR: public
+          DELAY_THRESHOLD_MIN: "75"
+        run: |
+          python scripts/check_delay.py
+      - name: Send email alert on failure/stale
+        if: failure()
+        env:
+          ALERT_SMTP_HOST: ${{ secrets.ALERT_SMTP_HOST }}
+          ALERT_SMTP_PORT: ${{ secrets.ALERT_SMTP_PORT }}
+          ALERT_SMTP_USER: ${{ secrets.ALERT_SMTP_USER }}
+          ALERT_SMTP_PASS: ${{ secrets.ALERT_SMTP_PASS }}
+          ALERT_TO: ${{ secrets.ALERT_TO }}
+          ALERT_FROM: ${{ secrets.ALERT_FROM }}
+          REPO: ${{ github.repository }}
+          RUN_ID: ${{ github.run_id }}
+          WORKFLOW: ${{ github.workflow }}
+          JOB: ${{ github.job }}
+          REF: ${{ github.ref }}
+          SHA: ${{ github.sha }}
+        run: |
+          python - << 'PY'
+          import os, smtplib
+          from email.message import EmailMessage
+          host=os.environ.get("ALERT_SMTP_HOST",""); port=int(os.environ.get("ALERT_SMTP_PORT","587"))
+          user=os.environ.get("ALERT_SMTP_USER",""); pwd=os.environ.get("ALERT_SMTP_PASS","")
+          to=os.environ.get("ALERT_TO","help@airpermit.work"); frm=os.environ.get("ALERT_FROM") or user
+          if not host or not user or not pwd:
+              raise SystemExit("Missing SMTP secrets")
+          repo=os.environ.get("REPO",""); run_id=os.environ.get("RUN_ID","")
+          workflow=os.environ.get("WORKFLOW",""); job=os.environ.get("JOB","")
+          ref=os.environ.get("REF",""); sha=os.environ.get("SHA","")
+          run_url=f"https://github.com/{repo}/actions/runs/{run_id}"
+          msg=EmailMessage()
+          msg["Subject"]=f"[airpermit.work 법령알림] 갱신 실패/지연 알림: {workflow}/{job}"
+          msg["From"]=frm; msg["To"]=to
+          msg.set_content(
+              f"법령 알림 갱신 작업이 실패했거나 지연 임계치(75분)를 초과했습니다.\n\n"
+              f"- Repo: {repo}\n- Workflow: {workflow}\n- Job: {job}\n- Ref: {ref}\n- SHA: {sha}\n- Run: {run_url}\n"
+          )
+          with smtplib.SMTP(host, port, timeout=30) as s:
+              s.ehlo(); s.starttls(); s.login(user, pwd); s.send_message(msg)
+          print("Alert email sent.")
+          PY

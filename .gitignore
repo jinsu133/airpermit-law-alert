@@ -1,0 +1,10 @@
+.env
+_.env
+*.env
+__pycache__/
+*.pyc
+.cache/
+dist/
+build/
+.DS_Store
+data/*.tmp
