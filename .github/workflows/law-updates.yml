@@ -74,11 +74,14 @@ jobs:
           host=os.environ.get("ALERT_SMTP_HOST","")
           port = os.environ.get("ALERT_SMTP_PORT") or "587"
           user=os.environ.get("ALERT_SMTP_USER",""); pwd=os.environ.get("ALERT_SMTP_PASS","")
-          to=os.environ.get("ALERT_TO","help@airpermit.work"); frm=os.environ.get("ALERT_FROM") or user
+          to=(os.environ.get("ALERT_TO") or "help@airpermit.work").strip()
+          frm=(os.environ.get("ALERT_FROM") or user or "").strip()
           try:
               port_int = int(str(port).strip() or "587")
           except ValueError:
               port_int = 587
+          if not to or not frm:
+              raise SystemExit("Missing recipient/from address")
           repo=os.environ.get("REPO",""); run_id=os.environ.get("RUN_ID","")
           workflow=os.environ.get("WORKFLOW",""); job=os.environ.get("JOB","")
           ref=os.environ.get("REF",""); sha=os.environ.get("SHA","")

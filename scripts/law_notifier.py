@@ -102,9 +102,14 @@ def law_search(law_name: str) -> Optional[Dict[str, Any]]:
     url = f"{LAW_DRF_BASE}/lawSearch.do"
     headers={"User-Agent":"law-alert/1.0"}
     params = {"OC": LAW_OC, "target":"law", "type":"json", "search": law_name, "display":"30"}
-    r = requests.get(url, params=params, timeout=25, headers=headers)
-    r.raise_for_status()
-    data = r.json()
+    try:
+        r = requests.get(url, params=params, timeout=25, headers=headers)
+        r.raise_for_status()
+        data = r.json()
+    except requests.exceptions.RequestException as e:
+        # 외부 API 오류(5xx 등) 시 스킵
+        print(f"[WARN] law_search 실패: {law_name} -> {e}")
+        return None
     law_container = data.get("LawSearch", {})
     raw = law_container.get("law", [])
     items = raw if isinstance(raw, list) else ([raw] if isinstance(raw, dict) else [])
