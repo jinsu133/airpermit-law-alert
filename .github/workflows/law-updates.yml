@@ -64,14 +64,21 @@ jobs:
           REF: ${{ github.ref }}
           SHA: ${{ github.sha }}
         run: |
+          if [ -z "${ALERT_SMTP_HOST}" ] || [ -z "${ALERT_SMTP_USER}" ] || [ -z "${ALERT_SMTP_PASS}" ]; then
+            echo "Skip alert: missing SMTP secrets"
+            exit 0
+          fi
           python - << 'PY'
           import os, smtplib
           from email.message import EmailMessage
-          host=os.environ.get("ALERT_SMTP_HOST",""); port=int(os.environ.get("ALERT_SMTP_PORT","587"))
+          host=os.environ.get("ALERT_SMTP_HOST","")
+          port = os.environ.get("ALERT_SMTP_PORT") or "587"
           user=os.environ.get("ALERT_SMTP_USER",""); pwd=os.environ.get("ALERT_SMTP_PASS","")
           to=os.environ.get("ALERT_TO","help@airpermit.work"); frm=os.environ.get("ALERT_FROM") or user
-          if not host or not user or not pwd:
-              raise SystemExit("Missing SMTP secrets")
+          try:
+              port_int = int(str(port).strip() or "587")
+          except ValueError:
+              port_int = 587
           repo=os.environ.get("REPO",""); run_id=os.environ.get("RUN_ID","")
           workflow=os.environ.get("WORKFLOW",""); job=os.environ.get("JOB","")
           ref=os.environ.get("REF",""); sha=os.environ.get("SHA","")
@@ -83,7 +90,7 @@ jobs:
               f"법령 알림 갱신 작업이 실패했거나 지연 임계치(75분)를 초과했습니다.\n\n"
               f"- Repo: {repo}\n- Workflow: {workflow}\n- Job: {job}\n- Ref: {ref}\n- SHA: {sha}\n- Run: {run_url}\n"
           )
-          with smtplib.SMTP(host, port, timeout=30) as s:
+          with smtplib.SMTP(host, port_int, timeout=30) as s:
               s.ehlo(); s.starttls(); s.login(user, pwd); s.send_message(msg)
           print("Alert email sent.")
           PY
