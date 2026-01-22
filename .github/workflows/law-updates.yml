@@ -1,4 +1,4 @@
-name: law-updates
+ï»¿name: law-updates
 on:
   schedule:
     - cron: "0 * * * *"
@@ -8,6 +8,8 @@ concurrency:
   cancel-in-progress: true
 permissions:
   contents: write
+  pages: write
+  id-token: write
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -39,6 +41,13 @@ jobs:
           DELAY_THRESHOLD_MIN: "75"
         run: |
           python scripts/check_delay.py
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: public
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
       - name: Send email alert on failure/stale
         if: failure()
         env:
@@ -68,10 +77,10 @@ jobs:
           ref=os.environ.get("REF",""); sha=os.environ.get("SHA","")
           run_url=f"https://github.com/{repo}/actions/runs/{run_id}"
           msg=EmailMessage()
-          msg["Subject"]=f"[airpermit.work ¹ı·É¾Ë¸²] °»½Å ½ÇÆĞ/Áö¿¬ ¾Ë¸²: {workflow}/{job}"
+          msg["Subject"]=f"[airpermit.work ë²•ë ¹ì•Œë¦¼] ê°±ì‹  ì‹¤íŒ¨/ì§€ì—° ì•Œë¦¼: {workflow}/{job}"
           msg["From"]=frm; msg["To"]=to
           msg.set_content(
-              f"¹ı·É ¾Ë¸² °»½Å ÀÛ¾÷ÀÌ ½ÇÆĞÇß°Å³ª Áö¿¬ ÀÓ°èÄ¡(75ºĞ)¸¦ ÃÊ°úÇß½À´Ï´Ù.\n\n"
+              f"ë²•ë ¹ ì•Œë¦¼ ê°±ì‹  ì‘ì—…ì´ ì‹¤íŒ¨í–ˆê±°ë‚˜ ì§€ì—° ì„ê³„ì¹˜(75ë¶„)ë¥¼ ì´ˆê³¼í–ˆìŠµë‹ˆë‹¤.\n\n"
               f"- Repo: {repo}\n- Workflow: {workflow}\n- Job: {job}\n- Ref: {ref}\n- SHA: {sha}\n- Run: {run_url}\n"
           )
           with smtplib.SMTP(host, port, timeout=30) as s:
