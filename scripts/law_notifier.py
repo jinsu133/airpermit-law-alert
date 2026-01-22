@@ -1,8 +1,8 @@
-# -*- coding: utf-8 -*-
+ï»¿# -*- coding: utf-8 -*-
 """
-¹ı·É/°í½Ã/ÀÇ¾È ¾Ë¸² - Á¤Àû À¥¿ë »ı¼º±â
-- web ¸ğµå: public/updates.json, public/changes.json, public/health.json »ı¼º + data/state.json ¾÷µ¥ÀÌÆ®
-- Å°´Â È¯°æº¯¼ö(GitHub Secrets)·Î¸¸ ÁÖÀÔ (Àı´ë ÄÚµå/ÆÄÀÏ¿¡ ÇÏµåÄÚµù ±İÁö)
+ë²•ë ¹/ê³ ì‹œ/ì˜ì•ˆ ì•Œë¦¼ - ì •ì  ì›¹ìš© ìƒì„±ê¸°
+- web ëª¨ë“œ: public/updates.json, public/changes.json, public/health.json ìƒì„± + data/state.json ì—…ë°ì´íŠ¸
+- í‚¤ëŠ” í™˜ê²½ë³€ìˆ˜(GitHub Secrets)ë¡œë§Œ ì£¼ì… (ì ˆëŒ€ ì½”ë“œ/íŒŒì¼ì— í•˜ë“œì½”ë”© ê¸ˆì§€)
 """
 
 import argparse
@@ -10,7 +10,7 @@ import json
 import os
 import re
 from pathlib import Path
-from datetime import datetime, timezone, timedelta
+from datetime import datetime, date, timezone, timedelta
 from typing import Any, Dict, List, Optional
 
 import requests
@@ -25,37 +25,55 @@ KST = timezone(timedelta(hours=9))
 LAW_DRF_BASE = "https://www.law.go.kr/DRF"
 ASSEMBLY_BASE = "https://open.assembly.go.kr/portal/openapi"
 
-# ·ÎÄÃ¿¡¼­¸¸ .env »ç¿ë(·¹Æ÷¿¡ Ä¿¹Ô ±İÁö)
+# ë¡œì»¬ì—ì„œë§Œ .env ì‚¬ìš©(ë ˆí¬ì— ì»¤ë°‹ ê¸ˆì§€)
 if (BASE_DIR / ".env").exists():
     load_dotenv(BASE_DIR / ".env")
 
 LAW_OC = os.getenv("LAW_OC", "").strip()
 ASSEMBLY_KEY = os.getenv("ASSEMBLY_KEY", "").strip()
-ASSEMBLY_AGE = os.getenv("ASSEMBLY_AGE", "22").strip() or "22"
+ASSEMBLY_AGE = os.getenv("ASSEMBLY_AGE", "").strip()
 
 LAW_NAMES = [
-  "´ë±âÈ¯°æº¸Àü¹ı","´ë±âÈ¯°æº¸Àü¹ı ½ÃÇà·É","´ë±âÈ¯°æº¸Àü¹ı ½ÃÇà±ÔÄ¢",
-  "È¯°æºĞ¾ß ½ÃÇè¡¤°Ë»ç µî¿¡ °üÇÑ ¹ı·ü","È¯°æºĞ¾ß ½ÃÇè °Ë»ç µî¿¡ °üÇÑ ¹ı·ü",
-  "È¯°æºĞ¾ß ½ÃÇè¡¤°Ë»ç µî¿¡ °üÇÑ ¹ı·ü ½ÃÇà·É","È¯°æºĞ¾ß ½ÃÇè¡¤°Ë»ç µî¿¡ °üÇÑ ¹ı·ü ½ÃÇà±ÔÄ¢",
-  "´ë±â°ü¸®±Ç¿ªÀÇ ´ë±âÈ¯°æ°³¼±¿¡ °üÇÑ Æ¯º°¹ı","´ë±â°ü¸®±Ç¿ªÀÇ ´ë±âÈ¯°æ°³¼±¿¡ °üÇÑ Æ¯º°¹ı ½ÃÇà·É","´ë±â°ü¸®±Ç¿ªÀÇ ´ë±âÈ¯°æ°³¼±¿¡ °üÇÑ Æ¯º°¹ı ½ÃÇà±ÔÄ¢",
-  "È¯°æ¿À¿°½Ã¼³ÀÇ ÅëÇÕ°ü¸®¿¡ °üÇÑ ¹ı·ü","È¯°æ¿À¿°½Ã¼³ÀÇ ÅëÇÕ°ü¸®¿¡ °üÇÑ ¹ı·ü ½ÃÇà·É","È¯°æ¿À¿°½Ã¼³ÀÇ ÅëÇÕ°ü¸®¿¡ °üÇÑ ¹ı·ü ½ÃÇà±ÔÄ¢",
+  "ëŒ€ê¸°í™˜ê²½ë³´ì „ë²•","ëŒ€ê¸°í™˜ê²½ë³´ì „ë²• ì‹œí–‰ë ¹","ëŒ€ê¸°í™˜ê²½ë³´ì „ë²• ì‹œí–‰ê·œì¹™",
+  "í™˜ê²½ë¶„ì•¼ ì‹œí—˜Â·ê²€ì‚¬ ë“±ì— ê´€í•œ ë²•ë¥ ","í™˜ê²½ë¶„ì•¼ ì‹œí—˜ ê²€ì‚¬ ë“±ì— ê´€í•œ ë²•ë¥ ",
+  "í™˜ê²½ë¶„ì•¼ ì‹œí—˜Â·ê²€ì‚¬ ë“±ì— ê´€í•œ ë²•ë¥  ì‹œí–‰ë ¹","í™˜ê²½ë¶„ì•¼ ì‹œí—˜Â·ê²€ì‚¬ ë“±ì— ê´€í•œ ë²•ë¥  ì‹œí–‰ê·œì¹™",
+  "ëŒ€ê¸°ê´€ë¦¬ê¶Œì—­ì˜ ëŒ€ê¸°í™˜ê²½ê°œì„ ì— ê´€í•œ íŠ¹ë³„ë²•","ëŒ€ê¸°ê´€ë¦¬ê¶Œì—­ì˜ ëŒ€ê¸°í™˜ê²½ê°œì„ ì— ê´€í•œ íŠ¹ë³„ë²• ì‹œí–‰ë ¹","ëŒ€ê¸°ê´€ë¦¬ê¶Œì—­ì˜ ëŒ€ê¸°í™˜ê²½ê°œì„ ì— ê´€í•œ íŠ¹ë³„ë²• ì‹œí–‰ê·œì¹™",
+  "í™˜ê²½ì˜¤ì—¼ì‹œì„¤ì˜ í†µí•©ê´€ë¦¬ì— ê´€í•œ ë²•ë¥ ","í™˜ê²½ì˜¤ì—¼ì‹œì„¤ì˜ í†µí•©ê´€ë¦¬ì— ê´€í•œ ë²•ë¥  ì‹œí–‰ë ¹","í™˜ê²½ì˜¤ì—¼ì‹œì„¤ì˜ í†µí•©ê´€ë¦¬ì— ê´€í•œ ë²•ë¥  ì‹œí–‰ê·œì¹™",
 ]
 ADMRUL_QUERIES = [
-  "´ë±â¿À¿°°øÁ¤½ÃÇè±âÁØ",
-  "È¯°æ½ÃÇè¡¤°Ë»ç±â°ü Á¤µµ°ü¸® ¿î¿µµî¿¡ °üÇÑ ±ÔÁ¤",
-  "È¯°æ½ÃÇè °Ë»ç±â°ü Á¤µµ°ü¸® ¿î¿µ",
+  "ëŒ€ê¸°ì˜¤ì—¼ê³µì •ì‹œí—˜ê¸°ì¤€",
+  "í™˜ê²½ì‹œí—˜Â·ê²€ì‚¬ê¸°ê´€ ì •ë„ê´€ë¦¬ ìš´ì˜ë“±ì— ê´€í•œ ê·œì •",
+  "í™˜ê²½ì‹œí—˜ ê²€ì‚¬ê¸°ê´€ ì •ë„ê´€ë¦¬ ìš´ì˜",
 ]
 BILL_KEYWORDS = [
-  "´ë±âÈ¯°æº¸Àü¹ı",
-  "È¯°æºĞ¾ß ½ÃÇè¡¤°Ë»ç µî¿¡ °üÇÑ ¹ı·ü",
-  "´ë±â°ü¸®±Ç¿ªÀÇ ´ë±âÈ¯°æ°³¼±¿¡ °üÇÑ Æ¯º°¹ı",
-  "È¯°æ¿À¿°½Ã¼³ÀÇ ÅëÇÕ°ü¸®¿¡ °üÇÑ ¹ı·ü",
+  "ëŒ€ê¸°í™˜ê²½ë³´ì „ë²•",
+  "í™˜ê²½ë¶„ì•¼ ì‹œí—˜Â·ê²€ì‚¬ ë“±ì— ê´€í•œ ë²•ë¥ ",
+  "ëŒ€ê¸°ê´€ë¦¬ê¶Œì—­ì˜ ëŒ€ê¸°í™˜ê²½ê°œì„ ì— ê´€í•œ íŠ¹ë³„ë²•",
+  "í™˜ê²½ì˜¤ì—¼ì‹œì„¤ì˜ í†µí•©ê´€ë¦¬ì— ê´€í•œ ë²•ë¥ ",
 ]
 
 def now_kst_iso_ms() -> str:
     return datetime.now(KST).isoformat(timespec="milliseconds")
 def now_utc_iso_ms() -> str:
     return datetime.now(timezone.utc).isoformat(timespec="milliseconds").replace("+00:00","Z")
+
+def current_assembly_age() -> str:
+    """
+    êµ­íšŒ íšŒê¸°(ëŒ€ìˆ˜) ìë™ ê³„ì‚°.
+    - 21ëŒ€: 2020-05-30 ì‹œì‘
+    - 22ëŒ€: 2024-05-30 ì‹œì‘
+    - ì´í›„ 4ë…„ ì£¼ê¸°
+    """
+    today = datetime.now(KST).date()
+    base_age = 21
+    base_start = date(2020, 5, 30)
+    if today < base_start:
+        return str(base_age)
+    years = today.year - base_start.year
+    if (today.month, today.day) < (base_start.month, base_start.day):
+        years -= 1
+    term = years // 4
+    return str(base_age + max(0, term))
 
 def ensure_parent(p: Path) -> None:
     p.parent.mkdir(parents=True, exist_ok=True)
@@ -76,9 +94,9 @@ def save_state(st: Dict[str, Any]) -> None:
 
 def require_keys() -> None:
     if not LAW_OC:
-        raise RuntimeError("LAW_OC missing (GitHub Secrets¿¡ ¼³Á¤ ÇÊ¿ä)")
+        raise RuntimeError("LAW_OC missing (GitHub Secretsì— ì„¤ì • í•„ìš”)")
     if not ASSEMBLY_KEY:
-        raise RuntimeError("ASSEMBLY_KEY missing (GitHub Secrets¿¡ ¼³Á¤ ÇÊ¿ä)")
+        raise RuntimeError("ASSEMBLY_KEY missing (GitHub Secretsì— ì„¤ì • í•„ìš”)")
 
 def law_search(law_name: str) -> Optional[Dict[str, Any]]:
     url = f"{LAW_DRF_BASE}/lawSearch.do"
@@ -94,10 +112,10 @@ def law_search(law_name: str) -> Optional[Dict[str, Any]]:
         return None
     it = items[0]
     return {
-        "law_name": it.get("¹ı·É¸íÇÑ±Û", law_name),
-        "ld": it.get("°øÆ÷ÀÏÀÚ",""),
-        "ln": it.get("°øÆ÷¹øÈ£",""),
-        "reform_type": it.get("Á¦°³Á¤±¸ºĞ¸í",""),
+        "law_name": it.get("ë²•ë ¹ëª…í•œê¸€", law_name),
+        "ld": it.get("ê³µí¬ì¼ì",""),
+        "ln": it.get("ê³µí¬ë²ˆí˜¸",""),
+        "reform_type": it.get("ì œê°œì •êµ¬ë¶„ëª…",""),
     }
 
 def admrul_search(keyword: str) -> List[Dict[str, Any]]:
@@ -111,17 +129,17 @@ def admrul_search(keyword: str) -> List[Dict[str, Any]]:
     items = items if isinstance(items, list) else ([items] if isinstance(items, dict) else [])
     out=[]
     for it in items:
-        title = it.get("ÇàÁ¤±ÔÄ¢¸í","") or ""
-        dept = it.get("¼Ò°üºÎÃ³¸í","") or ""
-        # È¯°æºÎ °è¿­¸¸
-        if dept and not any(x in dept for x in ("È¯°æºÎ","±¹¸³È¯°æ°úÇĞ¿ø","±âÈÄ¿¡³ÊÁöÈ¯°æºÎ")):
+        title = it.get("í–‰ì •ê·œì¹™ëª…","") or ""
+        dept = it.get("ì†Œê´€ë¶€ì²˜ëª…","") or ""
+        # í™˜ê²½ë¶€ ê³„ì—´ë§Œ
+        if dept and not any(x in dept for x in ("í™˜ê²½ë¶€","êµ­ë¦½í™˜ê²½ê³¼í•™ì›","ê¸°í›„ì—ë„ˆì§€í™˜ê²½ë¶€")):
             continue
         out.append({
             "title": title,
             "dept": dept,
-            "num": it.get("°í½Ã¹øÈ£","") or it.get("ÇàÁ¤±ÔÄ¢ID","") or "",
-            "promulgation_date": it.get("°øÆ÷ÀÏÀÚ","") or "",
-            "enforce_date": it.get("½ÃÇàÀÏÀÚ","") or "",
+            "num": it.get("ê³ ì‹œë²ˆí˜¸","") or it.get("í–‰ì •ê·œì¹™ID","") or "",
+            "promulgation_date": it.get("ê³µí¬ì¼ì","") or "",
+            "enforce_date": it.get("ì‹œí–‰ì¼ì","") or "",
         })
     return out
 
@@ -143,15 +161,18 @@ def extract_rows(data: Dict[str, Any]) -> List[Dict[str, Any]]:
     return []
 
 def bill_items() -> List[Dict[str, Any]]:
-    # ¼­ºñ½º: TVBPMBILL11(ÀÇ¾È°Ë»ö) »ç¿ë
+    # ì„œë¹„ìŠ¤: TVBPMBILL11(ì˜ì•ˆê²€ìƒ‰) ì‚¬ìš©
     service = os.getenv("SERVICE_SEARCH_BILL","TVBPMBILL11").strip() or "TVBPMBILL11"
+    age = ASSEMBLY_AGE or "auto"
+    if age.lower() == "auto":
+        age = current_assembly_age()
     out=[]
     for kw in BILL_KEYWORDS:
-        data = assembly_call(service, {"BILL_NM": kw, "pSize": 30, "AGE": ASSEMBLY_AGE})
+        data = assembly_call(service, {"BILL_NM": kw, "pSize": 30, "AGE": age})
         rows = extract_rows(data)
         for r in rows:
             bill_id = r.get("BILL_ID") or r.get("billId")
-            if not bill_id: 
+            if not bill_id:
                 continue
             out.append({
                 "bill_id": bill_id,
@@ -160,10 +181,10 @@ def bill_items() -> List[Dict[str, Any]]:
                 "propose_dt": r.get("PROPOSE_DT") or "",
                 "proc_result": r.get("PROC_RESULT") or r.get("PROC_RESULT_CD") or "",
             })
-    # Áßº¹ Á¦°Å
+    # ì¤‘ë³µ ì œê±°
     seen=set(); uniq=[]
     for b in out:
-        if b["bill_id"] in seen: 
+        if b["bill_id"] in seen:
             continue
         seen.add(b["bill_id"])
         uniq.append(b)
@@ -186,14 +207,14 @@ def run_web(out_dir: str) -> None:
     # laws
     for name in LAW_NAMES:
         info = law_search(name)
-        if not info: 
+        if not info:
             continue
         key = info["law_name"]
         cur_key = "|".join([info.get("ld",""), info.get("ln",""), info.get("reform_type","")])
         prev = st["laws"].get(key)
         status = status_from_prev(prev, cur_key)
         item_id = f'{info.get("ln","")}|{info.get("ld","")}|{info.get("reform_type","")}'.strip("|") or key
-        item = {"status": status, "kind":"¹ı·É", "title": info.get("law_name") or name, "date": info.get("ld",""), "id": item_id}
+        item = {"status": status, "kind":"ë²•ë ¹", "title": info.get("law_name") or name, "date": info.get("ld",""), "id": item_id}
         all_items.append(item)
         if status in ("NEW","MOD"):
             change_items.append(item.copy())
@@ -207,7 +228,7 @@ def run_web(out_dir: str) -> None:
             prev = st["admruls"].get(key)
             status = status_from_prev(prev, cur_key)
             item_id = f'{it.get("num","")}|{it.get("promulgation_date","")}|{it.get("enforce_date","")}'.strip("|") or key
-            item = {"status": status, "kind":"°í½Ã", "title": it.get("title",""), "date": it.get("promulgation_date") or it.get("enforce_date") or "", "id": item_id}
+            item = {"status": status, "kind":"ê³ ì‹œ", "title": it.get("title",""), "date": it.get("promulgation_date") or it.get("enforce_date") or "", "id": item_id}
             all_items.append(item)
             if status in ("NEW","MOD"):
                 change_items.append(item.copy())
@@ -219,7 +240,7 @@ def run_web(out_dir: str) -> None:
         cur_key = "|".join([b.get("bill_no","") or "", b.get("proc_result","") or "", b.get("propose_dt","") or ""])
         prev = st["bills"].get(key)
         status = status_from_prev(prev, cur_key)
-        item = {"status": status, "kind":"ÀÇ¾È", "title": b.get("bill_name",""), "date": b.get("propose_dt",""), "id": b["bill_id"]}
+        item = {"status": status, "kind":"ì˜ì•ˆ", "title": b.get("bill_name",""), "date": b.get("propose_dt",""), "id": b["bill_id"]}
         all_items.append(item)
         if status in ("NEW","MOD"):
             change_items.append(item.copy())
