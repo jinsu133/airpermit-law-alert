@@ -101,7 +101,15 @@ def require_keys() -> None:
 def law_search(law_name: str) -> Optional[Dict[str, Any]]:
     url = f"{LAW_DRF_BASE}/lawSearch.do"
     headers={"User-Agent":"law-alert/1.0"}
-    params = {"OC": LAW_OC, "target":"law", "type":"json", "search": law_name, "display":"30"}
+    # DRF는 2024년 말 이후 검색 파라미터를 search -> query로 통일함
+    params = {
+        "OC": LAW_OC,
+        "target": "law",
+        "type": "JSON",
+        "query": law_name,
+        "display": "30",
+        "sort": "ddes",  # 공포일 역순
+    }
     try:
         r = requests.get(url, params=params, timeout=25, headers=headers)
         r.raise_for_status()
@@ -109,6 +117,9 @@ def law_search(law_name: str) -> Optional[Dict[str, Any]]:
     except requests.exceptions.RequestException as e:
         # 외부 API 오류(5xx 등) 시 스킵
         print(f"[WARN] law_search 실패: {law_name} -> {e}")
+        return None
+    except ValueError as e:
+        print(f"[WARN] law_search 파싱 실패: {law_name} -> {e}")
         return None
     law_container = data.get("LawSearch", {})
     raw = law_container.get("law", [])
@@ -126,10 +137,25 @@ def law_search(law_name: str) -> Optional[Dict[str, Any]]:
 def admrul_search(keyword: str) -> List[Dict[str, Any]]:
     url = f"{LAW_DRF_BASE}/admrulSearch.do"
     headers={"User-Agent":"law-alert/1.0"}
-    params = {"OC": LAW_OC, "target":"admrul", "type":"json", "search": keyword, "display":"20"}
-    r = requests.get(url, params=params, timeout=25, headers=headers)
-    r.raise_for_status()
-    data = r.json()
+    params = {
+        "OC": LAW_OC,
+        "target": "admrul",
+        "type": "JSON",
+        "query": keyword,
+        "display": "20",
+        "sort": "ddes",
+    }
+    try:
+        r = requests.get(url, params=params, timeout=25, headers=headers)
+        r.raise_for_status()
+        data = r.json()
+    except requests.exceptions.RequestException as e:
+        print(f"[WARN] admrul_search 실패: {keyword} -> {e}")
+        return []
+    except ValueError as e:
+        # HTML 오류 페이지 등으로 JSON 파싱 실패 시
+        print(f"[WARN] admrul_search 파싱 실패: {keyword} -> {e}")
+        return []
     items = (((data.get("AdmrulSearch") or {}).get("admrul")) or [])
     items = items if isinstance(items, list) else ([items] if isinstance(items, dict) else [])
     out=[]
@@ -173,7 +199,14 @@ def bill_items() -> List[Dict[str, Any]]:
         age = current_assembly_age()
     out=[]
     for kw in BILL_KEYWORDS:
-        data = assembly_call(service, {"BILL_NM": kw, "pSize": 30, "AGE": age})
+        try:
+            data = assembly_call(service, {"BILL_NM": kw, "pSize": 30, "AGE": age})
+        except requests.exceptions.RequestException as e:
+            print(f"[WARN] bill_items 실패: {kw} -> {e}")
+            continue
+        except ValueError as e:
+            print(f"[WARN] bill_items 파싱 실패: {kw} -> {e}")
+            continue
         rows = extract_rows(data)
         for r in rows:
             bill_id = r.get("BILL_ID") or r.get("billId")
