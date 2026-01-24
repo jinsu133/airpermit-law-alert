@@ -36,22 +36,22 @@ th{background:rgba(22,39,68,.65);color:var(--muted);text-align:left}
 <script>
 const pad2 = (n)=>String(n).padStart(2,"0");
 const pad3 = (n)=>String(n).padStart(3,"0");
-const WEEK=["?","?","?","?","?","?","?"];
+const WEEK=["\uc77c","\uc6d4","\ud654","\uc218","\ubaa9","\uae08","\ud1a0"];
 const esc = (s)=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]));
 function fmtKorean(iso){
   const d=new Date(iso);
   if(isNaN(d.getTime())) return {text:"-", d:null};
   const y=d.getFullYear(), m=pad2(d.getMonth()+1), day=pad2(d.getDate()), w=WEEK[d.getDay()];
   const hh=pad2(d.getHours()), mm=pad2(d.getMinutes()), ss=pad2(d.getSeconds()), ms=pad3(d.getMilliseconds());
-  return {text:`${y}? ${m}? ${day}? (${w}) ${hh}:${mm}:${ss}.${ms}`, d};
+  return {text:`${y}\ub144 ${m}\uc6d4 ${day}\uc77c (${w}) ${hh}:${mm}:${ss}.${ms}`, d};
 }
 function diffToHourZero(d){const z=new Date(d); z.setMinutes(0,0,0); return d-z;}
-function humanDelay(ms){const sign=ms>=0?"+":"-"; ms=Math.abs(ms); const m=Math.floor(ms/60000); const s=Math.floor((ms%60000)/1000); const r=ms%1000; return `${sign}${m}? ${s}? ${pad3(r)}ms`;}
-function humanSince(ms){const m=Math.floor(ms/60000); const s=Math.floor((ms%60000)/1000); return `${m}? ${s}?`;}
+function humanDelay(ms){const sign=ms>=0?"+":"-"; ms=Math.abs(ms); const m=Math.floor(ms/60000); const s=Math.floor((ms%60000)/1000); const r=ms%1000; return `${sign}${m}\ubd84 ${s}\ucd08 ${pad3(r)}ms`;}
+function humanSince(ms){const m=Math.floor(ms/60000); const s=Math.floor((ms%60000)/1000); return `${m}\ubd84 ${s}\ucd08`;}
 
 (async function(){
   const res=await fetch("https://jinsu133.github.io/airpermit-law-alert/changes.json?ts="+Date.now());
-  if(!res.ok) throw new Error("changes.json ?? ??");
+  if(!res.ok) throw new Error("changes.json \ub85c\ub4dc \uc2e4\ud328");
   const data=await res.json();
   const iso=data.generated_at_kst||data.generated_at_utc||"";
   const f=fmtKorean(iso);
@@ -60,16 +60,16 @@ function humanSince(ms){const m=Math.floor(ms/60000); const s=Math.floor((ms%600
     delay=humanDelay(diffToHourZero(f.d));
     const now=new Date(); const sinceMs=now-f.d; since=humanSince(Math.max(0,sinceMs));
     badge=(sinceMs>75*60*1000)
-      ? `<div class="bad" style="margin-top:6px;font-weight:900">? ?? ??/?? ??: ??? ?? ? ${since}</div>`
-      : `<div class="ok"  style="margin-top:6px;font-weight:900">? ??: ??? ?? ? ${since}</div>`;
+      ? `<div class="bad" style="margin-top:6px;font-weight:900">? \uac31\uc2e0 \uc9c0\uc5f0/\uc2e4\ud328 \uc758\uc2ec: \ub9c8\uc9c0\ub9c9 \uc131\uacf5 \ud6c4 ${since}</div>`
+      : `<div class="ok"  style="margin-top:6px;font-weight:900">? \uc815\uc0c1: \ub9c8\uc9c0\ub9c9 \uc131\uacf5 \ud6c4 ${since}</div>`;
   }
   document.getElementById("meta").innerHTML =
-    `<div><span class="badge">?? ??(KST)</span> <b title="${iso}">${esc(f.text)}</b></div>
-     <div><span class="badge">?? ?? ??</span> <b>${delay}</b></div>${badge}`;
+    `<div><span class="badge">\uac31\uc2e0 \uc2dc\uac01(KST)</span> <b title="${iso}">${esc(f.text)}</b></div>
+     <div><span class="badge">\uc815\uac01 \ub300\ube44 \uc9c0\uc5f0</span> <b>${delay}</b></div>${badge}`;
 
   const items=Array.isArray(data.items)?data.items:[];
   const tb=document.getElementById("tbody");
-  if(!items.length){tb.innerHTML='<tr><td colspan="5" class="muted">????? ????.</td></tr>';return;}
+  if(!items.length){tb.innerHTML='<tr><td colspan="5" class="muted">\ud45c\uc2dc\ud560 \ub370\uc774\ud130\uac00 \uc5c6\uc2b5\ub2c8\ub2e4.</td></tr>';return;}
   const rows=[];
   for(const it of items){
     const st=(it.status||"OK").toUpperCase();
@@ -86,8 +86,8 @@ function humanSince(ms){const m=Math.floor(ms/60000); const s=Math.floor((ms%600
   tb.innerHTML=rows.join("");
 })().catch(err=>{
   console.error(err);
-  document.getElementById("tbody").innerHTML='<tr><td colspan="5" class="bad">?? ??: '+esc(err.message||err)+'</td></tr>';
-  document.getElementById("meta").innerHTML='<div class="bad" style="font-weight:900">? ???? ???? ?????.</div>';
+  document.getElementById("tbody").innerHTML='<tr><td colspan="5" class="bad">\ub85c\ub529 \uc624\ub958: '+esc(err.message||err)+'</td></tr>';
+  document.getElementById("meta").innerHTML='<div class="bad" style="font-weight:900">? \ub370\uc774\ud130\ub97c \ubd88\ub7ec\uc624\uc9c0 \ubabb\ud588\uc2b5\ub2c8\ub2e4.</div>';
 });
 </script></body></html>
 
