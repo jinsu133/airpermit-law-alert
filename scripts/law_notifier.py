@@ -22,7 +22,9 @@ DATA_DIR.mkdir(parents=True, exist_ok=True)
 STATE_PATH = DATA_DIR / "state.json"
 
 KST = timezone(timedelta(hours=9))
-LAW_DRF_BASE = "https://www.law.go.kr/DRF"
+# Cloudflare Worker 프록시(해외 IP 차단 회피). 커스텀 도메인을 붙이면 아래를 교체.
+# 예: LAW_DRF_BASE = "https://law-proxy.airpermit.work"
+LAW_DRF_BASE = "https://law-proxy.jinsu133.workers.dev/DRF"
 ASSEMBLY_BASE = "https://open.assembly.go.kr/portal/openapi"
 
 # 로컬에서만 .env 사용(레포에 커밋 금지)
