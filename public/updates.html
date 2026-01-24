@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>¹ı·É ¾Ë¸² | ÀüÃ¼ ¸ñ·Ï + º¯°æ °­Á¶</title>
+  <title>ë²•ë ¹ ì•Œë¦¼ | ì „ì²´ ëª©ë¡ + ë³€ê²½ ê°•ì¡°</title>
   <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
   <style>
     :root{--bg:#0b1220;--text:#e6eefc;--muted:#9fb3d6;--shadow:0 10px 30px rgba(0,0,0,.35);--radius:16px;--max:1100px;--good:#22c55e;--warn:#f59e0b;--bad:#ef4444;}
@@ -35,49 +35,52 @@
 <header class="top">
   <div class="inner">
     <div class="brand"><span class="logo"></span><span>airpermit.work</span></div>
-    <a class="chip" href="/changes.html">º¯°æ»çÇ×¸¸</a>
+    <a class="chip" href="/changes.html">ë³€ê²½ì‚¬í•­ë§Œ</a>
   </div>
 </header>
 
 <main>
   <section class="hero">
-    <h1>¹ı·É ¾Ë¸² ¡¤ ÀüÃ¼ ¸ñ·Ï + º¯°æ °­Á¶</h1>
+    <h1>ë²•ë ¹ ì•Œë¦¼ Â· ì „ì²´ ëª©ë¡ + ë³€ê²½ ê°•ì¡°</h1>
     <div id="meta" class="muted" style="line-height:1.65"></div>
   </section>
 
   <section class="card">
     <div class="muted" style="margin-bottom:10px">
-      <span class="badge">Ç¥±â</span>
-      <span class="mark new">NEW</span> ½Å±Ô ¡¤
-      <span class="mark mod">MOD</span> º¯°æ ¡¤
-      <span class="mark del">DEL</span> »èÁ¦/ÇØÁ¦ ¡¤
-      <span class="badge">OK</span> º¯È­ ¾øÀ½
+      <span class="badge">í‘œê¸°</span>
+      <span class="mark new">NEW</span> ì‹ ê·œ Â·
+      <span class="mark mod">MOD</span> ë³€ê²½ Â·
+      <span class="mark del">DEL</span> ì‚­ì œ/í•´ì œ Â·
+      <span class="badge">OK</span> ë³€í™” ì—†ìŒ
     </div>
     <div style="overflow:auto">
       <table>
-        <thead><tr><th style="width:90px">»óÅÂ</th><th style="width:140px">±¸ºĞ</th><th>Á¦¸ñ</th><th style="width:140px">ÀÏÀÚ</th><th style="width:220px">½Äº°ÀÚ</th></tr></thead>
-        <tbody id="tbody"><tr><td colspan="5" class="muted">·Îµù Áß¡¦</td></tr></tbody>
+        <thead><tr><th style="width:90px">ìƒíƒœ</th><th style="width:140px">êµ¬ë¶„</th><th>ì œëª©</th><th style="width:140px">ì¼ì</th><th style="width:220px">ì‹ë³„ì</th></tr></thead>
+        <tbody id="tbody"><tr><td colspan="5" class="muted">ë¡œë”© ì¤‘â€¦</td></tr></tbody>
       </table>
     </div>
   </section>
 </main>
 
 <script>
-const pad2=n=>String(n).padStart(2,"0"), pad3=n=>String(n).padStart(3,"0");
-const WEEK=["ÀÏ","¿ù","È­","¼ö","¸ñ","±İ","Åä"];
-const esc=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]));
+const pad2 = (n)=>String(n).padStart(2,"0");
+const pad3 = (n)=>String(n).padStart(3,"0");
+const WEEK=["?","?","?","?","?","?","?"];
+const esc = (s)=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",""":"&quot;","'":"&#39;"}[c]));
 function fmtKorean(iso){
-  const d=new Date(iso); if(isNaN(d.getTime())) return {text:"-", d:null};
+  const d=new Date(iso);
+  if(isNaN(d.getTime())) return {text:"-", d:null};
   const y=d.getFullYear(), m=pad2(d.getMonth()+1), day=pad2(d.getDate()), w=WEEK[d.getDay()];
   const hh=pad2(d.getHours()), mm=pad2(d.getMinutes()), ss=pad2(d.getSeconds()), ms=pad3(d.getMilliseconds());
-  return {text:`${y}³â ${m}¿ù ${day}ÀÏ (${w}) ${hh}:${mm}:${ss}.${ms}`, d};
+  return {text:`${y}? ${m}? ${day}? (${w}) ${hh}:${mm}:${ss}.${ms}`, d};
 }
 function diffToHourZero(d){const z=new Date(d); z.setMinutes(0,0,0); return d-z;}
-function humanDelay(ms){const sign=ms>=0?"+":"-"; ms=Math.abs(ms); const m=Math.floor(ms/60000); const s=Math.floor((ms%60000)/1000); const r=ms%1000; return `${sign}${m}ºĞ ${s}.${pad3(r)}ÃÊ`;}
-function humanSince(ms){const m=Math.floor(ms/60000); const s=Math.floor((ms%60000)/1000); return `${m}ºĞ ${s}ÃÊ`;}
+function humanDelay(ms){const sign=ms>=0?"+":"-"; ms=Math.abs(ms); const m=Math.floor(ms/60000); const s=Math.floor((ms%60000)/1000); const r=ms%1000; return `${sign}${m}? ${s}? ${pad3(r)}ms`;}
+function humanSince(ms){const m=Math.floor(ms/60000); const s=Math.floor((ms%60000)/1000); return `${m}? ${s}?`;}
+
 (async function(){
-  const res=await fetch("/updates.json?ts="+Date.now());
-  if(!res.ok) throw new Error("updates.json ·Îµå ½ÇÆĞ");
+  const res=await fetch("https://jinsu133.github.io/airpermit-law-alert/updates.json?ts="+Date.now());
+  if(!res.ok) throw new Error("updates.json ?? ??");
   const data=await res.json();
   const iso=data.generated_at_kst||data.generated_at_utc||"";
   const f=fmtKorean(iso);
@@ -86,29 +89,36 @@ function humanSince(ms){const m=Math.floor(ms/60000); const s=Math.floor((ms%600
     delay=humanDelay(diffToHourZero(f.d));
     const now=new Date(); const sinceMs=now-f.d; since=humanSince(Math.max(0,sinceMs));
     badge=(sinceMs>75*60*1000)
-      ? `<div class="bad" style="margin-top:6px;font-weight:900">? °»½Å Áö¿¬/½ÇÆĞ ÀÇ½É: ¸¶Áö¸· ¼º°ø ÈÄ ${esc(since)} °æ°ú</div>`
-      : `<div class="ok"  style="margin-top:6px;font-weight:900">? Á¤»ó: ¸¶Áö¸· ¼º°ø ÈÄ ${esc(since)} °æ°ú</div>`;
+      ? `<div class="bad" style="margin-top:6px;font-weight:900">? ?? ??/?? ??: ??? ?? ? ${since}</div>`
+      : `<div class="ok"  style="margin-top:6px;font-weight:900">? ??: ??? ?? ? ${since}</div>`;
   }
   document.getElementById("meta").innerHTML =
-    `<div><span class="badge">°»½Å ½Ã°¢(KST)</span> <b title="${esc(iso)}">${esc(f.text)}</b></div>
-     <div><span class="badge">Á¤°¢ ´ëºñ Áö¿¬</span> <b>${esc(delay)}</b></div>${badge}`;
+    `<div><span class="badge">?? ??(KST)</span> <b title="${iso}">${esc(f.text)}</b></div>
+     <div><span class="badge">?? ?? ??</span> <b>${delay}</b></div>${badge}`;
 
   const items=Array.isArray(data.items)?data.items:[];
   const tb=document.getElementById("tbody");
-  if(!items.length){tb.innerHTML=`<tr><td colspan="5" class="muted">Ç¥½ÃÇÒ µ¥ÀÌÅÍ°¡ ¾ø½À´Ï´Ù.</td></tr>`;return;}
+  if(!items.length){tb.innerHTML='<tr><td colspan="5" class="muted">??? ???? ????.</td></tr>';return;}
   const rows=[];
   for(const it of items){
     const st=(it.status||"OK").toUpperCase();
     let cls="mark"; if(st==="NEW") cls+=" new"; else if(st==="MOD") cls+=" mod"; else if(st==="DEL") cls+=" del";
-    const stHtml=(st==="OK")?`<span class="badge">OK</span>`:`<span class="${cls}">${esc(st)}</span>`;
-    rows.push(`<tr><td>${stHtml}</td><td>${esc(it.kind||"-")}</td><td>${esc(it.title||"-")}</td><td>${esc(it.date||"-")}</td><td>${esc(it.id||"-")}</td></tr>`);
+    const stHtml=(st==="OK")?`<span class="badge">OK</span>`:`<span class="${cls}">${st}</span>`;
+    rows.push(`<tr>
+      <td>${stHtml}</td>
+      <td>${esc(it.kind||"")}</td>
+      <td>${esc(it.title||"")}</td>
+      <td>${esc(it.date||"")}</td>
+      <td class="muted">${esc(it.id||"")}</td>
+    </tr>`);
   }
   tb.innerHTML=rows.join("");
 })().catch(err=>{
   console.error(err);
-  document.getElementById("tbody").innerHTML=`<tr><td colspan="5" class="bad">·Îµù ¿À·ù: ${esc(err.message||String(err))}</td></tr>`;
-  document.getElementById("meta").innerHTML=`<div class="bad" style="font-weight:900">? µ¥ÀÌÅÍ¸¦ ºÒ·¯¿ÀÁö ¸øÇß½À´Ï´Ù.</div>`;
+  document.getElementById("tbody").innerHTML='<tr><td colspan="5" class="bad">?? ??: '+esc(err.message||err)+'</td></tr>';
+  document.getElementById("meta").innerHTML='<div class="bad" style="font-weight:900">? ???? ???? ?????.</div>';
 });
 </script>
 </body>
 </html>
+
