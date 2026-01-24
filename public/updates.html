@@ -90,8 +90,8 @@ function humanSince(ms){const m=Math.floor(ms/60000); const s=Math.floor((ms%600
     delay=humanDelay(diffToHourZero(f.d));
     const now=new Date(); const sinceMs=now-f.d; since=humanSince(Math.max(0,sinceMs));
     badge=(sinceMs>75*60*1000)
-      ? `<div class="bad" style="margin-top:6px;font-weight:900">? \uac31\uc2e0 \uc9c0\uc5f0/\uc2e4\ud328 \uc758\uc2ec: \ub9c8\uc9c0\ub9c9 \uc131\uacf5 \ud6c4 ${since}</div>`
-      : `<div class="ok"  style="margin-top:6px;font-weight:900">? \uc815\uc0c1: \ub9c8\uc9c0\ub9c9 \uc131\uacf5 \ud6c4 ${since}</div>`;
+      ? `<div class="bad" style="margin-top:6px;font-weight:900">⚠ 갱신 지연/실패 의심: 마지막 성공 후 ${since}</div>`
+      : `<div class="ok"  style="margin-top:6px;font-weight:900">✓ 정상: 마지막 성공 후 ${since}</div>`;
   }
   document.getElementById("meta").innerHTML =
     `<div><span class="badge">\uac31\uc2e0 \uc2dc\uac01(KST)</span> <b title="${iso}">${esc(f.text)}</b></div>
@@ -117,7 +117,7 @@ function humanSince(ms){const m=Math.floor(ms/60000); const s=Math.floor((ms%600
 })().catch(err=>{
   console.error(err);
   document.getElementById("tbody").innerHTML='<tr><td colspan="5" class="bad">\ub85c\ub529 \uc624\ub958: '+esc(err.message||err)+'</td></tr>';
-  document.getElementById("meta").innerHTML='<div class="bad" style="font-weight:900">? \ub370\uc774\ud130\ub97c \ubd88\ub7ec\uc624\uc9c0 \ubabb\ud588\uc2b5\ub2c8\ub2e4.</div>';
+  document.getElementById("meta").innerHTML='<div class="bad" style="font-weight:900">⚠ 데이터를 불러오지 못했습니다.</div>';
 });
 </script>
 </body>
