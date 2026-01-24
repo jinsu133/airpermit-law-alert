@@ -53,6 +53,17 @@ BILL_KEYWORDS = [
   "대기관리권역의 대기환경개선에 관한 특별법",
   "환경오염시설의 통합관리에 관한 법률",
 ]
+# 의안 필터링 강화용 키워드(환경/대기/오염/배출 위주)
+ENV_BILL_KEYWORDS = [
+  "대기","환경","오염","배출","미세먼지",
+  "대기환경","대기관리","통합관리",
+  "배출시설","방지시설",
+  "시험","검사","측정",
+]
+
+def is_env_bill(name: str) -> bool:
+    n = (name or "").lower()
+    return any(kw.lower() in n for kw in ENV_BILL_KEYWORDS)
 
 def now_kst_iso_ms() -> str:
     return datetime.now(KST).isoformat(timespec="milliseconds")
@@ -214,10 +225,14 @@ def bill_items() -> List[Dict[str, Any]]:
             bill_id = r.get("BILL_ID") or r.get("billId")
             if not bill_id:
                 continue
+            title = r.get("BILL_NAME") or r.get("TITLE") or ""
+            # 환경/대기 관련 키워드 포함 시에만 채택
+            if not is_env_bill(title):
+                continue
             out.append({
                 "bill_id": bill_id,
                 "bill_no": r.get("BILL_NO") or r.get("BILLNO"),
-                "bill_name": r.get("BILL_NAME") or r.get("TITLE") or "",
+                "bill_name": title,
                 "propose_dt": r.get("PROPOSE_DT") or "",
                 "proc_result": r.get("PROC_RESULT") or r.get("PROC_RESULT_CD") or "",
             })
