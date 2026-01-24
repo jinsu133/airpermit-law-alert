@@ -26,3 +26,4 @@ GitHub Actions가 **매시 정각** 실행되어 아래 파일을 갱신합니다.
 - ALERT_SMTP_HOST`n- ALERT_SMTP_PORT`n- ALERT_SMTP_USER`n- ALERT_SMTP_PASS`n- ALERT_TO = help@airpermit.work
 - ALERT_FROM (optional)
 
+
