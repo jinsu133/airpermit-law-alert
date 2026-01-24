@@ -32,11 +32,12 @@ th{background:rgba(22,39,68,.65);color:var(--muted);text-align:left}
 <table><thead><tr><th style="width:90px">상태</th><th style="width:140px">구분</th><th>제목</th><th style="width:140px">일자</th><th style="width:220px">식별자</th></tr></thead>
 <tbody id="tbody"><tr><td colspan="5" class="muted">로딩 중…</td></tr></tbody></table>
 </div></section></main>
+
 <script>
 const pad2 = (n)=>String(n).padStart(2,"0");
 const pad3 = (n)=>String(n).padStart(3,"0");
 const WEEK=["?","?","?","?","?","?","?"];
-const esc = (s)=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",""":"&quot;","'":"&#39;"}[c]));
+const esc = (s)=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]));
 function fmtKorean(iso){
   const d=new Date(iso);
   if(isNaN(d.getTime())) return {text:"-", d:null};

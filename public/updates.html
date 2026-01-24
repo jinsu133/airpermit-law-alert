@@ -62,11 +62,12 @@
   </section>
 </main>
 
+
 <script>
 const pad2 = (n)=>String(n).padStart(2,"0");
 const pad3 = (n)=>String(n).padStart(3,"0");
 const WEEK=["?","?","?","?","?","?","?"];
-const esc = (s)=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",""":"&quot;","'":"&#39;"}[c]));
+const esc = (s)=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]));
 function fmtKorean(iso){
   const d=new Date(iso);
   if(isNaN(d.getTime())) return {text:"-", d:null};
