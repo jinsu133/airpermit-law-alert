@@ -3,8 +3,11 @@ on:
   schedule:
     - cron: "0 * * * *"
   workflow_dispatch:
+  push:
+    branches: [ main ]
 permissions:
   actions: write
+  workflows: write
 jobs:
   dispatch:
     runs-on: ubuntu-latest
