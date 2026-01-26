@@ -2,6 +2,24 @@
   "items": [
     {
       "status": "MOD",
+      "kind": "의안",
+      "title": "도시 및 주거환경정비법 일부개정법률안",
+      "date": "2026-01-23",
+      "id": "PRC_G2E6F0N1O1M3M0L8L0K9S4S6Q5R6P8",
+      "diff_url": null,
+      "detected_at_utc": "2026-01-23T00:00:00Z"
+    },
+    {
+      "status": "MOD",
+      "kind": "의안",
+      "title": "교육환경 보호에 관한 법률 일부개정법률안",
+      "date": "2026-01-22",
+      "id": "ARC_I2A6N0V1Y2P2M1V0P2C9V2L0A0C9T8",
+      "diff_url": null,
+      "detected_at_utc": "2026-01-22T00:00:00Z"
+    },
+    {
+      "status": "MOD",
       "kind": "법령",
       "title": "환경오염시설의 통합관리에 관한 법률 시행령",
       "date": "20260102",
@@ -107,6 +125,15 @@
       "id": "012414",
       "diff_url": null,
       "detected_at_utc": "2025-10-01T00:00:00Z"
+    },
+    {
+      "status": "MOD",
+      "kind": "의안",
+      "title": "순환경제사회 전환 촉진법 일부개정법률안",
+      "date": "2024-05-27",
+      "id": "PRC_J2I3G1C1B2D1B1A0B5Z3I1G5F1E9E3",
+      "diff_url": null,
+      "detected_at_utc": "2024-05-27T00:00:00Z"
     }
   ]
 }
