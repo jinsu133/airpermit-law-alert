@@ -216,7 +216,7 @@ document.getElementById("diff-modal-close").addEventListener("click", () => {
   document.getElementById("searchBtn").addEventListener("click", filterAndRender);
 
   try {
-    const res = await fetch("https://jinsu133.github.io/airpermit-law-alert/changelog.json?ts="+Date.now());
+    const res = await fetch("changelog.json?ts="+Date.now());
     if(!res.ok) throw new Error(`changelog.json 로드 실패: ${res.status}`);
     const data = await res.json();
     allItems = Array.isArray(data.items) ? data.items : [];
