@@ -24,87 +24,77 @@
     .ok{color:var(--good)} .bad{color:var(--bad)}
     .card{margin-top:14px;padding:16px;background:linear-gradient(180deg,rgba(17,31,53,.9),rgba(15,26,43,.72));border:1px solid rgba(31,47,74,.85);border-radius:var(--radius);box-shadow:var(--shadow)}
     table{width:100%;border-collapse:collapse;font-size:13px}
-    th,td{padding:10px;border-bottom:1px solid rgba(31,47,74,.7);vertical-align:top}
-    th{background:rgba(22,39,68,.65);color:var(--muted);text-align:left}
+    th,td{padding:10px;border-bottom:1px solid rgba(31,47,74,.7);vertical-align:top; text-align:left;}
+    th{background:rgba(22,39,68,.65);color:var(--muted);}
     .mark{font-weight:900}
     .mark.new{color:#22c55e}
     .mark.mod{color:#f59e0b}
-    .mark.del{color:#ef4444}
     .search-bar{display:flex;gap:10px;align-items:center;flex-wrap:wrap; margin-bottom: 12px;}
     .search-bar input[type=date]{background:rgba(22,39,68,.85);border:1px solid rgba(31,47,74,.85);color:var(--muted);font-size:13px;padding:8px 10px; border-radius:10px;}
-    .search-bar button{padding:8px 12px; border-radius:10px; font-weight:700; background:rgba(31,47,74,.85);color:var(--text);border:1px solid rgba(45,62,91,1); cursor: pointer;}
-    .search-bar button:hover{background:rgba(45,62,91,1);}
+    .search-bar button, .diff-btn{padding:8px 12px; border-radius:10px; font-weight:700; background:rgba(31,47,74,.85);color:var(--text);border:1px solid rgba(45,62,91,1); cursor: pointer;}
+    .search-bar button:hover, .diff-btn:hover{background:rgba(45,62,91,1);}
+    #diff-modal{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.7);z-index:100;display:none;padding:20px}
+    #diff-modal-content{width:100%;height:100%;background:#fff;border-radius:8px;overflow:hidden}
+    #diff-modal iframe{width:100%;height:100%;border:0}
+    #diff-modal-close{position:absolute;top:5px;right:5px;padding:8px;color:#fff;background:rgba(0,0,0,.5);border:0;border-radius:50%;cursor:pointer}
   </style>
 </head>
 <body>
 <header class="top">
   <div class="inner">
     <div class="brand"><span class="logo"></span><span>airpermit.work</span></div>
-    <a class="chip" href="/law-alert/updates.html">전체 목록</a>
   </div>
 </header>
-
 <main>
   <section class="hero">
     <h1>법령 변경 알림</h1>
     <div id="meta" class="muted" style="line-height:1.65"></div>
   </section>
-
   <section class="card">
     <div class="search-bar">
-      <label for="startDate">기간:</label>
+      <label for="startDate">변경 감지일:</label>
       <input type="date" id="startDate">
       <span>-</span>
       <input type="date" id="endDate">
       <button id="searchBtn">검색</button>
       <span id="resultCount" class="muted"></span>
     </div>
-    <div class="muted" style="margin-bottom:10px">
-      <span class="badge">표기</span>
-      <span class="mark new">NEW</span> 신규 ·
-      <span class="mark mod">MOD</span> 변경
-    </div>
     <div style="overflow:auto">
       <table>
-        <thead><tr><th style="width:90px">상태</th><th style="width:140px">구분</th><th>제목</th><th style="width:140px">공포/제안일</th><th style="width:140px">감지일(UTC)</th></tr></thead>
-        <tbody id="tbody"><tr><td colspan="5" class="muted">로딩 중…</td></tr></tbody>
+        <thead><tr><th>상태</th><th>구분</th><th>제목</th><th>공포/제안일</th><th>감지일(UTC)</th><th>변경내용</th></tr></thead>
+        <tbody id="tbody"><tr><td colspan="6" class="muted">로딩 중…</td></tr></tbody>
       </table>
     </div>
   </section>
 </main>
-
+<div id="diff-modal"><button id="diff-modal-close">X</button><div id="diff-modal-content"><iframe src="about:blank"></iframe></div></div>
 
 <script>
 const pad2 = (n)=>String(n).padStart(2,"0");
-const esc = (s)=>String(s).replace(/[&<>'"`]/g,c=>({"&":"&amp;","<":"&lt;">":"&gt;","'":"&#39;","\"":"&quot;","`":"&#96;"}[c]));
+const esc = (s)=>String(s||"").replace(/[&<>'"`]/g,c=>({"&":"&amp;","<":"&lt;">":"&gt;","'":"&#39;","\"":"&quot;","`":"&#96;"}[c]));
+function toDateInput(d) { return `${d.getFullYear()}-${pad2(d.getMonth() + 1)}-${pad2(d.getDate())}`; }
 
-// Date to YYYY-MM-DD
-function toDateInput(d) {
-    return `${d.getFullYear()}-${pad2(d.getMonth() + 1)}-${pad2(d.getDate())}`;
-}
-
-let allItems = []; // To store all fetched items
+let allItems = [];
 
 function renderTable(items) {
   const tb = document.getElementById("tbody");
   if (!items.length) {
-    tb.innerHTML='<tr><td colspan="5" class="muted">해당 기간에 변경된 항목이 없습니다.</td></tr>';
+    tb.innerHTML='<tr><td colspan="6" class="muted">해당 기간에 변경된 항목이 없습니다.</td></tr>';
     document.getElementById("resultCount").textContent = "0개 항목";
     return;
   }
-  const rows = [];
-  for(const it of items){
-    const st=(it.status||"").toUpperCase();
-    let cls="mark"; if(st==="NEW") cls+=" new"; else if(st==="MOD") cls+=" mod";
-    rows.push(`<tr>
-      <td><span class="${cls}">${st}</span></td>
-      <td>${esc(it.kind||"")}</td>
-      <td>${esc(it.title||"")}</td>
-      <td>${esc(it.date||"")}</td>
+  const rows = items.map(it => {
+    const diffBtn = it.diff_url ? `<button class="diff-btn" data-url="${esc(it.diff_url)}">보기</button>` : '';
+    return `<tr>
+      <td><span class="mark ${it.status.toLowerCase()}">${it.status}</span></td>
+      <td>${esc(it.kind)}</td>
+      <td>${esc(it.title)}</td>
+      <td>${esc(it.date)}</td>
       <td>${(it.detected_at_utc||"").slice(0,10)}</td>
-    </tr>`);
-  }
-  tb.innerHTML = rows.join("");
+      <td>${diffBtn}</td>
+    </tr>`;
+  }).join("");
+  tb.innerHTML = rows;
   document.getElementById("resultCount").textContent = `${items.length}개 항목`;
 }
 
@@ -112,12 +102,11 @@ function filterAndRender() {
     const startVal = document.getElementById("startDate").value;
     const endVal = document.getElementById("endDate").value;
     if (!startVal || !endVal) {
-        renderTable(allItems.slice(0, 50)); // Show recent 50 if no range
+        renderTable(allItems.slice(0, 50));
         return;
     }
     const startDate = new Date(startVal + "T00:00:00Z");
     const endDate = new Date(endVal + "T23:59:59Z");
-
     const filtered = allItems.filter(it => {
         const detectedDate = new Date(it.detected_at_utc);
         return detectedDate >= startDate && detectedDate <= endDate;
@@ -125,8 +114,21 @@ function filterAndRender() {
     renderTable(filtered);
 }
 
+document.getElementById("tbody").addEventListener("click", e => {
+    if (e.target.classList.contains("diff-btn")) {
+        const url = e.target.dataset.url;
+        const modal = document.getElementById("diff-modal");
+        const iframe = modal.querySelector("iframe");
+        iframe.src = `https://jinsu133.github.io/airpermit-law-alert/${url}`;
+        modal.style.display = "block";
+    }
+});
+document.getElementById("diff-modal-close").addEventListener("click", () => {
+    document.getElementById("diff-modal").style.display = "none";
+    document.querySelector("#diff-modal iframe").src = "about:blank";
+});
+
 (async function(){
-  // Setup date inputs
   const endDateEl = document.getElementById("endDate");
   const startDateEl = document.getElementById("startDate");
   const today = new Date();
@@ -137,17 +139,13 @@ function filterAndRender() {
 
   document.getElementById("searchBtn").addEventListener("click", filterAndRender);
 
-  // Fetch data
   const res = await fetch("https://jinsu133.github.io/airpermit-law-alert/changelog.json?ts="+Date.now());
   if(!res.ok) throw new Error("changelog.json 로드 실패");
   const data = await res.json();
   
   allItems = Array.isArray(data.items) ? data.items : [];
-  
-  // Initial render
   filterAndRender();
 
-  // Meta info (from health.json)
   try {
     const healthRes = await fetch("https://jinsu133.github.io/airpermit-law-alert/health.json?ts="+Date.now());
     const healthData = await healthRes.json();
@@ -158,11 +156,11 @@ function filterAndRender() {
       ? `<div class="bad" style="margin-top:6px;font-weight:900">⚠ 갱신 지연/실패 의심: 마지막 성공 후 ${sinceMin}분</div>`
       : `<div class="ok"  style="margin-top:6px;font-weight:900">✓ 정상: 마지막 성공 후 ${sinceMin}분</div>`;
     document.getElementById("meta").innerHTML = badge;
-  } catch(e) { /* ignore health check fail */ }
+  } catch(e) { /* ignore */ }
 
 })().catch(err=>{
   console.error(err);
-  document.getElementById("tbody").innerHTML='<tr><td colspan="5" class="bad">로드 오류: '+esc(err.message||err)+'</td></tr>';
+  document.getElementById("tbody").innerHTML='<tr><td colspan="6" class="bad">로드 오류: '+esc(err.message||err)+'</td></tr>';
   document.getElementById("meta").innerHTML='<div class="bad" style="font-weight:900">⚠ 데이터를 불러오지 못했습니다.</div>';
 });
 </script>
