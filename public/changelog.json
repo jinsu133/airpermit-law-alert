@@ -12,11 +12,29 @@
     {
       "status": "MOD",
       "kind": "법령",
+      "title": "대기관리권역의 대기환경개선에 관한 특별법 시행령",
+      "date": "20251230",
+      "id": "013722",
+      "diff_url": null,
+      "detected_at_utc": "2025-12-30T00:00:00Z"
+    },
+    {
+      "status": "MOD",
+      "kind": "법령",
       "title": "환경오염시설의 통합관리에 관한 법률 시행규칙",
       "date": "20251230",
       "id": "012778",
       "diff_url": null,
       "detected_at_utc": "2025-12-30T00:00:00Z"
+    },
+    {
+      "status": "MOD",
+      "kind": "법령",
+      "title": "대기관리권역의 대기환경개선에 관한 특별법 시행규칙",
+      "date": "20251226",
+      "id": "013725",
+      "diff_url": null,
+      "detected_at_utc": "2025-12-26T00:00:00Z"
     },
     {
       "status": "MOD",
@@ -69,6 +87,15 @@
       "title": "환경분야 시험ㆍ검사 등에 관한 법률",
       "date": "20251001",
       "id": "010302",
+      "diff_url": null,
+      "detected_at_utc": "2025-10-01T00:00:00Z"
+    },
+    {
+      "status": "MOD",
+      "kind": "법령",
+      "title": "대기관리권역의 대기환경개선에 관한 특별법",
+      "date": "20251001",
+      "id": "013458",
       "diff_url": null,
       "detected_at_utc": "2025-10-01T00:00:00Z"
     },
