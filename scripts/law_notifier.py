@@ -150,7 +150,7 @@ def law_search(law_name: str) -> Optional[Dict[str, Any]]:
     }
 
 def admrul_search(keyword: str) -> List[Dict[str, Any]]:
-    url = f"{LAW_DRF_BASE}/admrulSearch.do"
+    url = f"{LAW_DRF_BASE}/lawService.do"
     headers={"User-Agent":"law-alert/1.0"}
     params = {
         "OC": LAW_OC,
