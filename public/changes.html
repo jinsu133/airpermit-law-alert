@@ -9,6 +9,30 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/styles.css" />
   <script defer src='/assets/adsense.js'></script>
+
+<script>
+    (function () {
+        const OPT_KEY = "analytics_opt_in";
+        const optRaw = localStorage.getItem(OPT_KEY);
+        const optIn = (optRaw === null || optRaw === "1");
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = window.gtag || function () { dataLayer.push(arguments); };
+        if (!optIn) {
+            console.info("Analytics disabled (set localStorage.analytics_opt_in = "1" to enable).");
+            return;
+        }
+        const load = (src, onload) => {
+            const s = document.createElement("script");
+            s.async = true;
+            s.src = src;
+            s.onload = onload || null;
+            s.onerror = () => console.info("Analytics blocked:", src);
+            document.head.appendChild(s);
+        };
+        load("https://www.googletagmanager.com/gtag/js?id=G-TYB723GLDF", () => { gtag("js", new Date()); gtag("config", "G-TYB723GLDF"); });
+        load("https://www.clarity.ms/tag/v2u1vmbhil");
+    })();
+</script>
 </head>
 <body class="text-slate-100 soft-bg min-h-screen">
   <!-- 공통 헤더 시작 -->
