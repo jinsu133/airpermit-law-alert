@@ -72,7 +72,7 @@ def make_diff_html(old_text: str, new_text: str, from_title: str, to_title: str)
 def law_search(law_name: str) -> List[Dict[str, Any]]:
     params = {"OC": LAW_OC, "target": "law", "type": "JSON", "query": law_name, "display": "5"}
     try:
-        r = requests.get(f"{LAW_DRF_BASE}/lawSearch.do", params=params, timeout=30)
+        r = requests.get(f"{LAW_DRF_BASE}/timeout=60)
         r.raise_for_status()
         data = r.json()
         items = data.get("LawSearch", {}).get("law", [])
