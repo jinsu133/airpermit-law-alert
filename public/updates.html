@@ -5,41 +5,10 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>법령 변경 알림</title>
   <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
-  <style>
-    :root{--bg:#0b1220;--text:#e6eefc;--muted:#9fb3d6;--shadow:0 10px 30px rgba(0,0,0,.35);--radius:16px;--max:1100px;--good:#22c55e;--warn:#f59e0b;--bad:#ef4444;}
-    *{box-sizing:border-box}
-    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--text)}
-    a{color:inherit;text-decoration:none}
-    .top{position:sticky;top:0;z-index:50;backdrop-filter:blur(10px);background:rgba(11,18,32,.75);border-bottom:1px solid rgba(31,47,74,.65)}
-    .inner{max-width:var(--max);margin:0 auto;padding:14px 16px;display:flex;justify-content:space-between;gap:12px;align-items:center}
-    .brand{display:flex;align-items:center;gap:10px;font-weight:800}
-    .logo{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,rgba(110,231,255,.25),rgba(124,58,237,.30));border:1px solid rgba(110,231,255,.25);box-shadow:var(--shadow)}
-    .chip{padding:8px 10px;border-radius:999px;background:rgba(22,39,68,.85);border:1px solid rgba(31,47,74,.85);color:var(--muted);font-weight:700;font-size:12.5px; cursor: pointer;}
-    .chip:hover{background:rgba(31,47,74,1);}
-    main{max-width:var(--max);margin:18px auto 34px;padding:0 16px}
-    .hero{padding:18px;background:linear-gradient(180deg,rgba(15,26,43,.88),rgba(15,26,43,.65));border:1px solid rgba(31,47,74,.85);border-radius:var(--radius);box-shadow:var(--shadow)}
-    h1{margin:0 0 6px;font-size:20px}
-    .muted{color:var(--muted)}
-    .badge{display:inline-block;padding:2px 8px;border-radius:999px;border:1px solid rgba(31,47,74,.85);background:rgba(22,39,68,.6);color:var(--muted);font-weight:800;font-size:11.5px;margin-right:6px}
-    .ok{color:var(--good)} .bad{color:var(--bad)}
-    .card{margin-top:14px;padding:16px;background:linear-gradient(180deg,rgba(17,31,53,.9),rgba(15,26,43,.72));border:1px solid rgba(31,47,74,.85);border-radius:var(--radius);box-shadow:var(--shadow)}
-    table{width:100%;border-collapse:collapse;font-size:13px}
-    th,td{padding:10px;border-bottom:1px solid rgba(31,47,74,.7);vertical-align:top; text-align:left;}
-    th{background:rgba(22,39,68,.65);color:var(--muted);}
-    .mark{font-weight:900}
-    .mark.new{color:#22c55e}
-    .mark.mod{color:#f59e0b}
-    .search-bar{display:flex;gap:10px;align-items:center;flex-wrap:wrap; margin-bottom: 12px;}
-    .search-bar input[type=date]{background:rgba(22,39,68,.85);border:1px solid rgba(31,47,74,.85);color:var(--muted);font-size:13px;padding:8px 10px; border-radius:10px;}
-    .search-bar button, .diff-btn{padding:8px 12px; border-radius:10px; font-weight:700; background:rgba(31,47,74,.85);color:var(--text);border:1px solid rgba(45,62,91,1); cursor: pointer;}
-    .search-bar button:hover, .diff-btn:hover{background:rgba(45,62,91,1);}
-    #diff-modal{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.7);z-index:100;display:none;padding:20px}
-    #diff-modal-content{width:100%;height:100%;background:#fff;border-radius:8px;overflow:hidden}
-    #diff-modal iframe{width:100%;height:100%;border:0}
-    #diff-modal-close{position:absolute;top:5px;right:5px;padding:8px;color:#fff;background:rgba(0,0,0,.5);border:0;border-radius:50%;cursor:pointer}
-  </style>
-
-<script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css" />
+  <script>
     (function () {
         const OPT_KEY = "analytics_opt_in";
         const optRaw = localStorage.getItem(OPT_KEY);
@@ -47,7 +16,7 @@
         window.dataLayer = window.dataLayer || [];
         window.gtag = window.gtag || function () { dataLayer.push(arguments); };
         if (!optIn) {
-            console.info("Analytics disabled (set localStorage.analytics_opt_in = "1" to enable).");
+            console.info("Analytics disabled (set localStorage.analytics_opt_in = \"1\" to enable).");
             return;
         }
         const load = (src, onload) => {
@@ -61,41 +30,100 @@
         load("https://www.googletagmanager.com/gtag/js?id=G-TYB723GLDF", () => { gtag("js", new Date()); gtag("config", "G-TYB723GLDF"); });
         load("https://www.clarity.ms/tag/v2u1vmbhil");
     })();
-</script>
+  </script>
 </head>
-<body>
-<header class="top">
-  <div class="inner">
-    <div class="brand"><span class="logo"></span><span>airpermit.work</span></div>
-  </div>
-</header>
-<main>
-  <section class="hero">
-    <h1>법령 변경 알림</h1>
-    <div id="meta" class="muted" style="line-height:1.65"></div>
-  </section>
-  <section class="card">
-    <div class="search-bar">
-      <label for="startDate">변경 감지일:</label>
-      <input type="date" id="startDate">
-      <span>-</span>
-      <input type="date" id="endDate">
-      <button id="searchBtn">검색</button>
-      <span id="resultCount" class="muted"></span>
+<body class="text-slate-100 soft-bg min-h-screen">
+  <!-- Common Header -->
+  <header class="sticky top-0 z-50 backdrop-blur bg-black/20 border-b border-white/10">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="h-16 flex items-center justify-between">
+        <a href="/" class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-white/10 border border-white/10 flex items-center justify-center"><span class="text-sm font-bold">AP</span></div>
+          <div class="leading-tight">
+            <div class="font-semibold">airpermit.work</div>
+            <div class="text-xs muted2">대기배출시설 인허가 별첨서류 작성</div>
+          </div>
+        </a>
+        <nav class="hidden md:flex items-center gap-6 text-sm">
+          <a class="muted hover:text-white" href="/app.html">별첨서류 작성</a>
+          <a class="muted hover:text-white" href="/guide/허가_신고_개요.html">가이드</a>
+          <a class="muted hover:text-white" href="/airpermit-law-alert/public/updates.html">법령 알림</a>
+          <a class="muted hover:text-white" href="/about.html">About</a>
+          <a class="muted hover:text-white" href="/faq.html">FAQ</a>
+          <a class="muted hover:text-white" href="/privacy.html">Privacy</a>
+          <a class="muted hover:text-white" href="/contact.html">Contact</a>
+        </nav>
+        <div class="flex items-center gap-2">
+          <a href="/app.html" class="hidden sm:inline-flex px-4 py-2 rounded-xl bg-emerald-500/90 hover:bg-emerald-500 text-black font-semibold">별첨서류 작성 열기</a>
+          <button id="mBtn" class="md:hidden px-3 py-2 rounded-xl bg-white/10 border border-white/10">메뉴</button>
+        </div>
+      </div>
+      <div id="mMenu" class="md:hidden hidden pb-4">
+        <div class="grid grid-cols-2 gap-2 text-sm">
+          <a class="px-3 py-2 rounded-xl bg-white/5 border border-white/10" href="/app.html">별첨서류 작성</a>
+          <a class="px-3 py-2 rounded-xl bg-white/5 border border-white/10" href="/guide/허가_신고_개요.html">가이드</a>
+          <a class="px-3 py-2 rounded-xl bg-white/5 border border-white/10" href="/airpermit-law-alert/public/updates.html">법령 알림</a>
+          <a class="px-3 py-2 rounded-xl bg-white/5 border border-white/10" href="/about.html">About</a>
+          <a class="px-3 py-2 rounded-xl bg-white/5 border border-white/10" href="/faq.html">FAQ</a>
+          <a class="px-3 py-2 rounded-xl bg-white/5 border border-white/10" href="/privacy.html">Privacy</a>
+          <a class="px-3 py-2 rounded-xl bg-white/5 border border-white/10" href="/terms.html">Terms</a>
+          <a class="px-3 py-2 rounded-xl bg-white/5 border border-white/10" href="/disclaimer.html">Disclaimer</a>
+          <a class="px-3 py-2 rounded-xl bg-white/5 border border-white/10" href="/contact.html">Contact</a>
+        </div>
+      </div>
     </div>
-    <div style="overflow:auto">
-      <table>
-        <thead><tr><th>상태</th><th>구분</th><th>제목</th><th>공포/제안일</th><th>감지일(UTC)</th><th>변경내용</th></tr></thead>
-        <tbody id="tbody"><tr><td colspan="6" class="muted">로딩 중…</td></tr></tbody>
-      </table>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 py-8">
+    <section class="bg-slate-800/50 p-6 rounded-xl shadow-lg mb-8">
+      <h1 class="text-3xl font-bold mb-2">법령 변경 알림</h1>
+      <div id="meta" class="text-slate-400 text-sm leading-relaxed"></div>
+    </section>
+    <section class="bg-slate-800/50 p-6 rounded-xl shadow-lg">
+      <div class="search-bar mb-4 flex gap-4 items-center flex-wrap">
+        <label for="startDate" class="text-slate-300">변경 감지일:</label>
+        <input type="date" id="startDate" class="bg-slate-700 border-slate-600 rounded-lg p-2 text-slate-300">
+        <span>-</span>
+        <input type="date" id="endDate" class="bg-slate-700 border-slate-600 rounded-lg p-2 text-slate-300">
+        <button id="searchBtn" class="px-4 py-2 bg-emerald-500 text-black font-semibold rounded-lg hover:bg-emerald-400">검색</button>
+        <span id="resultCount" class="text-slate-400"></span>
+      </div>
+      <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-slate-700/50">
+              <th class="p-3">상태</th><th>구분</th><th>제목</th><th>공포/제안일</th><th>감지일(UTC)</th><th>변경내용</th>
+            </tr>
+          </thead>
+          <tbody id="tbody" class="divide-y divide-slate-700">
+            <tr><td colspan="6" class="p-3 text-slate-400">로딩 중…</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+  <div id="diff-modal" class="fixed inset-0 bg-black/70 z-[100] hidden p-5"><button id="diff-modal-close" class="absolute top-2 right-2 w-8 h-8 bg-white/20 text-white rounded-full">X</button><div class="w-full h-full bg-white rounded-lg overflow-hidden"><iframe src="about:blank" class="w-full h-full border-0"></iframe></div></div>
+  
+  <!-- Common Footer -->
+  <footer class="border-t border-white/10 bg-black/20 mt-8">
+    <div class="max-w-6xl mx-auto px-4 py-8 text-sm text-slate-400">
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+        <div>© <span id="y"></span> airpermit.work</div>
+        <div class="flex flex-wrap gap-x-4 gap-y-2">
+          <a class="hover:text-white" href="/airpermit-law-alert/public/updates.html">법령 알림</a>
+          <a class="hover:text-white" href="/about.html">About</a>
+          <a class="hover:text-white" href="/privacy.html">Privacy</a>
+          <a class="hover:text-white" href="/terms.html">Terms</a>
+          <a class="hover:text-white" href="/disclaimer.html">Disclaimer</a>
+          <a class="hover:text-white" href="#" data-sitemap="1">Sitemap</a>
+        </div>
+      </div>
     </div>
-  </section>
-</main>
-<div id="diff-modal"><button id="diff-modal-close">X</button><div id="diff-modal-content"><iframe src="about:blank"></iframe></div></div>
+  </footer>
 
 <script>
-const pad2 = (n)=>String(n).padStart(2,"0");
-const esc = (s)=>String(s||"").replace(/[&<>'"`]/g,c=>({"&":"&amp;","<":"&lt;">":"&gt;","'":"&#39;","\"":"&quot;","`":"&#96;"}[c]));
+const pad2 = (n) => String(n).padStart(2, "0");
+const esc = (s) => String(s||"").replace(/[&<>'"`]/g, c => ({"&":"&amp;", "<":"&lt;", ">":"&gt;", "'":"&#39;", "\"":"&quot;", "`":"&#96;"}[c]));
 function toDateInput(d) { return `${d.getFullYear()}-${pad2(d.getMonth() + 1)}-${pad2(d.getDate())}`; }
 
 let allItems = [];
@@ -103,19 +131,20 @@ let allItems = [];
 function renderTable(items) {
   const tb = document.getElementById("tbody");
   if (!items.length) {
-    tb.innerHTML='<tr><td colspan="6" class="muted">해당 기간에 변경된 항목이 없습니다.</td></tr>';
+    tb.innerHTML = '<tr><td colspan="6" class="p-3 text-slate-400">해당 기간에 변경된 항목이 없습니다.</td></tr>';
     document.getElementById("resultCount").textContent = "0개 항목";
     return;
   }
   const rows = items.map(it => {
-    const diffBtn = it.diff_url ? `<button class="diff-btn" data-url="${esc(it.diff_url)}">보기</button>` : '';
+    const diffBtn = it.diff_url ? `<button class="px-3 py-1 text-sm bg-sky-600 hover:bg-sky-500 rounded-md diff-btn" data-url="${esc(it.diff_url)}">보기</button>` : '';
+    const statusClass = it.status === 'NEW' ? 'text-green-400' : 'text-yellow-400';
     return `<tr>
-      <td><span class="mark ${it.status.toLowerCase()}">${it.status}</span></td>
-      <td>${esc(it.kind)}</td>
-      <td>${esc(it.title)}</td>
-      <td>${esc(it.date)}</td>
-      <td>${(it.detected_at_utc||"").slice(0,10)}</td>
-      <td>${diffBtn}</td>
+      <td class="p-3"><span class="${statusClass} font-bold">${it.status}</span></td>
+      <td class="p-3">${esc(it.kind)}</td>
+      <td class="p-3">${esc(it.title)}</td>
+      <td class="p-3">${esc(it.date)}</td>
+      <td class="p-3">${(it.detected_at_utc||"").slice(0,10)}</td>
+      <td class="p-3">${diffBtn}</td>
     </tr>`;
   }).join("");
   tb.innerHTML = rows;
@@ -125,17 +154,39 @@ function renderTable(items) {
 function filterAndRender() {
     const startVal = document.getElementById("startDate").value;
     const endVal = document.getElementById("endDate").value;
-    if (!startVal || !endVal) {
+    console.log("Filtering with dates:", startVal, endVal);
+
+    if (!startVal || !endVal || !allItems.length) {
+        console.log("Date inputs invalid or no items. Showing recent 50.");
         renderTable(allItems.slice(0, 50));
         return;
     }
-    const startDate = new Date(startVal + "T00:00:00Z");
-    const endDate = new Date(endVal + "T23:59:59Z");
-    const filtered = allItems.filter(it => {
-        const detectedDate = new Date(it.detected_at_utc);
-        return detectedDate >= startDate && detectedDate <= endDate;
-    });
-    renderTable(filtered);
+
+    try {
+        const startDate = new Date(startVal);
+        startDate.setUTCHours(0, 0, 0, 0);
+
+        const endDate = new Date(endVal);
+        endDate.setUTCHours(23, 59, 59, 999);
+        
+        console.log("Filtering between UTC:", startDate.toISOString(), "and", endDate.toISOString());
+
+        const filtered = allItems.filter(it => {
+            if (!it.detected_at_utc) return false;
+            const detectedDate = new Date(it.detected_at_utc);
+            if (isNaN(detectedDate.getTime())) {
+                console.warn("Invalid date in item:", it);
+                return false;
+            }
+            return detectedDate >= startDate && detectedDate <= endDate;
+        });
+
+        console.log(`Found ${filtered.length} items in range.`);
+        renderTable(filtered);
+    } catch(e) {
+        console.error("Error during date filtering:", e);
+        document.getElementById("tbody").innerHTML = '<tr><td colspan="6" class="p-3 text-red-500">날짜 필터링 중 오류가 발생했습니다.</td></tr>';
+    }
 }
 
 document.getElementById("tbody").addEventListener("click", e => {
@@ -153,40 +204,31 @@ document.getElementById("diff-modal-close").addEventListener("click", () => {
 });
 
 (async function(){
+  const yEl = document.getElementById("y");
+  if(yEl) yEl.textContent = new Date().getFullYear();
+
   const endDateEl = document.getElementById("endDate");
   const startDateEl = document.getElementById("startDate");
-  const today = new Date();
-  const thirtyDaysAgo = new Date();
-  thirtyDaysAgo.setDate(today.getDate() - 30);
-  endDateEl.value = toDateInput(today);
-  startDateEl.value = toDateInput(thirtyDaysAgo);
+  
+  startDateEl.value = "2025-01-01";
+  endDateEl.value = toDateInput(new Date());
 
   document.getElementById("searchBtn").addEventListener("click", filterAndRender);
 
-  const res = await fetch("https://jinsu133.github.io/airpermit-law-alert/changelog.json?ts="+Date.now());
-  if(!res.ok) throw new Error("changelog.json 로드 실패");
-  const data = await res.json();
-  
-  allItems = Array.isArray(data.items) ? data.items : [];
-  filterAndRender();
-
   try {
-    const healthRes = await fetch("https://jinsu133.github.io/airpermit-law-alert/health.json?ts="+Date.now());
-    const healthData = await healthRes.json();
-    const lastSuccess = new Date(healthData.last_success_utc || 0);
-    const sinceMs = new Date() - lastSuccess;
-    const sinceMin = Math.floor(sinceMs / 60000);
-    const badge = (sinceMs > 75 * 60 * 1000)
-      ? `<div class="bad" style="margin-top:6px;font-weight:900">⚠ 갱신 지연/실패 의심: 마지막 성공 후 ${sinceMin}분</div>`
-      : `<div class="ok"  style="margin-top:6px;font-weight:900">✓ 정상: 마지막 성공 후 ${sinceMin}분</div>`;
-    document.getElementById("meta").innerHTML = badge;
-  } catch(e) { /* ignore */ }
-
-})().catch(err=>{
-  console.error(err);
-  document.getElementById("tbody").innerHTML='<tr><td colspan="6" class="bad">로드 오류: '+esc(err.message||err)+'</td></tr>';
-  document.getElementById("meta").innerHTML='<div class="bad" style="font-weight:900">⚠ 데이터를 불러오지 못했습니다.</div>';
-});
+    const res = await fetch("https://jinsu133.github.io/airpermit-law-alert/changelog.json?ts="+Date.now());
+    if(!res.ok) throw new Error(`changelog.json 로드 실패: ${res.status}`);
+    const data = await res.json();
+    allItems = Array.isArray(data.items) ? data.items : [];
+    console.log(`Loaded ${allItems.length} total items.`);
+    filterAndRender();
+  } catch(err) {
+      console.error(err);
+      document.getElementById("tbody").innerHTML='<tr><td colspan="6" class="p-3 text-red-500">로드 오류: '+esc(err.message||err)+'</td></tr>';
+      document.getElementById("meta").innerHTML='<div class="text-red-500 font-bold">⚠ 데이터를 불러오지 못했습니다.</div>';
+  }
+})();
 </script>
+<script defer src="/assets/layout.js"></script>
 </body>
 </html>
