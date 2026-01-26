@@ -40,17 +40,20 @@ LAW_NAMES = [
 ]
 ADMRUL_QUERIES = ["대기오염공정시험기준"]
 BILL_KEYWORDS = ["대기환경보전법", "환경분야 시험·검사 등에 관한 법률", "대기관리권역의 대기환경개선에 관한 특별법", "환경오염시설의 통합관리에 관한 법률"]
+ENV_BILL_KEYWORDS = ["대기","환경","오염","배출","온실가스","탄소","기후","미세먼지"]
 
 # --- 유틸리티 함수 ---
-def now_kst_iso_ms() -> str:
-    return datetime.now(KST).isoformat(timespec="milliseconds")
+def is_env_bill(name: str) -> bool:
+    n = (name or "").lower()
+    return any(kw.lower() in n for kw in ENV_BILL_KEYWORDS)
+
 def now_utc_iso_ms() -> str:
     return datetime.now(timezone.utc).isoformat(timespec="milliseconds").replace("+00:00","Z")
 
 def load_state() -> Dict[str, Any]:
-    if not STATE_PATH.exists(): return {"laws":{}, "admruls":{}, "bills":{}, "last_run": None}
+    if not STATE_PATH.exists(): return {"laws":{}, "admruls":{}, "bills":{}}
     try: return json.loads(STATE_PATH.read_text(encoding="utf-8"))
-    except Exception: return {"laws":{}, "admruls":{}, "bills":{}, "last_run": None}
+    except Exception: return {"laws":{}, "admruls":{}, "bills":{}}
 
 def save_state(st: Dict[str, Any]) -> None:
     STATE_PATH.write_text(json.dumps(st, ensure_ascii=False, indent=2), encoding="utf-8")
@@ -63,114 +66,122 @@ def require_keys() -> None:
     if not ASSEMBLY_KEY: raise RuntimeError("ASSEMBLY_KEY missing")
 
 def make_diff_html(old_text: str, new_text: str, from_title: str, to_title: str) -> str:
-    differ = difflib.HtmlDiff(tabsize=4, wrapcolumn=80)
-    return differ.make_file(old_text.splitlines(), new_text.splitlines(), from_title, to_title, context=True, numlines=5)
+    return difflib.HtmlDiff(tabsize=4, wrapcolumn=80).make_file(old_text.splitlines(), new_text.splitlines(), from_title, to_title, context=True, numlines=5)
 
 # --- API 호출 함수 ---
-def law_search(law_name: str) -> Optional[Dict[str, Any]]:
-    params = {"OC": LAW_OC, "target": "law", "type": "JSON", "query": law_name, "display": "1", "sort": "ddes"}
+def law_search(law_name: str) -> List[Dict[str, Any]]:
+    params = {"OC": LAW_OC, "target": "law", "type": "JSON", "query": law_name, "display": "5"}
     try:
         r = requests.get(f"{LAW_DRF_BASE}/lawSearch.do", params=params, timeout=30)
         r.raise_for_status()
         data = r.json()
         items = data.get("LawSearch", {}).get("law", [])
-        items = items if isinstance(items, list) else ([items] if items else [])
-        if not items: return None
-        it = items[0]
-        return {
-            "id": it.get("법령ID"), "name": it.get("법령명한글"), "date": it.get("공포일자"),
-            "num": it.get("공포번호"), "type": it.get("제개정구분명")
-        }
+        return items if isinstance(items, list) else ([items] if items else [])
     except Exception as e:
-        print(f"[WARN] law_search failed: {law_name} -> {e}")
-        return None
+        print(f"[WARN] law_search failed for {law_name}: {e}")
+        return []
 
-def get_law_body(law_id: str) -> str:
+def get_law_body(law_id: str, target: str = "lsStmd") -> str:
     if not law_id: return ""
-    params = {"OC": LAW_OC, "target": "lsStmd", "type": "XML", "ID": law_id}
+    params = {"OC": LAW_OC, "target": target, "type": "XML", "ID": law_id}
     try:
         r = requests.get(f"{LAW_DRF_BASE}/lawService.do", params=params, timeout=30)
         r.raise_for_status()
-        # 본문은 보통 <법령내용> 태그 안에 들어있음 (정규식으로 단순 추출)
-        match = re.search(r'<법령내용>(.*?)</법령내용>', r.text, re.DOTALL)
+        content_tag = "법령내용" if target == "lsStmd" else "행정규칙내용"
+        match = re.search(f'<{content_tag}>(.*?)</{content_tag}>', r.text, re.DOTALL)
         return match.group(1).strip() if match else ""
     except Exception as e:
         print(f"[WARN] get_law_body failed for ID {law_id}: {e}")
         return ""
+
+def admrul_search(keyword: str) -> List[Dict[str, Any]]:
+    params = {"OC": LAW_OC, "target": "admrul", "type": "JSON", "query": keyword, "display": "5"}
+    try:
+        r = requests.get(f"{LAW_DRF_BASE}/lawService.do", params=params, timeout=30)
+        r.raise_for_status()
+        data = r.json()
+        items = data.get("admrul", [])
+        return items if isinstance(items, list) else ([items] if items else [])
+    except Exception as e:
+        print(f"[WARN] admrul_search failed for {keyword}: {e}")
+        return []
         
 # --- 메인 로직 ---
-def run_web(out_dir: str) -> None:
+def run_web() -> None:
     require_keys()
     st = load_state()
     change_items = []
-    
     gen_utc = now_utc_iso_ms()
 
-    # 법령 처리
+    # Process Laws
     for name in LAW_NAMES:
-        info = law_search(name)
-        if not info or not info.get("id"): continue
-        
-        key = info["name"]
-        cur_key = f'{info.get("date","")}|{info.get("num","")}|{info.get("type","")}'
-        prev = st["laws"].get(key)
-        status = "OK"
-        if not prev:
-            status = "NEW"
-        elif prev.get("status_key") != cur_key:
-            status = "MOD"
-        
-        if status in ("NEW", "MOD"):
-            diff_url = None
-            new_body = get_law_body(info["id"])
-            
-            if status == "MOD" and prev.get("body"):
-                old_body = prev["body"]
-                diff_filename = f'law_{info["id"]}_{info["date"]}.html'
-                diff_path = DIFF_DIR / diff_filename
-                
-                from_title = f'이전 버전 ({prev.get("date")} 공포)'
-                to_title = f'새 버전 ({info.get("date")} 공포)'
-                
-                diff_html = make_diff_html(old_body, new_body, from_title, to_title)
-                diff_path.write_text(diff_html, encoding="utf-8")
-                diff_url = f'diffs/{diff_filename}'
-
-            item = {
-                "status": status, "kind":"법령", "title": info["name"], 
-                "date": info["date"], "id": info["id"], "diff_url": diff_url,
-                "detected_at_utc": gen_utc,
+        for law_item in law_search(name):
+            info = {
+                "id": law_item.get("법령ID"), "name": law_item.get("법령명한글"), 
+                "date": law_item.get("공포일자"), "num": law_item.get("공포번호"), "type": law_item.get("제개정구분명")
             }
-            change_items.append(item)
+            if not info["id"]: continue
             
-            # 상태 저장시 본문 내용도 포함
-            st["laws"][key] = {"status_key": cur_key, "body": new_body, **info}
-        
-    # 변경 로그 업데이트
+            key = f'{info["name"]}-{info["date"]}'
+            cur_key = f'{info.get("date","")}|{info.get("num","")}|{info.get("type","")}'
+            prev = st["laws"].get(key)
+            status = "NEW" if not prev else ("MOD" if prev.get("status_key") != cur_key else "OK")
+
+            if status in ("NEW", "MOD"):
+                new_body = get_law_body(info["id"], "lsStmd")
+                diff_url = None
+                if status == "MOD" and prev.get("body"):
+                    diff_filename = f'law_{info["id"]}_{info["date"]}.html'
+                    diff_path = DIFF_DIR / diff_filename
+                    diff_html = make_diff_html(prev["body"], new_body, f'이전: {prev.get("date")}', f'신규: {info.get("date")}')
+                    diff_path.write_text(diff_html, encoding="utf-8")
+                    diff_url = f'diffs/{diff_filename}'
+                
+                change_items.append({"status": status, "kind": "법령", "title": info["name"], "date": info["date"], "id": info["id"], "diff_url": diff_url, "detected_at_utc": gen_utc})
+                st["laws"][key] = {"status_key": cur_key, "body": new_body, **info}
+
+    # Process Administrative Rules (고시)
+    for query in ADMRUL_QUERIES:
+        for admrul_item in admrul_search(query):
+            info = {
+                "id": admrul_item.get("행정규칙ID"), "name": admrul_item.get("행정규칙명"),
+                "date": admrul_item.get("공포일자"), "num": admrul_item.get("공포번호")
+            }
+            if not info["id"]: continue
+
+            key = f'{info["name"]}-{info["num"]}'
+            cur_key = f'{info.get("date","")}|{info.get("num","")}'
+            prev = st["admruls"].get(key)
+            status = "NEW" if not prev else ("MOD" if prev.get("status_key") != cur_key else "OK")
+
+            if status in ("NEW", "MOD"):
+                # No diff for admruls for now to keep it simple
+                change_items.append({"status": status, "kind": "고시", "title": info["name"], "date": info["date"], "id": info["id"], "diff_url": None, "detected_at_utc": gen_utc})
+                st["admruls"][key] = {"status_key": cur_key, **info}
+    
+    # (Bill processing logic can be added here if needed)
+
+    if not change_items:
+        print("No changes detected.")
+        return
+
+    # Update changelog
     changelog_path = PUBLIC_DIR / "changelog.json"
     log_data = {"items": []}
     if changelog_path.exists():
-        try:
-            log_data = json.loads(changelog_path.read_text(encoding="utf-8"))
-        except Exception:
-            pass # ignore parse error
+        try: log_data = json.loads(changelog_path.read_text(encoding="utf-8"))
+        except Exception: pass
             
     log_data["items"] = change_items + log_data.get("items", [])
-    log_data["items"] = log_data["items"][:500] # 최신 500개만 유지
+    log_data["items"] = log_data["items"][:500]
     write_json(changelog_path, log_data)
     
-    # health.json 업데이트
     write_json(PUBLIC_DIR / "health.json", {"last_success_utc": gen_utc})
-
     save_state(st)
     print(f"Done. Found {len(change_items)} changes.")
 
 def main():
-    ap = argparse.ArgumentParser()
-    ap.add_argument("--mode", choices=["web"], default="web")
-    ap.add_argument("--out", default="public") # 사용하지 않지만 호환성을 위해 남겨둠
-    args = ap.parse_args()
-    run_web(args.out)
+    run_web()
 
 if __name__ == "__main__":
     main()
