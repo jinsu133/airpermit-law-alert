@@ -1,93 +1,238 @@
 <!doctype html>
-<html lang="ko"><head>
-<meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>법령 알림 | 변경사항만</title>
-<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg"/>
-<style>
-:root{--bg:#0b1220;--text:#e6eefc;--muted:#9fb3d6;--shadow:0 10px 30px rgba(0,0,0,.35);--radius:16px;--max:1100px;--good:#22c55e;--bad:#ef4444;}
-*{box-sizing:border-box} body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--text)}
-a{color:inherit;text-decoration:none}
-.top{position:sticky;top:0;z-index:50;backdrop-filter:blur(10px);background:rgba(11,18,32,.75);border-bottom:1px solid rgba(31,47,74,.65)}
-.inner{max-width:var(--max);margin:0 auto;padding:14px 16px;display:flex;justify-content:space-between;gap:12px;align-items:center}
-.brand{display:flex;align-items:center;gap:10px;font-weight:800}
-.logo{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,rgba(110,231,255,.25),rgba(124,58,237,.30));border:1px solid rgba(110,231,255,.25);box-shadow:var(--shadow)}
-.chip{padding:8px 10px;border-radius:999px;background:rgba(22,39,68,.85);border:1px solid rgba(31,47,74,.85);color:var(--muted);font-weight:700;font-size:12.5px}
-main{max-width:var(--max);margin:18px auto 34px;padding:0 16px}
-.hero{padding:18px;background:linear-gradient(180deg,rgba(15,26,43,.88),rgba(15,26,43,.65));border:1px solid rgba(31,47,74,.85);border-radius:var(--radius);box-shadow:var(--shadow)}
-h1{margin:0 0 6px;font-size:20px}.muted{color:var(--muted)}
-.badge{display:inline-block;padding:2px 8px;border-radius:999px;border:1px solid rgba(31,47,74,.85);background:rgba(22,39,68,.6);color:var(--muted);font-weight:800;font-size:11.5px;margin-right:6px}
-.ok{color:var(--good)} .bad{color:var(--bad)}
-.card{margin-top:14px;padding:16px;background:linear-gradient(180deg,rgba(17,31,53,.9),rgba(15,26,43,.72));border:1px solid rgba(31,47,74,.85);border-radius:var(--radius);box-shadow:var(--shadow)}
-table{width:100%;border-collapse:collapse;font-size:13px} th,td{padding:10px;border-bottom:1px solid rgba(31,47,74,.7);vertical-align:top}
-th{background:rgba(22,39,68,.65);color:var(--muted);text-align:left}
-.mark{font-weight:900} .new{color:#22c55e} .mod{color:#f59e0b} .del{color:#ef4444}
-</style></head><body>
-<header class="top"><div class="inner">
-<div class="brand"><span class="logo"></span><span>airpermit.work</span></div>
-<a class="chip" href="/updates.html">전체목록</a>
-</div></header>
-<main>
-<section class="hero"><h1>법령 알림 · 변경사항만</h1><div id="meta" class="muted" style="line-height:1.65"></div></section>
-<section class="card"><div style="overflow:auto">
-<table><thead><tr><th style="width:90px">상태</th><th style="width:140px">구분</th><th>제목</th><th style="width:140px">일자</th><th style="width:220px">식별자</th></tr></thead>
-<tbody id="tbody"><tr><td colspan="5" class="muted">로딩 중…</td></tr></tbody></table>
-</div></section></main>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>법령 알림 | 변경사항만</title>
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css" />
+  <script defer src='/assets/adsense.js'></script>
+</head>
+<body class="text-slate-100 soft-bg min-h-screen">
+  <!-- 공통 헤더 시작 -->
+  <header class="sticky top-0 z-50 backdrop-blur bg-black/20 border-b border-white/10">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="h-16 flex items-center justify-between">
+        <a href="/" class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-white/10 border border-white/10 flex items-center justify-center">
+            <span class="text-sm font-bold">AP</span>
+          </div>
+          <div class="leading-tight">
+            <div class="font-semibold">airpermit.work</div>
+            <div class="text-xs muted2">대기배출시설 인허가 별첨서류 작성</div>
+          </div>
+        </a>
+        <nav class="hidden md:flex items-center gap-6 text-sm">
+          <a class="muted hover:text-white" href="/app.html">별첨서류 작성</a>
+          <a class="muted hover:text-white" href="/guide/허가_신고_개요.html">가이드</a>
+          <a class="muted hover:text-white" href="/about.html">About</a>
+          <a class="muted hover:text-white" href="/faq.html">FAQ</a>
+          <a class="muted hover:text-white" href="/privacy.html">Privacy</a>
+          <a class="muted hover:text-white" href="/contact.html">Contact</a>
+        </nav>
+        <div class="flex items-center gap-2">
+          <a href="/app.html" class="hidden sm:inline-flex px-4 py-2 rounded-xl bg-emerald-500/90 hover:bg-emerald-500 text-black font-semibold">
+            별첨서류 작성 열기
+          </a>
+          <button id="mBtn" class="md:hidden px-3 py-2 rounded-xl bg-white/10 border border-white/10">
+            메뉴
+          </button>
+        </div>
+      </div>
+      <div id="mMenu" class="md:hidden hidden pb-4">
+        <div class="grid grid-cols-2 gap-2 text-sm">
+          <a class="px-3 py-2 rounded-xl bg-white/5 border border-white/10" href="/app.html">별첨서류 작성</a>
+          <a class="px-3 py-2 rounded-xl bg-white/5 border border-white/10" href="/guide/허가_신고_개요.html">가이드</a>
+          <a class="px-3 py-2 rounded-xl bg-white/5 border border-white/10" href="/guide/별첨서류_안내.html">별첨서류</a>
+          <a class="px-3 py-2 rounded-xl bg-white/5 border border-white/10" href="/about.html">About</a>
+          <a class="px-3 py-2 rounded-xl bg-white/5 border border-white/10" href="/faq.html">FAQ</a>
+          <a class="px-3 py-2 rounded-xl bg-white/5 border border-white/10" href="/privacy.html">Privacy</a>
+          <a class="px-3 py-2 rounded-xl bg-white/5 border border-white/10" href="/terms.html">Terms</a>
+          <a class="px-3 py-2 rounded-xl bg-white/5 border border-white/10" href="/disclaimer.html">Disclaimer</a>
+          <a class="px-3 py-2 rounded-xl bg-white/5 border border-white/10" href="/contact.html">Contact</a>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- 공통 헤더 끝 -->
 
-<script>
-const pad2 = (n)=>String(n).padStart(2,"0");
-const pad3 = (n)=>String(n).padStart(3,"0");
-const WEEK=["\uc77c","\uc6d4","\ud654","\uc218","\ubaa9","\uae08","\ud1a0"];
-const esc = (s)=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]));
-function fmtKorean(iso){
-  const d=new Date(iso);
-  if(isNaN(d.getTime())) return {text:"-", d:null};
-  const y=d.getFullYear(), m=pad2(d.getMonth()+1), day=pad2(d.getDate()), w=WEEK[d.getDay()];
-  const hh=pad2(d.getHours()), mm=pad2(d.getMinutes()), ss=pad2(d.getSeconds()), ms=pad3(d.getMilliseconds());
-  return {text:`${y}\ub144 ${m}\uc6d4 ${day}\uc77c (${w}) ${hh}:${mm}:${ss}.${ms}`, d};
-}
-function diffToHourZero(d){const z=new Date(d); z.setMinutes(0,0,0); return d-z;}
-function humanDelay(ms){const sign=ms>=0?"+":"-"; ms=Math.abs(ms); const m=Math.floor(ms/60000); const s=Math.floor((ms%60000)/1000); const r=ms%1000; return `${sign}${m}\ubd84 ${s}\ucd08 ${pad3(r)}ms`;}
-function humanSince(ms){const m=Math.floor(ms/60000); const s=Math.floor((ms%60000)/1000); return `${m}\ubd84 ${s}\ucd08`;}
+  <!-- 사이트맵 패널 시작 (layout.js에서 처리) -->
+  <div class="sitemap-panel" id="sitemapPanel">
+    <div class="sitemap-card">
+      <div class="flex justify-between items-center gap-2 mb-4">
+        <h3 class="text-xl font-bold m-0">사이트맵</h3>
+        <button class="btn sm" id="btnSitemapClose">닫기</button>
+      </div>
+      <div class="sitemap-grid">
+        <div class="sitemap-item">
+          <a href="/app.html">별첨서류 작성</a>
+          <div class="desc">[별지 제1호서식] + 부속서류 자동 생성</div>
+        </div>
+        <div class="sitemap-item">
+          <a href="/guide/허가_신고_개요.html">허가·신고 개요</a>
+          <div class="desc">처음 준비하는 사업자를 위한 이해 가이드</div>
+        </div>
+        <div class="sitemap-item">
+          <a href="/guide/별첨서류_안내.html">별첨서류 안내</a>
+          <div class="desc">설치내역서, 산정표, 공정도 등 별첨 설명</div>
+        </div>
+        <div class="sitemap-item">
+          <a href="/guide/대기오염물질_발생량_산정.html">발생량 산정 해설</a>
+          <div class="desc">배출계수·산정 오류·반려 사례 안내</div>
+        </div>
+        <div class="sitemap-item">
+          <a href="/guide/rejection_cases.html">반려 사례 모음</a>
+          <div class="desc">자주 반려되는 유형과 예방 체크리스트</div>
+        </div>
+        <div class="sitemap-item">
+          <a href="/guide/emission_calc_mistakes.html">발생량 산정 실수 방지</a>
+          <div class="desc">단위·계수·합산 오류를 막는 단계별 점검</div>
+        </div>
+        <div class="sitemap-item">
+          <a href="/faq.html">FAQ</a>
+          <div class="desc">자주 묻는 질문 모음</div>
+        </div>
+        <div class="sitemap-item">
+          <a href="/about.html">About</a>
+          <div class="desc">서비스 운영 안내</div>
+        </div>
+        <div class="sitemap-item">
+          <a href="/privacy.html">Privacy</a>
+          <div class="desc">개인정보 처리 방침</div>
+        </div>
+        <div class="sitemap-item">
+          <a href="/terms.html">Terms</a>
+          <div class="desc">이용약관</div>
+        </div>
+        <div class="sitemap-item">
+          <a href="/disclaimer.html">Disclaimer</a>
+          <div class="desc">면책 및 고지</div>
+        </div>
+        <div class="sitemap-item">
+          <a href="/contact.html">Contact</a>
+          <div class="desc">문의/오류 제보</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 사이트맵 패널 끝 -->
 
-(async function(){
-  const res=await fetch("https://jinsu133.github.io/airpermit-law-alert/changes.json?ts="+Date.now());
-  if(!res.ok) throw new Error("changes.json \ub85c\ub4dc \uc2e4\ud328");
-  const data=await res.json();
-  const iso=data.generated_at_kst||data.generated_at_utc||"";
-  const f=fmtKorean(iso);
-  let delay="-", since="-", badge="";
-  if(f.d){
-    delay=humanDelay(diffToHourZero(f.d));
-    const now=new Date(); const sinceMs=now-f.d; since=humanSince(Math.max(0,sinceMs));
-    badge=(sinceMs>75*60*1000)
-      ? `<div class="bad" style="margin-top:6px;font-weight:900">? \uac31\uc2e0 \uc9c0\uc5f0/\uc2e4\ud328 \uc758\uc2ec: \ub9c8\uc9c0\ub9c9 \uc131\uacf5 \ud6c4 ${since}</div>`
-      : `<div class="ok"  style="margin-top:6px;font-weight:900">? \uc815\uc0c1: \ub9c8\uc9c0\ub9c9 \uc131\uacf5 \ud6c4 ${since}</div>`;
-  }
-  document.getElementById("meta").innerHTML =
-    `<div><span class="badge">\uac31\uc2e0 \uc2dc\uac01(KST)</span> <b title="${iso}">${esc(f.text)}</b></div>
-     <div><span class="badge">\uc815\uac01 \ub300\ube44 \uc9c0\uc5f0</span> <b>${delay}</b></div>${badge}`;
+  <main class="max-w-6xl mx-auto px-4 py-8">
+    <section class="bg-gray-800 p-6 rounded-xl shadow-lg mb-8">
+      <h1 class="text-3xl font-bold mb-2">법령 알림 · 변경사항만</h1>
+      <div id="meta" class="text-gray-400 text-sm leading-relaxed"></div>
+    </section>
 
-  const items=Array.isArray(data.items)?data.items:[];
-  const tb=document.getElementById("tbody");
-  if(!items.length){tb.innerHTML='<tr><td colspan="5" class="muted">\ud45c\uc2dc\ud560 \ub370\uc774\ud130\uac00 \uc5c6\uc2b5\ub2c8\ub2e4.</td></tr>';return;}
-  const rows=[];
-  for(const it of items){
-    const st=(it.status||"OK").toUpperCase();
-    let cls="mark"; if(st==="NEW") cls+=" new"; else if(st==="MOD") cls+=" mod"; else if(st==="DEL") cls+=" del";
-    const stHtml=(st==="OK")?`<span class="badge">OK</span>`:`<span class="${cls}">${st}</span>`;
-    rows.push(`<tr>
-      <td>${stHtml}</td>
-      <td>${esc(it.kind||"")}</td>
-      <td>${esc(it.title||"")}</td>
-      <td>${esc(it.date||"")}</td>
-      <td class="muted">${esc(it.id||"")}</td>
-    </tr>`);
-  }
-  tb.innerHTML=rows.join("");
-})().catch(err=>{
-  console.error(err);
-  document.getElementById("tbody").innerHTML='<tr><td colspan="5" class="bad">\ub85c\ub529 \uc624\ub958: '+esc(err.message||err)+'</td></tr>';
-  document.getElementById("meta").innerHTML='<div class="bad" style="font-weight:900">? \ub370\uc774\ud130\ub97c \ubd88\ub7ec\uc624\uc9c0 \ubabb\ud588\uc2b5\ub2c8\ub2e4.</div>';
-});
-</script></body></html>
+    <section class="bg-gray-800 p-6 rounded-xl shadow-lg">
+      <div class="mb-4 text-gray-400">
+        <span class="inline-block px-2 py-1 rounded-full border border-gray-600 bg-gray-700 text-xs font-bold mr-2">표기</span>
+        <span class="text-green-500 font-bold">NEW</span> 신규 ·
+        <span class="text-yellow-500 font-bold">MOD</span> 변경 ·
+        <span class="text-red-500 font-bold">DEL</span> 삭제/해제 ·
+        <span class="text-gray-400 font-bold">OK</span> 변화 없음
+      </div>
+      <div class="overflow-x-auto">
+        <table class="w-full border-collapse">
+          <thead>
+            <tr class="bg-gray-700">
+              <th class="p-3 text-left text-gray-300 text-sm font-bold" style="width:90px">상태</th>
+              <th class="p-3 text-left text-gray-300 text-sm font-bold" style="width:140px">구분</th>
+              <th class="p-3 text-left text-gray-300 text-sm font-bold">제목</th>
+              <th class="p-3 text-left text-gray-300 text-sm font-bold" style="width:140px">일자</th>
+              <th class="p-3 text-left text-gray-300 text-sm font-bold" style="width:220px">식별자</th>
+            </tr>
+          </thead>
+          <tbody id="tbody" class="divide-y divide-gray-700">
+            <tr><td colspan="5" class="p-3 text-gray-400">로딩 중…</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
 
+  <!-- 공통 푸터 시작 -->
+  <footer class="border-t border-white/10 bg-black/20 mt-8">
+    <div class="max-w-6xl mx-auto px-4 py-8 text-sm muted2">
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+        <div>© <span id="y"></span> airpermit.work</div>
+        <div class="flex flex-wrap gap-x-4 gap-y-2">
+          <a class="hover:text-white" href="/about.html">About</a>
+          <a class="hover:text-white" href="/privacy.html">Privacy</a>
+          <a class="hover:text-white" href="/terms.html">Terms</a>
+          <a class="hover:text-white" href="/disclaimer.html">Disclaimer</a>
+          <a class="hover:text-white" href="#" data-sitemap="1">Sitemap</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- 공통 푸터 끝 -->
+
+  <script>
+    const pad2 = (n)=>String(n).padStart(2,"0");
+    const pad3 = (n)=>String(n).padStart(3,"0");
+    const WEEK=["일","월","화","수","목","금","토"];
+    const esc = (s)=>String(s).replace(/[&<>'"`]/g,c=>({"&":"&amp;","<":"&lt;">":"&gt;","'":"&#39;","`":"&#96;","":"&quot;"}[c]));
+    function fmtKorean(iso){
+      const d=new Date(iso);
+      if(isNaN(d.getTime())) return {text:"-", d:null};
+      const y=d.getFullYear(), m=pad2(d.getMonth()+1), day=pad2(d.getDate()), w=WEEK[d.getDay()];
+      const hh=pad2(d.getHours()), mm=pad2(d.getMinutes()), ss=pad2(d.getSeconds()), ms=pad3(d.getMilliseconds());
+      return {text:`${y}년 ${m}월 ${day}일 (${w}) ${hh}:${mm}:${ss}.${ms}`, d};
+    }
+    function diffToHourZero(d){const z=new Date(d); z.setMinutes(0,0,0); return d-z;}
+    function humanDelay(ms){const sign=ms>=0?"+":"-"; ms=Math.abs(ms); const m=Math.floor(ms/60000); const s=Math.floor((ms%60000)/1000); const r=ms%1000; return `${sign}${m}분 ${s}초 ${pad3(r)}ms`;}
+    function humanSince(ms){const m=Math.floor(ms/60000); const s=Math.floor((ms%60000)/1000); return `${m}분 ${s}초`;}
+
+    (async function(){
+      // Set footer year
+      const yEl = document.getElementById("y");
+      if(yEl) yEl.textContent = new Date().getFullYear();
+
+      const res=await fetch("https://jinsu133.github.io/airpermit-law-alert/changes.json?ts="+Date.now());
+      if(!res.ok) throw new Error("changes.json 로드 실패");
+      const data=await res.json();
+      const iso=data.generated_at_kst||data.generated_at_utc||"";
+      const f=fmtKorean(iso);
+      let delay="-", since="-", badge="";
+      if(f.d){
+        delay=humanDelay(diffToHourZero(f.d));
+        const now=new Date(); const sinceMs=now-f.d; since=humanSince(Math.max(0,sinceMs));
+        badge=(sinceMs>75*60*1000)
+          ? `<div class=\"text-red-500 mt-2 font-bold\">⚠ 갱신 지연/실패 의심: 마지막 성공 후 ${since}</div>`
+          : `<div class=\"text-green-500 mt-2 font-bold\">✓ 정상: 마지막 성공 후 ${since}</div>`;
+      }
+      document.getElementById("meta").innerHTML =
+        `<div><span class=\"inline-block px-2 py-1 rounded-full border border-gray-600 bg-gray-700 text-gray-400 text-xs font-bold mr-2\">갱신 시각(KST)</span> <b title="${iso}">${esc(f.text)}</b></div>
+         <div><span class=\"inline-block px-2 py-1 rounded-full border border-gray-600 bg-gray-700 text-gray-400 text-xs font-bold mr-2\">정각 대비 지연</span> <b>${delay}</b></div>${badge}`;
+
+      const items=Array.isArray(data.items)?data.items:[];
+      const tb=document.getElementById("tbody");
+      if(!items.length){tb.innerHTML='<tr><td colspan="5" class="p-3 text-gray-400">표시할 데이터가 없습니다.</td></tr>';return;}
+      const rows=[];
+      for(const it of items){
+        const st=(it.status||"OK").toUpperCase();
+        let cls="text-gray-400"; // Default
+        if(st==="NEW") cls="text-green-500";
+        else if(st==="MOD") cls="text-yellow-500";
+        else if(st==="DEL") cls="text-red-500";
+
+        rows.push(`<tr>
+          <td class="p-3"><span class="${cls} font-bold">${st}</span></td>
+          <td class="p-3">${esc(it.kind||"")}</td>
+          <td class="p-3">${esc(it.title||"")}</td>
+          <td class="p-3">${esc(it.date||"")}</td>
+          <td class="p-3 text-gray-400">${esc(it.id||"")}</td>
+        </tr>`);
+      }
+      tb.innerHTML=rows.join("");
+    })().catch(err=>{
+      console.error(err);
+      document.getElementById("tbody").innerHTML='<tr><td colspan="5" class="p-3 text-red-500">로드 오류: '+esc(err.message||err)+'</td></tr>';
+      document.getElementById("meta").innerHTML='<div class="text-red-500 font-bold">⚠ 데이터를 불러오지 못했습니다.</div>';
+    });
+  </script>
+  <script defer src='/assets/layout.js'></script>
+</body>
+</html>
