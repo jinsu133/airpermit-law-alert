@@ -36,12 +36,12 @@ jobs:
           git add public/updates.json public/changes.json public/health.json data/state.json || true
           git commit -m "Update law feed" || echo "No changes"
           git push
-      # - name: Delay check (fail if stale)
-      #   env:
-      #     OUT_DIR: public
-      #     DELAY_THRESHOLD_MIN: "75"
-      #   run: |
-      #     python scripts/check_delay.py
+      - name: Delay check (fail if stale)
+        env:
+          OUT_DIR: public
+          DELAY_THRESHOLD_MIN: "75"
+        run: |
+          python scripts/check_delay.py
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
