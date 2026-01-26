@@ -29,6 +29,8 @@ jobs:
           ASSEMBLY_AGE: ${{ secrets.ASSEMBLY_AGE }}
         run: |
           python scripts/law_notifier.py --mode web --out public
+          echo "--- Checking for health.json after script run ---"
+          ls -l public/
       - name: Commit generated files + state
         run: |
           git config user.name "github-actions[bot]"
