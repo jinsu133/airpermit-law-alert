@@ -36,6 +36,8 @@ jobs:
           git add public/updates.json public/changes.json public/health.json data/state.json || true
           git commit -m "Update law feed" || echo "No changes"
           git push
+      - name: Wait for filesystem sync
+        run: sleep 2
       - name: Delay check (fail if stale)
         env:
           OUT_DIR: public
