@@ -313,6 +313,25 @@ def run_web(out_dir: str) -> None:
     write_json(outp/"health.json",  {"last_success_kst": gen_kst, "last_success_utc": gen_utc})
 
     st["last_run"] = gen_kst
+    # changelog.json 업데이트
+    changelog_path = outp/"changelog.json"
+    if changelog_path.exists():
+        try:
+            log_data = json.loads(changelog_path.read_text(encoding="utf-8"))
+        except Exception:
+            log_data = {"items": []}
+    else:
+        log_data = {"items": []}
+    
+    for item in change_items:
+        item["detected_at_utc"] = gen_utc
+    
+    # 새로운 변경사항을 맨 앞에 추가
+    log_data["items"] = change_items + log_data.get("items", [])
+    # 로그는 최신 500개만 유지 (파일이 너무 커지는 것 방지)
+    log_data["items"] = log_data["items"][:500]
+    write_json(changelog_path, log_data)
+
     save_state(st)
 
 def main():
