@@ -1,0 +1,85 @@
+{
+  "items": [
+    {
+      "status": "MOD",
+      "kind": "법령",
+      "title": "환경오염시설의 통합관리에 관한 법률 시행령",
+      "date": "20260102",
+      "id": "012747",
+      "diff_url": null,
+      "detected_at_utc": "2026-01-02T00:00:00Z"
+    },
+    {
+      "status": "MOD",
+      "kind": "법령",
+      "title": "환경오염시설의 통합관리에 관한 법률 시행규칙",
+      "date": "20251230",
+      "id": "012778",
+      "diff_url": null,
+      "detected_at_utc": "2025-12-30T00:00:00Z"
+    },
+    {
+      "status": "MOD",
+      "kind": "법령",
+      "title": "대기환경보전법 시행규칙",
+      "date": "20251224",
+      "id": "007038",
+      "diff_url": null,
+      "detected_at_utc": "2025-12-24T00:00:00Z"
+    },
+    {
+      "status": "MOD",
+      "kind": "법령",
+      "title": "대기환경보전법 시행령",
+      "date": "20251223",
+      "id": "003302",
+      "diff_url": null,
+      "detected_at_utc": "2025-12-23T00:00:00Z"
+    },
+    {
+      "status": "MOD",
+      "kind": "법령",
+      "title": "대기환경보전법",
+      "date": "20251111",
+      "id": "001773",
+      "diff_url": null,
+      "detected_at_utc": "2025-11-11T00:00:00Z"
+    },
+    {
+      "status": "MOD",
+      "kind": "법령",
+      "title": "환경분야 시험ㆍ검사 등에 관한 법률 시행규칙",
+      "date": "20251001",
+      "id": "010545",
+      "diff_url": null,
+      "detected_at_utc": "2025-10-01T00:00:00Z"
+    },
+    {
+      "status": "MOD",
+      "kind": "법령",
+      "title": "환경분야 시험ㆍ검사 등에 관한 법률 시행령",
+      "date": "20251001",
+      "id": "010530",
+      "diff_url": null,
+      "detected_at_utc": "2025-10-01T00:00:00Z"
+    },
+    {
+      "status": "MOD",
+      "kind": "법령",
+      "title": "환경분야 시험ㆍ검사 등에 관한 법률",
+      "date": "20251001",
+      "id": "010302",
+      "diff_url": null,
+      "detected_at_utc": "2025-10-01T00:00:00Z"
+    },
+    {
+      "status": "MOD",
+      "kind": "법령",
+      "title": "환경오염시설의 통합관리에 관한 법률",
+      "date": "20251001",
+      "id": "012414",
+      "diff_url": null,
+      "detected_at_utc": "2025-10-01T00:00:00Z"
+    }
+  ]
+}
