@@ -72,7 +72,7 @@ def make_diff_html(old_text: str, new_text: str, from_title: str, to_title: str)
 def law_search(law_name: str) -> List[Dict[str, Any]]:
     params = {"OC": LAW_OC, "target": "law", "type": "JSON", "query": law_name, "display": "5"}
     try:
-        r = requests.get(f"{LAW_DRF_BASE}/timeout=60)
+        r = requests.get(f"{LAW_DRF_BASE}/lawSearch.do", params=params, timeout=60) # timeout=60 적용
         r.raise_for_status()
         data = r.json()
         items = data.get("LawSearch", {}).get("law", [])
@@ -85,7 +85,7 @@ def get_law_body(law_id: str, target: str = "lsStmd") -> str:
     if not law_id: return ""
     params = {"OC": LAW_OC, "target": target, "type": "XML", "ID": law_id}
     try:
-        r = requests.get(f"{LAW_DRF_BASE}/lawService.do", params=params, timeout=30)
+        r = requests.get(f"{LAW_DRF_BASE}/lawService.do", params=params, timeout=60) # timeout=60 적용
         r.raise_for_status()
         content_tag = "법령내용" if target == "lsStmd" else "행정규칙내용"
         match = re.search(f'<{content_tag}>(.*?)</{content_tag}>', r.text, re.DOTALL)
@@ -97,7 +97,7 @@ def get_law_body(law_id: str, target: str = "lsStmd") -> str:
 def admrul_search(keyword: str) -> List[Dict[str, Any]]:
     params = {"OC": LAW_OC, "target": "admrul", "type": "JSON", "query": keyword, "display": "5"}
     try:
-        r = requests.get(f"{LAW_DRF_BASE}/lawService.do", params=params, timeout=30)
+        r = requests.get(f"{LAW_DRF_BASE}/lawService.do", params=params, timeout=60) # timeout=60 적용
         r.raise_for_status()
         data = r.json()
         items = data.get("admrul", [])
@@ -106,6 +106,62 @@ def admrul_search(keyword: str) -> List[Dict[str, Any]]:
         print(f"[WARN] admrul_search failed for {keyword}: {e}")
         return []
         
+def assembly_call(service: str, params: Dict[str, Any]) -> Dict[str, Any]:
+    q = {"KEY": ASSEMBLY_KEY, "Type":"json", "pIndex":1}
+    q.update(params)
+    r = requests.get(f"{ASSEMBLY_BASE}/{service}", params=q, timeout=60) # timeout=60 적용
+    r.raise_for_status()
+    return r.json()
+
+def extract_rows(data: Dict[str, Any]) -> List[Dict[str, Any]]:
+    for v in data.values():
+        if isinstance(v, list):
+            for elem in v:
+                if isinstance(elem, dict) and "row" in elem:
+                    rows = elem["row"]
+                    if isinstance(rows, list): return rows
+                    if isinstance(rows, dict): return [rows]
+    return []
+
+def current_assembly_age() -> str:
+    today = datetime.now(KST).date()
+    base_age = 21
+    base_start = date(2020, 5, 30)
+    if today < base_start: return str(base_age)
+    years = today.year - base_start.year
+    if (today.month, today.day) < (base_start.month, base_start.day): years -= 1
+    term = years // 4
+    return str(base_age + max(0, term))
+
+def bill_items() -> List[Dict[str, Any]]:
+    service = os.getenv("SERVICE_SEARCH_BILL","TVBPMBILL11").strip() or "TVBPMBILL11"
+    age = ASSEMBLY_AGE or "auto"
+    if age.lower() == "auto": age = current_assembly_age()
+    out=[]
+    for kw in BILL_KEYWORDS:
+        try:
+            data = assembly_call(service, {"BILL_NM": kw, "pSize": 30, "AGE": age})
+        except requests.exceptions.RequestException as e:
+            print(f"[WARN] bill_items failed for {kw}: {e}")
+            continue
+        except ValueError as e:
+            print(f"[WARN] bill_items parsing failed for {kw}: {e}")
+            continue
+        rows = extract_rows(data)
+        for r in rows:
+            bill_id = r.get("BILL_ID") or r.get("billId")
+            if not bill_id: continue
+            title = r.get("BILL_NAME") or r.get("TITLE") or ""
+            if not is_env_bill(title): continue
+            out.append({"bill_id": bill_id, "bill_no": r.get("BILL_NO"), "bill_name": title, "propose_dt": r.get("PROPOSE_DT"), "proc_result": r.get("PROC_RESULT")})
+    seen=set(); uniq=[]
+    for b in out:
+        if b["bill_id"] in seen: continue
+        seen.add(b["bill_id"])
+        uniq.append(b)
+    return uniq[:300]
+
+
 # --- 메인 로직 ---
 def run_web() -> None:
     require_keys()
@@ -128,15 +184,20 @@ def run_web() -> None:
             status = "NEW" if not prev else ("MOD" if prev.get("status_key") != cur_key else "OK")
 
             if status in ("NEW", "MOD"):
-                new_body = get_law_body(info["id"], "lsStmd")
                 diff_url = None
+                new_body = get_law_body(info["id"], "lsStmd")
+                
                 if status == "MOD" and prev.get("body"):
                     diff_filename = f'law_{info["id"]}_{info["date"]}.html'
                     diff_path = DIFF_DIR / diff_filename
-                    diff_html = make_diff_html(prev["body"], new_body, f'이전: {prev.get("date")}', f'신규: {info.get("date")}')
+                    
+                    from_title = f'이전 버전 ({prev.get("date")} 공포)'
+                    to_title = f'새 버전 ({info.get("date")} 공포)'
+                    
+                    diff_html = make_diff_html(prev["body"], new_body, from_title, to_title)
                     diff_path.write_text(diff_html, encoding="utf-8")
                     diff_url = f'diffs/{diff_filename}'
-                
+
                 change_items.append({"status": status, "kind": "법령", "title": info["name"], "date": info["date"], "id": info["id"], "diff_url": diff_url, "detected_at_utc": gen_utc})
                 st["laws"][key] = {"status_key": cur_key, "body": new_body, **info}
 
@@ -155,14 +216,24 @@ def run_web() -> None:
             status = "NEW" if not prev else ("MOD" if prev.get("status_key") != cur_key else "OK")
 
             if status in ("NEW", "MOD"):
-                # No diff for admruls for now to keep it simple
+                # 현재는 행정규칙에 대한 본문 비교/Diff는 구현하지 않음 (API 명세 확인 필요)
                 change_items.append({"status": status, "kind": "고시", "title": info["name"], "date": info["date"], "id": info["id"], "diff_url": None, "detected_at_utc": gen_utc})
                 st["admruls"][key] = {"status_key": cur_key, **info}
     
-    # (Bill processing logic can be added here if needed)
+    # Process Bills (의안)
+    for bill_item in bill_items():
+        key = bill_item["bill_id"]
+        cur_key = f'{bill_item.get("bill_no","")}|{bill_item.get("proc_result","")}|{bill_item.get("propose_dt","")}'
+        prev = st["bills"].get(key)
+        status = "NEW" if not prev else ("MOD" if prev.get("status_key") != cur_key else "OK")
+
+        if status in ("NEW", "MOD"):
+            change_items.append({"status": status, "kind": "의안", "title": bill_item["bill_name"], "date": bill_item["propose_dt"], "id": bill_item["bill_id"], "diff_url": None, "detected_at_utc": gen_utc})
+            st["bills"][key] = {"status_key": cur_key, **bill_item}
+
 
     if not change_items:
-        print("No changes detected.")
+        print("No new changes detected. Skipping changelog update.")
         return
 
     # Update changelog
@@ -177,8 +248,9 @@ def run_web() -> None:
     write_json(changelog_path, log_data)
     
     write_json(PUBLIC_DIR / "health.json", {"last_success_utc": gen_utc})
+
     save_state(st)
-    print(f"Done. Found {len(change_items)} changes.")
+    print(f"Done. Found {len(change_items)} new/modified items.")
 
 def main():
     run_web()
