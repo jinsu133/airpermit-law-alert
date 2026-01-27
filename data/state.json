@@ -406,7 +406,15 @@
       "bill_name": "공동주택관리법 일부개정법률안",
       "propose_dt": "2026-01-23",
       "proc_result": ""
+    },
+    "PRC_O2N6N0V1V2U0V1T4T4S0A5A4Z4Z9Y9": {
+      "status_key": "2216322||2026-01-26",
+      "bill_id": "PRC_O2N6N0V1V2U0V1T4T4S0A5A4Z4Z9Y9",
+      "bill_no": "2216322",
+      "bill_name": "댐 주변지역 친환경 보전 및 활용에 관한 특별법 일부개정법률안",
+      "propose_dt": "2026-01-26",
+      "proc_result": ""
     }
   },
-  "last_run": "2026-01-26T09:23:31.436+09:00"
+  "last_run": "2026-01-27T22:39:48.610+09:00"
 }
