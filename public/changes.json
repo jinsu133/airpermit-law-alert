@@ -1,15 +1,5 @@
 {
-  "generated_at_kst": "2026-01-31T01:57:41.928+09:00",
-  "generated_at_utc": "2026-01-30T16:57:41.928Z",
-  "items": [
-    {
-      "status": "NEW",
-      "kind": "의안",
-      "title": "한국열에너지공사법안",
-      "date": "2026-01-30",
-      "id": "PRC_H2G6G0O1P0N9O1M0N5L7T2U5S9S6Q4",
-      "diff_url": null,
-      "detected_at_utc": "2026-01-30T16:57:41.928Z"
-    }
-  ]
+  "generated_at_kst": "2026-01-31T02:30:21.548+09:00",
+  "generated_at_utc": "2026-01-30T17:30:21.548Z",
+  "items": []
 }
