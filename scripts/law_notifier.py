@@ -285,13 +285,13 @@ def run_web(out_dir: str) -> None:
         status = status_from_prev(prev, cur_key)
         item_id = f'{info.get("ln","")}|{info.get("ld","")}|{info.get("reform_type","")}'.strip("|") or key
         
-        # 법령 상세 링크: 날짜 지정하여 해당 시점 법령 보기
-        # 예: https://www.law.go.kr/법령/대기환경보전법/20260101
-        ld = info.get("ld","").replace(".","").replace("-","")
-        if ld:
-            link_url = f"https://www.law.go.kr/법령/{info.get('law_name') or name}/{ld}"
+        # 법령 상세(신구법비교) 링크 생성
+        # 예: https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=260123&efYd=20240101
+        law_id = info.get("law_id")
+        if law_id:
+            link_url = f"https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq={law_id}&efYd={info.get('ld','')}"
         else:
-            link_url = f"https://www.law.go.kr/법령/{info.get('law_name') or name}"
+            link_url = f"https://www.law.go.kr/LSW/lsSc.do?menuId=1&query={info.get('law_name') or name}"
             
         item = {"status": status, "status_ko": STATUS_KO.get(status, status), "kind":"법령", "title": info.get("law_name") or name, "date": info.get("ld",""), "id": item_id, "diff_url": link_url}
         all_items.append(item)
@@ -308,13 +308,13 @@ def run_web(out_dir: str) -> None:
             status = status_from_prev(prev, cur_key)
             item_id = f'{it.get("num","")}|{it.get("promulgation_date","")}|{it.get("enforce_date","")}'.strip("|") or key
             
-            # 행정규칙 상세 링크: 날짜 지정
-            # 예: https://www.law.go.kr/행정규칙/대기오염공정시험기준/20260101
-            eff_date = (it.get("enforce_date") or it.get("promulgation_date") or "").replace(".","").replace("-","")
-            if eff_date:
-                 link_url = f"https://www.law.go.kr/행정규칙/{it.get('title','')}/{eff_date}"
+            # 행정규칙 상세 링크 생성
+            # 예: https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000239568
+            admrul_id = it.get("admrul_id")
+            if admrul_id:
+                link_url = f"https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq={admrul_id}"
             else:
-                 link_url = f"https://www.law.go.kr/행정규칙/{it.get('title','')}"
+                 link_url = f"https://www.law.go.kr/LSW/lsSc.do?menuId=1&query={it.get('title','')}"
 
             item = {"status": status, "status_ko": STATUS_KO.get(status, status), "kind":"고시", "title": it.get("title",""), "date": it.get("promulgation_date") or it.get("enforce_date") or "", "id": item_id, "diff_url": link_url}
             all_items.append(item)
