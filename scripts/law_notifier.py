@@ -153,6 +153,7 @@ def law_search(law_name: str) -> Optional[Dict[str, Any]]:
         "ld": it.get("공포일자",""),
         "ln": it.get("공포번호",""),
         "reform_type": it.get("제개정구분명",""),
+        "law_id": it.get("법령ID", "")
     }
 
 def admrul_search(keyword: str) -> List[Dict[str, Any]]:
@@ -192,6 +193,7 @@ def admrul_search(keyword: str) -> List[Dict[str, Any]]:
             "num": it.get("고시번호","") or it.get("행정규칙ID","") or "",
             "promulgation_date": it.get("공포일자","") or "",
             "enforce_date": it.get("시행일자","") or "",
+            "admrul_id": it.get("행정규칙ID", "")
         })
     return out
 
@@ -279,7 +281,15 @@ def run_web(out_dir: str) -> None:
         prev = st["laws"].get(key)
         status = status_from_prev(prev, cur_key)
         item_id = f'{info.get("ln","")}|{info.get("ld","")}|{info.get("reform_type","")}'.strip("|") or key
-        link_url = f"https://www.law.go.kr/법령/{info.get('law_name') or name}"
+        
+        # 법령 상세(신구법비교) 링크 생성
+        # 예: https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=260123&efYd=20240101
+        law_id = info.get("law_id")
+        if law_id:
+            link_url = f"https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq={law_id}&efYd={info.get('ld','')}"
+        else:
+            link_url = f"https://www.law.go.kr/법령/{info.get('law_name') or name}"
+            
         item = {"status": status, "status_ko": STATUS_KO.get(status, status), "kind":"법령", "title": info.get("law_name") or name, "date": info.get("ld",""), "id": item_id, "diff_url": link_url}
         all_items.append(item)
         if status in ("NEW","MOD"):
@@ -294,7 +304,15 @@ def run_web(out_dir: str) -> None:
             prev = st["admruls"].get(key)
             status = status_from_prev(prev, cur_key)
             item_id = f'{it.get("num","")}|{it.get("promulgation_date","")}|{it.get("enforce_date","")}'.strip("|") or key
-            link_url = f"https://www.law.go.kr/행정규칙/{it.get('title','')}"
+            
+            # 행정규칙 상세 링크 생성
+            # 예: https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000239568
+            admrul_id = it.get("admrul_id")
+            if admrul_id:
+                link_url = f"https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq={admrul_id}"
+            else:
+                link_url = f"https://www.law.go.kr/행정규칙/{it.get('title','')}"
+
             item = {"status": status, "status_ko": STATUS_KO.get(status, status), "kind":"고시", "title": it.get("title",""), "date": it.get("promulgation_date") or it.get("enforce_date") or "", "id": item_id, "diff_url": link_url}
             all_items.append(item)
             if status in ("NEW","MOD"):
