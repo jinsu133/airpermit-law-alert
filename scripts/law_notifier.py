@@ -25,7 +25,8 @@ KST = timezone(timedelta(hours=9))
 # Cloudflare Worker 프록시(해외 IP 차단 회피). 커스텀 도메인을 붙이면 아래를 교체.
 # 예: LAW_DRF_BASE = "https://law-proxy.airpermit.work"
 # LAW_DRF_BASE = "https://www.law.go.kr/DRF"
-LAW_DRF_BASE = "https://law-proxy.jinsu133.workers.dev/DRF"
+# LAW_DRF_BASE = "https://law-proxy.jinsu133.workers.dev/DRF"
+LAW_DRF_BASE = "https://www.law.go.kr/DRF"
 
 
 ASSEMBLY_BASE = "https://open.assembly.go.kr/portal/openapi"
