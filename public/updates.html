@@ -167,8 +167,14 @@
       const rows = items.map(it => {
         let url = it.diff_url;
         if (!url) {
-          if (it.kind === '법령') url = `https://www.law.go.kr/법령/${it.title}`;
-          else if (it.kind === '고시') url = `https://www.law.go.kr/행정규칙/${it.title}`;
+          if (it.kind === '법령') {
+            const dateParam = it.date ? `/${it.date.replace(/\./g, "").replace(/-/g, "")}` : "";
+            url = `https://www.law.go.kr/법령/${it.title}${dateParam}`;
+          }
+          else if (it.kind === '고시') {
+            const dateParam = it.date ? `/${it.date.replace(/\./g, "").replace(/-/g, "")}` : "";
+            url = `https://www.law.go.kr/행정규칙/${it.title}${dateParam}`;
+          }
           else if (it.kind === '의안') url = `https://likms.assembly.go.kr/bill/billDetail.do?billId=${it.id}`;
         }
         const diffBtn = url ? `<a href="${esc(url)}" target="_blank" class="px-3 py-1 text-sm bg-sky-600 hover:bg-sky-500 rounded-md inline-block text-white no-underline">보기</a>` : '';
