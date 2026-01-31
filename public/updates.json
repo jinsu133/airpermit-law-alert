@@ -1,6 +1,6 @@
 {
-  "generated_at_kst": "2026-01-31T16:26:04.689+09:00",
-  "generated_at_utc": "2026-01-31T07:26:04.689Z",
+  "generated_at_kst": "2026-01-31T16:32:32.527+09:00",
+  "generated_at_utc": "2026-01-31T07:32:32.527Z",
   "items": [
     {
       "status": "OK",
@@ -10,7 +10,7 @@
       "date": "2026-01-30",
       "id": "PRC_H2G6G0O1P0N9O1M0N5L7T2U5S9S6Q4",
       "diff_url": "https://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_H2G6G0O1P0N9O1M0N5L7T2U5S9S6Q4",
-      "detected_at_utc": "2026-01-31T07:26:04.689Z"
+      "detected_at_utc": "2026-01-31T07:32:32.527Z"
     }
   ]
 }
