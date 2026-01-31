@@ -1,38 +1,41 @@
 <!doctype html>
 <html lang="ko">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>법령 변경 알림</title>
+  <title>법령 변경 알림 (KR Patch)</title>
   <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="/styles.css" />
   <script>
     (function () {
-        const OPT_KEY = "analytics_opt_in";
-        const optRaw = localStorage.getItem(OPT_KEY);
-        const optIn = (optRaw === null || optRaw === "1");
-        window.dataLayer = window.dataLayer || [];
-        window.gtag = window.gtag || function () { dataLayer.push(arguments); };
-        if (!optIn) {
-            console.info("Analytics disabled (set localStorage.analytics_opt_in = \"1\" to enable).");
-            return;
-        }
-        const load = (src, onload) => {
-            const s = document.createElement("script");
-            s.async = true;
-            s.src = src;
-            s.onload = onload || null;
-            s.onerror = () => console.info("Analytics blocked:", src);
-            document.head.appendChild(s);
-        };
-        load("https://www.googletagmanager.com/gtag/js?id=G-TYB723GLDF", () => { gtag("js", new Date()); gtag("config", "G-TYB723GLDF"); });
-        load("https://www.clarity.ms/tag/v2u1vmbhil");
+      const OPT_KEY = "analytics_opt_in";
+      const optRaw = localStorage.getItem(OPT_KEY);
+      const optIn = (optRaw === null || optRaw === "1");
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = window.gtag || function () { dataLayer.push(arguments); };
+      if (!optIn) {
+        console.info("Analytics disabled (set localStorage.analytics_opt_in = \"1\" to enable).");
+        return;
+      }
+      const load = (src, onload) => {
+        const s = document.createElement("script");
+        s.async = true;
+        s.src = src;
+        s.onload = onload || null;
+        s.onerror = () => console.info("Analytics blocked:", src);
+        document.head.appendChild(s);
+      };
+      load("https://www.googletagmanager.com/gtag/js?id=G-TYB723GLDF", () => { gtag("js", new Date()); gtag("config", "G-TYB723GLDF"); });
+      load("https://www.clarity.ms/tag/v2u1vmbhil");
     })();
   </script>
   <link rel="stylesheet" href="/assets/sitemap.css" />
 </head>
+
 <body class="text-slate-100 soft-bg min-h-screen">
   <div id="sitemap-panel-placeholder"></div>
   <!-- Common Header -->
@@ -40,7 +43,8 @@
     <div class="max-w-6xl mx-auto px-4">
       <div class="h-16 flex items-center justify-between">
         <a href="/" class="flex items-center gap-3">
-          <div class="w-9 h-9 rounded-xl bg-white/10 border border-white/10 flex items-center justify-center"><span class="text-sm font-bold">AP</span></div>
+          <div class="w-9 h-9 rounded-xl bg-white/10 border border-white/10 flex items-center justify-center"><span
+              class="text-sm font-bold">AP</span></div>
           <div class="leading-tight">
             <div class="font-semibold">airpermit.work</div>
             <div class="text-xs muted2">대기배출시설 인허가 별첨서류 작성</div>
@@ -56,7 +60,9 @@
           <a class="muted hover:text-white" href="/contact.html">Contact</a>
         </nav>
         <div class="flex items-center gap-2">
-          <a href="/app.html" class="hidden sm:inline-flex px-4 py-2 rounded-xl bg-emerald-500/90 hover:bg-emerald-500 text-black font-semibold">별첨서류 작성 열기</a>
+          <a href="/app.html"
+            class="hidden sm:inline-flex px-4 py-2 rounded-xl bg-emerald-500/90 hover:bg-emerald-500 text-black font-semibold">별첨서류
+            작성 열기</a>
           <button id="mBtn" class="md:hidden px-3 py-2 rounded-xl bg-white/10 border border-white/10">메뉴</button>
         </div>
       </div>
@@ -64,7 +70,8 @@
         <div class="grid grid-cols-2 gap-2 text-sm">
           <a class="px-3 py-2 rounded-xl bg-white/5 border border-white/10" href="/app.html">별첨서류 작성</a>
           <a class="px-3 py-2 rounded-xl bg-white/5 border border-white/10" href="/guide/허가_신고_개요.html">가이드</a>
-          <a class="px-3 py-2 rounded-xl bg-white/5 border border-white/10" href="/airpermit-law-alert/public/updates.html">법령 알림</a>
+          <a class="px-3 py-2 rounded-xl bg-white/5 border border-white/10"
+            href="/airpermit-law-alert/public/updates.html">법령 알림</a>
           <a class="px-3 py-2 rounded-xl bg-white/5 border border-white/10" href="/about.html">About</a>
           <a class="px-3 py-2 rounded-xl bg-white/5 border border-white/10" href="/faq.html">FAQ</a>
           <a class="px-3 py-2 rounded-xl bg-white/5 border border-white/10" href="/privacy.html">Privacy</a>
@@ -87,25 +94,37 @@
         <input type="date" id="startDate" class="bg-slate-700 border-slate-600 rounded-lg p-2 text-slate-300">
         <span>-</span>
         <input type="date" id="endDate" class="bg-slate-700 border-slate-600 rounded-lg p-2 text-slate-300">
-        <button id="searchBtn" class="px-4 py-2 bg-emerald-500 text-black font-semibold rounded-lg hover:bg-emerald-400">검색</button>
+        <button id="searchBtn"
+          class="px-4 py-2 bg-emerald-500 text-black font-semibold rounded-lg hover:bg-emerald-400">검색</button>
         <span id="resultCount" class="text-slate-400"></span>
       </div>
       <div class="overflow-x-auto">
         <table class="w-full text-left border-collapse">
           <thead>
             <tr class="bg-slate-700/50">
-              <th class="p-3">상태</th><th>구분</th><th>제목</th><th>공포/제안일</th><th>감지일(UTC)</th><th>변경내용</th>
+              <th class="p-3">상태</th>
+              <th>구분</th>
+              <th>제목</th>
+              <th>공포/제안일</th>
+              <th>감지일(UTC)</th>
+              <th>변경내용</th>
             </tr>
           </thead>
           <tbody id="tbody" class="divide-y divide-slate-700">
-            <tr><td colspan="6" class="p-3 text-slate-400">로딩 중…</td></tr>
+            <tr>
+              <td colspan="6" class="p-3 text-slate-400">로딩 중…</td>
+            </tr>
           </tbody>
         </table>
       </div>
     </section>
   </main>
-  <div id="diff-modal" class="fixed inset-0 bg-black/70 z-[100] hidden p-5"><button id="diff-modal-close" class="absolute top-2 right-2 w-8 h-8 bg-white/20 text-white rounded-full">X</button><div class="w-full h-full bg-white rounded-lg overflow-hidden"><iframe src="about:blank" class="w-full h-full border-0"></iframe></div></div>
-  
+  <div id="diff-modal" class="fixed inset-0 bg-black/70 z-[100] hidden p-5"><button id="diff-modal-close"
+      class="absolute top-2 right-2 w-8 h-8 bg-white/20 text-white rounded-full">X</button>
+    <div class="w-full h-full bg-white rounded-lg overflow-hidden"><iframe src="about:blank"
+        class="w-full h-full border-0"></iframe></div>
+  </div>
+
   <!-- Common Footer -->
   <footer class="border-t border-white/10 bg-black/20 mt-8">
     <div class="max-w-6xl mx-auto px-4 py-8 text-sm text-slate-400">
@@ -123,114 +142,126 @@
     </div>
   </footer>
 
-<script>
-const pad2 = (n) => String(n).padStart(2, "0");
-const esc = (s) => String(s||"").replace(/[&<>'"`]/g, c => ({"&":"&amp;", "<":"&lt;", ">":"&gt;", "'":"&#39;", "\"":"&quot;", "`":"&#96;"}[c]));
-function toDateInput(d) { return `${d.getFullYear()}-${pad2(d.getMonth() + 1)}-${pad2(d.getDate())}`; }
+  <script>
+    const pad2 = (n) => String(n).padStart(2, "0");
+    const esc = (s) => String(s || "").replace(/[&<>'"`]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", "\"": "&quot;", "`": "&#96;" }[c]));
+    function toDateInput(d) { return `${d.getFullYear()}-${pad2(d.getMonth() + 1)}-${pad2(d.getDate())}`; }
 
-let allItems = [];
+    let allItems = [];
 
-function renderTable(items) {
-  const tb = document.getElementById("tbody");
-  if (!items.length) {
-    tb.innerHTML = '<tr><td colspan="6" class="p-3 text-slate-400">해당 기간에 변경된 항목이 없습니다.</td></tr>';
-    document.getElementById("resultCount").textContent = "0개 항목";
-    return;
-  }
-  const rows = items.map(it => {
-    const diffBtn = it.diff_url ? `<button class="px-3 py-1 text-sm bg-sky-600 hover:bg-sky-500 rounded-md diff-btn" data-url="${esc(it.diff_url)}">보기</button>` : '';
-    const statusClass = it.status === 'NEW' ? 'text-green-400' : 'text-yellow-400';
-    return `<tr>
-      <td class="p-3"><span class="${statusClass} font-bold">${it.status}</span></td>
+    // STATUS MAPPING for direct frontend fix
+    const STATUS_MAP = {
+      "NEW": "신규",
+      "MOD": "변경",
+      "OK": "유지",
+      "DEL": "삭제"
+    };
+
+    function renderTable(items) {
+      const tb = document.getElementById("tbody");
+      if (!items.length) {
+        tb.innerHTML = '<tr><td colspan="6" class="p-3 text-slate-400">해당 기간에 변경된 항목이 없습니다.</td></tr>';
+        document.getElementById("resultCount").textContent = "0개 항목";
+        return;
+      }
+      const rows = items.map(it => {
+        const diffBtn = it.diff_url ? `<button class="px-3 py-1 text-sm bg-sky-600 hover:bg-sky-500 rounded-md diff-btn" data-url="${esc(it.diff_url)}">보기</button>` : '';
+        const statusClass = it.status === 'NEW' ? 'text-green-400' : 'text-yellow-400';
+        // Use mapped status or original if not found
+        const displayStatus = STATUS_MAP[it.status] || it.status_ko || it.status;
+
+        return `<tr>
+      <td class="p-3"><span class="${statusClass} font-bold">${displayStatus}</span></td>
       <td class="p-3">${esc(it.kind)}</td>
       <td class="p-3">${esc(it.title)}</td>
       <td class="p-3">${esc(it.date)}</td>
-      <td class="p-3">${(it.detected_at_utc||"").slice(0,10)}</td>
+      <td class="p-3">${(it.detected_at_utc || "").slice(0, 10)}</td>
       <td class="p-3">${diffBtn}</td>
     </tr>`;
-  }).join("");
-  tb.innerHTML = rows;
-  document.getElementById("resultCount").textContent = `${items.length}개 항목`;
-}
+      }).join("");
+      tb.innerHTML = rows;
+      document.getElementById("resultCount").textContent = `${items.length}개 항목`;
+    }
 
-function filterAndRender() {
-    const startVal = document.getElementById("startDate").value;
-    const endVal = document.getElementById("endDate").value;
-    console.log("Filtering with dates:", startVal, endVal);
+    function filterAndRender() {
+      const startVal = document.getElementById("startDate").value;
+      const endVal = document.getElementById("endDate").value;
+      console.log("Filtering with dates:", startVal, endVal);
 
-    if (!startVal || !endVal || !allItems.length) {
+      if (!startVal || !endVal || !allItems.length) {
         console.log("Date inputs invalid or no items. Showing recent 50.");
         renderTable(allItems.slice(0, 50));
         return;
-    }
+      }
 
-    try {
+      try {
         const startDate = new Date(startVal);
         startDate.setUTCHours(0, 0, 0, 0);
 
         const endDate = new Date(endVal);
         endDate.setUTCHours(23, 59, 59, 999);
-        
+
         console.log("Filtering between UTC:", startDate.toISOString(), "and", endDate.toISOString());
 
         const filtered = allItems.filter(it => {
-            if (!it.detected_at_utc) return false;
-            const detectedDate = new Date(it.detected_at_utc);
-            if (isNaN(detectedDate.getTime())) {
-                console.warn("Invalid date in item:", it);
-                return false;
-            }
-            return detectedDate >= startDate && detectedDate <= endDate;
+          if (!it.detected_at_utc) return false;
+          const detectedDate = new Date(it.detected_at_utc);
+          if (isNaN(detectedDate.getTime())) {
+            console.warn("Invalid date in item:", it);
+            return false;
+          }
+          return detectedDate >= startDate && detectedDate <= endDate;
         });
 
         console.log(`Found ${filtered.length} items in range.`);
         renderTable(filtered);
-    } catch(e) {
+      } catch (e) {
         console.error("Error during date filtering:", e);
         document.getElementById("tbody").innerHTML = '<tr><td colspan="6" class="p-3 text-red-500">날짜 필터링 중 오류가 발생했습니다.</td></tr>';
+      }
     }
-}
 
-document.getElementById("tbody").addEventListener("click", e => {
-    if (e.target.classList.contains("diff-btn")) {
+    document.getElementById("tbody").addEventListener("click", e => {
+      if (e.target.classList.contains("diff-btn")) {
         const url = e.target.dataset.url;
         const modal = document.getElementById("diff-modal");
         const iframe = modal.querySelector("iframe");
         iframe.src = `https://jinsu133.github.io/airpermit-law-alert/${url}`;
         modal.style.display = "block";
-    }
-});
-document.getElementById("diff-modal-close").addEventListener("click", () => {
-    document.getElementById("diff-modal").style.display = "none";
-    document.querySelector("#diff-modal iframe").src = "about:blank";
-});
+      }
+    });
+    document.getElementById("diff-modal-close").addEventListener("click", () => {
+      document.getElementById("diff-modal").style.display = "none";
+      document.querySelector("#diff-modal iframe").src = "about:blank";
+    });
 
-(async function(){
-  const yEl = document.getElementById("y");
-  if(yEl) yEl.textContent = new Date().getFullYear();
+    (async function () {
+      const yEl = document.getElementById("y");
+      if (yEl) yEl.textContent = new Date().getFullYear();
 
-  const endDateEl = document.getElementById("endDate");
-  const startDateEl = document.getElementById("startDate");
-  
-  startDateEl.value = "2025-01-01";
-  endDateEl.value = toDateInput(new Date());
+      const endDateEl = document.getElementById("endDate");
+      const startDateEl = document.getElementById("startDate");
 
-  document.getElementById("searchBtn").addEventListener("click", filterAndRender);
+      startDateEl.value = "2025-01-01";
+      endDateEl.value = toDateInput(new Date());
 
-  try {
-    const res = await fetch("changelog.json?ts="+Date.now());
-    if(!res.ok) throw new Error(`changelog.json 로드 실패: ${res.status}`);
-    const data = await res.json();
-    allItems = Array.isArray(data.items) ? data.items : [];
-    console.log(`Loaded ${allItems.length} total items.`);
-    filterAndRender();
-  } catch(err) {
-      console.error(err);
-      document.getElementById("tbody").innerHTML='<tr><td colspan="6" class="p-3 text-red-500">로드 오류: '+esc(err.message||err)+'</td></tr>';
-      document.getElementById("meta").innerHTML='<div class="text-red-500 font-bold">⚠ 데이터를 불러오지 못했습니다.</div>';
-  }
-})();
-</script>
-<script defer src="/assets/layout.js"></script>
+      document.getElementById("searchBtn").addEventListener("click", filterAndRender);
+
+      try {
+        const res = await fetch("changelog.json?ts=" + Date.now());
+        if (!res.ok) throw new Error(`changelog.json 로드 실패: ${res.status}`);
+        const data = await res.json();
+        allItems = Array.isArray(data.items) ? data.items : [];
+        console.log(`Loaded ${allItems.length} total items.`);
+        filterAndRender();
+      } catch (err) {
+        console.error(err);
+        document.getElementById("tbody").innerHTML = '<tr><td colspan="6" class="p-3 text-red-500">로드 오류: ' + esc(err.message || err) + '</td></tr>';
+        document.getElementById("meta").innerHTML = '<div class="text-red-500 font-bold">⚠ 데이터를 불러오지 못했습니다.</div>';
+      }
+    })();
+  </script>
+  <script defer src="/assets/layout.js"></script>
 </body>
+
 </html>
