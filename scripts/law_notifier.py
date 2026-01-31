@@ -122,9 +122,12 @@ STATUS_KO = {
     "OK": "유지"
 }
 
+# 기존 ENV_BILL_KEYWORDS 대신 BILL_LAW_KEYWORDS 등의 필터링 전략 사용으로 is_env_bill 단순화 또는 제거 가능하나,
+# Strategy 2에서 보조 필터로 쓸 수 있으므로 남겨둠 (심플하게 정의)
 def is_env_bill(name: str) -> bool:
-    n = (name or "").lower()
-    return any(kw.lower() in n for kw in ENV_BILL_KEYWORDS)
+    # 이번 로직에서는 bill_items 내부에서 직접 필터링하므로 이 함수가 필수적이진 않으나 호환성 유지
+    base_keywords = ["대기", "환경", "오염", "배출", "통합관리"]
+    return any(kw in name for kw in base_keywords)
 
 def now_kst_iso_ms() -> str:
     return datetime.now(KST).isoformat(timespec="milliseconds")
@@ -268,45 +271,83 @@ def extract_rows(data: Dict[str, Any]) -> List[Dict[str, Any]]:
     return []
 
 def bill_items() -> List[Dict[str, Any]]:
-    # 서비스: TVBPMBILL11(의안검색) 사용
-    service = os.getenv("SERVICE_SEARCH_BILL","TVBPMBILL11").strip() or "TVBPMBILL11"
+    # 2가지 전략:
+    # 1. 기존 BILL_LAW_KEYWORDS로 '의안검색' (TVBPMBILL11)
+    # 2. 새로운 BILL_SERVICES_RECENT로 '최근 의안' 긁어와서 키워드 필터링
+    
     age = ASSEMBLY_AGE or "auto"
     if age.lower() == "auto":
         age = current_assembly_age()
-    out=[]
-    for kw in BILL_KEYWORDS:
+        
+    out = []
+    seen_ids = set()
+
+    # Strategy 1: 키워드 검색 (TVBPMBILL11)
+    keywords = BILL_LAW_KEYWORDS
+    
+    for kw in keywords:
         try:
-            data = assembly_call(service, {"BILL_NM": kw, "pSize": 30, "AGE": age})
-        except requests.exceptions.RequestException as e:
-            print(f"[WARN] bill_items 실패: {kw} -> {e}")
+            data = assembly_call(SERVICE_SEARCH_BILL, {"BILL_NM": kw, "pSize": 50, "AGE": age})
+        except Exception as e:
+            print(f"[WARN] bill_search 실패: {kw} -> {e}")
             continue
-        except ValueError as e:
-            print(f"[WARN] bill_items 파싱 실패: {kw} -> {e}")
-            continue
+            
         rows = extract_rows(data)
         for r in rows:
             bill_id = r.get("BILL_ID") or r.get("billId")
-            if not bill_id:
-                continue
+            if not bill_id or bill_id in seen_ids: continue
+            
             title = r.get("BILL_NAME") or r.get("TITLE") or ""
-            # 환경/대기 관련 키워드 포함 시에만 채택
-            if not is_env_bill(title):
-                continue
+            
+            propose_date = (r.get("PROPOSE_DT") or r.get("RST_PROPOSE_DT") or "").replace("-","")
+            
             out.append({
                 "bill_id": bill_id,
                 "bill_no": r.get("BILL_NO") or r.get("BILLNO"),
                 "bill_name": title,
-                "propose_dt": r.get("PROPOSE_DT") or "",
-                "proc_result": r.get("PROC_RESULT") or r.get("PROC_RESULT_CD") or "",
+                "propose_dt": propose_date,
+                "proc_result": r.get("PROC_RESULT") or ""
             })
-    # 중복 제거
-    seen=set(); uniq=[]
-    for b in out:
-        if b["bill_id"] in seen:
+            seen_ids.add(bill_id)
+
+    # Strategy 2: 최근 의안 리스트 (다중 서비스)
+    for svc_info in BILL_SERVICES_RECENT:
+        svc_code = svc_info["service"]
+        pm = svc_info["params"].copy()
+        if "AGE" in pm: pm["AGE"] = age # AGE가 필요한 서비스만 주입
+        
+        try:
+            data = assembly_call(svc_code, pm)
+        except Exception as e:
+            print(f"[WARN] bill_recent 실패: {svc_info['label']} -> {e}")
             continue
-        seen.add(b["bill_id"])
-        uniq.append(b)
-    return uniq[:300]
+            
+        rows = extract_rows(data)
+        for r in rows:
+            bill_id = r.get("BILL_ID") or r.get("billId")
+            if not bill_id or bill_id in seen_ids: continue
+            
+            title = r.get("BILL_NAME") or r.get("TITLE") or r.get("billName") or ""
+            
+            # 관심 법률명 필터링
+            if not any(k in title for k in keywords):
+                # 보조 필터
+                base_keywords = ["대기", "환경", "오염", "배출", "통합관리"]
+                if not any(k in title for k in base_keywords):
+                    continue
+            
+            propose_date = (r.get("PROPOSE_DT") or r.get("proposeDt") or "").replace("-","")
+
+            out.append({
+                "bill_id": bill_id,
+                "bill_no": r.get("BILL_NO") or r.get("billNo"),
+                "bill_name": title,
+                "propose_dt": propose_date,
+                "proc_result": r.get("PROC_RESULT") or ""
+            })
+            seen_ids.add(bill_id)
+            
+    return out
 
 def status_from_prev(prev: Optional[Dict[str, Any]], status_key: str) -> str:
     if not prev: return "NEW"
@@ -336,7 +377,6 @@ def run_web(out_dir: str) -> None:
         item_id = f'{info.get("ln","")}|{info.get("ld","")}|{info.get("reform_type","")}'.strip("|") or key
         
         # 법령 상세(신구법비교) 링크 생성
-        # 예: https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=260123&efYd=20240101
         law_id = info.get("law_id")
         if law_id:
             link_url = f"https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq={law_id}&efYd={info.get('ld','')}"
@@ -359,7 +399,6 @@ def run_web(out_dir: str) -> None:
             item_id = f'{it.get("num","")}|{it.get("promulgation_date","")}|{it.get("enforce_date","")}'.strip("|") or key
             
             # 행정규칙 상세 링크 생성
-            # 예: https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000239568
             admrul_id = it.get("admrul_id")
             if admrul_id:
                 link_url = f"https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq={admrul_id}"
