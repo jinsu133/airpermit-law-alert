@@ -279,7 +279,8 @@ def run_web(out_dir: str) -> None:
         prev = st["laws"].get(key)
         status = status_from_prev(prev, cur_key)
         item_id = f'{info.get("ln","")}|{info.get("ld","")}|{info.get("reform_type","")}'.strip("|") or key
-        item = {"status": status, "status_ko": STATUS_KO.get(status, status), "kind":"법령", "title": info.get("law_name") or name, "date": info.get("ld",""), "id": item_id}
+        link_url = f"https://www.law.go.kr/법령/{info.get('law_name') or name}"
+        item = {"status": status, "status_ko": STATUS_KO.get(status, status), "kind":"법령", "title": info.get("law_name") or name, "date": info.get("ld",""), "id": item_id, "diff_url": link_url}
         all_items.append(item)
         if status in ("NEW","MOD"):
             change_items.append(item.copy())
@@ -293,7 +294,8 @@ def run_web(out_dir: str) -> None:
             prev = st["admruls"].get(key)
             status = status_from_prev(prev, cur_key)
             item_id = f'{it.get("num","")}|{it.get("promulgation_date","")}|{it.get("enforce_date","")}'.strip("|") or key
-            item = {"status": status, "status_ko": STATUS_KO.get(status, status), "kind":"고시", "title": it.get("title",""), "date": it.get("promulgation_date") or it.get("enforce_date") or "", "id": item_id}
+            link_url = f"https://www.law.go.kr/행정규칙/{it.get('title','')}"
+            item = {"status": status, "status_ko": STATUS_KO.get(status, status), "kind":"고시", "title": it.get("title",""), "date": it.get("promulgation_date") or it.get("enforce_date") or "", "id": item_id, "diff_url": link_url}
             all_items.append(item)
             if status in ("NEW","MOD"):
                 change_items.append(item.copy())
@@ -314,7 +316,7 @@ def run_web(out_dir: str) -> None:
             "title": bill_item["bill_name"],
             "date": bill_item.get("propose_dt"),
             "id": bill_item["bill_id"],
-            "diff_url": None,
+            "diff_url": f"https://likms.assembly.go.kr/bill/billDetail.do?billId={bill_item['bill_id']}",
             "detected_at_utc": gen_utc
         }
         all_items.append(bill_out_item)
