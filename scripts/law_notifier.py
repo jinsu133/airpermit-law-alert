@@ -60,7 +60,14 @@ ENV_BILL_KEYWORDS = [
   "미세먼지","대기환경","대기질","대기관리","공해",
   "통합관리","오염물질","배출시설","방지시설",
   "시험","검사","측정",
+    "시험","검사","측정",
 ]
+
+STATUS_KO = {
+    "NEW": "신규",
+    "MOD": "변경",
+    "OK": "유지"
+}
 
 def is_env_bill(name: str) -> bool:
     n = (name or "").lower()
@@ -272,7 +279,7 @@ def run_web(out_dir: str) -> None:
         prev = st["laws"].get(key)
         status = status_from_prev(prev, cur_key)
         item_id = f'{info.get("ln","")}|{info.get("ld","")}|{info.get("reform_type","")}'.strip("|") or key
-        item = {"status": status, "kind":"법령", "title": info.get("law_name") or name, "date": info.get("ld",""), "id": item_id}
+        item = {"status": status, "status_ko": STATUS_KO.get(status, status), "kind":"법령", "title": info.get("law_name") or name, "date": info.get("ld",""), "id": item_id}
         all_items.append(item)
         if status in ("NEW","MOD"):
             change_items.append(item.copy())
@@ -286,7 +293,7 @@ def run_web(out_dir: str) -> None:
             prev = st["admruls"].get(key)
             status = status_from_prev(prev, cur_key)
             item_id = f'{it.get("num","")}|{it.get("promulgation_date","")}|{it.get("enforce_date","")}'.strip("|") or key
-            item = {"status": status, "kind":"고시", "title": it.get("title",""), "date": it.get("promulgation_date") or it.get("enforce_date") or "", "id": item_id}
+            item = {"status": status, "status_ko": STATUS_KO.get(status, status), "kind":"고시", "title": it.get("title",""), "date": it.get("promulgation_date") or it.get("enforce_date") or "", "id": item_id}
             all_items.append(item)
             if status in ("NEW","MOD"):
                 change_items.append(item.copy())
@@ -299,16 +306,21 @@ def run_web(out_dir: str) -> None:
         prev = st["bills"].get(key)
         status = "NEW" if not prev else ("MOD" if prev.get("status_key") != cur_key else "OK")
 
+        # Common Item Structure for Bills
+        bill_out_item = {
+            "status": status,
+            "status_ko": STATUS_KO.get(status, status),
+            "kind": "의안",
+            "title": bill_item["bill_name"],
+            "date": bill_item.get("propose_dt"),
+            "id": bill_item["bill_id"],
+            "diff_url": None,
+            "detected_at_utc": gen_utc
+        }
+        all_items.append(bill_out_item)
+
         if status in ("NEW", "MOD"):
-            change_items.append({
-                "status": status,
-                "kind": "의안",
-                "title": bill_item["bill_name"],
-                "date": bill_item.get("propose_dt"),
-                "id": bill_item["bill_id"],
-                "diff_url": None,
-                "detected_at_utc": gen_utc
-            })
+            change_items.append(bill_out_item)
             st["bills"][key] = {"status_key": cur_key, **bill_item}
 
     outp = Path(out_dir)
