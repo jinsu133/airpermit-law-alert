@@ -424,13 +424,405 @@
       "proc_result": ""
     },
     "PRC_H2G6G0O1P0N9O1M0N5L7T2U5S9S6Q4": {
-      "status_key": "2216456||2026-01-30",
+      "status_key": "2216456||20260130",
       "bill_id": "PRC_H2G6G0O1P0N9O1M0N5L7T2U5S9S6Q4",
       "bill_no": "2216456",
       "bill_name": "한국열에너지공사법안",
-      "propose_dt": "2026-01-30",
+      "propose_dt": "20260130",
+      "proc_result": ""
+    },
+    "PRC_B2A6H0I1G2H9F1G6E3F3M2N3M3K4K2": {
+      "status_key": "2216477||20260130",
+      "bill_id": "PRC_B2A6H0I1G2H9F1G6E3F3M2N3M3K4K2",
+      "bill_no": "2216477",
+      "bill_name": "지역고용활성화법안",
+      "propose_dt": "20260130",
+      "proc_result": ""
+    },
+    "PRC_K2R6Q0R1P2P6N1P3K5L2J0H5I1G0H8": {
+      "status_key": "2216476||20260130",
+      "bill_id": "PRC_K2R6Q0R1P2P6N1P3K5L2J0H5I1G0H8",
+      "bill_no": "2216476",
+      "bill_name": "교통기본법안",
+      "propose_dt": "20260130",
+      "proc_result": ""
+    },
+    "PRC_Z2X5Y1W2X1V7V1R4Q3Q9O5P9O1O2W1": {
+      "status_key": "2216475||20260130",
+      "bill_id": "PRC_Z2X5Y1W2X1V7V1R4Q3Q9O5P9O1O2W1",
+      "bill_no": "2216475",
+      "bill_name": "서비스산업발전기본법안",
+      "propose_dt": "20260130",
+      "proc_result": ""
+    },
+    "PRC_N2L6K0L1S2T8R1S7Q3R0P3P4X9W4W0": {
+      "status_key": "2216474||20260130",
+      "bill_id": "PRC_N2L6K0L1S2T8R1S7Q3R0P3P4X9W4W0",
+      "bill_no": "2216474",
+      "bill_name": "국민건강증진법 일부개정법률안",
+      "propose_dt": "20260130",
+      "proc_result": ""
+    },
+    "PRC_M2K6L0K1K2I8J1R5R2Q3O2P8N8N4W9": {
+      "status_key": "2216473||20260130",
+      "bill_id": "PRC_M2K6L0K1K2I8J1R5R2Q3O2P8N8N4W9",
+      "bill_no": "2216473",
+      "bill_name": "전북특별자치도 설치 및 글로벌생명경제도시 조성을 위한 특별법 일부개정법률안",
+      "propose_dt": "20260130",
+      "proc_result": ""
+    },
+    "PRC_I2G6H0F1F2N7M1M7K4L6J5K4S7T1R3": {
+      "status_key": "2216472||20260130",
+      "bill_id": "PRC_I2G6H0F1F2N7M1M7K4L6J5K4S7T1R3",
+      "bill_no": "2216472",
+      "bill_name": "채용절차의 공정화에 관한 법률 일부개정법률안",
+      "propose_dt": "20260130",
+      "proc_result": ""
+    },
+    "PRC_N2M5M1U2T3T0R0S8Q2R9Z2Z4Y3Y2X8": {
+      "status_key": "2216471||20260130",
+      "bill_id": "PRC_N2M5M1U2T3T0R0S8Q2R9Z2Z4Y3Y2X8",
+      "bill_no": "2216471",
+      "bill_name": "서민의 금융생활 지원에 관한 법률 일부개정법률안",
+      "propose_dt": "20260130",
+      "proc_result": ""
+    },
+    "PRC_K2K6I0J1I2I9Q1Q6P3N4O2M4N3U0V1": {
+      "status_key": "2216470||20260130",
+      "bill_id": "PRC_K2K6I0J1I2I9Q1Q6P3N4O2M4N3U0V1",
+      "bill_no": "2216470",
+      "bill_name": "국민연금법 일부개정법률안",
+      "propose_dt": "20260130",
+      "proc_result": ""
+    },
+    "PRC_G2H6F0G1E2F9M1L6M2K5K4J5K5R6S8": {
+      "status_key": "2216469||20260130",
+      "bill_id": "PRC_G2H6F0G1E2F9M1L6M2K5K4J5K5R6S8",
+      "bill_no": "2216469",
+      "bill_name": "지방세특례제한법 일부개정법률안",
+      "propose_dt": "20260130",
+      "proc_result": ""
+    },
+    "PRC_O2W6X0V1T2U8S1T7B0B6Z5A9Z0X2Y4": {
+      "status_key": "2216468||20260130",
+      "bill_id": "PRC_O2W6X0V1T2U8S1T7B0B6Z5A9Z0X2Y4",
+      "bill_no": "2216468",
+      "bill_name": "대구경북특별시 설치 및 한반도 신경제 중심축 조성을 위한 특별법안",
+      "propose_dt": "20260130",
+      "proc_result": ""
+    },
+    "PRC_Y2Y6W0F1F2D9E0C9D2B5C0K8K2J1H5": {
+      "status_key": "2216467||20260130",
+      "bill_id": "PRC_Y2Y6W0F1F2D9E0C9D2B5C0K8K2J1H5",
+      "bill_no": "2216467",
+      "bill_name": "전자장치 부착 등에 관한 법률 일부개정법률안",
+      "propose_dt": "20260130",
+      "proc_result": ""
+    },
+    "PRC_N2O6C0D1B2A6A1Z7Z0H3I2G7H6F1F6": {
+      "status_key": "2216466||20260130",
+      "bill_id": "PRC_N2O6C0D1B2A6A1Z7Z0H3I2G7H6F1F6",
+      "bill_no": "2216466",
+      "bill_name": "고등교육법 일부개정법률안",
+      "propose_dt": "20260130",
+      "proc_result": ""
+    },
+    "PRC_F2N6O0M1M3L0M1K0K5S6T1R1P9Q0O2": {
+      "status_key": "2216465||20260130",
+      "bill_id": "PRC_F2N6O0M1M3L0M1K0K5S6T1R1P9Q0O2",
+      "bill_no": "2216465",
+      "bill_name": "공직선거법 일부개정법률안",
+      "propose_dt": "20260130",
+      "proc_result": ""
+    },
+    "PRC_C2D6C0C1A2B9A1H6I5G3H3F7G5E9M3": {
+      "status_key": "2216464||20260130",
+      "bill_id": "PRC_C2D6C0C1A2B9A1H6I5G3H3F7G5E9M3",
+      "bill_no": "2216464",
+      "bill_name": "국가채권 관리법 일부개정법률안",
+      "propose_dt": "20260130",
+      "proc_result": ""
+    },
+    "PRC_P2X5X1W2U1V7T1U1B3C5A3B7Z7A0Y0": {
+      "status_key": "2216463||20260130",
+      "bill_id": "PRC_P2X5X1W2U1V7T1U1B3C5A3B7Z7A0Y0",
+      "bill_no": "2216463",
+      "bill_name": "재난 및 안전관리 기본법 일부개정법률안",
+      "propose_dt": "20260130",
+      "proc_result": ""
+    },
+    "PRC_Z2Z6X0Y1U2S9T1R1S0Q5Q0Z2Z7X9Y6": {
+      "status_key": "2216462||20260130",
+      "bill_id": "PRC_Z2Z6X0Y1U2S9T1R1S0Q5Q0Z2Z7X9Y6",
+      "bill_no": "2216462",
+      "bill_name": "국가재정법 일부개정법률안",
+      "propose_dt": "20260130",
+      "proc_result": ""
+    },
+    "PRC_Y2Y6X0X1W2W9S1Q1R0P4Q0O6P7X7X5": {
+      "status_key": "2216461||20260130",
+      "bill_id": "PRC_Y2Y6X0X1W2W9S1Q1R0P4Q0O6P7X7X5",
+      "bill_no": "2216461",
+      "bill_name": "개인정보침해피해자보호기금법안",
+      "propose_dt": "20260130",
+      "proc_result": ""
+    },
+    "PRC_T2R5S1Q1Y0Z6X1X5W0X8V3V0R6R0Q7": {
+      "status_key": "2216460||20260130",
+      "bill_id": "PRC_T2R5S1Q1Y0Z6X1X5W0X8V3V0R6R0Q7",
+      "bill_no": "2216460",
+      "bill_name": "소재ㆍ부품ㆍ장비산업 경쟁력 강화 및 공급망 안정화를 위한 특별조치법 일부개정법률안",
+      "propose_dt": "20260130",
+      "proc_result": ""
+    },
+    "PRC_E2D6E0C1C2K8L1J6K1I5I5H6H2P4O3": {
+      "status_key": "2216459||20260130",
+      "bill_id": "PRC_E2D6E0C1C2K8L1J6K1I5I5H6H2P4O3",
+      "bill_no": "2216459",
+      "bill_name": "학교폭력예방 및 대책에 관한 법률 일부개정법률안",
+      "propose_dt": "20260130",
+      "proc_result": ""
+    },
+    "PRC_R2R6Z0A1Y2Z8X1Y6W1W5E2D7D6B4C9": {
+      "status_key": "2216458||20260130",
+      "bill_id": "PRC_R2R6Z0A1Y2Z8X1Y6W1W5E2D7D6B4C9",
+      "bill_no": "2216458",
+      "bill_name": "국제문화교류 진흥법 일부개정법률안",
+      "propose_dt": "20260130",
+      "proc_result": ""
+    },
+    "PRC_N2V6V0U1U2T9R0S9N5O7M4N1L2M5K8": {
+      "status_key": "2216457||20260130",
+      "bill_id": "PRC_N2V6V0U1U2T9R0S9N5O7M4N1L2M5K8",
+      "bill_no": "2216457",
+      "bill_name": "자동차손해배상 보장법 일부개정법률안",
+      "propose_dt": "20260130",
+      "proc_result": ""
+    },
+    "PRC_X2T6T0S1S2Q6R1P1X0Y4W5X3V8V1U9": {
+      "status_key": "2216455||20260130",
+      "bill_id": "PRC_X2T6T0S1S2Q6R1P1X0Y4W5X3V8V1U9",
+      "bill_no": "2216455",
+      "bill_name": "대규모유통업에서의 거래 공정화에 관한 법률 일부개정법률안",
+      "propose_dt": "20260130",
+      "proc_result": ""
+    },
+    "PRC_J2K6I0J1H2I7Q1Q7O2P4N5M9M9I7I4": {
+      "status_key": "2216454||20260130",
+      "bill_id": "PRC_J2K6I0J1H2I7Q1Q7O2P4N5M9M9I7I4",
+      "bill_no": "2216454",
+      "bill_name": "국민건강보험법 일부개정법률안",
+      "propose_dt": "20260130",
+      "proc_result": ""
+    },
+    "PRC_X2V6W0E1C2D9B0C9A5A3J0J9H7I7G1": {
+      "status_key": "2216453||20260130",
+      "bill_id": "PRC_X2V6W0E1C2D9B0C9A5A3J0J9H7I7G1",
+      "bill_no": "2216453",
+      "bill_name": "자본시장과 금융투자업에 관한 법률 일부개정법률안",
+      "propose_dt": "20260130",
+      "proc_result": ""
+    },
+    "PRC_K2K6J0J1R1S9Q0Q9P2N9O2V6W7V3V6": {
+      "status_key": "2216452||20260130",
+      "bill_id": "PRC_K2K6J0J1R1S9Q0Q9P2N9O2V6W7V3V6",
+      "bill_no": "2216452",
+      "bill_name": "항만 재개발 및 주변지역 발전에 관한 법률 일부개정법률안",
+      "propose_dt": "20260130",
+      "proc_result": ""
+    },
+    "PRC_R2T6R0R1P2Q2Y1W0X3V9W0U8V0R7P3": {
+      "status_key": "2216451||20260130",
+      "bill_id": "PRC_R2T6R0R1P2Q2Y1W0X3V9W0U8V0R7P3",
+      "bill_no": "2216451",
+      "bill_name": "농업·농촌 및 식품산업 기본법 일부개정법률안",
+      "propose_dt": "20260130",
+      "proc_result": ""
+    },
+    "PRC_A2Y5A1V2W2U4U1T5R3S6Z5A8Z3Z2X4": {
+      "status_key": "2216450||20260130",
+      "bill_id": "PRC_A2Y5A1V2W2U4U1T5R3S6Z5A8Z3Z2X4",
+      "bill_no": "2216450",
+      "bill_name": "건설산업기본법 일부개정법률안",
+      "propose_dt": "20260130",
+      "proc_result": ""
+    },
+    "PRC_T2U6S0S1A2A8Z1X3Y5W3X1S3T7R2S6": {
+      "status_key": "2216448||20260130",
+      "bill_id": "PRC_T2U6S0S1A2A8Z1X3Y5W3X1S3T7R2S6",
+      "bill_no": "2216448",
+      "bill_name": "공직선거법 일부개정법률안",
+      "propose_dt": "20260130",
+      "proc_result": ""
+    },
+    "PRC_L2T6U0S1T2R7R1Q4M1M7K1L7J4K9I9": {
+      "status_key": "2216447||20260130",
+      "bill_id": "PRC_L2T6U0S1T2R7R1Q4M1M7K1L7J4K9I9",
+      "bill_no": "2216447",
+      "bill_name": "방송법 일부개정법률안",
+      "propose_dt": "20260130",
+      "proc_result": ""
+    },
+    "PRC_H2P6P0N1O2N2N1L0M3H8I3H0F0G8E5": {
+      "status_key": "2216446||20260130",
+      "bill_id": "PRC_H2P6P0N1O2N2N1L0M3H8I3H0F0G8E5",
+      "bill_no": "2216446",
+      "bill_name": "국토안전관리원법 일부개정법률안",
+      "propose_dt": "20260130",
+      "proc_result": ""
+    },
+    "PRC_X2F5G0E5D1D6B1C0K3L6J0J0H9G3H4": {
+      "status_key": "2216445||20260130",
+      "bill_id": "PRC_X2F5G0E5D1D6B1C0K3L6J0J0H9G3H4",
+      "bill_no": "2216445",
+      "bill_name": "군용비행장·군사격장 소음 방지 및 피해 보상에 관한 법률 일부개정법률안",
+      "propose_dt": "20260130",
+      "proc_result": ""
+    },
+    "PRC_C2C6B0B1A2A9Z1Z0H5H6G4E7F0D1D8": {
+      "status_key": "2216444||20260130",
+      "bill_id": "PRC_C2C6B0B1A2A9Z1Z0H5H6G4E7F0D1D8",
+      "bill_no": "2216444",
+      "bill_name": "버섯산업 발전 및 지원에 관한 법률안",
+      "propose_dt": "20260130",
+      "proc_result": ""
+    },
+    "PRC_S2R5R1Q2R0Y9Z1X3X4W6W5V2Q0R4Q9": {
+      "status_key": "2216443||20260130",
+      "bill_id": "PRC_S2R5R1Q2R0Y9Z1X3X4W6W5V2Q0R4Q9",
+      "bill_no": "2216443",
+      "bill_name": "원자력시설 등의 방호 및 방사능 방재 대책법 일부개정법률안",
+      "propose_dt": "20260130",
+      "proc_result": ""
+    },
+    "PRC_L2K6L0J1J1I9Q0Q9O2P8N5O0N5N7V4": {
+      "status_key": "2216442||20260130",
+      "bill_id": "PRC_L2K6L0J1J1I9Q0Q9O2P8N5O0N5N7V4",
+      "bill_no": "2216442",
+      "bill_name": "항만공사법 일부개정법률안",
+      "propose_dt": "20260130",
+      "proc_result": ""
+    },
+    "PRC_Q2O5W1W1V1W8U1U4T3B9B2A6B7Z4Z4": {
+      "status_key": "2216441||20260130",
+      "bill_id": "PRC_Q2O5W1W1V1W8U1U4T3B9B2A6B7Z4Z4",
+      "bill_no": "2216441",
+      "bill_name": "인천국제공항공사법 일부개정법률안",
+      "propose_dt": "20260130",
+      "proc_result": ""
+    },
+    "PRC_V2W5U1V1T1T8S1O4O4M0N5L2M2K4L3": {
+      "status_key": "2216440||20260130",
+      "bill_id": "PRC_V2W5U1V1T1T8S1O4O4M0N5L2M2K4L3",
+      "bill_no": "2216440",
+      "bill_name": "의료법 일부개정법률안",
+      "propose_dt": "20260130",
+      "proc_result": ""
+    },
+    "PRC_Z2A6Y0Z1H2H8G1G0E5D6D1L2M2K6L2": {
+      "status_key": "2216439||20260130",
+      "bill_id": "PRC_Z2A6Y0Z1H2H8G1G0E5D6D1L2M2K6L2",
+      "bill_no": "2216439",
+      "bill_name": "박물관 및 미술관 진흥법 일부개정법률안",
+      "propose_dt": "20260130",
+      "proc_result": ""
+    },
+    "PRC_N2N6L0K1L2S8T1R0S4Q1R2P8Q5X1W2": {
+      "status_key": "2216438||20260130",
+      "bill_id": "PRC_N2N6L0K1L2S8T1R0S4Q1R2P8Q5X1W2",
+      "bill_no": "2216438",
+      "bill_name": "관광진흥법 일부개정법률안",
+      "propose_dt": "20260130",
+      "proc_result": ""
+    },
+    "PRC_Q2R6M0N1M2K2K1J0J3R7S0Q8O7P9N8": {
+      "status_key": "2216437||20260130",
+      "bill_id": "PRC_Q2R6M0N1M2K2K1J0J3R7S0Q8O7P9N8",
+      "bill_no": "2216437",
+      "bill_name": "공익신고자 보호법 일부개정법률안",
+      "propose_dt": "20260130",
+      "proc_result": ""
+    },
+    "PRC_J2I6I0G1H2C2D1B6A1A0Z2Z6H4H1G5": {
+      "status_key": "2216436||20260130",
+      "bill_id": "PRC_J2I6I0G1H2C2D1B6A1A0Z2Z6H4H1G5",
+      "bill_no": "2216436",
+      "bill_name": "정보통신망 이용촉진 및 정보보호 등에 관한 법률 일부개정법률안",
+      "propose_dt": "20260130",
+      "proc_result": ""
+    },
+    "PRC_I2G6O0P1N2O8M1N5L3M4H5G5G0F1F3": {
+      "status_key": "2216435||20260130",
+      "bill_id": "PRC_I2G6O0P1N2O8M1N5L3M4H5G5G0F1F3",
+      "bill_no": "2216435",
+      "bill_name": "부동산 거래신고 등에 관한 법률 일부개정법률안",
+      "propose_dt": "20260130",
+      "proc_result": ""
+    },
+    "PRC_W2W5U1V1T1S8S1O4O4N6N0M1M6K0L5": {
+      "status_key": "2216434||20260130",
+      "bill_id": "PRC_W2W5U1V1T1S8S1O4O4N6N0M1M6K0L5",
+      "bill_no": "2216434",
+      "bill_name": "접경지역 지원 특별법 일부개정법률안",
+      "propose_dt": "20260130",
+      "proc_result": ""
+    },
+    "PRC_J2R6S0Q1Q2O2N1O0V3W7U4V6T6U8S7": {
+      "status_key": "2216433||20260130",
+      "bill_id": "PRC_J2R6S0Q1Q2O2N1O0V3W7U4V6T6U8S7",
+      "bill_no": "2216433",
+      "bill_name": "국민영양관리법 일부개정법률안",
+      "propose_dt": "20260130",
+      "proc_result": ""
+    },
+    "PRC_S2R6R0P1Q2Y0W1X4V1W3U2V6D9D8B6": {
+      "status_key": "2216432||20260130",
+      "bill_id": "PRC_S2R6R0P1Q2Y0W1X4V1W3U2V6D9D8B6",
+      "bill_no": "2216432",
+      "bill_name": "민원 처리에 관한 법률 일부개정법률안",
+      "propose_dt": "20260130",
+      "proc_result": ""
+    },
+    "PRC_L2M6K0K1J2J2I1I0Q4R0P1O2O6M9N5": {
+      "status_key": "2216431||20260130",
+      "bill_id": "PRC_L2M6K0K1J2J2I1I0Q4R0P1O2O6M9N5",
+      "bill_no": "2216431",
+      "bill_name": "조세특례제한법 일부개정법률안",
+      "propose_dt": "20260130",
+      "proc_result": ""
+    },
+    "PRC_M2K6L0J1K2I7I1R6P3P3O5O5N6N2V4": {
+      "status_key": "2216430||20260130",
+      "bill_id": "PRC_M2K6L0J1K2I7I1R6P3P3O5O5N6N2V4",
+      "bill_no": "2216430",
+      "bill_name": "옥외광고물 등의 관리와 옥외광고산업 진흥에 관한 법률 일부개정법률안",
+      "propose_dt": "20260130",
+      "proc_result": ""
+    },
+    "PRC_F2F5D1E2Z1A0Z1Z6Y5Y7W5X6F2D4E1": {
+      "status_key": "2216429||20260130",
+      "bill_id": "PRC_F2F5D1E2Z1A0Z1Z6Y5Y7W5X6F2D4E1",
+      "bill_no": "2216429",
+      "bill_name": "고용보험법 일부개정법률안",
+      "propose_dt": "20260130",
+      "proc_result": ""
+    },
+    "PRC_E2F6D0E1C2B2B1X1X2V0W3U8V1T3U5": {
+      "status_key": "2216428||20260130",
+      "bill_id": "PRC_E2F6D0E1C2B2B1X1X2V0W3U8V1T3U5",
+      "bill_no": "2216428",
+      "bill_name": "지방세특례제한법 일부개정법률안",
+      "propose_dt": "20260130",
+      "proc_result": ""
+    },
+    "PRC_E2F6D0E1C2D1K1L7J0K8I3H2H6P8P8": {
+      "status_key": "2216427||20260129",
+      "bill_id": "PRC_E2F6D0E1C2D1K1L7J0K8I3H2H6P8P8",
+      "bill_no": "2216427",
+      "bill_name": "의료사고 피해구제 및 의료분쟁 조정 등에 관한 법률 일부개정법률안",
+      "propose_dt": "20260129",
       "proc_result": ""
     }
   },
-  "last_run": "2026-01-31T17:17:19.830+09:00"
+  "last_run": "2026-01-31T17:27:24.505+09:00"
 }
