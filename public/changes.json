@@ -1,5 +1,286 @@
 {
-  "generated_at_kst": "2026-02-03T01:54:26.963+09:00",
-  "generated_at_utc": "2026-02-02T16:54:26.963Z",
-  "items": []
+  "generated_at_kst": "2026-02-03T02:34:56.381+09:00",
+  "generated_at_utc": "2026-02-02T17:34:56.381Z",
+  "items": [
+    {
+      "status": "NEW",
+      "status_ko": "신규",
+      "kind": "의안",
+      "title": "남녀고용평등과 일·가정 양립 지원에 관한 법률 일부개정법률안",
+      "date": "20260202",
+      "id": "PRC_C2K6K0J2J0I2J1H4H5P9O0O0M5N6L2",
+      "diff_url": "https://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_C2K6K0J2J0I2J1H4H5P9O0O0M5N6L2",
+      "detected_at_utc": "2026-02-02T17:34:56.381Z"
+    },
+    {
+      "status": "NEW",
+      "status_ko": "신규",
+      "kind": "의안",
+      "title": "성폭력범죄의 처벌 등에 관한 특례법 일부개정법률안",
+      "date": "20260202",
+      "id": "PRC_F2G6O0P1N1O3M1M4L0H8H0F6G5E4F3",
+      "diff_url": "https://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_F2G6O0P1N1O3M1M4L0H8H0F6G5E4F3",
+      "detected_at_utc": "2026-02-02T17:34:56.381Z"
+    },
+    {
+      "status": "NEW",
+      "status_ko": "신규",
+      "kind": "의안",
+      "title": "아동·청소년의 성보호에 관한 법률 일부개정법률안",
+      "date": "20260202",
+      "id": "PRC_C2D6B0C1J1K3I1J4I0G8G5C4C7B2C7",
+      "diff_url": "https://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_C2D6B0C1J1K3I1J4I0G8G5C4C7B2C7",
+      "detected_at_utc": "2026-02-02T17:34:56.381Z"
+    },
+    {
+      "status": "NEW",
+      "status_ko": "신규",
+      "kind": "의안",
+      "title": "국가인권위원회법 일부개정법률안",
+      "date": "20260202",
+      "id": "PRC_R2P6Q0O2O0X2V0V9U5U1T0T0P7P4O0",
+      "diff_url": "https://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_R2P6Q0O2O0X2V0V9U5U1T0T0P7P4O0",
+      "detected_at_utc": "2026-02-02T17:34:56.381Z"
+    },
+    {
+      "status": "NEW",
+      "status_ko": "신규",
+      "kind": "의안",
+      "title": "대구경북행정통합특별법안",
+      "date": "20260202",
+      "id": "PRC_K2K6I0H1I2G8G1O0P0N9N5M7N2L2L6",
+      "diff_url": "https://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_K2K6I0H1I2G8G1O0P0N9N5M7N2L2L6",
+      "detected_at_utc": "2026-02-02T17:34:56.381Z"
+    },
+    {
+      "status": "NEW",
+      "status_ko": "신규",
+      "kind": "의안",
+      "title": "노인장기요양보험법 일부개정법률안",
+      "date": "20260202",
+      "id": "PRC_U2U6C0D1B1C2A1Z4Z3H4H1F0H9F8F3",
+      "diff_url": "https://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_U2U6C0D1B1C2A1Z4Z3H4H1F0H9F8F3",
+      "detected_at_utc": "2026-02-02T17:34:56.381Z"
+    },
+    {
+      "status": "NEW",
+      "status_ko": "신규",
+      "kind": "의안",
+      "title": "공직선거법 일부개정법률안",
+      "date": "20260202",
+      "id": "PRC_K2I6J0I1I2G8H1O5N0O4M1M9L3L1H2",
+      "diff_url": "https://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_K2I6J0I1I2G8H1O5N0O4M1M9L3L1H2",
+      "detected_at_utc": "2026-02-02T17:34:56.381Z"
+    },
+    {
+      "status": "NEW",
+      "status_ko": "신규",
+      "kind": "의안",
+      "title": "한국장학재단 설립 등에 관한 법률 일부개정법률안",
+      "date": "20260202",
+      "id": "PRC_Z2Z6I0I1G1E3M1N3L3M0K5L3J2J5S6",
+      "diff_url": "https://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_Z2Z6I0I1G1E3M1N3L3M0K5L3J2J5S6",
+      "detected_at_utc": "2026-02-02T17:34:56.381Z"
+    },
+    {
+      "status": "NEW",
+      "status_ko": "신규",
+      "kind": "의안",
+      "title": "개인정보 보호법 일부개정법률안",
+      "date": "20260202",
+      "id": "PRC_V2U6U0T1R1S3Z1A1Y4Z9X3Y1W5W5T3",
+      "diff_url": "https://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_V2U6U0T1R1S3Z1A1Y4Z9X3Y1W5W5T3",
+      "detected_at_utc": "2026-02-02T17:34:56.381Z"
+    },
+    {
+      "status": "NEW",
+      "status_ko": "신규",
+      "kind": "의안",
+      "title": "직업안정법 일부개정법률안",
+      "date": "20260202",
+      "id": "PRC_R2P6R0Y1Z2X9X1W1U0V7D3D0B9C0B7",
+      "diff_url": "https://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_R2P6R0Y1Z2X9X1W1U0V7D3D0B9C0B7",
+      "detected_at_utc": "2026-02-02T17:34:56.381Z"
+    },
+    {
+      "status": "NEW",
+      "status_ko": "신규",
+      "kind": "의안",
+      "title": "대기환경보전법 일부개정법률안",
+      "date": "20260202",
+      "id": "PRC_Q2Y6Z0X1X2W9W1U1D0D6B4C4A8B8Z8",
+      "diff_url": "https://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_Q2Y6Z0X1X2W9W1U1D0D6B4C4A8B8Z8",
+      "detected_at_utc": "2026-02-02T17:34:56.381Z"
+    },
+    {
+      "status": "NEW",
+      "status_ko": "신규",
+      "kind": "의안",
+      "title": "지방자치분권 및 지역균형발전에 관한 특별법 일부개정법률안",
+      "date": "20260202",
+      "id": "PRC_O2N5N0G8H2F7G1O6O0M4L0L2K4K2S3",
+      "diff_url": "https://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_O2N5N0G8H2F7G1O6O0M4L0L2K4K2S3",
+      "detected_at_utc": "2026-02-02T17:34:56.381Z"
+    },
+    {
+      "status": "NEW",
+      "status_ko": "신규",
+      "kind": "의안",
+      "title": "국회법 일부개정법률안",
+      "date": "20260202",
+      "id": "PRC_V2R5P0P7O3O1M1N3V0W4U2U6T9T7R9",
+      "diff_url": "https://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_V2R5P0P7O3O1M1N3V0W4U2U6T9T7R9",
+      "detected_at_utc": "2026-02-02T17:34:56.381Z"
+    },
+    {
+      "status": "NEW",
+      "status_ko": "신규",
+      "kind": "의안",
+      "title": "폐기물관리법 일부개정법률안",
+      "date": "20260202",
+      "id": "PRC_C2B6B0Z1I2I9G1H1F0G5E5F7M2N1M7",
+      "diff_url": "https://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_C2B6B0Z1I2I9G1H1F0G5E5F7M2N1M7",
+      "detected_at_utc": "2026-02-02T17:34:56.381Z"
+    },
+    {
+      "status": "NEW",
+      "status_ko": "신규",
+      "kind": "의안",
+      "title": "지방대학 및 지역균형인재 육성에 관한 법률 일부개정법률안",
+      "date": "20260202",
+      "id": "PRC_J2K6I0J1H2H6P0Q9P0P6N3M8N4U8V2",
+      "diff_url": "https://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_J2K6I0J1H2H6P0Q9P0P6N3M8N4U8V2",
+      "detected_at_utc": "2026-02-02T17:34:56.381Z"
+    },
+    {
+      "status": "NEW",
+      "status_ko": "신규",
+      "kind": "의안",
+      "title": "산업교육진흥 및 산학연협력촉진에 관한 법률 일부개정법률안",
+      "date": "20260202",
+      "id": "PRC_T2S6S0A1A2Z6Z0X9W0X6E0F0D3E1C7",
+      "diff_url": "https://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_T2S6S0A1A2Z6Z0X9W0X6E0F0D3E1C7",
+      "detected_at_utc": "2026-02-02T17:34:56.381Z"
+    },
+    {
+      "status": "NEW",
+      "status_ko": "신규",
+      "kind": "의안",
+      "title": "주거기본법 일부개정법률안",
+      "date": "20260202",
+      "id": "PRC_W2W6U0V1T0B2C1A6B3Z7A1Y7Z8G2F1",
+      "diff_url": "https://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_W2W6U0V1T0B2C1A6B3Z7A1Y7Z8G2F1",
+      "detected_at_utc": "2026-02-02T17:34:56.381Z"
+    },
+    {
+      "status": "NEW",
+      "status_ko": "신규",
+      "kind": "의안",
+      "title": "전자상거래 등에서의 소비자보호에 관한 법률 일부개정법률안",
+      "date": "20260202",
+      "id": "PRC_T2R6P0Q1Y2Y8W1X7W4W6U5V5D5B5C4",
+      "diff_url": "https://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_T2R6P0Q1Y2Y8W1X7W4W6U5V5D5B5C4",
+      "detected_at_utc": "2026-02-02T17:34:56.381Z"
+    },
+    {
+      "status": "NEW",
+      "status_ko": "신규",
+      "kind": "의안",
+      "title": "대규모유통업에서의 거래 공정화에 관한 법률 일부개정법률안",
+      "date": "20260202",
+      "id": "PRC_N2L6J0K1I1J3Y1Z1X4V6W4U8V9C9D5",
+      "diff_url": "https://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_N2L6J0K1I1J3Y1Z1X4V6W4U8V9C9D5",
+      "detected_at_utc": "2026-02-02T17:34:56.381Z"
+    },
+    {
+      "status": "NEW",
+      "status_ko": "신규",
+      "kind": "의안",
+      "title": "조세특례제한법 일부개정법률안",
+      "date": "20260202",
+      "id": "PRC_S2Q6O0P1X2X6W0W9V0V7T1C9C6A1B9",
+      "diff_url": "https://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_S2Q6O0P1X2X6W0W9V0V7T1C9C6A1B9",
+      "detected_at_utc": "2026-02-02T17:34:56.381Z"
+    },
+    {
+      "status": "NEW",
+      "status_ko": "신규",
+      "kind": "의안",
+      "title": "산림보호법 일부개정법률안",
+      "date": "20260202",
+      "id": "PRC_N2O5M1M1L0M4T1U7T1R4R3Q8R5Y0Z8",
+      "diff_url": "https://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_N2O5M1M1L0M4T1U7T1R4R3Q8R5Y0Z8",
+      "detected_at_utc": "2026-02-02T17:34:56.381Z"
+    },
+    {
+      "status": "NEW",
+      "status_ko": "신규",
+      "kind": "의안",
+      "title": "기초연금법 일부개정법률안",
+      "date": "20260202",
+      "id": "PRC_Q2R6P0P1N1W3W1U4V3T4U3S2T7B0B3",
+      "diff_url": "https://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_Q2R6P0P1N1W3W1U4V3T4U3S2T7B0B3",
+      "detected_at_utc": "2026-02-02T17:34:56.381Z"
+    },
+    {
+      "status": "NEW",
+      "status_ko": "신규",
+      "kind": "의안",
+      "title": "도시숲 등의 조성 및 관리에 관한 법률 일부개정법률안",
+      "date": "20260202",
+      "id": "PRC_G2F5F1N2N2M2K0L7J2K7F4G8E6F0D6",
+      "diff_url": "https://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_G2F5F1N2N2M2K0L7J2K7F4G8E6F0D6",
+      "detected_at_utc": "2026-02-02T17:34:56.381Z"
+    },
+    {
+      "status": "NEW",
+      "status_ko": "신규",
+      "kind": "의안",
+      "title": "국유림의 경영 및 관리에 관한 법률 일부개정법률안",
+      "date": "20260202",
+      "id": "PRC_Y2W5X1V0V3E0C0C9B4B8A4A6I7J2H8",
+      "diff_url": "https://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_Y2W5X1V0V3E0C0C9B4B8A4A6I7J2H8",
+      "detected_at_utc": "2026-02-02T17:34:56.381Z"
+    },
+    {
+      "status": "NEW",
+      "status_ko": "신규",
+      "kind": "의안",
+      "title": "고용보험법 일부개정법률안",
+      "date": "20260202",
+      "id": "PRC_F2D5D1B2C1K0L1J6K5I9I1G6H7D2B6",
+      "diff_url": "https://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_F2D5D1B2C1K0L1J6K5I9I1G6H7D2B6",
+      "detected_at_utc": "2026-02-02T17:34:56.381Z"
+    },
+    {
+      "status": "NEW",
+      "status_ko": "신규",
+      "kind": "의안",
+      "title": "지방세특례제한법 일부개정법률안",
+      "date": "20260202",
+      "id": "PRC_X2W6W0V1V2D9E1C6D2B7B4A7I2I6G9",
+      "diff_url": "https://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_X2W6W0V1V2D9E1C6D2B7B4A7I2I6G9",
+      "detected_at_utc": "2026-02-02T17:34:56.381Z"
+    },
+    {
+      "status": "NEW",
+      "status_ko": "신규",
+      "kind": "의안",
+      "title": "국가재정법 일부개정법률안",
+      "date": "20260202",
+      "id": "PRC_V2T6T0P1P2O6M1N0L0L8U4U4S0R1S4",
+      "diff_url": "https://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_V2T6T0P1P2O6M1N0L0L8U4U4S0R1S4",
+      "detected_at_utc": "2026-02-02T17:34:56.381Z"
+    },
+    {
+      "status": "NEW",
+      "status_ko": "신규",
+      "kind": "의안",
+      "title": "지방세특례제한법 일부개정법률안",
+      "date": "20260202",
+      "id": "PRC_Y2X6X0F1F2E2E1D1B1C9J4K6I7J3H7",
+      "diff_url": "https://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_Y2X6X0F1F2E2E1D1B1C9J4K6I7J3H7",
+      "detected_at_utc": "2026-02-02T17:34:56.381Z"
+    }
+  ]
 }
