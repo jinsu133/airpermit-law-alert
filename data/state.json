@@ -1566,7 +1566,407 @@
       "bill_name": "지방세특례제한법 일부개정법률안",
       "propose_dt": "20260204",
       "proc_result": ""
+    },
+    "PRC_M2N6L0L1T2U8S1T8R5S6Q4Y9Z2X6X1": {
+      "status_key": "2216629||20260205",
+      "bill_id": "PRC_M2N6L0L1T2U8S1T8R5S6Q4Y9Z2X6X1",
+      "bill_no": "2216629",
+      "bill_name": "공항시설법 일부개정법률안",
+      "propose_dt": "20260205",
+      "proc_result": ""
+    },
+    "PRC_I2Q6R0P2P0O3O1M3V5V5R3S7O9M8M7": {
+      "status_key": "2216628||20260205",
+      "bill_id": "PRC_I2Q6R0P2P0O3O1M3V5V5R3S7O9M8M7",
+      "bill_no": "2216628",
+      "bill_name": "호스피스·완화의료 및 임종과정에 있는 환자의 연명의료결정에 관한 법률 일부개정법률안",
+      "propose_dt": "20260205",
+      "proc_result": ""
+    },
+    "PRC_S2Q6Q0M2K0L3J1K3I5J6R1R4P1O8P6": {
+      "status_key": "2216627||20260205",
+      "bill_id": "PRC_S2Q6Q0M2K0L3J1K3I5J6R1R4P1O8P6",
+      "bill_no": "2216627",
+      "bill_name": "장기등 이식에 관한 법률 일부개정법률안",
+      "propose_dt": "20260205",
+      "proc_result": ""
+    },
+    "PRC_Q2Y5Y1X2X2V2W1V0V5D5D3C9A6B6Z7": {
+      "status_key": "2216626||20260205",
+      "bill_id": "PRC_Q2Y5Y1X2X2V2W1V0V5D5D3C9A6B6Z7",
+      "bill_no": "2216626",
+      "bill_name": "수도권정비계획법 일부개정법률안",
+      "propose_dt": "20260205",
+      "proc_result": ""
+    },
+    "PRC_C2B6B0Z1A2P6N1O7M1N3L3L0T7U3T4": {
+      "status_key": "2216625||20260205",
+      "bill_id": "PRC_C2B6B0Z1A2P6N1O7M1N3L3L0T7U3T4",
+      "bill_no": "2216625",
+      "bill_name": "시설물의 안전 및 유지관리에 관한 특별법 일부개정법률안",
+      "propose_dt": "20260205",
+      "proc_result": ""
+    },
+    "PRC_O2W6V0V2U0U2S0T9B0C2A0A3Z4X6Y3": {
+      "status_key": "2216624||20260205",
+      "bill_id": "PRC_O2W6V0V2U0U2S0T9B0C2A0A3Z4X6Y3",
+      "bill_no": "2216624",
+      "bill_name": "동물대체시험법의 개발ㆍ보급 및 이용 촉진에 관한 법률안",
+      "propose_dt": "20260205",
+      "proc_result": ""
+    },
+    "PRC_Z2Z6Y0Z1X2X3F1F7E0C8D3B8C4J3L1": {
+      "status_key": "2216623||20260205",
+      "bill_id": "PRC_Z2Z6Y0Z1X2X3F1F7E0C8D3B8C4J3L1",
+      "bill_no": "2216623",
+      "bill_name": "국민연금법 일부개정법률안",
+      "propose_dt": "20260205",
+      "proc_result": ""
+    },
+    "PRC_L2L6J0K1F2G3F1F7D0E6C4K7L0J4K6": {
+      "status_key": "2216622||20260205",
+      "bill_id": "PRC_L2L6J0K1F2G3F1F7D0E6C4K7L0J4K6",
+      "bill_no": "2216622",
+      "bill_name": "돌봄기본법안",
+      "propose_dt": "20260205",
+      "proc_result": ""
+    },
+    "PRC_N2L6M0K1I2J3R1R7P0Q7P4P0N3O0K7": {
+      "status_key": "2216621||20260205",
+      "bill_id": "PRC_N2L6M0K1I2J3R1R7P0Q7P4P0N3O0K7",
+      "bill_no": "2216621",
+      "bill_name": "정부조직법 일부개정법률안",
+      "propose_dt": "20260205",
+      "proc_result": ""
+    },
+    "PRC_W2V6T0U1S3S0O1P6N1M6N1L2L6T6S9": {
+      "status_key": "2216620||20260205",
+      "bill_id": "PRC_W2V6T0U1S3S0O1P6N1M6N1L2L6T6S9",
+      "bill_no": "2216620",
+      "bill_name": "의료급여법 일부개정법률안",
+      "propose_dt": "20260205",
+      "proc_result": ""
+    },
+    "PRC_X2Y6W0X1V3T0U1C6C1A4B0A6A3Y2Z2": {
+      "status_key": "2216619||20260205",
+      "bill_id": "PRC_X2Y6W0X1V3T0U1C6C1A4B0A6A3Y2Z2",
+      "bill_no": "2216619",
+      "bill_name": "국민건강보험법 일부개정법률안",
+      "propose_dt": "20260205",
+      "proc_result": ""
+    },
+    "PRC_X2Y6U0V2T0T3R1S1R1Y0Z0X7Y7W8X0": {
+      "status_key": "2216618||20260205",
+      "bill_id": "PRC_X2Y6U0V2T0T3R1S1R1Y0Z0X7Y7W8X0",
+      "bill_no": "2216618",
+      "bill_name": "대중문화예술산업발전법 일부개정법률안",
+      "propose_dt": "20260205",
+      "proc_result": ""
+    },
+    "PRC_W2T5S0P8M0L8T1S3P2Z3W4S5R9A5Z1": {
+      "status_key": "2216617||20260205",
+      "bill_id": "PRC_W2T5S0P8M0L8T1S3P2Z3W4S5R9A5Z1",
+      "bill_no": "2216617",
+      "bill_name": "마약류 관리에 관한 법률 일부개정법률안",
+      "propose_dt": "20260205",
+      "proc_result": ""
+    },
+    "PRC_Q2O6M0N1L2M7T1V1T2T8R3Q8R7Y5Z9": {
+      "status_key": "2216616||20260205",
+      "bill_id": "PRC_Q2O6M0N1L2M7T1V1T2T8R3Q8R7Y5Z9",
+      "bill_no": "2216616",
+      "bill_name": "정보통신망 이용촉진 및 정보보호 등에 관한 법률 일부개정법률안",
+      "propose_dt": "20260205",
+      "proc_result": ""
+    },
+    "PRC_N2L6M0K2L0S3R2S2Q5Q5P4P7X8Y7W3": {
+      "status_key": "2216615||20260205",
+      "bill_id": "PRC_N2L6M0K2L0S3R2S2Q5Q5P4P7X8Y7W3",
+      "bill_no": "2216615",
+      "bill_name": "전남광주통합특별시 설치 및 미래전환도시 조성을 위한 특별법안",
+      "propose_dt": "20260205",
+      "proc_result": ""
+    },
+    "PRC_O2M5M1L2M1T2U1S0T0R0R0Q2M3M9K9": {
+      "status_key": "2216614||20260205",
+      "bill_id": "PRC_O2M5M1L2M1T2U1S0T0R0R0Q2M3M9K9",
+      "bill_no": "2216614",
+      "bill_name": "근로기준법 일부개정법률안",
+      "propose_dt": "20260205",
+      "proc_result": ""
+    },
+    "PRC_J2H6I0H2H0P3P1O1M0N9L3M5H8G6H2": {
+      "status_key": "2216613||20260205",
+      "bill_id": "PRC_J2H6I0H2H0P3P1O1M0N9L3M5H8G6H2",
+      "bill_no": "2216613",
+      "bill_name": "영화 및 비디오물의 진흥에 관한 법률 일부개정법률안",
+      "propose_dt": "20260205",
+      "proc_result": ""
+    },
+    "PRC_F2M5N1L1M0K3L1J0K2R5S0R5P8P2O4": {
+      "status_key": "2216612||20260205",
+      "bill_id": "PRC_F2M5N1L1M0K3L1J0K2R5S0R5P8P2O4",
+      "bill_no": "2216612",
+      "bill_name": "국가공무원법 일부개정법률안",
+      "propose_dt": "20260205",
+      "proc_result": ""
+    },
+    "PRC_J2K6I0I1H2H9G1H0O1P4N5O4M4K0L3": {
+      "status_key": "2216611||20260205",
+      "bill_id": "PRC_J2K6I0I1H2H9G1H0O1P4N5O4M4K0L3",
+      "bill_no": "2216611",
+      "bill_name": "유통산업발전법 일부개정법률안",
+      "propose_dt": "20260205",
+      "proc_result": ""
+    },
+    "PRC_H2G5G1O1O1N7L1M0K1L2S4T7S0S0Q9": {
+      "status_key": "2216610||20260205",
+      "bill_id": "PRC_H2G5G1O1O1N7L1M0K1L2S4T7S0S0Q9",
+      "bill_no": "2216610",
+      "bill_name": "차별금지법안",
+      "propose_dt": "20260205",
+      "proc_result": ""
+    },
+    "PRC_Q2T6N0U2U0X3U1E8O1C9U1Q4S7Z1P4": {
+      "status_key": "2216609||20260205",
+      "bill_id": "PRC_Q2T6N0U2U0X3U1E8O1C9U1Q4S7Z1P4",
+      "bill_no": "2216609",
+      "bill_name": "각급 법원의 설치와 관할구역에 관한 법률 일부개정법률안(대안)",
+      "propose_dt": "20260205",
+      "proc_result": ""
+    },
+    "PRC_Y2V6X0K2Y0E3A1A8R2L3K5B7Q3U4A0": {
+      "status_key": "2216608||20260205",
+      "bill_id": "PRC_Y2V6X0K2Y0E3A1A8R2L3K5B7Q3U4A0",
+      "bill_no": "2216608",
+      "bill_name": "민사집행법 일부개정법률안(대안)",
+      "propose_dt": "20260205",
+      "proc_result": ""
+    },
+    "PRC_L2S6T0R2S0Q3P1P7X2X4W5X6V7V6T1": {
+      "status_key": "2216607||20260205",
+      "bill_id": "PRC_L2S6T0R2S0Q3P1P7X2X4W5X6V7V6T1",
+      "bill_no": "2216607",
+      "bill_name": "수산업협동조합법 일부개정법률안",
+      "propose_dt": "20260205",
+      "proc_result": ""
+    },
+    "PRC_G2Y6R0Q2C0I3O1M8W2K1C5G5T2X4M3": {
+      "status_key": "2216606||20260205",
+      "bill_id": "PRC_G2Y6R0Q2C0I3O1M8W2K1C5G5T2X4M3",
+      "bill_no": "2216606",
+      "bill_name": "민사소송법 일부개정법률안(대안)",
+      "propose_dt": "20260205",
+      "proc_result": ""
+    },
+    "PRC_I2G6H0G1G2E6F1N8L1M3K1K9J8K8S7": {
+      "status_key": "2216605||20260205",
+      "bill_id": "PRC_I2G6H0G1G2E6F1N8L1M3K1K9J8K8S7",
+      "bill_no": "2216605",
+      "bill_name": "의료법 일부개정법률안",
+      "propose_dt": "20260205",
+      "proc_result": ""
+    },
+    "PRC_I2N6M0Z2U0W3N1W8X1B5H1F9M5B9K9": {
+      "status_key": "2216604||20260205",
+      "bill_id": "PRC_I2N6M0Z2U0W3N1W8X1B5H1F9M5B9K9",
+      "bill_no": "2216604",
+      "bill_name": "법원조직법 일부개정법률안(대안)",
+      "propose_dt": "20260205",
+      "proc_result": ""
+    },
+    "PRC_W2W6V0W1U0C9C1B4B2Z9A1Z8Z2H5G6": {
+      "status_key": "2216603||20260205",
+      "bill_id": "PRC_W2W6V0W1U0C9C1B4B2Z9A1Z8Z2H5G6",
+      "bill_no": "2216603",
+      "bill_name": "장애인차별금지 및 권리구제 등에 관한 법률 일부개정법률안",
+      "propose_dt": "20260205",
+      "proc_result": ""
+    },
+    "PRC_F2G6E0M2N0L3M1K1L1J1J2G0E6E4C8": {
+      "status_key": "2216602||20260205",
+      "bill_id": "PRC_F2G6E0M2N0L3M1K1L1J1J2G0E6E4C8",
+      "bill_no": "2216602",
+      "bill_name": "지방세특례제한법 일부개정법률안",
+      "propose_dt": "20260205",
+      "proc_result": ""
+    },
+    "PRC_Z2U6V0T1T0S5Q1R3Z3Z9X5Y7W7X0V0": {
+      "status_key": "2216601||20260205",
+      "bill_id": "PRC_Z2U6V0T1T0S5Q1R3Z3Z9X5Y7W7X0V0",
+      "bill_no": "2216601",
+      "bill_name": "지방행정동우회법 일부개정법률안",
+      "propose_dt": "20260205",
+      "proc_result": ""
+    },
+    "PRC_V2W6U0U1C0D5B1B2A1B4Z3A8H5I4G8": {
+      "status_key": "2216600||20260205",
+      "bill_id": "PRC_V2W6U0U1C0D5B1B2A1B4Z3A8H5I4G8",
+      "bill_no": "2216600",
+      "bill_name": "공인중개사법 일부개정법률안",
+      "propose_dt": "20260205",
+      "proc_result": ""
+    },
+    "PRC_N2V6U0U2S0T3R1S8O0O8M0N7M1K9K3": {
+      "status_key": "2216599||20260205",
+      "bill_id": "PRC_N2V6U0U2S0T3R1S8O0O8M0N7M1K9K3",
+      "bill_no": "2216599",
+      "bill_name": "민간임대주택에 관한 특별법 일부개정법률안",
+      "propose_dt": "20260205",
+      "proc_result": ""
+    },
+    "PRC_B2S6B0Q2S0R3P1B8W3M0H2D5A5W5R5": {
+      "status_key": "2216598||20260205",
+      "bill_id": "PRC_B2S6B0Q2S0R3P1B8W3M0H2D5A5W5R5",
+      "bill_no": "2216598",
+      "bill_name": "질서위반행위규제법 일부개정법률안",
+      "propose_dt": "20260205",
+      "proc_result": ""
+    },
+    "PRC_R2T6M0T2M0U3X1Y8D3R1F3C8X0I8Q1": {
+      "status_key": "2216597||20260205",
+      "bill_id": "PRC_R2T6M0T2M0U3X1Y8D3R1F3C8X0I8Q1",
+      "bill_no": "2216597",
+      "bill_name": "행정소송법 일부개정법률안",
+      "propose_dt": "20260205",
+      "proc_result": ""
+    },
+    "PRC_A2W6W0U2V0U4U1S7T5B3Z1A5Y3Z5X6": {
+      "status_key": "2216596||20260205",
+      "bill_id": "PRC_A2W6W0U2V0U4U1S7T5B3Z1A5Y3Z5X6",
+      "bill_no": "2216596",
+      "bill_name": "한미 전략적 투자 관리를 위한 특별법안",
+      "propose_dt": "20260205",
+      "proc_result": ""
+    },
+    "PRC_S2T6Q0I2W0C3N1D8E2P5M4F7E5R0J4": {
+      "status_key": "2216595||20260205",
+      "bill_id": "PRC_S2T6Q0I2W0C3N1D8E2P5M4F7E5R0J4",
+      "bill_no": "2216595",
+      "bill_name": "중재법 일부개정법률안(대안)",
+      "propose_dt": "20260205",
+      "proc_result": ""
+    },
+    "PRC_U2T6T0B2C0A4A1Z4X2Y5G0H0F8F9D9": {
+      "status_key": "2216594||20260205",
+      "bill_id": "PRC_U2T6T0B2C0A4A1Z4X2Y5G0H0F8F9D9",
+      "bill_no": "2216594",
+      "bill_name": "한미 전략적 투자 관리를 위한 특별법안",
+      "propose_dt": "20260205",
+      "proc_result": ""
+    },
+    "PRC_Z2H6I0G1H0F9G1E4E2A7Z2Z5X6Y4W9": {
+      "status_key": "2216593||20260205",
+      "bill_id": "PRC_Z2H6I0G1H0F9G1E4E2A7Z2Z5X6Y4W9",
+      "bill_no": "2216593",
+      "bill_name": "노인복지법 일부개정법률안",
+      "propose_dt": "20260205",
+      "proc_result": ""
+    },
+    "PRC_U2S6T0P1Q0O9O1M4N3M1T1U5S2T8R6": {
+      "status_key": "2216592||20260205",
+      "bill_id": "PRC_U2S6T0P1Q0O9O1M4N3M1T1U5S2T8R6",
+      "bill_no": "2216592",
+      "bill_name": "국민건강증진법 일부개정법률안",
+      "propose_dt": "20260205",
+      "proc_result": ""
+    },
+    "PRC_B2A6A0Z2Z0Y2Y1N1M4M6L1L7J3K3S0": {
+      "status_key": "2216591||20260205",
+      "bill_id": "PRC_B2A6A0Z2Z0Y2Y1N1M4M6L1L7J3K3S0",
+      "bill_no": "2216591",
+      "bill_name": "가축분뇨의 관리 및 이용에 관한 법률 일부개정법률안",
+      "propose_dt": "20260205",
+      "proc_result": ""
+    },
+    "PRC_L2Y6Q0I2G0D3U1R8I2E7T4C7K1I5D0": {
+      "status_key": "2216590||20260205",
+      "bill_id": "PRC_L2Y6Q0I2G0D3U1R8I2E7T4C7K1I5D0",
+      "bill_no": "2216590",
+      "bill_name": "선박소유자 등의 책임제한절차에 관한 법률 일부개정법률안(대안)",
+      "propose_dt": "20260205",
+      "proc_result": ""
+    },
+    "PRC_U2P6G0F2E0K3V1E8X0L5L0L0M9J1P7": {
+      "status_key": "2216589||20260205",
+      "bill_id": "PRC_U2P6G0F2E0K3V1E8X0L5L0L0M9J1P7",
+      "bill_no": "2216589",
+      "bill_name": "민법 일부개정법률안(대안)",
+      "propose_dt": "20260205",
+      "proc_result": ""
+    },
+    "PRC_I2J6R0S1Q2Q9P1P3O5W1W2U8V9T6U0": {
+      "status_key": "2216588||20260205",
+      "bill_id": "PRC_I2J6R0S1Q2Q9P1P3O5W1W2U8V9T6U0",
+      "bill_no": "2216588",
+      "bill_name": "국가첨단전략산업 경쟁력 강화 및 보호에 관한 특별조치법 일부개정법률안",
+      "propose_dt": "20260205",
+      "proc_result": ""
+    },
+    "PRC_H2I6G0H1P2N9O1M3M5L2L0T4U4S6T2": {
+      "status_key": "2216587||20260205",
+      "bill_id": "PRC_H2I6G0H1P2N9O1M3M5L2L0T4U4S6T2",
+      "bill_no": "2216587",
+      "bill_name": "산업기술의 유출방지 및 보호에 관한 법률 일부개정법률안",
+      "propose_dt": "20260205",
+      "proc_result": ""
+    },
+    "PRC_O2P6O0M1M2K7L0T9T4S8T3R4R7P6Q4": {
+      "status_key": "2216586||20260205",
+      "bill_id": "PRC_O2P6O0M1M2K7L0T9T4S8T3R4R7P6Q4",
+      "bill_no": "2216586",
+      "bill_name": "공직선거법 일부개정법률안",
+      "propose_dt": "20260205",
+      "proc_result": ""
+    },
+    "PRC_Y2W6W0V2D0D4C1C0A2B0A5A0W2W2V8": {
+      "status_key": "2216585||20260205",
+      "bill_id": "PRC_Y2W6W0V2D0D4C1C0A2B0A5A0W2W2V8",
+      "bill_no": "2216585",
+      "bill_name": "노인복지법 일부개정법률안",
+      "propose_dt": "20260205",
+      "proc_result": ""
+    },
+    "PRC_V2U6V0T1T0P5Q1O2P1N4N0M4U9U6T2": {
+      "status_key": "2216584||20260205",
+      "bill_id": "PRC_V2U6V0T1T0P5Q1O2P1N4N0M4U9U6T2",
+      "bill_no": "2216584",
+      "bill_name": "공유재산 및 물품 관리법 일부개정법률안",
+      "propose_dt": "20260205",
+      "proc_result": ""
+    },
+    "PRC_N2L6M0A1B2Z8A1Y3Z4X7Y5F7E7F9D4": {
+      "status_key": "2216583||20260205",
+      "bill_id": "PRC_N2L6M0A1B2Z8A1Y3Z4X7Y5F7E7F9D4",
+      "bill_no": "2216583",
+      "bill_name": "부동산등기법 일부개정법률안",
+      "propose_dt": "20260205",
+      "proc_result": ""
+    },
+    "PRC_P2P6O0O1M0N5M1M2U1U6T2T3S5Q2R8": {
+      "status_key": "2216582||20260205",
+      "bill_id": "PRC_P2P6O0O1M0N5M1M2U1U6T2T3S5Q2R8",
+      "bill_no": "2216582",
+      "bill_name": "상가건물 임대차보호법 일부개정법률안",
+      "propose_dt": "20260205",
+      "proc_result": ""
+    },
+    "PRC_F2E6E0M1N2L3M1K0I3J0R3R4Q6Q1P2": {
+      "status_key": "2216581||20260205",
+      "bill_id": "PRC_F2E6E0M1N2L3M1K0I3J0R3R4Q6Q1P2",
+      "bill_no": "2216581",
+      "bill_name": "공공기관의 운영에 관한 법률 일부개정법률안",
+      "propose_dt": "20260205",
+      "proc_result": ""
+    },
+    "PRC_Z2Y6W0W1E0E5D1D2C1D5B5B6Q1P8P8": {
+      "status_key": "2216580||20260205",
+      "bill_id": "PRC_Z2Y6W0W1E0E5D1D2C1D5B5B6Q1P8P8",
+      "bill_no": "2216580",
+      "bill_name": "사회기반시설에 대한 민간투자법 일부개정법률안",
+      "propose_dt": "20260205",
+      "proc_result": ""
     }
   },
-  "last_run": "2026-02-06T01:41:40.405+09:00"
+  "last_run": "2026-02-06T02:07:57.759+09:00"
 }
