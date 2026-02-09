@@ -8,10 +8,9 @@
 import argparse
 import json
 import os
-import re
+from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
-from datetime import datetime, date, timezone, timedelta
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List, Optional, Tuple
 
 import requests
 from dotenv import load_dotenv
@@ -22,13 +21,6 @@ DATA_DIR.mkdir(parents=True, exist_ok=True)
 STATE_PATH = DATA_DIR / "state.json"
 
 KST = timezone(timedelta(hours=9))
-# Cloudflare Worker 프록시(해외 IP 차단 회피). 커스텀 도메인을 붙이면 아래를 교체.
-# 예: LAW_DRF_BASE = "https://law-proxy.airpermit.work"
-# LAW_DRF_BASE = "https://www.law.go.kr/DRF"
-# LAW_DRF_BASE = "https://law-proxy.jinsu133.workers.dev/DRF"
-LAW_DRF_BASE = "https://law-proxy.jinsu133.workers.dev/DRF"
-
-
 ASSEMBLY_BASE = "https://open.assembly.go.kr/portal/openapi"
 
 # 로컬에서만 .env 사용(레포에 커밋 금지)
@@ -39,101 +31,134 @@ LAW_OC = os.getenv("LAW_OC", "").strip()
 ASSEMBLY_KEY = os.getenv("ASSEMBLY_KEY", "").strip()
 ASSEMBLY_AGE = os.getenv("ASSEMBLY_AGE", "").strip()
 
+LAW_DRF_BASES_ENV = os.getenv("LAW_DRF_BASES", "").strip()
+LAW_DRF_BASE = os.getenv("LAW_DRF_BASE", "").strip()
+
+
+def unique_keep_order(values: List[str]) -> List[str]:
+    out: List[str] = []
+    seen = set()
+    for v in values:
+        x = (v or "").strip().rstrip("/")
+        if not x or x in seen:
+            continue
+        seen.add(x)
+        out.append(x)
+    return out
+
+
+_law_base_candidates: List[str] = []
+if LAW_DRF_BASES_ENV:
+    _law_base_candidates.extend([x.strip() for x in LAW_DRF_BASES_ENV.split(",") if x.strip()])
+if LAW_DRF_BASE:
+    _law_base_candidates.append(LAW_DRF_BASE)
+
+# 운영 기본값: 공공 API 직결 + 프록시(장애 대비)
+_law_base_candidates.extend(
+    [
+        "https://www.law.go.kr/DRF",
+        "https://law-proxy.jinsu133.workers.dev/DRF",
+    ]
+)
+LAW_DRF_BASES = unique_keep_order(_law_base_candidates)
+
 LAW_NAMES = [
-    # 1) 대기환경보전법 계열
     "대기환경보전법",
     "대기환경보전법 시행령",
     "대기환경보전법 시행규칙",
-    
-    # 2) 환경분야 시험·검사 등에 관한 법률 계열
     "환경분야 시험·검사 등에 관한 법률",
     "환경분야 시험 검사 등에 관한 법률",
     "환경분야 시험·검사 등에 관한 법률 시행령",
     "환경분야 시험·검사 등에 관한 법률 시행규칙",
-    
-    # 3) 대기관리권역의 대기환경개선에 관한 특별법 계열
     "대기관리권역의 대기환경개선에 관한 특별법",
     "대기관리권역의 대기환경개선에 관한 특별법 시행령",
     "대기관리권역의 대기환경개선에 관한 특별법 시행규칙",
-    
-    # 4) 환경오염시설의 통합관리에 관한 법률 계열
     "환경오염시설의 통합관리에 관한 법률",
     "환경오염시설의 통합관리에 관한 법률 시행령",
     "환경오염시설의 통합관리에 관한 법률 시행규칙",
 ]
 
-# 행정규칙(고시) 검색 확장 - 사용자 요청 반영 + 기존 핵심 키워드 병합
 ADMRUL_QUERIES = [
-  # 사용자 요청 목록
-  "환경시험·검사기관 정도관리 운영등에 관한 규정",
-  "환경시험 검사기관 정도관리 운영",
-  "대기오염공정시험기준",
-  
-  # 인허가 핵심 키워드 (유지)
-  "대기배출시설",
-  "대기오염물질",
-  "방지시설",
-  "배출가스",
-  "자가측정",
-  "기본부과금",
-  "초과부과금",
-  "통합허가",
-  "통합관리",
-  "굴뚝", 
-  "미세먼지",
-  "오존",
+    "환경시험·검사기관 정도관리 운영등에 관한 규정",
+    "환경시험 검사기관 정도관리 운영",
+    "대기오염공정시험기준",
+    "대기배출시설",
+    "대기오염물질",
+    "방지시설",
+    "배출가스",
+    "자가측정",
+    "기본부과금",
+    "초과부과금",
+    "통합허가",
+    "통합관리",
+    "굴뚝",
+    "미세먼지",
+    "오존",
 ]
 
-# 국회 의안 모니터링: 관심 법률명 키워드
+# 국회 의안 모니터링: 법령알림 화면에서 보여줄 핵심 범위
 BILL_LAW_KEYWORDS = [
     "대기환경보전법",
     "환경분야 시험·검사 등에 관한 법률",
     "대기관리권역의 대기환경개선에 관한 특별법",
     "환경오염시설의 통합관리에 관한 법률",
 ]
+BILL_STRICT_KEYWORDS = [
+    "대기환경",
+    "대기오염",
+    "대기관리권역",
+    "배출시설",
+    "방지시설",
+    "배출가스",
+    "자가측정",
+    "굴뚝",
+    "미세먼지",
+    "오염물질",
+    "환경오염시설",
+    "공정시험기준",
+    "환경시험",
+    "시험·검사",
+]
+BILL_EXTRA_KEYWORDS = [x.strip() for x in os.getenv("BILL_EXTRA_KEYWORDS", "").split(",") if x.strip()]
 
-# 의안 관련 추가 서비스들 (다중 엔드포인트 지원)
 SERVICE_SEARCH_BILL = os.getenv("SERVICE_SEARCH_BILL", "TVBPMBILL11").strip() or "TVBPMBILL11"
 BILL_SERVICES_RECENT = [
-    {
-        "service": "nzmimeepazxkubdpn",  # 국회의원 발의법률안
-        "label": "국회의원 발의법률안",
-        "params": {"pSize": 100}, # AGE는 동적 할당
-    },
-    {
-        "service": "nxjuyqnxadtotdrbw",  # 최근 본회의처리 의안
-        "label": "최근 본회의 처리 의안",
-        "params": {"pSize": 100},
-    },
-    {
-        "service": "nxtkyptyaolzcbfwl",  # 위원회안, 대안
-        "label": "위원회안·대안",
-        "params": {"pSize": 100},
-    },
-    {
-        "service": "nwbpacrgavhjryiph",  # 본회의 처리안건_법률안
-        "label": "본회의 처리안건_법률안",
-        "params": {"pSize": 100},
-    },
+    {"service": "nzmimeepazxkubdpn", "label": "국회의원 발의법률안", "params": {"pSize": 100}},
+    {"service": "nxjuyqnxadtotdrbw", "label": "최근 본회의 처리 의안", "params": {"pSize": 100}},
+    {"service": "nxtkyptyaolzcbfwl", "label": "위원회안·대안", "params": {"pSize": 100}},
+    {"service": "nwbpacrgavhjryiph", "label": "본회의 처리안건_법률안", "params": {"pSize": 100}},
 ]
 
 STATUS_KO = {
     "NEW": "신규",
     "MOD": "변경",
-    "OK": "유지"
+    "OK": "유지",
 }
 
-# 기존 ENV_BILL_KEYWORDS 대신 BILL_LAW_KEYWORDS 등의 필터링 전략 사용으로 is_env_bill 단순화 또는 제거 가능하나,
-# Strategy 2에서 보조 필터로 쓸 수 있으므로 남겨둠 (심플하게 정의)
-def is_env_bill(name: str) -> bool:
-    # 이번 로직에서는 bill_items 내부에서 직접 필터링하므로 이 함수가 필수적이진 않으나 호환성 유지
-    base_keywords = ["대기", "환경", "오염", "배출", "통합관리"]
-    return any(kw in name for kw in base_keywords)
+LAW_CHANGE_FIELDS: List[Tuple[str, str]] = [
+    ("공포일자", "ld"),
+    ("공포번호", "ln"),
+    ("제개정구분", "reform_type"),
+]
+ADMRUL_CHANGE_FIELDS: List[Tuple[str, str]] = [
+    ("발령일자", "promulgation_date"),
+    ("시행일자", "enforce_date"),
+    ("발령번호", "num"),
+]
+BILL_CHANGE_FIELDS: List[Tuple[str, str]] = [
+    ("의안번호", "bill_no"),
+    ("처리결과", "proc_result"),
+    ("제안일", "propose_dt"),
+]
+
 
 def now_kst_iso_ms() -> str:
     return datetime.now(KST).isoformat(timespec="milliseconds")
+
+
 def now_utc_iso_ms() -> str:
-    return datetime.now(timezone.utc).isoformat(timespec="milliseconds").replace("+00:00","Z")
+    return datetime.now(timezone.utc).isoformat(timespec="milliseconds").replace("+00:00", "Z")
+
 
 def current_assembly_age() -> str:
     """
@@ -153,16 +178,23 @@ def current_assembly_age() -> str:
     term = years // 4
     return str(base_age + max(0, term))
 
-def ensure_parent(p: Path) -> None:
-    p.parent.mkdir(parents=True, exist_ok=True)
+
+def ensure_parent(path: Path) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+
 
 def load_state() -> Dict[str, Any]:
     if not STATE_PATH.exists():
-        return {"laws":{}, "admruls":{}, "bills":{}, "last_run": None}
+        return {"laws": {}, "admruls": {}, "bills": {}, "last_run": None}
     try:
-        return json.loads(STATE_PATH.read_text(encoding="utf-8"))
+        data = json.loads(STATE_PATH.read_text(encoding="utf-8"))
     except Exception:
-        return {"laws":{}, "admruls":{}, "bills":{}, "last_run": None}
+        return {"laws": {}, "admruls": {}, "bills": {}, "last_run": None}
+    data.setdefault("laws", {})
+    data.setdefault("admruls", {})
+    data.setdefault("bills", {})
+    return data
+
 
 def save_state(st: Dict[str, Any]) -> None:
     ensure_parent(STATE_PATH)
@@ -170,52 +202,81 @@ def save_state(st: Dict[str, Any]) -> None:
     tmp.write_text(json.dumps(st, ensure_ascii=False, indent=2), encoding="utf-8")
     tmp.replace(STATE_PATH)
 
+
 def require_keys() -> None:
     if not LAW_OC:
         raise RuntimeError("LAW_OC missing (GitHub Secrets에 설정 필요)")
     if not ASSEMBLY_KEY:
         raise RuntimeError("ASSEMBLY_KEY missing (GitHub Secrets에 설정 필요)")
 
+
+def normalize_name(text: str) -> str:
+    x = str(text or "").replace(" ", "").replace("\t", "")
+    return x.replace("ㆍ", "·")
+
+
+def normalize_date(text: str) -> str:
+    digits = "".join(ch for ch in str(text or "") if ch.isdigit())
+    return digits[:8]
+
+
+def date_sort_value(text: str) -> int:
+    digits = normalize_date(text)
+    return int(digits) if digits else 0
+
+
+def law_api_request(endpoint: str, params: Dict[str, Any], label: str) -> Optional[Dict[str, Any]]:
+    headers = {"User-Agent": "law-alert/1.0"}
+    errors: List[str] = []
+
+    for base in LAW_DRF_BASES:
+        url = f"{base}/{endpoint.lstrip('/')}"
+        try:
+            resp = requests.get(url, params=params, timeout=25, headers=headers)
+            resp.raise_for_status()
+            return resp.json()
+        except requests.exceptions.RequestException as exc:
+            errors.append(f"{url} -> {exc}")
+        except ValueError as exc:
+            errors.append(f"{url} -> JSON parse error: {exc}")
+
+    print(f"[WARN] law_api_request 실패: {label}")
+    for msg in errors:
+        print(f"  - {msg}")
+    return None
+
+
 def law_search(law_name: str) -> Optional[Dict[str, Any]]:
-    url = f"{LAW_DRF_BASE}/lawSearch.do"
-    headers={"User-Agent":"law-alert/1.0"}
-    # DRF는 2024년 말 이후 검색 파라미터를 search -> query로 통일함
     params = {
         "OC": LAW_OC,
         "target": "law",
         "type": "JSON",
         "query": law_name,
         "display": "30",
-        "sort": "ddes",  # 공포일 역순
+        "sort": "ddes",
     }
-    try:
-        r = requests.get(url, params=params, timeout=25, headers=headers)
-        r.raise_for_status()
-        data = r.json()
-    except requests.exceptions.RequestException as e:
-        # 외부 API 오류(5xx 등) 시 스킵
-        print(f"[WARN] law_search 실패: {law_name} -> {e}")
+    data = law_api_request("lawSearch.do", params, f"law_search:{law_name}")
+    if not data:
         return None
-    except ValueError as e:
-        print(f"[WARN] law_search 파싱 실패: {law_name} -> {e}")
-        return None
-    law_container = data.get("LawSearch", {})
-    raw = law_container.get("law", [])
+
+    container = data.get("LawSearch", {})
+    raw = container.get("law", [])
     items = raw if isinstance(raw, list) else ([raw] if isinstance(raw, dict) else [])
     if not items:
         return None
-    it = items[0]
+
+    first = items[0]
     return {
-        "law_name": it.get("법령명한글", law_name),
-        "ld": it.get("공포일자",""),
-        "ln": it.get("공포번호",""),
-        "reform_type": it.get("제개정구분명",""),
-        "law_id": it.get("법령일련번호") or it.get("법령ID", "")
+        "law_name": first.get("법령명한글", law_name),
+        "ld": normalize_date(first.get("공포일자", "")),
+        "ln": str(first.get("공포번호", "") or ""),
+        "reform_type": str(first.get("제개정구분명", "") or ""),
+        "law_id": str(first.get("법령일련번호") or first.get("법령ID") or ""),
     }
 
+
 def admrul_search(keyword: str) -> List[Dict[str, Any]]:
-    url = f"{LAW_DRF_BASE}/admrulSearch.do"
-    headers={"User-Agent":"law-alert/1.0"}
+    # 고시는 lawSearch.do + target=admrul 로 조회해야 안정적으로 응답됨.
     params = {
         "OC": LAW_OC,
         "target": "admrul",
@@ -224,233 +285,420 @@ def admrul_search(keyword: str) -> List[Dict[str, Any]]:
         "display": "20",
         "sort": "ddes",
     }
-    try:
-        r = requests.get(url, params=params, timeout=25, headers=headers)
-        r.raise_for_status()
-        data = r.json()
-    except requests.exceptions.RequestException as e:
-        print(f"[WARN] admrul_search 실패: {keyword} -> {e}")
+    data = law_api_request("lawSearch.do", params, f"admrul_search:{keyword}")
+    if not data:
         return []
-    except ValueError as e:
-        # HTML 오류 페이지 등으로 JSON 파싱 실패 시
-        print(f"[WARN] admrul_search 파싱 실패: {keyword} -> {e}")
-        return []
-    items = (((data.get("AdmrulSearch") or {}).get("admrul")) or [])
-    items = items if isinstance(items, list) else ([items] if isinstance(items, dict) else [])
-    out=[]
-    for it in items:
-        title = it.get("행정규칙명","") or ""
-        dept = it.get("소관부처명","") or ""
-        # 환경부 계열만
-        if dept and not any(x in dept for x in ("환경부","국립환경과학원","기후에너지환경부")):
+
+    container = data.get("AdmRulSearch") or data.get("AdmrulSearch") or data.get("admRulSearch") or {}
+    raw = container.get("admrul", [])
+    items = raw if isinstance(raw, list) else ([raw] if isinstance(raw, dict) else [])
+
+    out: List[Dict[str, Any]] = []
+    for item in items:
+        title = str(item.get("행정규칙명", "") or "")
+        dept = str(item.get("소관부처명", "") or "")
+
+        # 환경부/국립환경과학원 계열만 표시
+        if dept and not any(x in dept for x in ("환경부", "국립환경과학원", "기후에너지환경부")):
             continue
-        out.append({
-            "title": title,
-            "dept": dept,
-            "num": it.get("고시번호","") or it.get("행정규칙ID","") or "",
-            "promulgation_date": it.get("공포일자","") or "",
-            "enforce_date": it.get("시행일자","") or "",
-            "admrul_id": it.get("행정규칙ID", "")
-        })
-    return out
+
+        out.append(
+            {
+                "title": title,
+                "dept": dept,
+                "num": str(item.get("발령번호") or item.get("고시번호") or item.get("행정규칙ID") or ""),
+                "promulgation_date": normalize_date(item.get("발령일자") or item.get("공포일자") or ""),
+                "enforce_date": normalize_date(item.get("시행일자") or ""),
+                "admrul_id": str(item.get("행정규칙일련번호") or item.get("행정규칙ID") or ""),
+            }
+        )
+
+    # 중복 제거(행정규칙명+번호)
+    uniq: List[Dict[str, Any]] = []
+    seen = set()
+    for item in out:
+        key = f"{item.get('title', '')}::{item.get('num', '')}"
+        if key in seen:
+            continue
+        seen.add(key)
+        uniq.append(item)
+    return uniq
+
 
 def assembly_call(service: str, params: Dict[str, Any]) -> Dict[str, Any]:
-    q = {"KEY": ASSEMBLY_KEY, "Type":"json", "pIndex":1}
-    q.update(params)
-    r = requests.get(f"{ASSEMBLY_BASE}/{service}", params=q, timeout=25)
-    r.raise_for_status()
-    return r.json()
+    query = {"KEY": ASSEMBLY_KEY, "Type": "json", "pIndex": 1}
+    query.update(params)
+    resp = requests.get(f"{ASSEMBLY_BASE}/{service}", params=query, timeout=25)
+    resp.raise_for_status()
+    return resp.json()
+
 
 def extract_rows(data: Dict[str, Any]) -> List[Dict[str, Any]]:
-    for v in data.values():
-        if isinstance(v, list):
-            for elem in v:
-                if isinstance(elem, dict) and "row" in elem:
-                    rows = elem["row"]
-                    if isinstance(rows, list): return rows
-                    if isinstance(rows, dict): return [rows]
+    for value in data.values():
+        if not isinstance(value, list):
+            continue
+        for elem in value:
+            if isinstance(elem, dict) and "row" in elem:
+                rows = elem["row"]
+                if isinstance(rows, list):
+                    return rows
+                if isinstance(rows, dict):
+                    return [rows]
     return []
 
+
+def is_target_bill_title(title: str) -> bool:
+    t = str(title or "").strip()
+    if not t:
+        return False
+    if any(keyword in t for keyword in BILL_LAW_KEYWORDS):
+        return True
+    strict = BILL_STRICT_KEYWORDS + BILL_EXTRA_KEYWORDS
+    return any(keyword in t for keyword in strict)
+
+
 def bill_items() -> List[Dict[str, Any]]:
-    # 2가지 전략:
-    # 1. 기존 BILL_LAW_KEYWORDS로 '의안검색' (TVBPMBILL11)
-    # 2. 새로운 BILL_SERVICES_RECENT로 '최근 의안' 긁어와서 키워드 필터링
-    
     age = ASSEMBLY_AGE or "auto"
     if age.lower() == "auto":
         age = current_assembly_age()
-        
-    out = []
+
+    out: List[Dict[str, Any]] = []
     seen_ids = set()
 
-    # Strategy 1: 키워드 검색 (TVBPMBILL11)
-    keywords = BILL_LAW_KEYWORDS
-    
-    for kw in keywords:
+    # Strategy 1: 핵심 법률명 직접 검색
+    for keyword in BILL_LAW_KEYWORDS:
         try:
-            data = assembly_call(SERVICE_SEARCH_BILL, {"BILL_NM": kw, "pSize": 50, "AGE": age})
-        except Exception as e:
-            print(f"[WARN] bill_search 실패: {kw} -> {e}")
+            data = assembly_call(SERVICE_SEARCH_BILL, {"BILL_NM": keyword, "pSize": 50, "AGE": age})
+        except Exception as exc:
+            print(f"[WARN] bill_search 실패: {keyword} -> {exc}")
             continue
-            
-        rows = extract_rows(data)
-        for r in rows:
-            bill_id = r.get("BILL_ID") or r.get("billId")
-            if not bill_id or bill_id in seen_ids: continue
-            
-            title = r.get("BILL_NAME") or r.get("TITLE") or ""
-            
-            propose_date = (r.get("PROPOSE_DT") or r.get("RST_PROPOSE_DT") or "").replace("-","")
-            
-            out.append({
-                "bill_id": bill_id,
-                "bill_no": r.get("BILL_NO") or r.get("BILLNO"),
-                "bill_name": title,
-                "propose_dt": propose_date,
-                "proc_result": r.get("PROC_RESULT") or ""
-            })
-            seen_ids.add(bill_id)
 
-    # Strategy 2: 최근 의안 리스트 (다중 서비스)
+        for row in extract_rows(data):
+            bill_id = row.get("BILL_ID") or row.get("billId")
+            if not bill_id or bill_id in seen_ids:
+                continue
+
+            title = str(row.get("BILL_NAME") or row.get("TITLE") or "")
+            if not is_target_bill_title(title):
+                continue
+
+            out.append(
+                {
+                    "bill_id": str(bill_id),
+                    "bill_no": str(row.get("BILL_NO") or row.get("BILLNO") or ""),
+                    "bill_name": title,
+                    "propose_dt": normalize_date(row.get("PROPOSE_DT") or row.get("RST_PROPOSE_DT") or ""),
+                    "proc_result": str(row.get("PROC_RESULT") or row.get("PROC_RESULT_CD") or ""),
+                }
+            )
+            seen_ids.add(str(bill_id))
+
+    # Strategy 2: 최근 의안 목록 조회 + 엄격 필터
     for svc_info in BILL_SERVICES_RECENT:
         svc_code = svc_info["service"]
-        pm = svc_info["params"].copy()
-        if "AGE" in pm: pm["AGE"] = age # AGE가 필요한 서비스만 주입
-        
-        try:
-            data = assembly_call(svc_code, pm)
-        except Exception as e:
-            print(f"[WARN] bill_recent 실패: {svc_info['label']} -> {e}")
-            continue
-            
-        rows = extract_rows(data)
-        for r in rows:
-            bill_id = r.get("BILL_ID") or r.get("billId")
-            if not bill_id or bill_id in seen_ids: continue
-            
-            title = r.get("BILL_NAME") or r.get("TITLE") or r.get("billName") or ""
-            
-            # 관심 법률명 필터링
-            if not any(k in title for k in keywords):
-                # 보조 필터
-                base_keywords = ["대기", "환경", "오염", "배출", "통합관리"]
-                if not any(k in title for k in base_keywords):
-                    continue
-            
-            propose_date = (r.get("PROPOSE_DT") or r.get("proposeDt") or "").replace("-","")
+        params = dict(svc_info["params"])
+        if "AGE" in params:
+            params["AGE"] = age
 
-            out.append({
-                "bill_id": bill_id,
-                "bill_no": r.get("BILL_NO") or r.get("billNo"),
-                "bill_name": title,
-                "propose_dt": propose_date,
-                "proc_result": r.get("PROC_RESULT") or ""
-            })
-            seen_ids.add(bill_id)
-            
-    return out
+        try:
+            data = assembly_call(svc_code, params)
+        except Exception as exc:
+            print(f"[WARN] bill_recent 실패: {svc_info['label']} -> {exc}")
+            continue
+
+        for row in extract_rows(data):
+            bill_id = row.get("BILL_ID") or row.get("billId")
+            if not bill_id or str(bill_id) in seen_ids:
+                continue
+
+            title = str(row.get("BILL_NAME") or row.get("TITLE") or row.get("billName") or "")
+            if not is_target_bill_title(title):
+                continue
+
+            out.append(
+                {
+                    "bill_id": str(bill_id),
+                    "bill_no": str(row.get("BILL_NO") or row.get("billNo") or ""),
+                    "bill_name": title,
+                    "propose_dt": normalize_date(row.get("PROPOSE_DT") or row.get("proposeDt") or ""),
+                    "proc_result": str(row.get("PROC_RESULT") or row.get("PROC_RESULT_CD") or ""),
+                }
+            )
+            seen_ids.add(str(bill_id))
+
+    out.sort(key=lambda item: date_sort_value(item.get("propose_dt", "")), reverse=True)
+    return out[:120]
+
 
 def status_from_prev(prev: Optional[Dict[str, Any]], status_key: str) -> str:
-    if not prev: return "NEW"
+    if not prev:
+        return "NEW"
     return "MOD" if prev.get("status_key") != status_key else "OK"
+
 
 def write_json(path: Path, obj: Any) -> None:
     ensure_parent(path)
     path.write_text(json.dumps(obj, ensure_ascii=False, indent=2), encoding="utf-8")
 
+
+def build_change_summary(
+    prev: Optional[Dict[str, Any]], current: Dict[str, Any], fields: List[Tuple[str, str]]
+) -> str:
+    if not prev:
+        return "신규 감지"
+
+    diffs: List[str] = []
+    for label, key in fields:
+        old_val = str(prev.get(key, "") or "").strip()
+        new_val = str(current.get(key, "") or "").strip()
+        if old_val != new_val:
+            diffs.append(f"{label}: {old_val or '-'} -> {new_val or '-'}")
+    return "; ".join(diffs) if diffs else "변경 없음"
+
+
+def build_law_diff_url(title: str, info: Dict[str, Any]) -> str:
+    law_id = str(info.get("law_id") or "").strip()
+    if law_id:
+        return f"https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq={law_id}&efYd={info.get('ld', '')}"
+    return f"https://www.law.go.kr/LSW/lsSc.do?menuId=1&query={title}"
+
+
+def build_admrul_diff_url(title: str, info: Dict[str, Any]) -> str:
+    admrul_id = str(info.get("admrul_id") or "").strip()
+    if admrul_id:
+        return f"https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq={admrul_id}"
+    return f"https://www.law.go.kr/LSW/lsSc.do?menuId=1&query={title}"
+
+
+def build_bill_diff_url(bill_id: str) -> str:
+    return f"https://likms.assembly.go.kr/bill/billDetail.do?billId={bill_id}"
+
+
+def dedupe_items(items: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    rank = {"NEW": 3, "MOD": 2, "OK": 1}
+    merged: Dict[str, Dict[str, Any]] = {}
+    for item in items:
+        key = f"{item.get('kind', '')}::{item.get('title', '')}::{item.get('id', '')}"
+        prev = merged.get(key)
+        if not prev:
+            merged[key] = item
+            continue
+        if rank.get(str(item.get("status", "")), 0) > rank.get(str(prev.get("status", "")), 0):
+            merged[key] = item
+    return list(merged.values())
+
+
+def sort_items(items: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    kind_order = {"법령": 0, "고시": 1, "의안": 2}
+    return sorted(
+        items,
+        key=lambda item: (
+            kind_order.get(str(item.get("kind", "")), 9),
+            -date_sort_value(str(item.get("date", ""))),
+            str(item.get("title", "")),
+        ),
+    )
+
+
+def fallback_law_items(state_laws: Dict[str, Any], existed_titles: set) -> List[Dict[str, Any]]:
+    out: List[Dict[str, Any]] = []
+    for key, prev in state_laws.items():
+        title = str(prev.get("law_name") or prev.get("name") or key or "")
+        if not title or title in existed_titles:
+            continue
+        if not any(normalize_name(title).startswith(normalize_name(seed)) for seed in LAW_NAMES):
+            continue
+
+        info = {
+            "ld": normalize_date(prev.get("ld") or prev.get("date") or ""),
+            "ln": str(prev.get("ln") or prev.get("num") or ""),
+            "reform_type": str(prev.get("reform_type") or prev.get("type") or ""),
+            "law_id": str(prev.get("law_id") or prev.get("id") or ""),
+        }
+        item_id = f"{info['ln']}|{info['ld']}|{info['reform_type']}".strip("|") or title
+        out.append(
+            {
+                "status": "OK",
+                "status_ko": STATUS_KO["OK"],
+                "kind": "법령",
+                "title": title,
+                "date": info["ld"],
+                "id": item_id,
+                "diff_url": build_law_diff_url(title, info),
+                "note": "법령 API 응답 누락으로 이전 성공 데이터를 표시합니다.",
+            }
+        )
+    return out
+
+
+def fallback_admrul_items(state_admruls: Dict[str, Any], existed_keys: set) -> List[Dict[str, Any]]:
+    out: List[Dict[str, Any]] = []
+    for key, prev in state_admruls.items():
+        title = str(prev.get("title") or "")
+        num = str(prev.get("num") or "")
+        uniq_key = f"{title}::{num}"
+        if not title or uniq_key in existed_keys:
+            continue
+
+        info = {
+            "promulgation_date": normalize_date(prev.get("promulgation_date") or ""),
+            "enforce_date": normalize_date(prev.get("enforce_date") or ""),
+            "num": num,
+            "admrul_id": str(prev.get("admrul_id") or ""),
+        }
+        item_id = f"{info['num']}|{info['promulgation_date']}|{info['enforce_date']}".strip("|") or uniq_key
+        out.append(
+            {
+                "status": "OK",
+                "status_ko": STATUS_KO["OK"],
+                "kind": "고시",
+                "title": title,
+                "date": info["promulgation_date"] or info["enforce_date"],
+                "id": item_id,
+                "diff_url": build_admrul_diff_url(title, info),
+                "note": "고시 API 응답 누락으로 이전 성공 데이터를 표시합니다.",
+            }
+        )
+    return out
+
+
 def run_web(out_dir: str) -> None:
     require_keys()
-    st = load_state()
-    all_items=[]
-    gen_kst = now_kst_iso_ms()
-    gen_utc = now_utc_iso_ms()
-    change_items=[]
+    state = load_state()
+    all_items: List[Dict[str, Any]] = []
+    generated_kst = now_kst_iso_ms()
+    generated_utc = now_utc_iso_ms()
+    used_fallback = {"laws": False, "admruls": False}
 
     # laws
-    for name in LAW_NAMES:
-        info = law_search(name)
+    seen_law_titles = set()
+    for law_name in LAW_NAMES:
+        info = law_search(law_name)
         if not info:
             continue
-        key = info["law_name"]
-        cur_key = "|".join([info.get("ld",""), info.get("ln",""), info.get("reform_type","")])
-        prev = st["laws"].get(key)
-        status = status_from_prev(prev, cur_key)
-        item_id = f'{info.get("ln","")}|{info.get("ld","")}|{info.get("reform_type","")}'.strip("|") or key
-        
-        # 법령 상세(신구법비교) 링크 생성
-        law_id = info.get("law_id")
-        if law_id:
-            link_url = f"https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq={law_id}&efYd={info.get('ld','')}"
-        else:
-            link_url = f"https://www.law.go.kr/LSW/lsSc.do?menuId=1&query={info.get('law_name') or name}"
-            
-        item = {"status": status, "status_ko": STATUS_KO.get(status, status), "kind":"법령", "title": info.get("law_name") or name, "date": info.get("ld",""), "id": item_id, "diff_url": link_url}
+
+        key = str(info.get("law_name") or law_name)
+        current_key = "|".join([info.get("ld", ""), info.get("ln", ""), info.get("reform_type", "")])
+        prev = state["laws"].get(key)
+        status = status_from_prev(prev, current_key)
+        item_id = f"{info.get('ln', '')}|{info.get('ld', '')}|{info.get('reform_type', '')}".strip("|") or key
+
+        item = {
+            "status": status,
+            "status_ko": STATUS_KO.get(status, status),
+            "kind": "법령",
+            "title": key,
+            "date": info.get("ld", ""),
+            "id": item_id,
+            "diff_url": build_law_diff_url(key, info),
+        }
+        if status in ("NEW", "MOD"):
+            item["change_summary"] = build_change_summary(prev, info, LAW_CHANGE_FIELDS)
         all_items.append(item)
-        if status in ("NEW","MOD"):
-            change_items.append(item.copy())
-        st["laws"][key] = {"status_key": cur_key, **info}
+        seen_law_titles.add(key)
+        state["laws"][key] = {"status_key": current_key, **info}
+
+    if not seen_law_titles and state.get("laws"):
+        all_items.extend(fallback_law_items(state["laws"], seen_law_titles))
+        used_fallback["laws"] = True
 
     # admruls
-    for kw in ADMRUL_QUERIES:
-        for it in admrul_search(kw):
-            key = f'{it.get("title","")}::{it.get("num","")}'
-            cur_key = "|".join([it.get("promulgation_date",""), it.get("enforce_date",""), it.get("num","")])
-            prev = st["admruls"].get(key)
-            status = status_from_prev(prev, cur_key)
-            item_id = f'{it.get("num","")}|{it.get("promulgation_date","")}|{it.get("enforce_date","")}'.strip("|") or key
-            
-            # 행정규칙 상세 링크 생성
-            admrul_id = it.get("admrul_id")
-            if admrul_id:
-                link_url = f"https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq={admrul_id}"
-            else:
-                 link_url = f"https://www.law.go.kr/LSW/lsSc.do?menuId=1&query={it.get('title','')}"
+    seen_admrul_keys = set()
+    for keyword in ADMRUL_QUERIES:
+        for info in admrul_search(keyword):
+            key = f"{info.get('title', '')}::{info.get('num', '')}"
+            if key in seen_admrul_keys:
+                continue
+            seen_admrul_keys.add(key)
 
-            item = {"status": status, "status_ko": STATUS_KO.get(status, status), "kind":"고시", "title": it.get("title",""), "date": it.get("promulgation_date") or it.get("enforce_date") or "", "id": item_id, "diff_url": link_url}
+            current_key = "|".join([info.get("promulgation_date", ""), info.get("enforce_date", ""), info.get("num", "")])
+            prev = state["admruls"].get(key)
+            status = status_from_prev(prev, current_key)
+            item_id = f"{info.get('num', '')}|{info.get('promulgation_date', '')}|{info.get('enforce_date', '')}".strip("|") or key
+
+            item = {
+                "status": status,
+                "status_ko": STATUS_KO.get(status, status),
+                "kind": "고시",
+                "title": info.get("title", ""),
+                "date": info.get("promulgation_date") or info.get("enforce_date") or "",
+                "id": item_id,
+                "diff_url": build_admrul_diff_url(info.get("title", ""), info),
+            }
+            if status in ("NEW", "MOD"):
+                item["change_summary"] = build_change_summary(prev, info, ADMRUL_CHANGE_FIELDS)
             all_items.append(item)
-            if status in ("NEW","MOD"):
-                change_items.append(item.copy())
-            st["admruls"][key] = {"status_key": cur_key, **it}
+            state["admruls"][key] = {"status_key": current_key, **info}
 
-    # Process Bills (의안)
-    for bill_item in bill_items():
-        key = bill_item["bill_id"]
-        cur_key = f'{bill_item.get("bill_no","")}|{bill_item.get("proc_result","")}|{bill_item.get("propose_dt","")}'
-        prev = st["bills"].get(key)
-        status = "NEW" if not prev else ("MOD" if prev.get("status_key") != cur_key else "OK")
+    if not seen_admrul_keys and state.get("admruls"):
+        all_items.extend(fallback_admrul_items(state["admruls"], seen_admrul_keys))
+        used_fallback["admruls"] = True
 
-        # Common Item Structure for Bills
-        bill_out_item = {
+    # bills
+    for info in bill_items():
+        bill_id = str(info["bill_id"])
+        current_key = f"{info.get('bill_no', '')}|{info.get('proc_result', '')}|{info.get('propose_dt', '')}"
+        prev = state["bills"].get(bill_id)
+        status = "NEW" if not prev else ("MOD" if prev.get("status_key") != current_key else "OK")
+
+        item = {
             "status": status,
             "status_ko": STATUS_KO.get(status, status),
             "kind": "의안",
-            "title": bill_item["bill_name"],
-            "date": bill_item.get("propose_dt"),
-            "id": bill_item["bill_id"],
-            "diff_url": f"https://likms.assembly.go.kr/bill/billDetail.do?billId={bill_item['bill_id']}",
-            "detected_at_utc": gen_utc
+            "title": info.get("bill_name", ""),
+            "date": info.get("propose_dt", ""),
+            "id": bill_id,
+            "diff_url": build_bill_diff_url(bill_id),
+            "detected_at_utc": generated_utc,
         }
-        all_items.append(bill_out_item)
-
         if status in ("NEW", "MOD"):
-            change_items.append(bill_out_item)
-            st["bills"][key] = {"status_key": cur_key, **bill_item}
+            item["change_summary"] = build_change_summary(prev, info, BILL_CHANGE_FIELDS)
+        all_items.append(item)
+        state["bills"][bill_id] = {"status_key": current_key, **info}
 
-    outp = Path(out_dir)
-    outp.mkdir(parents=True, exist_ok=True)
-    write_json(outp/"updates.json", {"generated_at_kst": gen_kst, "generated_at_utc": gen_utc, "items": all_items})
-    write_json(outp/"changes.json", {"generated_at_kst": gen_kst, "generated_at_utc": gen_utc, "items": change_items})
-    write_json(outp/"health.json",  {"last_success_kst": gen_kst, "last_success_utc": gen_utc})
+    all_items = sort_items(dedupe_items(all_items))
+    change_items = [item for item in all_items if str(item.get("status", "")).upper() in ("NEW", "MOD")]
 
-    st["last_run"] = gen_kst
-    save_state(st)
+    kind_count = {"법령": 0, "고시": 0, "의안": 0}
+    for item in all_items:
+        kind = str(item.get("kind", ""))
+        if kind in kind_count:
+            kind_count[kind] += 1
 
-def main():
+    out_path = Path(out_dir)
+    out_path.mkdir(parents=True, exist_ok=True)
+    payload = {
+        "generated_at_kst": generated_kst,
+        "generated_at_utc": generated_utc,
+        "stats": {
+            "count_by_kind": kind_count,
+            "fallback": used_fallback,
+        },
+        "items": all_items,
+    }
+    write_json(out_path / "updates.json", payload)
+    write_json(
+        out_path / "changes.json",
+        {
+            "generated_at_kst": generated_kst,
+            "generated_at_utc": generated_utc,
+            "stats": payload["stats"],
+            "items": change_items,
+        },
+    )
+    write_json(out_path / "health.json", {"last_success_kst": generated_kst, "last_success_utc": generated_utc})
+
+    state["last_run"] = generated_kst
+    save_state(state)
+
+
+def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--mode", choices=["web"], default="web")
     ap.add_argument("--out", default="public")
     args = ap.parse_args()
     run_web(args.out)
+
 
 if __name__ == "__main__":
     main()
