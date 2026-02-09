@@ -1,6 +1,6 @@
 {
-  "generated_at_kst": "2026-02-09T16:59:00.643+09:00",
-  "generated_at_utc": "2026-02-09T07:59:00.643Z",
+  "generated_at_kst": "2026-02-09T17:04:49.667+09:00",
+  "generated_at_utc": "2026-02-09T08:04:49.667Z",
   "stats": {
     "count_by_kind": {
       "법령": 8,
@@ -14,24 +14,22 @@
   },
   "items": [
     {
-      "status": "MOD",
-      "status_ko": "변경",
+      "status": "OK",
+      "status_ko": "유지",
       "kind": "법령",
       "title": "환경분야 시험ㆍ검사 등에 관한 법률 시행령",
       "date": "20260127",
       "id": "36055|20260127|타법개정",
-      "diff_url": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=283021&efYd=20260127",
-      "change_summary": "공포일자: 20251001 -> 20260127; 공포번호: 35804 -> 36055"
+      "diff_url": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=283021&efYd=20260127"
     },
     {
-      "status": "MOD",
-      "status_ko": "변경",
+      "status": "OK",
+      "status_ko": "유지",
       "kind": "법령",
       "title": "환경오염시설의 통합관리에 관한 법률 시행령",
       "date": "20260127",
       "id": "36055|20260127|타법개정",
-      "diff_url": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=283023&efYd=20260127",
-      "change_summary": "공포일자: 20260102 -> 20260127; 공포번호: 35998 -> 36055"
+      "diff_url": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=283023&efYd=20260127"
     },
     {
       "status": "OK",
@@ -88,484 +86,436 @@
       "diff_url": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=279051&efYd=20251001"
     },
     {
-      "status": "NEW",
-      "status_ko": "신규",
+      "status": "OK",
+      "status_ko": "유지",
       "kind": "고시",
       "title": "대기오염공정시험기준",
       "date": "20251226",
       "id": "2025-57|20251226|20251226",
-      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000273702",
-      "change_summary": "신규 감지"
+      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000273702"
     },
     {
-      "status": "NEW",
-      "status_ko": "신규",
+      "status": "OK",
+      "status_ko": "유지",
       "kind": "고시",
       "title": "굴뚝 원격감시체계 관제센터의 기능 및 운영 등에 관한 규정",
       "date": "20251223",
       "id": "2025-64|20251223|20251229",
-      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000270230",
-      "change_summary": "신규 감지"
+      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000270230"
     },
     {
-      "status": "NEW",
-      "status_ko": "신규",
+      "status": "OK",
+      "status_ko": "유지",
       "kind": "고시",
       "title": "통합관리사업장의 배출 및 방지시설 운영·관리와 허가조건 이행에 대한 전산 기록·보존에 관한 고시",
       "date": "20251223",
       "id": "2025-55|20251223|20251223",
-      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000270198",
-      "change_summary": "신규 감지"
+      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000270198"
     },
     {
-      "status": "NEW",
-      "status_ko": "신규",
+      "status": "OK",
+      "status_ko": "유지",
       "kind": "고시",
       "title": "온실가스 배출권의 할당 및 취소에 관한 지침",
       "date": "20251219",
       "id": "2025-65|20251219|20251219",
-      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000270270",
-      "change_summary": "신규 감지"
+      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000270270"
     },
     {
-      "status": "NEW",
-      "status_ko": "신규",
+      "status": "OK",
+      "status_ko": "유지",
       "kind": "고시",
       "title": "환경시험·검사기관 정도관리 운영등에 관한 규정",
       "date": "20251216",
       "id": "2025-52|20251216|20251216",
-      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000269542",
-      "change_summary": "신규 감지"
+      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000269542"
     },
     {
-      "status": "NEW",
-      "status_ko": "신규",
+      "status": "OK",
+      "status_ko": "유지",
       "kind": "고시",
       "title": "온실가스 배출권 거래소의 감독에 관한 고시",
       "date": "20251106",
       "id": "2025-165|20251106|20251112",
-      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000267436",
-      "change_summary": "신규 감지"
+      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000267436"
     },
     {
-      "status": "NEW",
-      "status_ko": "신규",
+      "status": "OK",
+      "status_ko": "유지",
       "kind": "고시",
       "title": "국토계획 및 환경계획의 통합관리에 관한 공동훈령",
       "date": "20251105",
       "id": "4,1904|20251105|20251105",
-      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000267446",
-      "change_summary": "신규 감지"
+      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000267446"
     },
     {
-      "status": "NEW",
-      "status_ko": "신규",
+      "status": "OK",
+      "status_ko": "유지",
       "kind": "고시",
       "title": "에코이노베이션 기술에 의한 자동차 온실가스 배출 저감 및 에너지소비관련 개선 효과 인정 지침",
       "date": "20251105",
       "id": "4|20251105|20251111",
-      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000268312",
-      "change_summary": "신규 감지"
+      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000268312"
     },
     {
-      "status": "NEW",
-      "status_ko": "신규",
+      "status": "OK",
+      "status_ko": "유지",
       "kind": "고시",
       "title": "오염총량초과과징금 사무처리규정",
       "date": "20251105",
       "id": "4|20251105|20251111",
-      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000266982",
-      "change_summary": "신규 감지"
+      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000266982"
     },
     {
-      "status": "NEW",
-      "status_ko": "신규",
+      "status": "OK",
+      "status_ko": "유지",
       "kind": "고시",
       "title": "특정토양오염관리대상시설의 토양오염방지시설 및 오염토양의 정화방법 등에 관한 고시",
       "date": "20251105",
       "id": "2025-165|20251105|20251105",
-      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000267260",
-      "change_summary": "신규 감지"
+      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000267260"
     },
     {
-      "status": "NEW",
-      "status_ko": "신규",
+      "status": "OK",
+      "status_ko": "유지",
       "kind": "고시",
       "title": "(기후에너지환경부) 온실가스 배출권의 거래에 관한 고시",
       "date": "20251001",
       "id": "2025-165|20251001|20251007",
-      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000267472",
-      "change_summary": "신규 감지"
+      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000267472"
     },
     {
-      "status": "NEW",
-      "status_ko": "신규",
+      "status": "OK",
+      "status_ko": "유지",
       "kind": "고시",
       "title": "가스열펌프 대기오염물질 저감장치 인증방법 및 절차 등에 관한 규정",
       "date": "20251001",
       "id": "2025-165|20251001|20251007",
-      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000267558",
-      "change_summary": "신규 감지"
+      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000267558"
     },
     {
-      "status": "NEW",
-      "status_ko": "신규",
+      "status": "OK",
+      "status_ko": "유지",
       "kind": "고시",
       "title": "고농도 미세먼지 비상저감조치 시행대상 대기오염물질 배출시설에 대한 고시",
       "date": "20251001",
       "id": "2025-165|20251001|20251007",
-      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000267412",
-      "change_summary": "신규 감지"
+      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000267412"
     },
     {
-      "status": "NEW",
-      "status_ko": "신규",
+      "status": "OK",
+      "status_ko": "유지",
       "kind": "고시",
       "title": "대기오염 방지시설(연소보조장치)의 성능기준 및 검사방법",
       "date": "20251001",
       "id": "2025-165|20251001|20251001",
-      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000266434",
-      "change_summary": "신규 감지"
+      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000266434"
     },
     {
-      "status": "NEW",
-      "status_ko": "신규",
+      "status": "OK",
+      "status_ko": "유지",
       "kind": "고시",
       "title": "대기오염 배출시설 관리현황 제출에 관한 규정",
       "date": "20251001",
       "id": "4|20251001|20251007",
-      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000268004",
-      "change_summary": "신규 감지"
+      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000268004"
     },
     {
-      "status": "NEW",
-      "status_ko": "신규",
+      "status": "OK",
+      "status_ko": "유지",
       "kind": "고시",
       "title": "대기오염물질 배출시설에서 제외되는 밀폐된 진공기반의 용해시설에 대한 고시",
       "date": "20251001",
       "id": "2025-165|20251001|20251001",
-      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000266436",
-      "change_summary": "신규 감지"
+      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000266436"
     },
     {
-      "status": "NEW",
-      "status_ko": "신규",
+      "status": "OK",
+      "status_ko": "유지",
       "kind": "고시",
       "title": "대기오염물질 총량관리사업자의 배출허용총량 이전 절차 등에 관한 규정",
       "date": "20251001",
       "id": "2025-165|20251001|20251007",
-      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000266942",
-      "change_summary": "신규 감지"
+      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000266942"
     },
     {
-      "status": "NEW",
-      "status_ko": "신규",
+      "status": "OK",
+      "status_ko": "유지",
       "kind": "고시",
       "title": "미세먼지 간이측정기 성능인증 수수료",
       "date": "20251001",
       "id": "2025-165|20251001|20190815",
-      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000265272",
-      "change_summary": "신규 감지"
+      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000265272"
     },
     {
-      "status": "NEW",
-      "status_ko": "신규",
+      "status": "OK",
+      "status_ko": "유지",
       "kind": "고시",
       "title": "미세먼지연구·관리센터의 지정 및 운영에 관한 고시",
       "date": "20251001",
       "id": "2025-165|20251001|20251001",
-      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000265264",
-      "change_summary": "신규 감지"
+      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000265264"
     },
     {
-      "status": "NEW",
-      "status_ko": "신규",
+      "status": "OK",
+      "status_ko": "유지",
       "kind": "고시",
       "title": "배출가스저감장치의 성능유지확인 검사기준 및 검사방법 등에 관한 규정",
       "date": "20251001",
       "id": "2025-165|20251001|20251007",
-      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000267122",
-      "change_summary": "신규 감지"
+      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000267122"
     },
     {
-      "status": "NEW",
-      "status_ko": "신규",
+      "status": "OK",
+      "status_ko": "유지",
       "kind": "고시",
       "title": "배출시설 및 방지시설의 운영과 자가측정에 대한 전산기록·보존에 관한 고시",
       "date": "20251001",
       "id": "2025-165|20251001|20251007",
-      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000267524",
-      "change_summary": "신규 감지"
+      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000267524"
     },
     {
-      "status": "NEW",
-      "status_ko": "신규",
+      "status": "OK",
+      "status_ko": "유지",
       "kind": "고시",
       "title": "오염부하량할당대상자가 설치하여야 하는 측정기기의 종류 및 부착방법 등에 관한 규정",
       "date": "20251001",
       "id": "2025-165|20251001|20251007",
-      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000265180",
-      "change_summary": "신규 감지"
+      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000265180"
     },
     {
-      "status": "NEW",
-      "status_ko": "신규",
+      "status": "OK",
+      "status_ko": "유지",
       "kind": "고시",
       "title": "온실가스 배출권 거래소 신청자격 및 평가기준 등에 관한 고시",
       "date": "20251001",
       "id": "2025-165|20251001|20251007",
-      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000268590",
-      "change_summary": "신규 감지"
+      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000268590"
     },
     {
-      "status": "NEW",
-      "status_ko": "신규",
+      "status": "OK",
+      "status_ko": "유지",
       "kind": "고시",
       "title": "온실가스 배출권거래제 운영을 위한 검증지침",
       "date": "20251001",
       "id": "2025-165|20251001|20251007",
-      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000267438",
-      "change_summary": "신규 감지"
+      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000267438"
     },
     {
-      "status": "NEW",
-      "status_ko": "신규",
+      "status": "OK",
+      "status_ko": "유지",
       "kind": "고시",
       "title": "운행자동차 배출가스저감장치·저공해엔진 인증방법 및 절차 등에 관한 규정",
       "date": "20251001",
       "id": "2025-165|20251001|20251007",
-      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000267126",
-      "change_summary": "신규 감지"
+      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000267126"
     },
     {
-      "status": "NEW",
-      "status_ko": "신규",
+      "status": "OK",
+      "status_ko": "유지",
       "kind": "고시",
       "title": "운행차 배출가스 검사 시행요령 등에 관한 규정",
       "date": "20251001",
       "id": "2025-165|20251001|20251007",
-      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000267506",
-      "change_summary": "신규 감지"
+      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000267506"
     },
     {
-      "status": "NEW",
-      "status_ko": "신규",
+      "status": "OK",
+      "status_ko": "유지",
       "kind": "고시",
       "title": "유기성 폐자원의 배출량·처리량 및 바이오가스 생산량의 보고와 적합성 검토방법에 관한 고시",
       "date": "20251001",
       "id": "2025-165|20251001|20251007",
-      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000267176",
-      "change_summary": "신규 감지"
+      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000267176"
     },
     {
-      "status": "NEW",
-      "status_ko": "신규",
+      "status": "OK",
+      "status_ko": "유지",
       "kind": "고시",
       "title": "자동차 배출가스 결함확인검사용 자동차 선정 등에 관한 규정",
       "date": "20251001",
       "id": "2025-165|20251001|20251007",
-      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000265990",
-      "change_summary": "신규 감지"
+      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000265990"
     },
     {
-      "status": "NEW",
-      "status_ko": "신규",
+      "status": "OK",
+      "status_ko": "유지",
       "kind": "고시",
       "title": "자동차 배출가스 등급 산정방법에 관한 규정",
       "date": "20251001",
       "id": "2025-165|20251001|20251007",
-      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000267120",
-      "change_summary": "신규 감지"
+      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000267120"
     },
     {
-      "status": "NEW",
-      "status_ko": "신규",
+      "status": "OK",
+      "status_ko": "유지",
       "kind": "고시",
       "title": "자동차 평균에너지소비효율기준·온실가스 배출허용기준 및 기준의 적용·관리 등에 관한 고시",
       "date": "20251001",
       "id": "2025-165|20251001|20251007",
-      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000266944",
-      "change_summary": "신규 감지"
+      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000266944"
     },
     {
-      "status": "NEW",
-      "status_ko": "신규",
+      "status": "OK",
+      "status_ko": "유지",
       "kind": "고시",
       "title": "통합관리 대상 배출시설등의 한계배출기준",
       "date": "20251001",
       "id": "2025-165|20251001|20251001",
-      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000265062",
-      "change_summary": "신규 감지"
+      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000265062"
     },
     {
-      "status": "NEW",
-      "status_ko": "신규",
+      "status": "OK",
+      "status_ko": "유지",
       "kind": "고시",
       "title": "통합허가대행업자 영업수행능력 평가에 관한 규정",
       "date": "20251001",
       "id": "2025-165|20251001|20251001",
-      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000265096",
-      "change_summary": "신규 감지"
+      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000265096"
     },
     {
-      "status": "NEW",
-      "status_ko": "신규",
+      "status": "OK",
+      "status_ko": "유지",
       "kind": "고시",
       "title": "통합환경관리정보공개 심의위원회 및 정보공개제도 운영에 관한 규정",
       "date": "20251001",
       "id": "2025-165|20251001|20251001",
-      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000265114",
-      "change_summary": "신규 감지"
+      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000265114"
     },
     {
-      "status": "NEW",
-      "status_ko": "신규",
+      "status": "OK",
+      "status_ko": "유지",
       "kind": "고시",
       "title": "휘발성 유기화합물 배출시설의 종류, 시설의 규모, 배출억제·방지시설의 설치 등에 관한 규정",
       "date": "20251001",
       "id": "2025-165|20251001|20251007",
-      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000267020",
-      "change_summary": "신규 감지"
+      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000267020"
     },
     {
-      "status": "NEW",
-      "status_ko": "신규",
+      "status": "OK",
+      "status_ko": "유지",
       "kind": "고시",
       "title": "자동차의 에너지소비효율 및 온실가스 배출량 시험방법 등에 관한 고시",
       "date": "20250519",
       "id": "2025-245,2025-78,2025-90|20250519|20250519",
-      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000259224",
-      "change_summary": "신규 감지"
+      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000259224"
     },
     {
-      "status": "NEW",
-      "status_ko": "신규",
+      "status": "OK",
+      "status_ko": "유지",
       "kind": "고시",
       "title": "온실가스 배출권거래제의 배출량 보고 및 인증에 관한 지침",
       "date": "20250411",
       "id": "2025-64|20250411|20250411",
-      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000257748",
-      "change_summary": "신규 감지"
+      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000257748"
     },
     {
-      "status": "NEW",
-      "status_ko": "신규",
+      "status": "OK",
+      "status_ko": "유지",
       "kind": "고시",
       "title": "2025년 자동차 배출가스 결함확인검사 대상 차종 고시",
       "date": "20250401",
       "id": "2025-58|20250401|20250401",
-      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000257248",
-      "change_summary": "신규 감지"
+      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000257248"
     },
     {
-      "status": "NEW",
-      "status_ko": "신규",
+      "status": "OK",
+      "status_ko": "유지",
       "kind": "고시",
       "title": "대기오염물질 배출계수 관리위원회 규정",
       "date": "20250224",
       "id": "885|20250224|20250225",
-      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000255060",
-      "change_summary": "신규 감지"
+      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000255060"
     },
     {
-      "status": "NEW",
-      "status_ko": "신규",
+      "status": "OK",
+      "status_ko": "유지",
       "kind": "고시",
       "title": "대기오염물질 심사·평가위원회 운영, 절차 및 지정 등에 관한 규정",
       "date": "20250224",
       "id": "2025-3|20250224|20250225",
-      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000255058",
-      "change_summary": "신규 감지"
+      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000255058"
     },
     {
-      "status": "NEW",
-      "status_ko": "신규",
+      "status": "OK",
+      "status_ko": "유지",
       "kind": "고시",
       "title": "미세먼지 간이측정기 성능인증 등에 관한 고시",
       "date": "20230629",
       "id": "2023-35|20230629|20230629",
-      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000225378",
-      "change_summary": "신규 감지"
+      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000225378"
     },
     {
-      "status": "NEW",
-      "status_ko": "신규",
+      "status": "OK",
+      "status_ko": "유지",
       "kind": "고시",
       "title": "유효굴뚝높이 산정방법 고시",
       "date": "20210831",
       "id": "2021-58|20210831|20210831",
-      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000204197",
-      "change_summary": "신규 감지"
+      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000204197"
     },
     {
-      "status": "NEW",
-      "status_ko": "신규",
+      "status": "OK",
+      "status_ko": "유지",
       "kind": "고시",
       "title": "배출시설의 대기오염물질 배출계수 고시",
       "date": "20210713",
       "id": "2021-41|20210713|20210713",
-      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000202953",
-      "change_summary": "신규 감지"
+      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000202953"
     },
     {
-      "status": "NEW",
-      "status_ko": "신규",
+      "status": "OK",
+      "status_ko": "유지",
       "kind": "고시",
       "title": "2019년도 금강수계 오염총량초과과징금 가격변동지수",
       "date": "20190110",
       "id": "2019-16|20190110|20190110",
-      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000175317",
-      "change_summary": "신규 감지"
+      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000175317"
     },
     {
-      "status": "NEW",
-      "status_ko": "신규",
+      "status": "OK",
+      "status_ko": "유지",
       "kind": "고시",
       "title": "2019년도 기타수계(진위천·삽교호수계) 오염총량초과과징금 가격변동지수",
       "date": "20190110",
       "id": "2019-18|20190110|20190110",
-      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000175319",
-      "change_summary": "신규 감지"
+      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000175319"
     },
     {
-      "status": "NEW",
-      "status_ko": "신규",
+      "status": "OK",
+      "status_ko": "유지",
       "kind": "고시",
       "title": "2019년도 낙동강수계 오염총량초과과징금 가격변동지수",
       "date": "20190110",
       "id": "2019-15|20190110|20190110",
-      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000175316",
-      "change_summary": "신규 감지"
+      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000175316"
     },
     {
-      "status": "NEW",
-      "status_ko": "신규",
+      "status": "OK",
+      "status_ko": "유지",
       "kind": "고시",
       "title": "2019년도 영산강·섬진강수계 오염총량초과과징금 가격변동지수",
       "date": "20190110",
       "id": "2019-17|20190110|20190110",
-      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000175318",
-      "change_summary": "신규 감지"
+      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000175318"
     },
     {
-      "status": "NEW",
-      "status_ko": "신규",
+      "status": "OK",
+      "status_ko": "유지",
       "kind": "고시",
       "title": "2019년도 한강수계 오염총량초과과징금 가격변동지수",
       "date": "20190110",
       "id": "2019-14|20190110|20190110",
-      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000175315",
-      "change_summary": "신규 감지"
+      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000175315"
     },
     {
-      "status": "NEW",
-      "status_ko": "신규",
+      "status": "OK",
+      "status_ko": "유지",
       "kind": "고시",
       "title": "대기오염물질 배출량 이력관리 및 재산정에 관한 규정",
       "date": "20101208",
       "id": "557|20101208|20101208",
-      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2000000072425",
-      "change_summary": "신규 감지"
+      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2000000072425"
     },
     {
       "status": "OK",
@@ -575,7 +525,7 @@
       "date": "20260206",
       "id": "PRC_N2W6J0P2F0X5I1V3O4S6G5K7N0O3L4",
       "diff_url": "https://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_N2W6J0P2F0X5I1V3O4S6G5K7N0O3L4",
-      "detected_at_utc": "2026-02-09T07:59:00.643Z"
+      "detected_at_utc": "2026-02-09T08:04:49.667Z"
     },
     {
       "status": "OK",
@@ -585,7 +535,7 @@
       "date": "20260206",
       "id": "PRC_L2J6R0Y2E0X5L1Z3P4B8E3Q5T6E7S8",
       "diff_url": "https://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_L2J6R0Y2E0X5L1Z3P4B8E3Q5T6E7S8",
-      "detected_at_utc": "2026-02-09T07:59:00.643Z"
+      "detected_at_utc": "2026-02-09T08:04:49.667Z"
     }
   ]
 }
