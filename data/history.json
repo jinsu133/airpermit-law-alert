@@ -1,17 +1,5 @@
 {
-  "generated_at_kst": "2026-02-09T17:24:36.591+09:00",
-  "generated_at_utc": "2026-02-09T08:24:36.591Z",
-  "range_start_yyyymmdd": "20210101",
-  "stats": {
-    "count_by_kind": {
-      "법령": 24,
-      "고시": 42,
-      "의안": 3
-    },
-    "delta_count_this_run": 0,
-    "total_cumulative": 69,
-    "seeded_now": false
-  },
+  "seeded_from": "20210101",
   "items": [
     {
       "status": "MOD",
@@ -880,5 +868,6 @@
       "detected_at_utc": "2021-07-13T00:00:00Z",
       "history_key": "고시||2021-41|20210713|20210713||20210713||배출시설의 대기오염물질 배출계수 고시"
     }
-  ]
+  ],
+  "last_generated_at_utc": "2026-02-09T08:24:36.591Z"
 }

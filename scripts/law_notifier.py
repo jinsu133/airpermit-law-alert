@@ -19,6 +19,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 DATA_DIR = BASE_DIR / "data"
 DATA_DIR.mkdir(parents=True, exist_ok=True)
 STATE_PATH = DATA_DIR / "state.json"
+HISTORY_PATH = DATA_DIR / "history.json"
+CHANGELOG_PATH = BASE_DIR / "public" / "changelog.json"
 
 KST = timezone(timedelta(hours=9))
 ASSEMBLY_BASE = "https://open.assembly.go.kr/portal/openapi"
@@ -30,6 +32,7 @@ if (BASE_DIR / ".env").exists():
 LAW_OC = os.getenv("LAW_OC", "").strip()
 ASSEMBLY_KEY = os.getenv("ASSEMBLY_KEY", "").strip()
 ASSEMBLY_AGE = os.getenv("ASSEMBLY_AGE", "").strip()
+HISTORY_START_DATE_RAW = os.getenv("CHANGELOG_START_DATE", "20210101").strip()
 
 LAW_DRF_BASES_ENV = os.getenv("LAW_DRF_BASES", "").strip()
 LAW_DRF_BASE = os.getenv("LAW_DRF_BASE", "").strip()
@@ -120,6 +123,7 @@ BILL_STRICT_KEYWORDS = [
     "시험·검사",
 ]
 BILL_EXTRA_KEYWORDS = [x.strip() for x in os.getenv("BILL_EXTRA_KEYWORDS", "").split(",") if x.strip()]
+BILL_HISTORY_AGES = [x.strip() for x in os.getenv("BILL_HISTORY_AGES", "21,22").split(",") if x.strip()]
 
 SERVICE_SEARCH_BILL = os.getenv("SERVICE_SEARCH_BILL", "TVBPMBILL11").strip() or "TVBPMBILL11"
 BILL_SERVICES_RECENT = [
@@ -203,6 +207,248 @@ def save_state(st: Dict[str, Any]) -> None:
     tmp.replace(STATE_PATH)
 
 
+def load_history() -> Dict[str, Any]:
+    default = {"seeded_from": None, "items": []}
+    src_text = ""
+    if HISTORY_PATH.exists():
+        src_text = HISTORY_PATH.read_text(encoding="utf-8")
+    elif CHANGELOG_PATH.exists():
+        # 기존 changelog.json 포맷(items 배열) 호환
+        src_text = CHANGELOG_PATH.read_text(encoding="utf-8")
+    if not src_text:
+        return default
+    try:
+        data = json.loads(src_text)
+    except Exception:
+        return default
+    if isinstance(data, list):
+        return {"seeded_from": None, "items": data}
+    if not isinstance(data, dict):
+        return default
+    items = data.get("items", [])
+    if not isinstance(items, list):
+        items = []
+    return {
+        "seeded_from": data.get("seeded_from"),
+        "items": items,
+    }
+
+
+def save_history(history: Dict[str, Any]) -> None:
+    ensure_parent(HISTORY_PATH)
+    HISTORY_PATH.write_text(json.dumps(history, ensure_ascii=False, indent=2), encoding="utf-8")
+
+
+def history_entry_from_item(item: Dict[str, Any], source: str, fallback_iso: str) -> Dict[str, Any]:
+    entry = {
+        "status": str(item.get("status", "MOD")),
+        "status_ko": str(item.get("status_ko", STATUS_KO.get(str(item.get("status", "MOD")), "변경"))),
+        "kind": str(item.get("kind", "")),
+        "title": str(item.get("title", "")),
+        "date": normalize_date(item.get("date", "")),
+        "id": str(item.get("id", "")),
+        "diff_url": item.get("diff_url"),
+        "change_summary": str(item.get("change_summary", "") or ""),
+        "source": source,
+        "detected_at_utc": normalize_detected_at_utc(item, fallback_iso),
+    }
+    entry["history_key"] = history_item_key(entry)
+    return entry
+
+
+def merge_history_items(
+    existing_items: List[Dict[str, Any]],
+    incoming_items: List[Dict[str, Any]],
+    cutoff_yyyymmdd: str,
+) -> List[Dict[str, Any]]:
+    cutoff = safe_int_yyyymmdd(cutoff_yyyymmdd)
+    merged: Dict[str, Dict[str, Any]] = {}
+
+    for raw in (existing_items + incoming_items):
+        if not isinstance(raw, dict):
+            continue
+        item = dict(raw)
+        item["date"] = normalize_date(item.get("date", ""))
+        item["detected_at_utc"] = normalize_detected_at_utc(item, now_utc_iso_ms())
+        if not item.get("history_key"):
+            item["history_key"] = history_item_key(item)
+        if not item.get("status_ko"):
+            item["status_ko"] = STATUS_KO.get(str(item.get("status", "MOD")), "변경")
+
+        date_num = safe_int_yyyymmdd(item.get("date", "")) or safe_int_yyyymmdd(yyyymmdd_from_iso(item["detected_at_utc"]))
+        if date_num and date_num < cutoff:
+            continue
+
+        key = str(item.get("history_key", "")).strip() or history_item_key(item)
+        prev = merged.get(key)
+        if not prev:
+            merged[key] = item
+            continue
+
+        # 같은 항목이면 최신 detected_at_utc 기준으로 갱신
+        if iso_sort_value(item.get("detected_at_utc", "")) >= iso_sort_value(prev.get("detected_at_utc", "")):
+            merged[key] = item
+
+    out = list(merged.values())
+    out.sort(
+        key=lambda item: (
+            -iso_sort_value(item.get("detected_at_utc", "")),
+            -date_sort_value(item.get("date", "")),
+            str(item.get("kind", "")),
+            str(item.get("title", "")),
+        )
+    )
+    return out
+
+
+def collect_law_backfill_items(cutoff_yyyymmdd: str) -> List[Dict[str, Any]]:
+    cutoff = safe_int_yyyymmdd(cutoff_yyyymmdd)
+    out: List[Dict[str, Any]] = []
+
+    for law_name in LAW_NAMES:
+        params = {
+            "OC": LAW_OC,
+            "target": "law",
+            "type": "JSON",
+            "query": law_name,
+            "display": "100",
+            "sort": "ddes",
+        }
+        data = law_api_request("lawSearch.do", params, f"law_backfill:{law_name}")
+        if not data:
+            continue
+        raw = ((data.get("LawSearch") or {}).get("law")) or []
+        items = raw if isinstance(raw, list) else ([raw] if isinstance(raw, dict) else [])
+        for item in items:
+            ld = normalize_date(item.get("공포일자", ""))
+            if not ld or safe_int_yyyymmdd(ld) < cutoff:
+                continue
+            title = str(item.get("법령명한글") or law_name)
+            info = {
+                "ld": ld,
+                "ln": str(item.get("공포번호", "") or ""),
+                "reform_type": str(item.get("제개정구분명", "") or ""),
+                "law_id": str(item.get("법령일련번호") or item.get("법령ID") or ""),
+            }
+            item_id = f"{info['ln']}|{info['ld']}|{info['reform_type']}".strip("|") or title
+            out.append(
+                {
+                    "status": "MOD",
+                    "status_ko": STATUS_KO["MOD"],
+                    "kind": "법령",
+                    "title": title,
+                    "date": ld,
+                    "id": item_id,
+                    "diff_url": build_law_diff_url(title, info),
+                    "change_summary": "기준일(2021-01-01) 이후 누적 백필",
+                    "detected_at_utc": to_iso_utc_from_yyyymmdd(ld),
+                }
+            )
+    return out
+
+
+def collect_admrul_backfill_items(cutoff_yyyymmdd: str) -> List[Dict[str, Any]]:
+    cutoff = safe_int_yyyymmdd(cutoff_yyyymmdd)
+    out: List[Dict[str, Any]] = []
+
+    for keyword in ADMRUL_QUERIES:
+        params = {
+            "OC": LAW_OC,
+            "target": "admrul",
+            "type": "JSON",
+            "query": keyword,
+            "display": "100",
+            "sort": "ddes",
+        }
+        data = law_api_request("lawSearch.do", params, f"admrul_backfill:{keyword}")
+        if not data:
+            continue
+        container = data.get("AdmRulSearch") or data.get("AdmrulSearch") or data.get("admRulSearch") or {}
+        raw = container.get("admrul", [])
+        items = raw if isinstance(raw, list) else ([raw] if isinstance(raw, dict) else [])
+        for item in items:
+            title = str(item.get("행정규칙명", "") or "")
+            dept = str(item.get("소관부처명", "") or "")
+            if dept and not any(x in dept for x in ("환경부", "국립환경과학원", "기후에너지환경부")):
+                continue
+
+            date_text = normalize_date(item.get("발령일자") or item.get("공포일자") or "")
+            if not date_text or safe_int_yyyymmdd(date_text) < cutoff:
+                continue
+
+            info = {
+                "num": str(item.get("발령번호") or item.get("고시번호") or item.get("행정규칙ID") or ""),
+                "promulgation_date": date_text,
+                "enforce_date": normalize_date(item.get("시행일자") or ""),
+                "admrul_id": str(item.get("행정규칙일련번호") or item.get("행정규칙ID") or ""),
+            }
+            item_id = f"{info['num']}|{info['promulgation_date']}|{info['enforce_date']}".strip("|") or title
+            out.append(
+                {
+                    "status": "MOD",
+                    "status_ko": STATUS_KO["MOD"],
+                    "kind": "고시",
+                    "title": title,
+                    "date": info["promulgation_date"],
+                    "id": item_id,
+                    "diff_url": build_admrul_diff_url(title, info),
+                    "change_summary": "기준일(2021-01-01) 이후 누적 백필",
+                    "detected_at_utc": to_iso_utc_from_yyyymmdd(info["promulgation_date"]),
+                }
+            )
+    return out
+
+
+def collect_bill_backfill_items(cutoff_yyyymmdd: str) -> List[Dict[str, Any]]:
+    cutoff = safe_int_yyyymmdd(cutoff_yyyymmdd)
+    out: List[Dict[str, Any]] = []
+    seen = set()
+
+    for age in BILL_HISTORY_AGES:
+        for keyword in BILL_LAW_KEYWORDS:
+            try:
+                data = assembly_call(SERVICE_SEARCH_BILL, {"BILL_NM": keyword, "pSize": 100, "AGE": age})
+            except Exception as exc:
+                print(f"[WARN] bill_backfill 실패: age={age} keyword={keyword} -> {exc}")
+                continue
+            for row in extract_rows(data):
+                bill_id = str(row.get("BILL_ID") or row.get("billId") or "").strip()
+                if not bill_id:
+                    continue
+                title = str(row.get("BILL_NAME") or row.get("TITLE") or "")
+                if not is_target_bill_title(title):
+                    continue
+                propose = normalize_date(row.get("PROPOSE_DT") or row.get("RST_PROPOSE_DT") or "")
+                if not propose or safe_int_yyyymmdd(propose) < cutoff:
+                    continue
+                dedupe_key = f"{bill_id}|{propose}"
+                if dedupe_key in seen:
+                    continue
+                seen.add(dedupe_key)
+                out.append(
+                    {
+                        "status": "MOD",
+                        "status_ko": STATUS_KO["MOD"],
+                        "kind": "의안",
+                        "title": title,
+                        "date": propose,
+                        "id": bill_id,
+                        "diff_url": build_bill_diff_url(bill_id),
+                        "change_summary": "기준일(2021-01-01) 이후 누적 백필",
+                        "detected_at_utc": to_iso_utc_from_yyyymmdd(propose),
+                    }
+                )
+    return out
+
+
+def seed_history_items(cutoff_yyyymmdd: str) -> List[Dict[str, Any]]:
+    items: List[Dict[str, Any]] = []
+    items.extend(collect_law_backfill_items(cutoff_yyyymmdd))
+    items.extend(collect_admrul_backfill_items(cutoff_yyyymmdd))
+    items.extend(collect_bill_backfill_items(cutoff_yyyymmdd))
+    return items
+
+
 def require_keys() -> None:
     if not LAW_OC:
         raise RuntimeError("LAW_OC missing (GitHub Secrets에 설정 필요)")
@@ -223,6 +469,70 @@ def normalize_date(text: str) -> str:
 def date_sort_value(text: str) -> int:
     digits = normalize_date(text)
     return int(digits) if digits else 0
+
+
+def history_start_yyyymmdd() -> str:
+    d = normalize_date(HISTORY_START_DATE_RAW)
+    return d if d else "20210101"
+
+
+def safe_int_yyyymmdd(text: str) -> int:
+    digits = normalize_date(text)
+    return int(digits) if digits else 0
+
+
+def to_iso_utc_from_yyyymmdd(yyyymmdd: str) -> str:
+    digits = normalize_date(yyyymmdd)
+    if len(digits) != 8:
+        return now_utc_iso_ms()
+    return f"{digits[0:4]}-{digits[4:6]}-{digits[6:8]}T00:00:00Z"
+
+
+def yyyymmdd_from_iso(iso: str) -> str:
+    if not iso:
+        return ""
+    digits = normalize_date(iso)
+    return digits[:8]
+
+
+def normalize_detected_at_utc(item: Dict[str, Any], fallback_iso: str) -> str:
+    iso = str(item.get("detected_at_utc") or "").strip()
+    if iso:
+        return iso
+    date_text = normalize_date(item.get("date", ""))
+    if date_text:
+        return to_iso_utc_from_yyyymmdd(date_text)
+    return fallback_iso
+
+
+def history_item_key(item: Dict[str, Any]) -> str:
+    return "||".join(
+        [
+            str(item.get("kind", "")).strip(),
+            str(item.get("id", "")).strip(),
+            normalize_date(item.get("date", "")),
+            str(item.get("title", "")).strip(),
+        ]
+    )
+
+
+def iso_sort_value(iso: str) -> float:
+    s = str(iso or "").strip()
+    if not s:
+        return 0.0
+    try:
+        return datetime.fromisoformat(s.replace("Z", "+00:00")).timestamp()
+    except Exception:
+        return 0.0
+
+
+def count_by_kind(items: List[Dict[str, Any]]) -> Dict[str, int]:
+    out = {"법령": 0, "고시": 0, "의안": 0}
+    for item in items:
+        kind = str(item.get("kind", ""))
+        if kind in out:
+            out[kind] += 1
+    return out
 
 
 def law_api_request(endpoint: str, params: Dict[str, Any], label: str) -> Optional[Dict[str, Any]]:
@@ -657,13 +967,35 @@ def run_web(out_dir: str) -> None:
         state["bills"][bill_id] = {"status_key": current_key, **info}
 
     all_items = sort_items(dedupe_items(all_items))
-    change_items = [item for item in all_items if str(item.get("status", "")).upper() in ("NEW", "MOD")]
+    delta_change_items = [item for item in all_items if str(item.get("status", "")).upper() in ("NEW", "MOD")]
+    kind_count = count_by_kind(all_items)
 
-    kind_count = {"법령": 0, "고시": 0, "의안": 0}
-    for item in all_items:
-        kind = str(item.get("kind", ""))
-        if kind in kind_count:
-            kind_count[kind] += 1
+    cutoff_yyyymmdd = history_start_yyyymmdd()
+    history = load_history()
+    existing_history_items = history.get("items", [])
+    history_seeded_from = normalize_date(history.get("seeded_from") or "")
+    seeded_now = False
+
+    needs_seed = (not existing_history_items) or (safe_int_yyyymmdd(history_seeded_from) < safe_int_yyyymmdd(cutoff_yyyymmdd))
+    if needs_seed:
+        print(f"[INFO] history seed 시작: {cutoff_yyyymmdd} 이후 변경분 누적")
+        seed_items = seed_history_items(cutoff_yyyymmdd)
+        seed_entries = [history_entry_from_item(item, source="backfill", fallback_iso=generated_utc) for item in seed_items]
+        base_items = existing_history_items if history_seeded_from else []
+        existing_history_items = merge_history_items(base_items, seed_entries, cutoff_yyyymmdd)
+        history["seeded_from"] = cutoff_yyyymmdd
+        seeded_now = True
+
+    delta_entries = [
+        history_entry_from_item(item, source="delta", fallback_iso=generated_utc) for item in delta_change_items
+    ]
+    cumulative_history_items = merge_history_items(existing_history_items, delta_entries, cutoff_yyyymmdd)
+    history["seeded_from"] = history.get("seeded_from") or cutoff_yyyymmdd
+    history["last_generated_at_utc"] = generated_utc
+    history["items"] = cumulative_history_items
+    save_history(history)
+
+    history_kind_count = count_by_kind(cumulative_history_items)
 
     out_path = Path(out_dir)
     out_path.mkdir(parents=True, exist_ok=True)
@@ -673,19 +1005,27 @@ def run_web(out_dir: str) -> None:
         "stats": {
             "count_by_kind": kind_count,
             "fallback": used_fallback,
+            "delta_count_this_run": len(delta_change_items),
+            "cumulative_history_total": len(cumulative_history_items),
+            "history_start_yyyymmdd": cutoff_yyyymmdd,
         },
         "items": all_items,
     }
-    write_json(out_path / "updates.json", payload)
-    write_json(
-        out_path / "changes.json",
-        {
-            "generated_at_kst": generated_kst,
-            "generated_at_utc": generated_utc,
-            "stats": payload["stats"],
-            "items": change_items,
+    changes_payload = {
+        "generated_at_kst": generated_kst,
+        "generated_at_utc": generated_utc,
+        "range_start_yyyymmdd": cutoff_yyyymmdd,
+        "stats": {
+            "count_by_kind": history_kind_count,
+            "delta_count_this_run": len(delta_change_items),
+            "total_cumulative": len(cumulative_history_items),
+            "seeded_now": seeded_now,
         },
-    )
+        "items": cumulative_history_items,
+    }
+    write_json(out_path / "updates.json", payload)
+    write_json(out_path / "changes.json", changes_payload)
+    write_json(out_path / "changelog.json", changes_payload)
     write_json(out_path / "health.json", {"last_success_kst": generated_kst, "last_success_utc": generated_utc})
 
     state["last_run"] = generated_kst
