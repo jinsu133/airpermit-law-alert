@@ -1,10 +1,10 @@
 {
-  "generated_at_kst": "2026-02-10T07:55:48.311+09:00",
-  "generated_at_utc": "2026-02-09T22:55:48.311Z",
+  "generated_at_kst": "2026-02-10T08:33:39.021+09:00",
+  "generated_at_utc": "2026-02-09T23:33:39.021Z",
   "stats": {
     "count_by_kind": {
       "법령": 8,
-      "고시": 47,
+      "고시": 48,
       "의안": 2
     },
     "fallback": {
@@ -213,6 +213,15 @@
       "date": "20251001",
       "id": "2025-165|20251001|20251001",
       "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000266434"
+    },
+    {
+      "status": "OK",
+      "status_ko": "유지",
+      "kind": "고시",
+      "title": "대기오염 배출시설 관리현황 제출에 관한 규정",
+      "date": "20251001",
+      "id": "4|20251001|20251007",
+      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000268004"
     },
     {
       "status": "OK",
@@ -519,7 +528,7 @@
       "date": "20260206",
       "id": "PRC_N2W6J0P2F0X5I1V3O4S6G5K7N0O3L4",
       "diff_url": "https://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_N2W6J0P2F0X5I1V3O4S6G5K7N0O3L4",
-      "detected_at_utc": "2026-02-09T22:55:48.311Z"
+      "detected_at_utc": "2026-02-09T23:33:39.021Z"
     },
     {
       "status": "OK",
@@ -529,7 +538,7 @@
       "date": "20260206",
       "id": "PRC_L2J6R0Y2E0X5L1Z3P4B8E3Q5T6E7S8",
       "diff_url": "https://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_L2J6R0Y2E0X5L1Z3P4B8E3Q5T6E7S8",
-      "detected_at_utc": "2026-02-09T22:55:48.311Z"
+      "detected_at_utc": "2026-02-09T23:33:39.021Z"
     }
   ]
 }
