@@ -36,7 +36,9 @@
       "diff_url": null,
       "detected_at_utc": "2026-01-23T00:00:00Z",
       "history_key": "의안||PRC_G2E6F0N1O1M3M0L8L0K9S4S6Q5R6P8||20260123||도시 및 주거환경정비법 일부개정법률안",
-      "status_ko": "변경"
+      "status_ko": "변경",
+      "source": "legacy",
+      "change_summary": "레거시 누적 의안 데이터(2026-01-23)입니다. 상세 비교필드가 없어 원문 링크 확인이 필요합니다."
     },
     {
       "status": "MOD",
@@ -47,7 +49,9 @@
       "diff_url": null,
       "detected_at_utc": "2026-01-22T00:00:00Z",
       "history_key": "의안||ARC_I2A6N0V1Y2P2M1V0P2C9V2L0A0C9T8||20260122||교육환경 보호에 관한 법률 일부개정법률안",
-      "status_ko": "변경"
+      "status_ko": "변경",
+      "source": "legacy",
+      "change_summary": "레거시 누적 의안 데이터(2026-01-22)입니다. 상세 비교필드가 없어 원문 링크 확인이 필요합니다."
     },
     {
       "status": "MOD",
@@ -58,7 +62,9 @@
       "diff_url": null,
       "detected_at_utc": "2026-01-02T00:00:00Z",
       "history_key": "법령||012747||20260102||환경오염시설의 통합관리에 관한 법률 시행령",
-      "status_ko": "변경"
+      "status_ko": "변경",
+      "source": "legacy",
+      "change_summary": "레거시 누적 법령 데이터(2026-01-02)입니다. 상세 비교필드가 없어 원문 링크 확인이 필요합니다."
     },
     {
       "status": "MOD",
@@ -69,7 +75,9 @@
       "diff_url": null,
       "detected_at_utc": "2025-12-30T00:00:00Z",
       "history_key": "법령||013722||20251230||대기관리권역의 대기환경개선에 관한 특별법 시행령",
-      "status_ko": "변경"
+      "status_ko": "변경",
+      "source": "legacy",
+      "change_summary": "레거시 누적 법령 데이터(2025-12-30)입니다. 상세 비교필드가 없어 원문 링크 확인이 필요합니다."
     },
     {
       "status": "MOD",
@@ -93,7 +101,9 @@
       "diff_url": null,
       "detected_at_utc": "2025-12-30T00:00:00Z",
       "history_key": "법령||012778||20251230||환경오염시설의 통합관리에 관한 법률 시행규칙",
-      "status_ko": "변경"
+      "status_ko": "변경",
+      "source": "legacy",
+      "change_summary": "레거시 누적 법령 데이터(2025-12-30)입니다. 상세 비교필드가 없어 원문 링크 확인이 필요합니다."
     },
     {
       "status": "MOD",
@@ -130,7 +140,9 @@
       "diff_url": null,
       "detected_at_utc": "2025-12-26T00:00:00Z",
       "history_key": "법령||013725||20251226||대기관리권역의 대기환경개선에 관한 특별법 시행규칙",
-      "status_ko": "변경"
+      "status_ko": "변경",
+      "source": "legacy",
+      "change_summary": "레거시 누적 법령 데이터(2025-12-26)입니다. 상세 비교필드가 없어 원문 링크 확인이 필요합니다."
     },
     {
       "status": "MOD",
@@ -154,7 +166,9 @@
       "diff_url": null,
       "detected_at_utc": "2025-12-24T00:00:00Z",
       "history_key": "법령||007038||20251224||대기환경보전법 시행규칙",
-      "status_ko": "변경"
+      "status_ko": "변경",
+      "source": "legacy",
+      "change_summary": "레거시 누적 법령 데이터(2025-12-24)입니다. 상세 비교필드가 없어 원문 링크 확인이 필요합니다."
     },
     {
       "status": "MOD",
@@ -204,7 +218,9 @@
       "diff_url": null,
       "detected_at_utc": "2025-12-23T00:00:00Z",
       "history_key": "법령||003302||20251223||대기환경보전법 시행령",
-      "status_ko": "변경"
+      "status_ko": "변경",
+      "source": "legacy",
+      "change_summary": "레거시 누적 법령 데이터(2025-12-23)입니다. 상세 비교필드가 없어 원문 링크 확인이 필요합니다."
     },
     {
       "status": "MOD",
@@ -254,7 +270,9 @@
       "diff_url": null,
       "detected_at_utc": "2025-11-11T00:00:00Z",
       "history_key": "법령||001773||20251111||대기환경보전법",
-      "status_ko": "변경"
+      "status_ko": "변경",
+      "source": "legacy",
+      "change_summary": "레거시 누적 법령 데이터(2025-11-11)입니다. 상세 비교필드가 없어 원문 링크 확인이 필요합니다."
     },
     {
       "status": "MOD",
@@ -655,7 +673,9 @@
       "diff_url": null,
       "detected_at_utc": "2025-10-01T00:00:00Z",
       "history_key": "법령||013458||20251001||대기관리권역의 대기환경개선에 관한 특별법",
-      "status_ko": "변경"
+      "status_ko": "변경",
+      "source": "legacy",
+      "change_summary": "레거시 누적 법령 데이터(2025-10-01)입니다. 상세 비교필드가 없어 원문 링크 확인이 필요합니다."
     },
     {
       "status": "MOD",
@@ -679,7 +699,9 @@
       "diff_url": null,
       "detected_at_utc": "2025-10-01T00:00:00Z",
       "history_key": "법령||010302||20251001||환경분야 시험ㆍ검사 등에 관한 법률",
-      "status_ko": "변경"
+      "status_ko": "변경",
+      "source": "legacy",
+      "change_summary": "레거시 누적 법령 데이터(2025-10-01)입니다. 상세 비교필드가 없어 원문 링크 확인이 필요합니다."
     },
     {
       "status": "MOD",
@@ -703,7 +725,9 @@
       "diff_url": null,
       "detected_at_utc": "2025-10-01T00:00:00Z",
       "history_key": "법령||010545||20251001||환경분야 시험ㆍ검사 등에 관한 법률 시행규칙",
-      "status_ko": "변경"
+      "status_ko": "변경",
+      "source": "legacy",
+      "change_summary": "레거시 누적 법령 데이터(2025-10-01)입니다. 상세 비교필드가 없어 원문 링크 확인이 필요합니다."
     },
     {
       "status": "MOD",
@@ -727,7 +751,9 @@
       "diff_url": null,
       "detected_at_utc": "2025-10-01T00:00:00Z",
       "history_key": "법령||010530||20251001||환경분야 시험ㆍ검사 등에 관한 법률 시행령",
-      "status_ko": "변경"
+      "status_ko": "변경",
+      "source": "legacy",
+      "change_summary": "레거시 누적 법령 데이터(2025-10-01)입니다. 상세 비교필드가 없어 원문 링크 확인이 필요합니다."
     },
     {
       "status": "MOD",
@@ -738,7 +764,9 @@
       "diff_url": null,
       "detected_at_utc": "2025-10-01T00:00:00Z",
       "history_key": "법령||012414||20251001||환경오염시설의 통합관리에 관한 법률",
-      "status_ko": "변경"
+      "status_ko": "변경",
+      "source": "legacy",
+      "change_summary": "레거시 누적 법령 데이터(2025-10-01)입니다. 상세 비교필드가 없어 원문 링크 확인이 필요합니다."
     },
     {
       "status": "MOD",
@@ -827,7 +855,9 @@
       "diff_url": null,
       "detected_at_utc": "2024-05-27T00:00:00Z",
       "history_key": "의안||PRC_J2I3G1C1B2D1B1A0B5Z3I1G5F1E9E3||20240527||순환경제사회 전환 촉진법 일부개정법률안",
-      "status_ko": "변경"
+      "status_ko": "변경",
+      "source": "legacy",
+      "change_summary": "레거시 누적 의안 데이터(2024-05-27)입니다. 상세 비교필드가 없어 원문 링크 확인이 필요합니다."
     },
     {
       "status": "MOD",
@@ -869,5 +899,5 @@
       "history_key": "고시||2021-41|20210713|20210713||20210713||배출시설의 대기오염물질 배출계수 고시"
     }
   ],
-  "last_generated_at_utc": "2026-02-09T08:45:00.063Z"
+  "last_generated_at_utc": "2026-02-09T08:50:49.108Z"
 }
