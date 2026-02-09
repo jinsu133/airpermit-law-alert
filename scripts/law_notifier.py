@@ -249,10 +249,11 @@ def history_entry_from_item(item: Dict[str, Any], source: str, fallback_iso: str
         "id": str(item.get("id", "")),
         "diff_url": item.get("diff_url"),
         "change_summary": str(item.get("change_summary", "") or ""),
-        "source": source,
+        "source": str(source or item.get("source", "") or "").strip() or "legacy",
         "detected_at_utc": normalize_detected_at_utc(item, fallback_iso),
     }
     entry["history_key"] = history_item_key(entry)
+    ensure_change_summary(entry)
     return entry
 
 
@@ -270,10 +271,12 @@ def merge_history_items(
         item = dict(raw)
         item["date"] = normalize_date(item.get("date", ""))
         item["detected_at_utc"] = normalize_detected_at_utc(item, now_utc_iso_ms())
+        item["source"] = str(item.get("source", "") or "").strip() or "legacy"
         if not item.get("history_key"):
             item["history_key"] = history_item_key(item)
         if not item.get("status_ko"):
             item["status_ko"] = STATUS_KO.get(str(item.get("status", "MOD")), "변경")
+        ensure_change_summary(item)
 
         date_num = safe_int_yyyymmdd(item.get("date", "")) or safe_int_yyyymmdd(yyyymmdd_from_iso(item["detected_at_utc"]))
         if date_num and date_num < cutoff:
@@ -503,6 +506,42 @@ def normalize_detected_at_utc(item: Dict[str, Any], fallback_iso: str) -> str:
     if date_text:
         return to_iso_utc_from_yyyymmdd(date_text)
     return fallback_iso
+
+
+def format_yyyymmdd_label(text: str) -> str:
+    digits = normalize_date(text)
+    if len(digits) == 8:
+        return f"{digits[0:4]}-{digits[4:6]}-{digits[6:8]}"
+    return "일자 미상"
+
+
+def default_change_summary(item: Dict[str, Any]) -> str:
+    source = str(item.get("source", "") or "").strip().lower()
+    status = str(item.get("status", "MOD") or "MOD").strip().upper()
+    kind = str(item.get("kind", "") or "").strip() or "항목"
+    date_label = format_yyyymmdd_label(item.get("date", ""))
+
+    if source == "backfill":
+        return "기준일(2021-01-01) 이후 누적 백필"
+    if source == "delta":
+        if status == "NEW":
+            return "신규 감지"
+        if status == "MOD":
+            return "변경 감지(상세 비교필드 미보관)"
+        if status == "DEL":
+            return "삭제 감지"
+        return "상태 점검 기록"
+    if source == "legacy":
+        return f"레거시 누적 {kind} 데이터({date_label})입니다. 상세 비교필드가 없어 원문 링크 확인이 필요합니다."
+    return f"{kind} 변경 이력({date_label})"
+
+
+def ensure_change_summary(item: Dict[str, Any]) -> None:
+    summary = str(item.get("change_summary", "") or "").strip()
+    if summary:
+        item["change_summary"] = summary
+        return
+    item["change_summary"] = default_change_summary(item)
 
 
 def history_item_key(item: Dict[str, Any]) -> str:
