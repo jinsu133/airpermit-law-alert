@@ -1,9 +1,9 @@
 {
-  "generated_at_kst": "2026-02-11T02:58:14.830+09:00",
-  "generated_at_utc": "2026-02-10T17:58:14.830Z",
+  "generated_at_kst": "2026-02-11T03:41:52.891+09:00",
+  "generated_at_utc": "2026-02-10T18:41:52.891Z",
   "stats": {
     "count_by_kind": {
-      "법령": 8,
+      "법령": 7,
       "고시": 48,
       "의안": 2
     },
@@ -69,15 +69,6 @@
       "date": "20251224",
       "id": "00012|20251224|일부개정",
       "diff_url": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=280747&efYd=20251224"
-    },
-    {
-      "status": "OK",
-      "status_ko": "유지",
-      "kind": "법령",
-      "title": "대기환경보전법 시행령",
-      "date": "20251223",
-      "id": "35939|20251223|타법개정",
-      "diff_url": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=280555&efYd=20251223"
     },
     {
       "status": "OK",
@@ -528,7 +519,7 @@
       "date": "20260206",
       "id": "PRC_N2W6J0P2F0X5I1V3O4S6G5K7N0O3L4",
       "diff_url": "https://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_N2W6J0P2F0X5I1V3O4S6G5K7N0O3L4",
-      "detected_at_utc": "2026-02-10T17:58:14.830Z"
+      "detected_at_utc": "2026-02-10T18:41:52.891Z"
     },
     {
       "status": "OK",
@@ -538,7 +529,7 @@
       "date": "20260206",
       "id": "PRC_L2J6R0Y2E0X5L1Z3P4B8E3Q5T6E7S8",
       "diff_url": "https://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_L2J6R0Y2E0X5L1Z3P4B8E3Q5T6E7S8",
-      "detected_at_utc": "2026-02-10T17:58:14.830Z"
+      "detected_at_utc": "2026-02-10T18:41:52.891Z"
     }
   ]
 }
