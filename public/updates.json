@@ -1,6 +1,6 @@
 {
-  "generated_at_kst": "2026-02-11T10:59:07.437+09:00",
-  "generated_at_utc": "2026-02-11T01:59:07.437Z",
+  "generated_at_kst": "2026-02-11T13:04:05.959+09:00",
+  "generated_at_utc": "2026-02-11T04:04:05.960Z",
   "stats": {
     "count_by_kind": {
       "법령": 7,
@@ -47,10 +47,10 @@
       "status": "OK",
       "status_ko": "유지",
       "kind": "법령",
-      "title": "대기관리권역의 대기환경개선에 관한 특별법 시행규칙",
-      "date": "20251226",
-      "id": "00013|20251226|타법개정",
-      "diff_url": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=282045&efYd=20251226"
+      "title": "환경오염시설의 통합관리에 관한 법률 시행규칙",
+      "date": "20251230",
+      "id": "00019|20251230|일부개정",
+      "diff_url": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=282255&efYd=20251230"
     },
     {
       "status": "OK",
@@ -519,7 +519,7 @@
       "date": "20260206",
       "id": "PRC_N2W6J0P2F0X5I1V3O4S6G5K7N0O3L4",
       "diff_url": "https://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_N2W6J0P2F0X5I1V3O4S6G5K7N0O3L4",
-      "detected_at_utc": "2026-02-11T01:59:07.437Z"
+      "detected_at_utc": "2026-02-11T04:04:05.960Z"
     },
     {
       "status": "OK",
@@ -529,7 +529,7 @@
       "date": "20260206",
       "id": "PRC_L2J6R0Y2E0X5L1Z3P4B8E3Q5T6E7S8",
       "diff_url": "https://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_L2J6R0Y2E0X5L1Z3P4B8E3Q5T6E7S8",
-      "detected_at_utc": "2026-02-11T01:59:07.437Z"
+      "detected_at_utc": "2026-02-11T04:04:05.960Z"
     }
   ]
 }
