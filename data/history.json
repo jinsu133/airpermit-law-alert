@@ -4,6 +4,19 @@
     {
       "status": "MOD",
       "status_ko": "변경",
+      "kind": "의안",
+      "title": "대기환경보전법 일부개정법률안(대안)",
+      "date": "20260211",
+      "id": "PRC_N2W6J0P2F0X5I1V3O4S6G5K7N0O3L4",
+      "diff_url": "https://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_N2W6J0P2F0X5I1V3O4S6G5K7N0O3L4",
+      "change_summary": "의안번호: DD20734 -> 2216791; 제안일: 20260206 -> 20260211",
+      "source": "delta",
+      "detected_at_utc": "2026-02-11T17:05:26.803Z",
+      "history_key": "의안||PRC_N2W6J0P2F0X5I1V3O4S6G5K7N0O3L4||20260211||대기환경보전법 일부개정법률안(대안)"
+    },
+    {
+      "status": "MOD",
+      "status_ko": "변경",
       "kind": "법령",
       "title": "환경분야 시험ㆍ검사 등에 관한 법률 시행령",
       "date": "20260127",
@@ -899,5 +912,5 @@
       "history_key": "고시||2021-41|20210713|20210713||20210713||배출시설의 대기오염물질 배출계수 고시"
     }
   ],
-  "last_generated_at_utc": "2026-02-11T16:46:18.118Z"
+  "last_generated_at_utc": "2026-02-11T17:05:26.803Z"
 }
