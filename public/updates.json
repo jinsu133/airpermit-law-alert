@@ -1,10 +1,10 @@
 {
-  "generated_at_kst": "2026-02-12T03:42:05.430+09:00",
-  "generated_at_utc": "2026-02-11T18:42:05.430Z",
+  "generated_at_kst": "2026-02-12T03:56:55.486+09:00",
+  "generated_at_utc": "2026-02-11T18:56:55.486Z",
   "stats": {
     "count_by_kind": {
-      "법령": 7,
-      "고시": 48,
+      "법령": 8,
+      "고시": 47,
       "의안": 2
     },
     "fallback": {
@@ -69,6 +69,15 @@
       "date": "20251224",
       "id": "00012|20251224|일부개정",
       "diff_url": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=280747&efYd=20251224"
+    },
+    {
+      "status": "OK",
+      "status_ko": "유지",
+      "kind": "법령",
+      "title": "대기환경보전법 시행령",
+      "date": "20251223",
+      "id": "35939|20251223|타법개정",
+      "diff_url": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=280555&efYd=20251223"
     },
     {
       "status": "OK",
@@ -267,15 +276,6 @@
       "date": "20251001",
       "id": "2025-165|20251001|20251007",
       "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000267524"
-    },
-    {
-      "status": "OK",
-      "status_ko": "유지",
-      "kind": "고시",
-      "title": "오염부하량할당대상자가 설치하여야 하는 측정기기의 종류 및 부착방법 등에 관한 규정",
-      "date": "20251001",
-      "id": "2025-165|20251001|20251007",
-      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000265180"
     },
     {
       "status": "OK",
@@ -519,7 +519,7 @@
       "date": "20260211",
       "id": "PRC_N2W6J0P2F0X5I1V3O4S6G5K7N0O3L4",
       "diff_url": "https://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_N2W6J0P2F0X5I1V3O4S6G5K7N0O3L4",
-      "detected_at_utc": "2026-02-11T18:42:05.430Z"
+      "detected_at_utc": "2026-02-11T18:56:55.486Z"
     },
     {
       "status": "OK",
@@ -529,7 +529,7 @@
       "date": "20260206",
       "id": "PRC_L2J6R0Y2E0X5L1Z3P4B8E3Q5T6E7S8",
       "diff_url": "https://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_L2J6R0Y2E0X5L1Z3P4B8E3Q5T6E7S8",
-      "detected_at_utc": "2026-02-11T18:42:05.430Z"
+      "detected_at_utc": "2026-02-11T18:56:55.486Z"
     }
   ]
 }
