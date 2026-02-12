@@ -1,6 +1,6 @@
 {
-  "generated_at_kst": "2026-02-13T07:28:04.268+09:00",
-  "generated_at_utc": "2026-02-12T22:28:04.268Z",
+  "generated_at_kst": "2026-02-13T07:48:15.724+09:00",
+  "generated_at_utc": "2026-02-12T22:48:15.724Z",
   "stats": {
     "count_by_kind": {
       "법령": 8,
@@ -146,6 +146,15 @@
       "status": "OK",
       "status_ko": "유지",
       "kind": "고시",
+      "title": "국토계획 및 환경계획의 통합관리에 관한 공동훈령",
+      "date": "20251105",
+      "id": "4,1904|20251105|20251105",
+      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000267446"
+    },
+    {
+      "status": "OK",
+      "status_ko": "유지",
+      "kind": "고시",
       "title": "에코이노베이션 기술에 의한 자동차 온실가스 배출 저감 및 에너지소비관련 개선 효과 인정 지침",
       "date": "20251105",
       "id": "4|20251105|20251111",
@@ -231,24 +240,6 @@
       "date": "20251001",
       "id": "2025-165|20251001|20251007",
       "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000266942"
-    },
-    {
-      "status": "OK",
-      "status_ko": "유지",
-      "kind": "고시",
-      "title": "미세먼지 간이측정기 성능인증 수수료",
-      "date": "20251001",
-      "id": "2025-165|20251001|20190815",
-      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000265272"
-    },
-    {
-      "status": "OK",
-      "status_ko": "유지",
-      "kind": "고시",
-      "title": "미세먼지연구·관리센터의 지정 및 운영에 관한 고시",
-      "date": "20251001",
-      "id": "2025-165|20251001|20251001",
-      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000265264"
     },
     {
       "status": "OK",
@@ -353,6 +344,15 @@
       "status": "OK",
       "status_ko": "유지",
       "kind": "고시",
+      "title": "통합관리 대상 배출시설등의 한계배출기준",
+      "date": "20251001",
+      "id": "2025-165|20251001|20251001",
+      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000265062"
+    },
+    {
+      "status": "OK",
+      "status_ko": "유지",
+      "kind": "고시",
       "title": "통합허가대행업자 영업수행능력 평가에 관한 규정",
       "date": "20251001",
       "id": "2025-165|20251001|20251001",
@@ -366,6 +366,15 @@
       "date": "20251001",
       "id": "4|20251001|20251001",
       "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000268396"
+    },
+    {
+      "status": "OK",
+      "status_ko": "유지",
+      "kind": "고시",
+      "title": "통합환경관리정보공개 심의위원회 및 정보공개제도 운영에 관한 규정",
+      "date": "20251001",
+      "id": "2025-165|20251001|20251001",
+      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000265114"
     },
     {
       "status": "OK",
@@ -420,15 +429,6 @@
       "date": "20250224",
       "id": "2025-3|20250224|20250225",
       "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000255058"
-    },
-    {
-      "status": "OK",
-      "status_ko": "유지",
-      "kind": "고시",
-      "title": "미세먼지 간이측정기 성능인증 등에 관한 고시",
-      "date": "20230629",
-      "id": "2023-35|20230629|20230629",
-      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000225378"
     },
     {
       "status": "OK",
@@ -510,7 +510,7 @@
       "date": "20260206",
       "id": "PRC_L2J6R0Y2E0X5L1Z3P4B8E3Q5T6E7S8",
       "diff_url": "https://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_L2J6R0Y2E0X5L1Z3P4B8E3Q5T6E7S8",
-      "detected_at_utc": "2026-02-12T22:28:04.268Z"
+      "detected_at_utc": "2026-02-12T22:48:15.724Z"
     }
   ]
 }
