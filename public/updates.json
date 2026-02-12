@@ -1,10 +1,10 @@
 {
-  "generated_at_kst": "2026-02-12T17:02:18.313+09:00",
-  "generated_at_utc": "2026-02-12T08:02:18.314Z",
+  "generated_at_kst": "2026-02-12T17:40:40.666+09:00",
+  "generated_at_utc": "2026-02-12T08:40:40.666Z",
   "stats": {
     "count_by_kind": {
       "법령": 8,
-      "고시": 47,
+      "고시": 42,
       "의안": 2
     },
     "fallback": {
@@ -146,15 +146,6 @@
       "status": "OK",
       "status_ko": "유지",
       "kind": "고시",
-      "title": "국토계획 및 환경계획의 통합관리에 관한 공동훈령",
-      "date": "20251105",
-      "id": "4,1904|20251105|20251105",
-      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000267446"
-    },
-    {
-      "status": "OK",
-      "status_ko": "유지",
-      "kind": "고시",
       "title": "에코이노베이션 기술에 의한 자동차 온실가스 배출 저감 및 에너지소비관련 개선 효과 인정 지침",
       "date": "20251105",
       "id": "4|20251105|20251111",
@@ -168,15 +159,6 @@
       "date": "20251105",
       "id": "4|20251105|20251111",
       "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000266982"
-    },
-    {
-      "status": "OK",
-      "status_ko": "유지",
-      "kind": "고시",
-      "title": "특정토양오염관리대상시설의 토양오염방지시설 및 오염토양의 정화방법 등에 관한 고시",
-      "date": "20251105",
-      "id": "2025-165|20251105|20251105",
-      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000267260"
     },
     {
       "status": "OK",
@@ -204,15 +186,6 @@
       "date": "20251001",
       "id": "2025-165|20251001|20251007",
       "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000267412"
-    },
-    {
-      "status": "OK",
-      "status_ko": "유지",
-      "kind": "고시",
-      "title": "대기오염 방지시설(연소보조장치)의 성능기준 및 검사방법",
-      "date": "20251001",
-      "id": "2025-165|20251001|20251001",
-      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000266434"
     },
     {
       "status": "OK",
@@ -362,28 +335,10 @@
       "status": "OK",
       "status_ko": "유지",
       "kind": "고시",
-      "title": "통합관리 대상 배출시설등의 한계배출기준",
+      "title": "통합허가대행업자 영업수행능력 평가에 관한 규정",
       "date": "20251001",
       "id": "2025-165|20251001|20251001",
-      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000265062"
-    },
-    {
-      "status": "OK",
-      "status_ko": "유지",
-      "kind": "고시",
-      "title": "통합환경관리정보공개 심의위원회 및 정보공개제도 운영에 관한 규정",
-      "date": "20251001",
-      "id": "2025-165|20251001|20251001",
-      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000265114"
-    },
-    {
-      "status": "OK",
-      "status_ko": "유지",
-      "kind": "고시",
-      "title": "휘발성 유기화합물 배출시설의 종류, 시설의 규모, 배출억제·방지시설의 설치 등에 관한 규정",
-      "date": "20251001",
-      "id": "2025-165|20251001|20251007",
-      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000267020"
+      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000265096"
     },
     {
       "status": "OK",
@@ -519,7 +474,7 @@
       "date": "20260211",
       "id": "PRC_N2W6J0P2F0X5I1V3O4S6G5K7N0O3L4",
       "diff_url": "https://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_N2W6J0P2F0X5I1V3O4S6G5K7N0O3L4",
-      "detected_at_utc": "2026-02-12T08:02:18.314Z"
+      "detected_at_utc": "2026-02-12T08:40:40.666Z"
     },
     {
       "status": "OK",
@@ -529,7 +484,7 @@
       "date": "20260206",
       "id": "PRC_L2J6R0Y2E0X5L1Z3P4B8E3Q5T6E7S8",
       "diff_url": "https://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_L2J6R0Y2E0X5L1Z3P4B8E3Q5T6E7S8",
-      "detected_at_utc": "2026-02-12T08:02:18.314Z"
+      "detected_at_utc": "2026-02-12T08:40:40.666Z"
     }
   ]
 }
