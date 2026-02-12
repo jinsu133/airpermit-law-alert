@@ -1,10 +1,10 @@
 {
-  "generated_at_kst": "2026-02-13T04:37:07.263+09:00",
-  "generated_at_utc": "2026-02-12T19:37:07.263Z",
+  "generated_at_kst": "2026-02-13T04:53:24.482+09:00",
+  "generated_at_utc": "2026-02-12T19:53:24.482Z",
   "stats": {
     "count_by_kind": {
       "법령": 8,
-      "고시": 43,
+      "고시": 41,
       "의안": 1
     },
     "fallback": {
@@ -164,6 +164,15 @@
       "status": "OK",
       "status_ko": "유지",
       "kind": "고시",
+      "title": "특정토양오염관리대상시설의 토양오염방지시설 및 오염토양의 정화방법 등에 관한 고시",
+      "date": "20251105",
+      "id": "2025-165|20251105|20251105",
+      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000267260"
+    },
+    {
+      "status": "OK",
+      "status_ko": "유지",
+      "kind": "고시",
       "title": "(기후에너지환경부) 온실가스 배출권의 거래에 관한 고시",
       "date": "20251001",
       "id": "2025-165|20251001|20251007",
@@ -173,19 +182,19 @@
       "status": "OK",
       "status_ko": "유지",
       "kind": "고시",
-      "title": "가스열펌프 대기오염물질 저감장치 인증방법 및 절차 등에 관한 규정",
+      "title": "고농도 미세먼지 비상저감조치 시행대상 대기오염물질 배출시설에 대한 고시",
       "date": "20251001",
       "id": "2025-165|20251001|20251007",
-      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000267558"
+      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000267412"
     },
     {
       "status": "OK",
       "status_ko": "유지",
       "kind": "고시",
-      "title": "고농도 미세먼지 비상저감조치 시행대상 대기오염물질 배출시설에 대한 고시",
+      "title": "대기오염 방지시설(연소보조장치)의 성능기준 및 검사방법",
       "date": "20251001",
-      "id": "2025-165|20251001|20251007",
-      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000267412"
+      "id": "2025-165|20251001|20251001",
+      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000266434"
     },
     {
       "status": "OK",
@@ -204,15 +213,6 @@
       "date": "20251001",
       "id": "2025-165|20251001|20251001",
       "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000266436"
-    },
-    {
-      "status": "OK",
-      "status_ko": "유지",
-      "kind": "고시",
-      "title": "대기오염물질 총량관리사업자의 배출허용총량 이전 절차 등에 관한 규정",
-      "date": "20251001",
-      "id": "2025-165|20251001|20251007",
-      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000266942"
     },
     {
       "status": "OK",
@@ -353,6 +353,15 @@
       "status": "OK",
       "status_ko": "유지",
       "kind": "고시",
+      "title": "휘발성 유기화합물 배출시설의 종류, 시설의 규모, 배출억제·방지시설의 설치 등에 관한 규정",
+      "date": "20251001",
+      "id": "2025-165|20251001|20251007",
+      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000267020"
+    },
+    {
+      "status": "OK",
+      "status_ko": "유지",
+      "kind": "고시",
       "title": "자동차의 에너지소비효율 및 온실가스 배출량 시험방법 등에 관한 고시",
       "date": "20250519",
       "id": "2025-245,2025-78,2025-90|20250519|20250519",
@@ -375,24 +384,6 @@
       "date": "20250401",
       "id": "2025-58|20250401|20250401",
       "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000257248"
-    },
-    {
-      "status": "OK",
-      "status_ko": "유지",
-      "kind": "고시",
-      "title": "대기오염물질 배출계수 관리위원회 규정",
-      "date": "20250224",
-      "id": "885|20250224|20250225",
-      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000255060"
-    },
-    {
-      "status": "OK",
-      "status_ko": "유지",
-      "kind": "고시",
-      "title": "대기오염물질 심사·평가위원회 운영, 절차 및 지정 등에 관한 규정",
-      "date": "20250224",
-      "id": "2025-3|20250224|20250225",
-      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000255058"
     },
     {
       "status": "OK",
@@ -469,21 +460,12 @@
     {
       "status": "OK",
       "status_ko": "유지",
-      "kind": "고시",
-      "title": "대기오염물질 배출량 이력관리 및 재산정에 관한 규정",
-      "date": "20101208",
-      "id": "557|20101208|20101208",
-      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2000000072425"
-    },
-    {
-      "status": "OK",
-      "status_ko": "유지",
       "kind": "의안",
       "title": "환경오염시설의 통합관리에 관한 법률 일부개정법률안(대안)",
       "date": "20260206",
       "id": "PRC_L2J6R0Y2E0X5L1Z3P4B8E3Q5T6E7S8",
       "diff_url": "https://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_L2J6R0Y2E0X5L1Z3P4B8E3Q5T6E7S8",
-      "detected_at_utc": "2026-02-12T19:37:07.263Z"
+      "detected_at_utc": "2026-02-12T19:53:24.482Z"
     }
   ]
 }
