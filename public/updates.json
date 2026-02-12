@@ -1,6 +1,6 @@
 {
-  "generated_at_kst": "2026-02-12T19:04:57.714+09:00",
-  "generated_at_utc": "2026-02-12T10:04:57.714Z",
+  "generated_at_kst": "2026-02-12T19:40:44.730+09:00",
+  "generated_at_utc": "2026-02-12T10:40:44.730Z",
   "stats": {
     "count_by_kind": {
       "법령": 8,
@@ -528,7 +528,7 @@
       "date": "20260211",
       "id": "PRC_N2W6J0P2F0X5I1V3O4S6G5K7N0O3L4",
       "diff_url": "https://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_N2W6J0P2F0X5I1V3O4S6G5K7N0O3L4",
-      "detected_at_utc": "2026-02-12T10:04:57.714Z"
+      "detected_at_utc": "2026-02-12T10:40:44.730Z"
     },
     {
       "status": "OK",
@@ -538,7 +538,7 @@
       "date": "20260206",
       "id": "PRC_L2J6R0Y2E0X5L1Z3P4B8E3Q5T6E7S8",
       "diff_url": "https://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_L2J6R0Y2E0X5L1Z3P4B8E3Q5T6E7S8",
-      "detected_at_utc": "2026-02-12T10:04:57.714Z"
+      "detected_at_utc": "2026-02-12T10:40:44.730Z"
     }
   ]
 }
