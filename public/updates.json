@@ -1,18 +1,18 @@
 {
-  "generated_at_kst": "2026-02-12T20:53:09.074+09:00",
-  "generated_at_utc": "2026-02-12T11:53:09.074Z",
+  "generated_at_kst": "2026-02-12T21:58:16.768+09:00",
+  "generated_at_utc": "2026-02-12T12:58:16.768Z",
   "stats": {
     "count_by_kind": {
       "법령": 8,
-      "고시": 48,
+      "고시": 46,
       "의안": 2
     },
     "fallback": {
       "laws": false,
       "admruls": false
     },
-    "delta_count_this_run": 0,
-    "cumulative_history_total": 70,
+    "delta_count_this_run": 1,
+    "cumulative_history_total": 71,
     "history_start_yyyymmdd": "20210101"
   },
   "items": [
@@ -173,15 +173,6 @@
       "status": "OK",
       "status_ko": "유지",
       "kind": "고시",
-      "title": "특정토양오염관리대상시설의 토양오염방지시설 및 오염토양의 정화방법 등에 관한 고시",
-      "date": "20251105",
-      "id": "2025-165|20251105|20251105",
-      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000267260"
-    },
-    {
-      "status": "OK",
-      "status_ko": "유지",
-      "kind": "고시",
       "title": "(기후에너지환경부) 온실가스 배출권의 거래에 관한 고시",
       "date": "20251001",
       "id": "2025-165|20251001|20251007",
@@ -204,15 +195,6 @@
       "date": "20251001",
       "id": "2025-165|20251001|20251007",
       "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000267412"
-    },
-    {
-      "status": "OK",
-      "status_ko": "유지",
-      "kind": "고시",
-      "title": "대기오염 방지시설(연소보조장치)의 성능기준 및 검사방법",
-      "date": "20251001",
-      "id": "2025-165|20251001|20251001",
-      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000266434"
     },
     {
       "status": "OK",
@@ -377,6 +359,16 @@
       "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000265096"
     },
     {
+      "status": "NEW",
+      "status_ko": "신규",
+      "kind": "고시",
+      "title": "통합허가사업장의 배출 및 방지시설 운영·관리와 허가조건 이행관리를 위한 업무처리지침",
+      "date": "20251001",
+      "id": "4|20251001|20251001",
+      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000268396",
+      "change_summary": "신규 감지"
+    },
+    {
       "status": "OK",
       "status_ko": "유지",
       "kind": "고시",
@@ -384,15 +376,6 @@
       "date": "20251001",
       "id": "2025-165|20251001|20251001",
       "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000265114"
-    },
-    {
-      "status": "OK",
-      "status_ko": "유지",
-      "kind": "고시",
-      "title": "휘발성 유기화합물 배출시설의 종류, 시설의 규모, 배출억제·방지시설의 설치 등에 관한 규정",
-      "date": "20251001",
-      "id": "2025-165|20251001|20251007",
-      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000267020"
     },
     {
       "status": "OK",
@@ -528,7 +511,7 @@
       "date": "20260211",
       "id": "PRC_N2W6J0P2F0X5I1V3O4S6G5K7N0O3L4",
       "diff_url": "https://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_N2W6J0P2F0X5I1V3O4S6G5K7N0O3L4",
-      "detected_at_utc": "2026-02-12T11:53:09.074Z"
+      "detected_at_utc": "2026-02-12T12:58:16.768Z"
     },
     {
       "status": "OK",
@@ -538,7 +521,7 @@
       "date": "20260206",
       "id": "PRC_L2J6R0Y2E0X5L1Z3P4B8E3Q5T6E7S8",
       "diff_url": "https://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_L2J6R0Y2E0X5L1Z3P4B8E3Q5T6E7S8",
-      "detected_at_utc": "2026-02-12T11:53:09.074Z"
+      "detected_at_utc": "2026-02-12T12:58:16.768Z"
     }
   ]
 }
