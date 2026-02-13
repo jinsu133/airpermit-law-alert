@@ -1,9 +1,9 @@
 {
-  "generated_at_kst": "2026-02-14T08:32:32.401+09:00",
-  "generated_at_utc": "2026-02-13T23:32:32.401Z",
+  "generated_at_kst": "2026-02-14T08:58:38.724+09:00",
+  "generated_at_utc": "2026-02-13T23:58:38.724Z",
   "stats": {
     "count_by_kind": {
-      "법령": 7,
+      "법령": 8,
       "고시": 49,
       "의안": 1
     },
@@ -78,6 +78,15 @@
       "date": "20251223",
       "id": "35939|20251223|타법개정",
       "diff_url": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=280555&efYd=20251223"
+    },
+    {
+      "status": "OK",
+      "status_ko": "유지",
+      "kind": "법령",
+      "title": "환경분야 시험ㆍ검사 등에 관한 법률 시행규칙",
+      "date": "20251001",
+      "id": "00001|20251001|타법개정",
+      "diff_url": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=279051&efYd=20251001"
     },
     {
       "status": "OK",
@@ -528,7 +537,7 @@
       "date": "20260206",
       "id": "PRC_L2J6R0Y2E0X5L1Z3P4B8E3Q5T6E7S8",
       "diff_url": "https://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_L2J6R0Y2E0X5L1Z3P4B8E3Q5T6E7S8",
-      "detected_at_utc": "2026-02-13T23:32:32.401Z"
+      "detected_at_utc": "2026-02-13T23:58:38.724Z"
     }
   ]
 }
