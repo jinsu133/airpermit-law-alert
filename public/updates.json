@@ -1,10 +1,10 @@
 {
-  "generated_at_kst": "2026-02-13T14:56:20.134+09:00",
-  "generated_at_utc": "2026-02-13T05:56:20.134Z",
+  "generated_at_kst": "2026-02-13T15:14:54.688+09:00",
+  "generated_at_utc": "2026-02-13T06:14:54.688Z",
   "stats": {
     "count_by_kind": {
       "법령": 8,
-      "고시": 45,
+      "고시": 49,
       "의안": 1
     },
     "fallback": {
@@ -92,6 +92,15 @@
       "status": "OK",
       "status_ko": "유지",
       "kind": "고시",
+      "title": "대기오염공정시험기준",
+      "date": "20251226",
+      "id": "2025-57|20251226|20251226",
+      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000273702"
+    },
+    {
+      "status": "OK",
+      "status_ko": "유지",
+      "kind": "고시",
       "title": "굴뚝 원격감시체계 관제센터의 기능 및 운영 등에 관한 규정",
       "date": "20251223",
       "id": "2025-64|20251223|20251229",
@@ -132,6 +141,15 @@
       "date": "20251106",
       "id": "2025-165|20251106|20251112",
       "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000267436"
+    },
+    {
+      "status": "OK",
+      "status_ko": "유지",
+      "kind": "고시",
+      "title": "국토계획 및 환경계획의 통합관리에 관한 공동훈령",
+      "date": "20251105",
+      "id": "4,1904|20251105|20251105",
+      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000267446"
     },
     {
       "status": "OK",
@@ -344,6 +362,15 @@
       "status": "OK",
       "status_ko": "유지",
       "kind": "고시",
+      "title": "통합관리 대상 배출시설등의 한계배출기준",
+      "date": "20251001",
+      "id": "2025-165|20251001|20251001",
+      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000265062"
+    },
+    {
+      "status": "OK",
+      "status_ko": "유지",
+      "kind": "고시",
       "title": "통합허가대행업자 영업수행능력 평가에 관한 규정",
       "date": "20251001",
       "id": "2025-165|20251001|20251001",
@@ -357,6 +384,15 @@
       "date": "20251001",
       "id": "4|20251001|20251001",
       "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000268396"
+    },
+    {
+      "status": "OK",
+      "status_ko": "유지",
+      "kind": "고시",
+      "title": "통합환경관리정보공개 심의위원회 및 정보공개제도 운영에 관한 규정",
+      "date": "20251001",
+      "id": "2025-165|20251001|20251001",
+      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000265114"
     },
     {
       "status": "OK",
@@ -501,7 +537,7 @@
       "date": "20260206",
       "id": "PRC_L2J6R0Y2E0X5L1Z3P4B8E3Q5T6E7S8",
       "diff_url": "https://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_L2J6R0Y2E0X5L1Z3P4B8E3Q5T6E7S8",
-      "detected_at_utc": "2026-02-13T05:56:20.134Z"
+      "detected_at_utc": "2026-02-13T06:14:54.688Z"
     }
   ]
 }
