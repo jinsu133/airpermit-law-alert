@@ -1,10 +1,10 @@
 {
-  "generated_at_kst": "2026-02-13T23:51:07.553+09:00",
-  "generated_at_utc": "2026-02-13T14:51:07.553Z",
+  "generated_at_kst": "2026-02-14T00:04:47.447+09:00",
+  "generated_at_utc": "2026-02-13T15:04:47.447Z",
   "stats": {
     "count_by_kind": {
-      "법령": 7,
-      "고시": 30,
+      "법령": 8,
+      "고시": 45,
       "의안": 1
     },
     "fallback": {
@@ -42,6 +42,15 @@
       "date": "20251230",
       "id": "35947|20251230|타법개정",
       "diff_url": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=281189&efYd=20251230"
+    },
+    {
+      "status": "OK",
+      "status_ko": "유지",
+      "kind": "법령",
+      "title": "환경오염시설의 통합관리에 관한 법률 시행규칙",
+      "date": "20251230",
+      "id": "00019|20251230|일부개정",
+      "diff_url": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=282255&efYd=20251230"
     },
     {
       "status": "OK",
@@ -110,6 +119,15 @@
       "status": "OK",
       "status_ko": "유지",
       "kind": "고시",
+      "title": "온실가스 배출권의 할당 및 취소에 관한 지침",
+      "date": "20251219",
+      "id": "2025-65|20251219|20251219",
+      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000270270"
+    },
+    {
+      "status": "OK",
+      "status_ko": "유지",
+      "kind": "고시",
       "title": "환경시험·검사기관 정도관리 운영등에 관한 규정",
       "date": "20251216",
       "id": "2025-52|20251216|20251216",
@@ -119,10 +137,28 @@
       "status": "OK",
       "status_ko": "유지",
       "kind": "고시",
+      "title": "온실가스 배출권 거래소의 감독에 관한 고시",
+      "date": "20251106",
+      "id": "2025-165|20251106|20251112",
+      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000267436"
+    },
+    {
+      "status": "OK",
+      "status_ko": "유지",
+      "kind": "고시",
       "title": "국토계획 및 환경계획의 통합관리에 관한 공동훈령",
       "date": "20251105",
       "id": "4,1904|20251105|20251105",
       "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000267446"
+    },
+    {
+      "status": "OK",
+      "status_ko": "유지",
+      "kind": "고시",
+      "title": "에코이노베이션 기술에 의한 자동차 온실가스 배출 저감 및 에너지소비관련 개선 효과 인정 지침",
+      "date": "20251105",
+      "id": "4|20251105|20251111",
+      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000268312"
     },
     {
       "status": "OK",
@@ -141,6 +177,15 @@
       "date": "20251105",
       "id": "2025-165|20251105|20251105",
       "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000267260"
+    },
+    {
+      "status": "OK",
+      "status_ko": "유지",
+      "kind": "고시",
+      "title": "(기후에너지환경부) 온실가스 배출권의 거래에 관한 고시",
+      "date": "20251001",
+      "id": "2025-165|20251001|20251007",
+      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000267472"
     },
     {
       "status": "OK",
@@ -200,6 +245,15 @@
       "status": "OK",
       "status_ko": "유지",
       "kind": "고시",
+      "title": "배출가스저감장치의 성능유지확인 검사기준 및 검사방법 등에 관한 규정",
+      "date": "20251001",
+      "id": "2025-165|20251001|20251007",
+      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000267122"
+    },
+    {
+      "status": "OK",
+      "status_ko": "유지",
+      "kind": "고시",
       "title": "배출시설 및 방지시설의 운영과 자가측정에 대한 전산기록·보존에 관한 고시",
       "date": "20251001",
       "id": "2025-165|20251001|20251007",
@@ -218,19 +272,82 @@
       "status": "OK",
       "status_ko": "유지",
       "kind": "고시",
-      "title": "통합관리 대상 배출시설등의 한계배출기준",
+      "title": "온실가스 배출권 거래소 신청자격 및 평가기준 등에 관한 고시",
       "date": "20251001",
-      "id": "2025-165|20251001|20251001",
-      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000265062"
+      "id": "2025-165|20251001|20251007",
+      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000268590"
     },
     {
       "status": "OK",
       "status_ko": "유지",
       "kind": "고시",
-      "title": "통합허가대행업자 영업수행능력 평가에 관한 규정",
+      "title": "온실가스 배출권거래제 운영을 위한 검증지침",
+      "date": "20251001",
+      "id": "2025-165|20251001|20251007",
+      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000267438"
+    },
+    {
+      "status": "OK",
+      "status_ko": "유지",
+      "kind": "고시",
+      "title": "운행자동차 배출가스저감장치·저공해엔진 인증방법 및 절차 등에 관한 규정",
+      "date": "20251001",
+      "id": "2025-165|20251001|20251007",
+      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000267126"
+    },
+    {
+      "status": "OK",
+      "status_ko": "유지",
+      "kind": "고시",
+      "title": "운행차 배출가스 검사 시행요령 등에 관한 규정",
+      "date": "20251001",
+      "id": "2025-165|20251001|20251007",
+      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000267506"
+    },
+    {
+      "status": "OK",
+      "status_ko": "유지",
+      "kind": "고시",
+      "title": "유기성 폐자원의 배출량·처리량 및 바이오가스 생산량의 보고와 적합성 검토방법에 관한 고시",
+      "date": "20251001",
+      "id": "2025-165|20251001|20251007",
+      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000267176"
+    },
+    {
+      "status": "OK",
+      "status_ko": "유지",
+      "kind": "고시",
+      "title": "자동차 배출가스 결함확인검사용 자동차 선정 등에 관한 규정",
+      "date": "20251001",
+      "id": "2025-165|20251001|20251007",
+      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000265990"
+    },
+    {
+      "status": "OK",
+      "status_ko": "유지",
+      "kind": "고시",
+      "title": "자동차 배출가스 등급 산정방법에 관한 규정",
+      "date": "20251001",
+      "id": "2025-165|20251001|20251007",
+      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000267120"
+    },
+    {
+      "status": "OK",
+      "status_ko": "유지",
+      "kind": "고시",
+      "title": "자동차 평균에너지소비효율기준·온실가스 배출허용기준 및 기준의 적용·관리 등에 관한 고시",
+      "date": "20251001",
+      "id": "2025-165|20251001|20251007",
+      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000266944"
+    },
+    {
+      "status": "OK",
+      "status_ko": "유지",
+      "kind": "고시",
+      "title": "통합관리 대상 배출시설등의 한계배출기준",
       "date": "20251001",
       "id": "2025-165|20251001|20251001",
-      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000265096"
+      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000265062"
     },
     {
       "status": "OK",
@@ -258,6 +375,33 @@
       "date": "20251001",
       "id": "2025-165|20251001|20251007",
       "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000267020"
+    },
+    {
+      "status": "OK",
+      "status_ko": "유지",
+      "kind": "고시",
+      "title": "자동차의 에너지소비효율 및 온실가스 배출량 시험방법 등에 관한 고시",
+      "date": "20250519",
+      "id": "2025-245,2025-78,2025-90|20250519|20250519",
+      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000259224"
+    },
+    {
+      "status": "OK",
+      "status_ko": "유지",
+      "kind": "고시",
+      "title": "온실가스 배출권거래제의 배출량 보고 및 인증에 관한 지침",
+      "date": "20250411",
+      "id": "2025-64|20250411|20250411",
+      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000257748"
+    },
+    {
+      "status": "OK",
+      "status_ko": "유지",
+      "kind": "고시",
+      "title": "2025년 자동차 배출가스 결함확인검사 대상 차종 고시",
+      "date": "20250401",
+      "id": "2025-58|20250401|20250401",
+      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000257248"
     },
     {
       "status": "OK",
@@ -357,7 +501,7 @@
       "date": "20260206",
       "id": "PRC_L2J6R0Y2E0X5L1Z3P4B8E3Q5T6E7S8",
       "diff_url": "https://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_L2J6R0Y2E0X5L1Z3P4B8E3Q5T6E7S8",
-      "detected_at_utc": "2026-02-13T14:51:07.553Z"
+      "detected_at_utc": "2026-02-13T15:04:47.447Z"
     }
   ]
 }
