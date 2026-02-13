@@ -1,10 +1,10 @@
 {
-  "generated_at_kst": "2026-02-14T06:37:36.170+09:00",
-  "generated_at_utc": "2026-02-13T21:37:36.170Z",
+  "generated_at_kst": "2026-02-14T07:03:51.780+09:00",
+  "generated_at_utc": "2026-02-13T22:03:51.780Z",
   "stats": {
     "count_by_kind": {
       "법령": 8,
-      "고시": 47,
+      "고시": 48,
       "의안": 1
     },
     "fallback": {
@@ -92,10 +92,10 @@
       "status": "OK",
       "status_ko": "유지",
       "kind": "고시",
-      "title": "대기오염공정시험기준",
-      "date": "20251226",
-      "id": "2025-57|20251226|20251226",
-      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000273702"
+      "title": "굴뚝 원격감시체계 관제센터의 기능 및 운영 등에 관한 규정",
+      "date": "20251223",
+      "id": "2025-64|20251223|20251229",
+      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000270230"
     },
     {
       "status": "OK",
@@ -452,6 +452,15 @@
       "status": "OK",
       "status_ko": "유지",
       "kind": "고시",
+      "title": "유효굴뚝높이 산정방법 고시",
+      "date": "20210831",
+      "id": "2021-58|20210831|20210831",
+      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000204197"
+    },
+    {
+      "status": "OK",
+      "status_ko": "유지",
+      "kind": "고시",
       "title": "배출시설의 대기오염물질 배출계수 고시",
       "date": "20210713",
       "id": "2021-41|20210713|20210713",
@@ -519,7 +528,7 @@
       "date": "20260206",
       "id": "PRC_L2J6R0Y2E0X5L1Z3P4B8E3Q5T6E7S8",
       "diff_url": "https://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_L2J6R0Y2E0X5L1Z3P4B8E3Q5T6E7S8",
-      "detected_at_utc": "2026-02-13T21:37:36.170Z"
+      "detected_at_utc": "2026-02-13T22:03:51.780Z"
     }
   ]
 }
