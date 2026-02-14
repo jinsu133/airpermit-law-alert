@@ -1,10 +1,10 @@
 {
-  "generated_at_kst": "2026-02-15T07:58:40.206+09:00",
-  "generated_at_utc": "2026-02-14T22:58:40.206Z",
+  "generated_at_kst": "2026-02-15T08:20:06.154+09:00",
+  "generated_at_utc": "2026-02-14T23:20:06.154Z",
   "stats": {
     "count_by_kind": {
       "법령": 8,
-      "고시": 48,
+      "고시": 49,
       "의안": 1
     },
     "fallback": {
@@ -371,6 +371,15 @@
       "status": "OK",
       "status_ko": "유지",
       "kind": "고시",
+      "title": "통합허가대행업자 영업수행능력 평가에 관한 규정",
+      "date": "20251001",
+      "id": "2025-165|20251001|20251001",
+      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000265096"
+    },
+    {
+      "status": "OK",
+      "status_ko": "유지",
+      "kind": "고시",
       "title": "통합허가사업장의 배출 및 방지시설 운영·관리와 허가조건 이행관리를 위한 업무처리지침",
       "date": "20251001",
       "id": "4|20251001|20251001",
@@ -528,7 +537,7 @@
       "date": "20260206",
       "id": "PRC_L2J6R0Y2E0X5L1Z3P4B8E3Q5T6E7S8",
       "diff_url": "https://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_L2J6R0Y2E0X5L1Z3P4B8E3Q5T6E7S8",
-      "detected_at_utc": "2026-02-14T22:58:40.206Z"
+      "detected_at_utc": "2026-02-14T23:20:06.154Z"
     }
   ]
 }
