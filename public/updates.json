@@ -1,10 +1,10 @@
 {
-  "generated_at_kst": "2026-02-14T23:22:53.985+09:00",
-  "generated_at_utc": "2026-02-14T14:22:53.985Z",
+  "generated_at_kst": "2026-02-14T23:29:11.360+09:00",
+  "generated_at_utc": "2026-02-14T14:29:11.360Z",
   "stats": {
     "count_by_kind": {
       "법령": 8,
-      "고시": 43,
+      "고시": 48,
       "의안": 1
     },
     "fallback": {
@@ -159,6 +159,15 @@
       "date": "20251105",
       "id": "4|20251105|20251111",
       "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000268312"
+    },
+    {
+      "status": "OK",
+      "status_ko": "유지",
+      "kind": "고시",
+      "title": "오염총량초과과징금 사무처리규정",
+      "date": "20251105",
+      "id": "4|20251105|20251111",
+      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000266982"
     },
     {
       "status": "OK",
@@ -362,15 +371,6 @@
       "status": "OK",
       "status_ko": "유지",
       "kind": "고시",
-      "title": "통합허가대행업자 영업수행능력 평가에 관한 규정",
-      "date": "20251001",
-      "id": "2025-165|20251001|20251001",
-      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000265096"
-    },
-    {
-      "status": "OK",
-      "status_ko": "유지",
-      "kind": "고시",
       "title": "통합허가사업장의 배출 및 방지시설 운영·관리와 허가조건 이행관리를 위한 업무처리지침",
       "date": "20251001",
       "id": "4|20251001|20251001",
@@ -470,6 +470,51 @@
       "status": "OK",
       "status_ko": "유지",
       "kind": "고시",
+      "title": "2019년도 금강수계 오염총량초과과징금 가격변동지수",
+      "date": "20190110",
+      "id": "2019-16|20190110|20190110",
+      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000175317"
+    },
+    {
+      "status": "OK",
+      "status_ko": "유지",
+      "kind": "고시",
+      "title": "2019년도 기타수계(진위천·삽교호수계) 오염총량초과과징금 가격변동지수",
+      "date": "20190110",
+      "id": "2019-18|20190110|20190110",
+      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000175319"
+    },
+    {
+      "status": "OK",
+      "status_ko": "유지",
+      "kind": "고시",
+      "title": "2019년도 낙동강수계 오염총량초과과징금 가격변동지수",
+      "date": "20190110",
+      "id": "2019-15|20190110|20190110",
+      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000175316"
+    },
+    {
+      "status": "OK",
+      "status_ko": "유지",
+      "kind": "고시",
+      "title": "2019년도 영산강·섬진강수계 오염총량초과과징금 가격변동지수",
+      "date": "20190110",
+      "id": "2019-17|20190110|20190110",
+      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000175318"
+    },
+    {
+      "status": "OK",
+      "status_ko": "유지",
+      "kind": "고시",
+      "title": "2019년도 한강수계 오염총량초과과징금 가격변동지수",
+      "date": "20190110",
+      "id": "2019-14|20190110|20190110",
+      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000175315"
+    },
+    {
+      "status": "OK",
+      "status_ko": "유지",
+      "kind": "고시",
       "title": "대기오염물질 배출량 이력관리 및 재산정에 관한 규정",
       "date": "20101208",
       "id": "557|20101208|20101208",
@@ -483,7 +528,7 @@
       "date": "20260206",
       "id": "PRC_L2J6R0Y2E0X5L1Z3P4B8E3Q5T6E7S8",
       "diff_url": "https://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_L2J6R0Y2E0X5L1Z3P4B8E3Q5T6E7S8",
-      "detected_at_utc": "2026-02-14T14:22:53.985Z"
+      "detected_at_utc": "2026-02-14T14:29:11.360Z"
     }
   ]
 }
