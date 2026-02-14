@@ -1,11 +1,11 @@
 {
-  "generated_at_kst": "2026-02-15T04:20:18.491+09:00",
-  "generated_at_utc": "2026-02-14T19:20:18.491Z",
+  "generated_at_kst": "2026-02-15T04:40:01.910+09:00",
+  "generated_at_utc": "2026-02-14T19:40:01.910Z",
   "stats": {
     "count_by_kind": {
       "법령": 8,
-      "고시": 48,
-      "의안": 0
+      "고시": 46,
+      "의안": 1
     },
     "fallback": {
       "laws": false,
@@ -96,15 +96,6 @@
       "date": "20251226",
       "id": "2025-57|20251226|20251226",
       "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000273702"
-    },
-    {
-      "status": "OK",
-      "status_ko": "유지",
-      "kind": "고시",
-      "title": "굴뚝 원격감시체계 관제센터의 기능 및 운영 등에 관한 규정",
-      "date": "20251223",
-      "id": "2025-64|20251223|20251229",
-      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000270230"
     },
     {
       "status": "OK",
@@ -213,15 +204,6 @@
       "date": "20251001",
       "id": "2025-165|20251001|20251001",
       "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000266434"
-    },
-    {
-      "status": "OK",
-      "status_ko": "유지",
-      "kind": "고시",
-      "title": "대기오염 배출시설 관리현황 제출에 관한 규정",
-      "date": "20251001",
-      "id": "4|20251001|20251007",
-      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000268004"
     },
     {
       "status": "OK",
@@ -371,6 +353,15 @@
       "status": "OK",
       "status_ko": "유지",
       "kind": "고시",
+      "title": "통합허가대행업자 영업수행능력 평가에 관한 규정",
+      "date": "20251001",
+      "id": "2025-165|20251001|20251001",
+      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000265096"
+    },
+    {
+      "status": "OK",
+      "status_ko": "유지",
+      "kind": "고시",
       "title": "통합허가사업장의 배출 및 방지시설 운영·관리와 허가조건 이행관리를 위한 업무처리지침",
       "date": "20251001",
       "id": "4|20251001|20251001",
@@ -452,15 +443,6 @@
       "status": "OK",
       "status_ko": "유지",
       "kind": "고시",
-      "title": "유효굴뚝높이 산정방법 고시",
-      "date": "20210831",
-      "id": "2021-58|20210831|20210831",
-      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000204197"
-    },
-    {
-      "status": "OK",
-      "status_ko": "유지",
-      "kind": "고시",
       "title": "배출시설의 대기오염물질 배출계수 고시",
       "date": "20210713",
       "id": "2021-41|20210713|20210713",
@@ -519,6 +501,16 @@
       "date": "20101208",
       "id": "557|20101208|20101208",
       "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2000000072425"
+    },
+    {
+      "status": "OK",
+      "status_ko": "유지",
+      "kind": "의안",
+      "title": "환경오염시설의 통합관리에 관한 법률 일부개정법률안(대안)",
+      "date": "20260206",
+      "id": "PRC_L2J6R0Y2E0X5L1Z3P4B8E3Q5T6E7S8",
+      "diff_url": "https://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_L2J6R0Y2E0X5L1Z3P4B8E3Q5T6E7S8",
+      "detected_at_utc": "2026-02-14T19:40:01.910Z"
     }
   ]
 }
