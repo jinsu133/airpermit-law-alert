@@ -1,10 +1,10 @@
 {
-  "generated_at_kst": "2026-02-14T14:40:49.920+09:00",
-  "generated_at_utc": "2026-02-14T05:40:49.920Z",
+  "generated_at_kst": "2026-02-14T15:07:13.678+09:00",
+  "generated_at_utc": "2026-02-14T06:07:13.678Z",
   "stats": {
     "count_by_kind": {
       "법령": 8,
-      "고시": 42,
+      "고시": 49,
       "의안": 1
     },
     "fallback": {
@@ -164,6 +164,15 @@
       "status": "OK",
       "status_ko": "유지",
       "kind": "고시",
+      "title": "오염총량초과과징금 사무처리규정",
+      "date": "20251105",
+      "id": "4|20251105|20251111",
+      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000266982"
+    },
+    {
+      "status": "OK",
+      "status_ko": "유지",
+      "kind": "고시",
       "title": "특정토양오염관리대상시설의 토양오염방지시설 및 오염토양의 정화방법 등에 관한 고시",
       "date": "20251105",
       "id": "2025-165|20251105|20251105",
@@ -267,6 +276,15 @@
       "date": "20251001",
       "id": "2025-165|20251001|20251007",
       "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000267524"
+    },
+    {
+      "status": "OK",
+      "status_ko": "유지",
+      "kind": "고시",
+      "title": "오염부하량할당대상자가 설치하여야 하는 측정기기의 종류 및 부착방법 등에 관한 규정",
+      "date": "20251001",
+      "id": "2025-165|20251001|20251007",
+      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000265180"
     },
     {
       "status": "OK",
@@ -461,6 +479,51 @@
       "status": "OK",
       "status_ko": "유지",
       "kind": "고시",
+      "title": "2019년도 금강수계 오염총량초과과징금 가격변동지수",
+      "date": "20190110",
+      "id": "2019-16|20190110|20190110",
+      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000175317"
+    },
+    {
+      "status": "OK",
+      "status_ko": "유지",
+      "kind": "고시",
+      "title": "2019년도 기타수계(진위천·삽교호수계) 오염총량초과과징금 가격변동지수",
+      "date": "20190110",
+      "id": "2019-18|20190110|20190110",
+      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000175319"
+    },
+    {
+      "status": "OK",
+      "status_ko": "유지",
+      "kind": "고시",
+      "title": "2019년도 낙동강수계 오염총량초과과징금 가격변동지수",
+      "date": "20190110",
+      "id": "2019-15|20190110|20190110",
+      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000175316"
+    },
+    {
+      "status": "OK",
+      "status_ko": "유지",
+      "kind": "고시",
+      "title": "2019년도 영산강·섬진강수계 오염총량초과과징금 가격변동지수",
+      "date": "20190110",
+      "id": "2019-17|20190110|20190110",
+      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000175318"
+    },
+    {
+      "status": "OK",
+      "status_ko": "유지",
+      "kind": "고시",
+      "title": "2019년도 한강수계 오염총량초과과징금 가격변동지수",
+      "date": "20190110",
+      "id": "2019-14|20190110|20190110",
+      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000175315"
+    },
+    {
+      "status": "OK",
+      "status_ko": "유지",
+      "kind": "고시",
       "title": "대기오염물질 배출량 이력관리 및 재산정에 관한 규정",
       "date": "20101208",
       "id": "557|20101208|20101208",
@@ -474,7 +537,7 @@
       "date": "20260206",
       "id": "PRC_L2J6R0Y2E0X5L1Z3P4B8E3Q5T6E7S8",
       "diff_url": "https://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_L2J6R0Y2E0X5L1Z3P4B8E3Q5T6E7S8",
-      "detected_at_utc": "2026-02-14T05:40:49.920Z"
+      "detected_at_utc": "2026-02-14T06:07:13.678Z"
     }
   ]
 }
