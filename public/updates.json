@@ -1,10 +1,10 @@
 {
-  "generated_at_kst": "2026-02-15T01:32:38.988+09:00",
-  "generated_at_utc": "2026-02-14T16:32:38.988Z",
+  "generated_at_kst": "2026-02-15T02:00:57.322+09:00",
+  "generated_at_utc": "2026-02-14T17:00:57.322Z",
   "stats": {
     "count_by_kind": {
       "법령": 8,
-      "고시": 49,
+      "고시": 45,
       "의안": 1
     },
     "fallback": {
@@ -96,15 +96,6 @@
       "date": "20251226",
       "id": "2025-57|20251226|20251226",
       "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000273702"
-    },
-    {
-      "status": "OK",
-      "status_ko": "유지",
-      "kind": "고시",
-      "title": "굴뚝 원격감시체계 관제센터의 기능 및 운영 등에 관한 규정",
-      "date": "20251223",
-      "id": "2025-64|20251223|20251229",
-      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000270230"
     },
     {
       "status": "OK",
@@ -218,15 +209,6 @@
       "status": "OK",
       "status_ko": "유지",
       "kind": "고시",
-      "title": "대기오염 배출시설 관리현황 제출에 관한 규정",
-      "date": "20251001",
-      "id": "4|20251001|20251007",
-      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000268004"
-    },
-    {
-      "status": "OK",
-      "status_ko": "유지",
-      "kind": "고시",
       "title": "대기오염물질 배출시설에서 제외되는 밀폐된 진공기반의 용해시설에 대한 고시",
       "date": "20251001",
       "id": "2025-165|20251001|20251001",
@@ -276,15 +258,6 @@
       "date": "20251001",
       "id": "2025-165|20251001|20251007",
       "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000267524"
-    },
-    {
-      "status": "OK",
-      "status_ko": "유지",
-      "kind": "고시",
-      "title": "오염부하량할당대상자가 설치하여야 하는 측정기기의 종류 및 부착방법 등에 관한 규정",
-      "date": "20251001",
-      "id": "2025-165|20251001|20251007",
-      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000265180"
     },
     {
       "status": "OK",
@@ -461,15 +434,6 @@
       "status": "OK",
       "status_ko": "유지",
       "kind": "고시",
-      "title": "유효굴뚝높이 산정방법 고시",
-      "date": "20210831",
-      "id": "2021-58|20210831|20210831",
-      "diff_url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000204197"
-    },
-    {
-      "status": "OK",
-      "status_ko": "유지",
-      "kind": "고시",
       "title": "배출시설의 대기오염물질 배출계수 고시",
       "date": "20210713",
       "id": "2021-41|20210713|20210713",
@@ -537,7 +501,7 @@
       "date": "20260206",
       "id": "PRC_L2J6R0Y2E0X5L1Z3P4B8E3Q5T6E7S8",
       "diff_url": "https://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_L2J6R0Y2E0X5L1Z3P4B8E3Q5T6E7S8",
-      "detected_at_utc": "2026-02-14T16:32:38.988Z"
+      "detected_at_utc": "2026-02-14T17:00:57.322Z"
     }
   ]
 }
