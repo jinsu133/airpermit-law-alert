@@ -8,6 +8,8 @@
 import argparse
 import json
 import os
+import re
+from urllib.parse import quote
 from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
@@ -785,6 +787,123 @@ def status_from_prev(prev: Optional[Dict[str, Any]], status_key: str) -> str:
     return "MOD" if prev.get("status_key") != status_key else "OK"
 
 
+def fmt_date(v: Any) -> str:
+    s = str(v or "").strip()
+    if re.fullmatch(r"\d{8}", s):
+        return f"{s[0:4]}-{s[4:6]}-{s[6:8]}"
+    return s
+
+
+def _line_for_kind(kind: str, payload: Dict[str, Any]) -> str:
+    if not payload:
+        return ""
+    if kind == "법령":
+        return " / ".join(
+            p
+            for p in [
+                f"공포일 {fmt_date(payload.get('ld'))}" if payload.get("ld") else "",
+                f"공포번호 {payload.get('ln')}" if payload.get("ln") else "",
+                f"개정유형 {payload.get('reform_type')}" if payload.get("reform_type") else "",
+            ]
+            if p
+        )
+    if kind == "고시":
+        return " / ".join(
+            p
+            for p in [
+                f"공포일 {fmt_date(payload.get('promulgation_date'))}" if payload.get("promulgation_date") else "",
+                f"시행일 {fmt_date(payload.get('enforce_date'))}" if payload.get("enforce_date") else "",
+                f"고시번호 {payload.get('num')}" if payload.get("num") else "",
+                f"소관부처 {payload.get('dept')}" if payload.get("dept") else "",
+            ]
+            if p
+        )
+    if kind == "의안":
+        return " / ".join(
+            p
+            for p in [
+                f"제안일 {fmt_date(payload.get('propose_dt'))}" if payload.get("propose_dt") else "",
+                f"의안번호 {payload.get('bill_no')}" if payload.get("bill_no") else "",
+                f"처리상태 {payload.get('proc_result')}" if payload.get("proc_result") else "",
+            ]
+            if p
+        )
+    return ""
+
+
+def _changed_fields(kind: str, prev: Optional[Dict[str, Any]], cur: Dict[str, Any]) -> List[str]:
+    if not prev:
+        return []
+    defs = {
+        "법령": [("공포일", "ld"), ("공포번호", "ln"), ("개정유형", "reform_type")],
+        "고시": [("공포일", "promulgation_date"), ("시행일", "enforce_date"), ("고시번호", "num"), ("소관부처", "dept")],
+        "의안": [("제안일", "propose_dt"), ("의안번호", "bill_no"), ("처리상태", "proc_result")],
+    }
+    out: List[str] = []
+    for label, key in defs.get(kind, []):
+        if str(prev.get(key) or "").strip() != str(cur.get(key) or "").strip():
+            out.append(label)
+    return out
+
+
+def build_change_detail(kind: str, title: str, status: str, prev: Optional[Dict[str, Any]], cur: Dict[str, Any]) -> Dict[str, Any]:
+    before_line = _line_for_kind(kind, prev or {})
+    after_line = _line_for_kind(kind, cur or {})
+    changed_fields = _changed_fields(kind, prev, cur)
+
+    if status == "NEW":
+        head = "신규 항목으로 감지되었습니다."
+    elif status == "MOD":
+        head = "이전 수집본 대비 변경이 감지되었습니다."
+    else:
+        head = "변경 없음"
+
+    if status == "NEW":
+        diff_excerpt = f"신규 포착 | {after_line or '요약 정보 없음'}"
+    elif status == "MOD":
+        if before_line and after_line and before_line != after_line:
+            diff_excerpt = f"변경 전: {before_line}\n변경 후: {after_line}"
+        else:
+            diff_excerpt = f"메타 정보 갱신 | {after_line or before_line or '요약 정보 없음'}"
+    else:
+        diff_excerpt = after_line or before_line or "요약 정보 없음"
+
+    summary_lines = [
+        head,
+        f"- 대상: {title}",
+        f"- 변경 전: {before_line or '기준 없음'}",
+        f"- 변경 후: {after_line or '정보 없음'}",
+    ]
+    if changed_fields:
+        summary_lines.append(f"- 변경 항목: {', '.join(changed_fields)}")
+
+    return {
+        "change_summary": "\n".join(summary_lines),
+        "change_detail": {
+            "before": {"excerpt": before_line or None},
+            "after": {"excerpt": after_line or None},
+            "changed_fields": changed_fields,
+            "diff_excerpt": diff_excerpt,
+        },
+        "diff_excerpt": diff_excerpt,
+    }
+
+
+def build_source_url(kind: str, title: str, payload: Dict[str, Any]) -> Optional[str]:
+    if kind == "의안":
+        bill_id = str(payload.get("bill_id") or "").strip()
+        if bill_id:
+            return f"https://likms.assembly.go.kr/bill/billDetail.do?billId={quote(bill_id)}"
+    query = quote(title or "")
+    if not query:
+        return None
+    if kind == "법령":
+        return f"https://www.law.go.kr/lsSc.do?query={query}"
+    if kind == "고시":
+        return f"https://www.law.go.kr/admRulSc.do?query={query}"
+    return None
+
+
 def write_json(path: Path, obj: Any) -> None:
     ensure_parent(path)
     path.write_text(json.dumps(obj, ensure_ascii=False, indent=2), encoding="utf-8")
@@ -939,10 +1058,11 @@ def run_web(out_dir: str) -> None:
             "title": key,
             "date": info.get("ld", ""),
             "id": item_id,
-            "diff_url": build_law_diff_url(key, info),
+            "diff_url": build_source_url("법령", key, info) or build_law_diff_url(key, info),
+            "detected_at_utc": generated_utc,
         }
         if status in ("NEW", "MOD"):
-            item["change_summary"] = build_change_summary(prev, info, LAW_CHANGE_FIELDS)
+            item.update(build_change_detail("법령", item["title"], status, prev, info))
         all_items.append(item)
         seen_law_titles.add(key)
         state["laws"][key] = {"status_key": current_key, **info}
@@ -972,10 +1092,11 @@ def run_web(out_dir: str) -> None:
                 "title": info.get("title", ""),
                 "date": info.get("promulgation_date") or info.get("enforce_date") or "",
                 "id": item_id,
-                "diff_url": build_admrul_diff_url(info.get("title", ""), info),
+                "diff_url": build_source_url("고시", info.get("title", ""), info) or build_admrul_diff_url(info.get("title", ""), info),
+                "detected_at_utc": generated_utc,
             }
             if status in ("NEW", "MOD"):
-                item["change_summary"] = build_change_summary(prev, info, ADMRUL_CHANGE_FIELDS)
+                item.update(build_change_detail("고시", item["title"], status, prev, info))
             all_items.append(item)
             state["admruls"][key] = {"status_key": current_key, **info}
 
@@ -997,11 +1118,11 @@ def run_web(out_dir: str) -> None:
             "title": info.get("bill_name", ""),
             "date": info.get("propose_dt", ""),
             "id": bill_id,
-            "diff_url": build_bill_diff_url(bill_id),
+            "diff_url": build_source_url("의안", info.get("bill_name", ""), {"bill_id": bill_id}) or build_bill_diff_url(bill_id),
             "detected_at_utc": generated_utc,
         }
         if status in ("NEW", "MOD"):
-            item["change_summary"] = build_change_summary(prev, info, BILL_CHANGE_FIELDS)
+            item.update(build_change_detail("의안", item["title"], status, prev, info))
         all_items.append(item)
         state["bills"][bill_id] = {"status_key": current_key, **info}
 
