@@ -1,9 +1,9 @@
 {
-  "generated_at_kst": "2026-02-15T15:34:09.038+09:00",
-  "generated_at_utc": "2026-02-15T06:34:09.038Z",
+  "generated_at_kst": "2026-02-15T15:45:19.828+09:00",
+  "generated_at_utc": "2026-02-15T06:45:19.828Z",
   "stats": {
     "count_by_kind": {
-      "법령": 8,
+      "법령": 7,
       "고시": 49,
       "의안": 1
     },
@@ -51,15 +51,6 @@
       "date": "20251230",
       "id": "00019|20251230|일부개정",
       "diff_url": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=282255&efYd=20251230"
-    },
-    {
-      "status": "OK",
-      "status_ko": "유지",
-      "kind": "법령",
-      "title": "대기관리권역의 대기환경개선에 관한 특별법 시행규칙",
-      "date": "20251226",
-      "id": "00013|20251226|타법개정",
-      "diff_url": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=282045&efYd=20251226"
     },
     {
       "status": "OK",
@@ -537,7 +528,7 @@
       "date": "20260206",
       "id": "PRC_L2J6R0Y2E0X5L1Z3P4B8E3Q5T6E7S8",
       "diff_url": "https://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_L2J6R0Y2E0X5L1Z3P4B8E3Q5T6E7S8",
-      "detected_at_utc": "2026-02-15T06:34:09.038Z"
+      "detected_at_utc": "2026-02-15T06:45:19.828Z"
     }
   ]
 }
