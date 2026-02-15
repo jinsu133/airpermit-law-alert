@@ -12,7 +12,18 @@
       "change_summary": "의안번호: DD20734 -> 2216791; 제안일: 20260206 -> 20260211",
       "source": "delta",
       "detected_at_utc": "2026-02-11T17:05:26.803Z",
-      "history_key": "의안||PRC_N2W6J0P2F0X5I1V3O4S6G5K7N0O3L4||20260211||대기환경보전법 일부개정법률안(대안)"
+      "history_key": "의안||PRC_N2W6J0P2F0X5I1V3O4S6G5K7N0O3L4||20260211||대기환경보전법 일부개정법률안(대안)",
+      "diff_excerpt": "의안번호: DD20734 -> 2216791; 제안일: 20260206 -> 20260211",
+      "change_detail": {
+        "before": {
+          "excerpt": null
+        },
+        "after": {
+          "excerpt": null
+        },
+        "changed_fields": [],
+        "diff_excerpt": "의안번호: DD20734 -> 2216791; 제안일: 20260206 -> 20260211"
+      }
     },
     {
       "status": "MOD",
@@ -25,7 +36,18 @@
       "change_summary": "기준일(2021-01-01) 이후 누적 백필",
       "source": "backfill",
       "detected_at_utc": "2026-01-27T00:00:00Z",
-      "history_key": "법령||36055|20260127|타법개정||20260127||환경분야 시험ㆍ검사 등에 관한 법률 시행령"
+      "history_key": "법령||36055|20260127|타법개정||20260127||환경분야 시험ㆍ검사 등에 관한 법률 시행령",
+      "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필",
+      "change_detail": {
+        "before": {
+          "excerpt": null
+        },
+        "after": {
+          "excerpt": null
+        },
+        "changed_fields": [],
+        "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필"
+      }
     },
     {
       "status": "MOD",
@@ -38,7 +60,18 @@
       "change_summary": "기준일(2021-01-01) 이후 누적 백필",
       "source": "backfill",
       "detected_at_utc": "2026-01-27T00:00:00Z",
-      "history_key": "법령||36055|20260127|타법개정||20260127||환경오염시설의 통합관리에 관한 법률 시행령"
+      "history_key": "법령||36055|20260127|타법개정||20260127||환경오염시설의 통합관리에 관한 법률 시행령",
+      "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필",
+      "change_detail": {
+        "before": {
+          "excerpt": null
+        },
+        "after": {
+          "excerpt": null
+        },
+        "changed_fields": [],
+        "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필"
+      }
     },
     {
       "status": "MOD",
@@ -51,7 +84,18 @@
       "history_key": "의안||PRC_G2E6F0N1O1M3M0L8L0K9S4S6Q5R6P8||20260123||도시 및 주거환경정비법 일부개정법률안",
       "status_ko": "변경",
       "source": "legacy",
-      "change_summary": "레거시 누적 의안 데이터(2026-01-23)입니다. 상세 비교필드가 없어 원문 링크 확인이 필요합니다."
+      "change_summary": "레거시 누적 의안 데이터(2026-01-23)입니다. 상세 비교필드가 없어 원문 링크 확인이 필요합니다.",
+      "diff_excerpt": "레거시 누적 의안 데이터(2026-01-23)입니다. 상세 비교필드가 없어 원문 링크 확인이 필요합니다.",
+      "change_detail": {
+        "before": {
+          "excerpt": null
+        },
+        "after": {
+          "excerpt": null
+        },
+        "changed_fields": [],
+        "diff_excerpt": "레거시 누적 의안 데이터(2026-01-23)입니다. 상세 비교필드가 없어 원문 링크 확인이 필요합니다."
+      }
     },
     {
       "status": "MOD",
@@ -64,7 +108,18 @@
       "history_key": "의안||ARC_I2A6N0V1Y2P2M1V0P2C9V2L0A0C9T8||20260122||교육환경 보호에 관한 법률 일부개정법률안",
       "status_ko": "변경",
       "source": "legacy",
-      "change_summary": "레거시 누적 의안 데이터(2026-01-22)입니다. 상세 비교필드가 없어 원문 링크 확인이 필요합니다."
+      "change_summary": "레거시 누적 의안 데이터(2026-01-22)입니다. 상세 비교필드가 없어 원문 링크 확인이 필요합니다.",
+      "diff_excerpt": "레거시 누적 의안 데이터(2026-01-22)입니다. 상세 비교필드가 없어 원문 링크 확인이 필요합니다.",
+      "change_detail": {
+        "before": {
+          "excerpt": null
+        },
+        "after": {
+          "excerpt": null
+        },
+        "changed_fields": [],
+        "diff_excerpt": "레거시 누적 의안 데이터(2026-01-22)입니다. 상세 비교필드가 없어 원문 링크 확인이 필요합니다."
+      }
     },
     {
       "status": "MOD",
@@ -77,7 +132,18 @@
       "history_key": "법령||012747||20260102||환경오염시설의 통합관리에 관한 법률 시행령",
       "status_ko": "변경",
       "source": "legacy",
-      "change_summary": "레거시 누적 법령 데이터(2026-01-02)입니다. 상세 비교필드가 없어 원문 링크 확인이 필요합니다."
+      "change_summary": "레거시 누적 법령 데이터(2026-01-02)입니다. 상세 비교필드가 없어 원문 링크 확인이 필요합니다.",
+      "diff_excerpt": "레거시 누적 법령 데이터(2026-01-02)입니다. 상세 비교필드가 없어 원문 링크 확인이 필요합니다.",
+      "change_detail": {
+        "before": {
+          "excerpt": null
+        },
+        "after": {
+          "excerpt": null
+        },
+        "changed_fields": [],
+        "diff_excerpt": "레거시 누적 법령 데이터(2026-01-02)입니다. 상세 비교필드가 없어 원문 링크 확인이 필요합니다."
+      }
     },
     {
       "status": "MOD",
@@ -90,7 +156,18 @@
       "history_key": "법령||013722||20251230||대기관리권역의 대기환경개선에 관한 특별법 시행령",
       "status_ko": "변경",
       "source": "legacy",
-      "change_summary": "레거시 누적 법령 데이터(2025-12-30)입니다. 상세 비교필드가 없어 원문 링크 확인이 필요합니다."
+      "change_summary": "레거시 누적 법령 데이터(2025-12-30)입니다. 상세 비교필드가 없어 원문 링크 확인이 필요합니다.",
+      "diff_excerpt": "레거시 누적 법령 데이터(2025-12-30)입니다. 상세 비교필드가 없어 원문 링크 확인이 필요합니다.",
+      "change_detail": {
+        "before": {
+          "excerpt": null
+        },
+        "after": {
+          "excerpt": null
+        },
+        "changed_fields": [],
+        "diff_excerpt": "레거시 누적 법령 데이터(2025-12-30)입니다. 상세 비교필드가 없어 원문 링크 확인이 필요합니다."
+      }
     },
     {
       "status": "MOD",
@@ -103,7 +180,18 @@
       "change_summary": "기준일(2021-01-01) 이후 누적 백필",
       "source": "backfill",
       "detected_at_utc": "2025-12-30T00:00:00Z",
-      "history_key": "법령||35947|20251230|타법개정||20251230||대기관리권역의 대기환경개선에 관한 특별법 시행령"
+      "history_key": "법령||35947|20251230|타법개정||20251230||대기관리권역의 대기환경개선에 관한 특별법 시행령",
+      "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필",
+      "change_detail": {
+        "before": {
+          "excerpt": null
+        },
+        "after": {
+          "excerpt": null
+        },
+        "changed_fields": [],
+        "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필"
+      }
     },
     {
       "status": "MOD",
@@ -116,7 +204,18 @@
       "history_key": "법령||012778||20251230||환경오염시설의 통합관리에 관한 법률 시행규칙",
       "status_ko": "변경",
       "source": "legacy",
-      "change_summary": "레거시 누적 법령 데이터(2025-12-30)입니다. 상세 비교필드가 없어 원문 링크 확인이 필요합니다."
+      "change_summary": "레거시 누적 법령 데이터(2025-12-30)입니다. 상세 비교필드가 없어 원문 링크 확인이 필요합니다.",
+      "diff_excerpt": "레거시 누적 법령 데이터(2025-12-30)입니다. 상세 비교필드가 없어 원문 링크 확인이 필요합니다.",
+      "change_detail": {
+        "before": {
+          "excerpt": null
+        },
+        "after": {
+          "excerpt": null
+        },
+        "changed_fields": [],
+        "diff_excerpt": "레거시 누적 법령 데이터(2025-12-30)입니다. 상세 비교필드가 없어 원문 링크 확인이 필요합니다."
+      }
     },
     {
       "status": "MOD",
@@ -129,7 +228,18 @@
       "change_summary": "기준일(2021-01-01) 이후 누적 백필",
       "source": "backfill",
       "detected_at_utc": "2025-12-30T00:00:00Z",
-      "history_key": "법령||00019|20251230|일부개정||20251230||환경오염시설의 통합관리에 관한 법률 시행규칙"
+      "history_key": "법령||00019|20251230|일부개정||20251230||환경오염시설의 통합관리에 관한 법률 시행규칙",
+      "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필",
+      "change_detail": {
+        "before": {
+          "excerpt": null
+        },
+        "after": {
+          "excerpt": null
+        },
+        "changed_fields": [],
+        "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필"
+      }
     },
     {
       "status": "MOD",
@@ -142,7 +252,18 @@
       "change_summary": "기준일(2021-01-01) 이후 누적 백필",
       "source": "backfill",
       "detected_at_utc": "2025-12-26T00:00:00Z",
-      "history_key": "고시||2025-57|20251226|20251226||20251226||대기오염공정시험기준"
+      "history_key": "고시||2025-57|20251226|20251226||20251226||대기오염공정시험기준",
+      "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필",
+      "change_detail": {
+        "before": {
+          "excerpt": null
+        },
+        "after": {
+          "excerpt": null
+        },
+        "changed_fields": [],
+        "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필"
+      }
     },
     {
       "status": "MOD",
@@ -155,7 +276,18 @@
       "history_key": "법령||013725||20251226||대기관리권역의 대기환경개선에 관한 특별법 시행규칙",
       "status_ko": "변경",
       "source": "legacy",
-      "change_summary": "레거시 누적 법령 데이터(2025-12-26)입니다. 상세 비교필드가 없어 원문 링크 확인이 필요합니다."
+      "change_summary": "레거시 누적 법령 데이터(2025-12-26)입니다. 상세 비교필드가 없어 원문 링크 확인이 필요합니다.",
+      "diff_excerpt": "레거시 누적 법령 데이터(2025-12-26)입니다. 상세 비교필드가 없어 원문 링크 확인이 필요합니다.",
+      "change_detail": {
+        "before": {
+          "excerpt": null
+        },
+        "after": {
+          "excerpt": null
+        },
+        "changed_fields": [],
+        "diff_excerpt": "레거시 누적 법령 데이터(2025-12-26)입니다. 상세 비교필드가 없어 원문 링크 확인이 필요합니다."
+      }
     },
     {
       "status": "MOD",
@@ -168,7 +300,18 @@
       "change_summary": "기준일(2021-01-01) 이후 누적 백필",
       "source": "backfill",
       "detected_at_utc": "2025-12-26T00:00:00Z",
-      "history_key": "법령||00013|20251226|타법개정||20251226||대기관리권역의 대기환경개선에 관한 특별법 시행규칙"
+      "history_key": "법령||00013|20251226|타법개정||20251226||대기관리권역의 대기환경개선에 관한 특별법 시행규칙",
+      "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필",
+      "change_detail": {
+        "before": {
+          "excerpt": null
+        },
+        "after": {
+          "excerpt": null
+        },
+        "changed_fields": [],
+        "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필"
+      }
     },
     {
       "status": "MOD",
@@ -181,7 +324,18 @@
       "history_key": "법령||007038||20251224||대기환경보전법 시행규칙",
       "status_ko": "변경",
       "source": "legacy",
-      "change_summary": "레거시 누적 법령 데이터(2025-12-24)입니다. 상세 비교필드가 없어 원문 링크 확인이 필요합니다."
+      "change_summary": "레거시 누적 법령 데이터(2025-12-24)입니다. 상세 비교필드가 없어 원문 링크 확인이 필요합니다.",
+      "diff_excerpt": "레거시 누적 법령 데이터(2025-12-24)입니다. 상세 비교필드가 없어 원문 링크 확인이 필요합니다.",
+      "change_detail": {
+        "before": {
+          "excerpt": null
+        },
+        "after": {
+          "excerpt": null
+        },
+        "changed_fields": [],
+        "diff_excerpt": "레거시 누적 법령 데이터(2025-12-24)입니다. 상세 비교필드가 없어 원문 링크 확인이 필요합니다."
+      }
     },
     {
       "status": "MOD",
@@ -194,7 +348,18 @@
       "change_summary": "기준일(2021-01-01) 이후 누적 백필",
       "source": "backfill",
       "detected_at_utc": "2025-12-24T00:00:00Z",
-      "history_key": "법령||00012|20251224|일부개정||20251224||대기환경보전법 시행규칙"
+      "history_key": "법령||00012|20251224|일부개정||20251224||대기환경보전법 시행규칙",
+      "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필",
+      "change_detail": {
+        "before": {
+          "excerpt": null
+        },
+        "after": {
+          "excerpt": null
+        },
+        "changed_fields": [],
+        "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필"
+      }
     },
     {
       "status": "MOD",
@@ -207,7 +372,18 @@
       "change_summary": "기준일(2021-01-01) 이후 누적 백필",
       "source": "backfill",
       "detected_at_utc": "2025-12-23T00:00:00Z",
-      "history_key": "고시||2025-64|20251223|20251229||20251223||굴뚝 원격감시체계 관제센터의 기능 및 운영 등에 관한 규정"
+      "history_key": "고시||2025-64|20251223|20251229||20251223||굴뚝 원격감시체계 관제센터의 기능 및 운영 등에 관한 규정",
+      "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필",
+      "change_detail": {
+        "before": {
+          "excerpt": null
+        },
+        "after": {
+          "excerpt": null
+        },
+        "changed_fields": [],
+        "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필"
+      }
     },
     {
       "status": "MOD",
@@ -220,7 +396,18 @@
       "change_summary": "기준일(2021-01-01) 이후 누적 백필",
       "source": "backfill",
       "detected_at_utc": "2025-12-23T00:00:00Z",
-      "history_key": "고시||2025-55|20251223|20251223||20251223||통합관리사업장의 배출 및 방지시설 운영·관리와 허가조건 이행에 대한 전산 기록·보존에 관한 고시"
+      "history_key": "고시||2025-55|20251223|20251223||20251223||통합관리사업장의 배출 및 방지시설 운영·관리와 허가조건 이행에 대한 전산 기록·보존에 관한 고시",
+      "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필",
+      "change_detail": {
+        "before": {
+          "excerpt": null
+        },
+        "after": {
+          "excerpt": null
+        },
+        "changed_fields": [],
+        "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필"
+      }
     },
     {
       "status": "MOD",
@@ -233,7 +420,18 @@
       "history_key": "법령||003302||20251223||대기환경보전법 시행령",
       "status_ko": "변경",
       "source": "legacy",
-      "change_summary": "레거시 누적 법령 데이터(2025-12-23)입니다. 상세 비교필드가 없어 원문 링크 확인이 필요합니다."
+      "change_summary": "레거시 누적 법령 데이터(2025-12-23)입니다. 상세 비교필드가 없어 원문 링크 확인이 필요합니다.",
+      "diff_excerpt": "레거시 누적 법령 데이터(2025-12-23)입니다. 상세 비교필드가 없어 원문 링크 확인이 필요합니다.",
+      "change_detail": {
+        "before": {
+          "excerpt": null
+        },
+        "after": {
+          "excerpt": null
+        },
+        "changed_fields": [],
+        "diff_excerpt": "레거시 누적 법령 데이터(2025-12-23)입니다. 상세 비교필드가 없어 원문 링크 확인이 필요합니다."
+      }
     },
     {
       "status": "MOD",
@@ -246,7 +444,18 @@
       "change_summary": "기준일(2021-01-01) 이후 누적 백필",
       "source": "backfill",
       "detected_at_utc": "2025-12-23T00:00:00Z",
-      "history_key": "법령||35939|20251223|타법개정||20251223||대기환경보전법 시행령"
+      "history_key": "법령||35939|20251223|타법개정||20251223||대기환경보전법 시행령",
+      "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필",
+      "change_detail": {
+        "before": {
+          "excerpt": null
+        },
+        "after": {
+          "excerpt": null
+        },
+        "changed_fields": [],
+        "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필"
+      }
     },
     {
       "status": "MOD",
@@ -259,7 +468,18 @@
       "change_summary": "기준일(2021-01-01) 이후 누적 백필",
       "source": "backfill",
       "detected_at_utc": "2025-12-19T00:00:00Z",
-      "history_key": "고시||2025-65|20251219|20251219||20251219||온실가스 배출권의 할당 및 취소에 관한 지침"
+      "history_key": "고시||2025-65|20251219|20251219||20251219||온실가스 배출권의 할당 및 취소에 관한 지침",
+      "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필",
+      "change_detail": {
+        "before": {
+          "excerpt": null
+        },
+        "after": {
+          "excerpt": null
+        },
+        "changed_fields": [],
+        "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필"
+      }
     },
     {
       "status": "MOD",
@@ -272,7 +492,18 @@
       "change_summary": "기준일(2021-01-01) 이후 누적 백필",
       "source": "backfill",
       "detected_at_utc": "2025-12-16T00:00:00Z",
-      "history_key": "고시||2025-52|20251216|20251216||20251216||환경시험·검사기관 정도관리 운영등에 관한 규정"
+      "history_key": "고시||2025-52|20251216|20251216||20251216||환경시험·검사기관 정도관리 운영등에 관한 규정",
+      "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필",
+      "change_detail": {
+        "before": {
+          "excerpt": null
+        },
+        "after": {
+          "excerpt": null
+        },
+        "changed_fields": [],
+        "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필"
+      }
     },
     {
       "status": "MOD",
@@ -285,7 +516,18 @@
       "history_key": "법령||001773||20251111||대기환경보전법",
       "status_ko": "변경",
       "source": "legacy",
-      "change_summary": "레거시 누적 법령 데이터(2025-11-11)입니다. 상세 비교필드가 없어 원문 링크 확인이 필요합니다."
+      "change_summary": "레거시 누적 법령 데이터(2025-11-11)입니다. 상세 비교필드가 없어 원문 링크 확인이 필요합니다.",
+      "diff_excerpt": "레거시 누적 법령 데이터(2025-11-11)입니다. 상세 비교필드가 없어 원문 링크 확인이 필요합니다.",
+      "change_detail": {
+        "before": {
+          "excerpt": null
+        },
+        "after": {
+          "excerpt": null
+        },
+        "changed_fields": [],
+        "diff_excerpt": "레거시 누적 법령 데이터(2025-11-11)입니다. 상세 비교필드가 없어 원문 링크 확인이 필요합니다."
+      }
     },
     {
       "status": "MOD",
@@ -298,7 +540,18 @@
       "change_summary": "기준일(2021-01-01) 이후 누적 백필",
       "source": "backfill",
       "detected_at_utc": "2025-11-11T00:00:00Z",
-      "history_key": "법령||21123|20251111|일부개정||20251111||대기환경보전법"
+      "history_key": "법령||21123|20251111|일부개정||20251111||대기환경보전법",
+      "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필",
+      "change_detail": {
+        "before": {
+          "excerpt": null
+        },
+        "after": {
+          "excerpt": null
+        },
+        "changed_fields": [],
+        "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필"
+      }
     },
     {
       "status": "MOD",
@@ -311,7 +564,18 @@
       "change_summary": "기준일(2021-01-01) 이후 누적 백필",
       "source": "backfill",
       "detected_at_utc": "2025-11-06T00:00:00Z",
-      "history_key": "고시||2025-165|20251106|20251112||20251106||온실가스 배출권 거래소의 감독에 관한 고시"
+      "history_key": "고시||2025-165|20251106|20251112||20251106||온실가스 배출권 거래소의 감독에 관한 고시",
+      "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필",
+      "change_detail": {
+        "before": {
+          "excerpt": null
+        },
+        "after": {
+          "excerpt": null
+        },
+        "changed_fields": [],
+        "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필"
+      }
     },
     {
       "status": "MOD",
@@ -324,7 +588,18 @@
       "change_summary": "기준일(2021-01-01) 이후 누적 백필",
       "source": "backfill",
       "detected_at_utc": "2025-11-05T00:00:00Z",
-      "history_key": "고시||4,1904|20251105|20251105||20251105||국토계획 및 환경계획의 통합관리에 관한 공동훈령"
+      "history_key": "고시||4,1904|20251105|20251105||20251105||국토계획 및 환경계획의 통합관리에 관한 공동훈령",
+      "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필",
+      "change_detail": {
+        "before": {
+          "excerpt": null
+        },
+        "after": {
+          "excerpt": null
+        },
+        "changed_fields": [],
+        "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필"
+      }
     },
     {
       "status": "MOD",
@@ -337,7 +612,18 @@
       "change_summary": "기준일(2021-01-01) 이후 누적 백필",
       "source": "backfill",
       "detected_at_utc": "2025-11-05T00:00:00Z",
-      "history_key": "고시||4|20251105|20251111||20251105||에코이노베이션 기술에 의한 자동차 온실가스 배출 저감 및 에너지소비관련 개선 효과 인정 지침"
+      "history_key": "고시||4|20251105|20251111||20251105||에코이노베이션 기술에 의한 자동차 온실가스 배출 저감 및 에너지소비관련 개선 효과 인정 지침",
+      "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필",
+      "change_detail": {
+        "before": {
+          "excerpt": null
+        },
+        "after": {
+          "excerpt": null
+        },
+        "changed_fields": [],
+        "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필"
+      }
     },
     {
       "status": "MOD",
@@ -350,7 +636,18 @@
       "change_summary": "기준일(2021-01-01) 이후 누적 백필",
       "source": "backfill",
       "detected_at_utc": "2025-11-05T00:00:00Z",
-      "history_key": "고시||4|20251105|20251111||20251105||오염총량초과과징금 사무처리규정"
+      "history_key": "고시||4|20251105|20251111||20251105||오염총량초과과징금 사무처리규정",
+      "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필",
+      "change_detail": {
+        "before": {
+          "excerpt": null
+        },
+        "after": {
+          "excerpt": null
+        },
+        "changed_fields": [],
+        "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필"
+      }
     },
     {
       "status": "MOD",
@@ -363,7 +660,18 @@
       "change_summary": "기준일(2021-01-01) 이후 누적 백필",
       "source": "backfill",
       "detected_at_utc": "2025-11-05T00:00:00Z",
-      "history_key": "고시||2025-165|20251105|20251105||20251105||특정토양오염관리대상시설의 토양오염방지시설 및 오염토양의 정화방법 등에 관한 고시"
+      "history_key": "고시||2025-165|20251105|20251105||20251105||특정토양오염관리대상시설의 토양오염방지시설 및 오염토양의 정화방법 등에 관한 고시",
+      "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필",
+      "change_detail": {
+        "before": {
+          "excerpt": null
+        },
+        "after": {
+          "excerpt": null
+        },
+        "changed_fields": [],
+        "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필"
+      }
     },
     {
       "status": "MOD",
@@ -376,7 +684,18 @@
       "change_summary": "기준일(2021-01-01) 이후 누적 백필",
       "source": "backfill",
       "detected_at_utc": "2025-10-01T00:00:00Z",
-      "history_key": "고시||2025-165|20251001|20251007||20251001||(기후에너지환경부) 온실가스 배출권의 거래에 관한 고시"
+      "history_key": "고시||2025-165|20251001|20251007||20251001||(기후에너지환경부) 온실가스 배출권의 거래에 관한 고시",
+      "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필",
+      "change_detail": {
+        "before": {
+          "excerpt": null
+        },
+        "after": {
+          "excerpt": null
+        },
+        "changed_fields": [],
+        "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필"
+      }
     },
     {
       "status": "MOD",
@@ -389,7 +708,18 @@
       "change_summary": "기준일(2021-01-01) 이후 누적 백필",
       "source": "backfill",
       "detected_at_utc": "2025-10-01T00:00:00Z",
-      "history_key": "고시||2025-165|20251001|20251007||20251001||가스열펌프 대기오염물질 저감장치 인증방법 및 절차 등에 관한 규정"
+      "history_key": "고시||2025-165|20251001|20251007||20251001||가스열펌프 대기오염물질 저감장치 인증방법 및 절차 등에 관한 규정",
+      "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필",
+      "change_detail": {
+        "before": {
+          "excerpt": null
+        },
+        "after": {
+          "excerpt": null
+        },
+        "changed_fields": [],
+        "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필"
+      }
     },
     {
       "status": "MOD",
@@ -402,7 +732,18 @@
       "change_summary": "기준일(2021-01-01) 이후 누적 백필",
       "source": "backfill",
       "detected_at_utc": "2025-10-01T00:00:00Z",
-      "history_key": "고시||2025-165|20251001|20251007||20251001||고농도 미세먼지 비상저감조치 시행대상 대기오염물질 배출시설에 대한 고시"
+      "history_key": "고시||2025-165|20251001|20251007||20251001||고농도 미세먼지 비상저감조치 시행대상 대기오염물질 배출시설에 대한 고시",
+      "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필",
+      "change_detail": {
+        "before": {
+          "excerpt": null
+        },
+        "after": {
+          "excerpt": null
+        },
+        "changed_fields": [],
+        "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필"
+      }
     },
     {
       "status": "MOD",
@@ -415,7 +756,18 @@
       "change_summary": "기준일(2021-01-01) 이후 누적 백필",
       "source": "backfill",
       "detected_at_utc": "2025-10-01T00:00:00Z",
-      "history_key": "고시||2025-165|20251001|20251001||20251001||대기오염 방지시설(연소보조장치)의 성능기준 및 검사방법"
+      "history_key": "고시||2025-165|20251001|20251001||20251001||대기오염 방지시설(연소보조장치)의 성능기준 및 검사방법",
+      "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필",
+      "change_detail": {
+        "before": {
+          "excerpt": null
+        },
+        "after": {
+          "excerpt": null
+        },
+        "changed_fields": [],
+        "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필"
+      }
     },
     {
       "status": "MOD",
@@ -428,7 +780,18 @@
       "change_summary": "기준일(2021-01-01) 이후 누적 백필",
       "source": "backfill",
       "detected_at_utc": "2025-10-01T00:00:00Z",
-      "history_key": "고시||4|20251001|20251007||20251001||대기오염 배출시설 관리현황 제출에 관한 규정"
+      "history_key": "고시||4|20251001|20251007||20251001||대기오염 배출시설 관리현황 제출에 관한 규정",
+      "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필",
+      "change_detail": {
+        "before": {
+          "excerpt": null
+        },
+        "after": {
+          "excerpt": null
+        },
+        "changed_fields": [],
+        "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필"
+      }
     },
     {
       "status": "MOD",
@@ -441,7 +804,18 @@
       "change_summary": "기준일(2021-01-01) 이후 누적 백필",
       "source": "backfill",
       "detected_at_utc": "2025-10-01T00:00:00Z",
-      "history_key": "고시||2025-165|20251001|20251001||20251001||대기오염물질 배출시설에서 제외되는 밀폐된 진공기반의 용해시설에 대한 고시"
+      "history_key": "고시||2025-165|20251001|20251001||20251001||대기오염물질 배출시설에서 제외되는 밀폐된 진공기반의 용해시설에 대한 고시",
+      "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필",
+      "change_detail": {
+        "before": {
+          "excerpt": null
+        },
+        "after": {
+          "excerpt": null
+        },
+        "changed_fields": [],
+        "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필"
+      }
     },
     {
       "status": "MOD",
@@ -454,7 +828,18 @@
       "change_summary": "기준일(2021-01-01) 이후 누적 백필",
       "source": "backfill",
       "detected_at_utc": "2025-10-01T00:00:00Z",
-      "history_key": "고시||2025-165|20251001|20251007||20251001||대기오염물질 총량관리사업자의 배출허용총량 이전 절차 등에 관한 규정"
+      "history_key": "고시||2025-165|20251001|20251007||20251001||대기오염물질 총량관리사업자의 배출허용총량 이전 절차 등에 관한 규정",
+      "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필",
+      "change_detail": {
+        "before": {
+          "excerpt": null
+        },
+        "after": {
+          "excerpt": null
+        },
+        "changed_fields": [],
+        "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필"
+      }
     },
     {
       "status": "MOD",
@@ -467,7 +852,18 @@
       "change_summary": "기준일(2021-01-01) 이후 누적 백필",
       "source": "backfill",
       "detected_at_utc": "2025-10-01T00:00:00Z",
-      "history_key": "고시||2025-165|20251001|20190815||20251001||미세먼지 간이측정기 성능인증 수수료"
+      "history_key": "고시||2025-165|20251001|20190815||20251001||미세먼지 간이측정기 성능인증 수수료",
+      "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필",
+      "change_detail": {
+        "before": {
+          "excerpt": null
+        },
+        "after": {
+          "excerpt": null
+        },
+        "changed_fields": [],
+        "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필"
+      }
     },
     {
       "status": "MOD",
@@ -480,7 +876,18 @@
       "change_summary": "기준일(2021-01-01) 이후 누적 백필",
       "source": "backfill",
       "detected_at_utc": "2025-10-01T00:00:00Z",
-      "history_key": "고시||2025-165|20251001|20251001||20251001||미세먼지연구·관리센터의 지정 및 운영에 관한 고시"
+      "history_key": "고시||2025-165|20251001|20251001||20251001||미세먼지연구·관리센터의 지정 및 운영에 관한 고시",
+      "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필",
+      "change_detail": {
+        "before": {
+          "excerpt": null
+        },
+        "after": {
+          "excerpt": null
+        },
+        "changed_fields": [],
+        "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필"
+      }
     },
     {
       "status": "MOD",
@@ -493,7 +900,18 @@
       "change_summary": "기준일(2021-01-01) 이후 누적 백필",
       "source": "backfill",
       "detected_at_utc": "2025-10-01T00:00:00Z",
-      "history_key": "고시||2025-165|20251001|20251007||20251001||배출가스저감장치의 성능유지확인 검사기준 및 검사방법 등에 관한 규정"
+      "history_key": "고시||2025-165|20251001|20251007||20251001||배출가스저감장치의 성능유지확인 검사기준 및 검사방법 등에 관한 규정",
+      "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필",
+      "change_detail": {
+        "before": {
+          "excerpt": null
+        },
+        "after": {
+          "excerpt": null
+        },
+        "changed_fields": [],
+        "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필"
+      }
     },
     {
       "status": "MOD",
@@ -506,7 +924,18 @@
       "change_summary": "기준일(2021-01-01) 이후 누적 백필",
       "source": "backfill",
       "detected_at_utc": "2025-10-01T00:00:00Z",
-      "history_key": "고시||2025-165|20251001|20251007||20251001||배출시설 및 방지시설의 운영과 자가측정에 대한 전산기록·보존에 관한 고시"
+      "history_key": "고시||2025-165|20251001|20251007||20251001||배출시설 및 방지시설의 운영과 자가측정에 대한 전산기록·보존에 관한 고시",
+      "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필",
+      "change_detail": {
+        "before": {
+          "excerpt": null
+        },
+        "after": {
+          "excerpt": null
+        },
+        "changed_fields": [],
+        "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필"
+      }
     },
     {
       "status": "MOD",
@@ -519,7 +948,18 @@
       "change_summary": "기준일(2021-01-01) 이후 누적 백필",
       "source": "backfill",
       "detected_at_utc": "2025-10-01T00:00:00Z",
-      "history_key": "고시||2025-165|20251001|20251007||20251001||오염부하량할당대상자가 설치하여야 하는 측정기기의 종류 및 부착방법 등에 관한 규정"
+      "history_key": "고시||2025-165|20251001|20251007||20251001||오염부하량할당대상자가 설치하여야 하는 측정기기의 종류 및 부착방법 등에 관한 규정",
+      "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필",
+      "change_detail": {
+        "before": {
+          "excerpt": null
+        },
+        "after": {
+          "excerpt": null
+        },
+        "changed_fields": [],
+        "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필"
+      }
     },
     {
       "status": "MOD",
@@ -532,7 +972,18 @@
       "change_summary": "기준일(2021-01-01) 이후 누적 백필",
       "source": "backfill",
       "detected_at_utc": "2025-10-01T00:00:00Z",
-      "history_key": "고시||2025-165|20251001|20251007||20251001||온실가스 배출권 거래소 신청자격 및 평가기준 등에 관한 고시"
+      "history_key": "고시||2025-165|20251001|20251007||20251001||온실가스 배출권 거래소 신청자격 및 평가기준 등에 관한 고시",
+      "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필",
+      "change_detail": {
+        "before": {
+          "excerpt": null
+        },
+        "after": {
+          "excerpt": null
+        },
+        "changed_fields": [],
+        "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필"
+      }
     },
     {
       "status": "MOD",
@@ -545,7 +996,18 @@
       "change_summary": "기준일(2021-01-01) 이후 누적 백필",
       "source": "backfill",
       "detected_at_utc": "2025-10-01T00:00:00Z",
-      "history_key": "고시||2025-165|20251001|20251007||20251001||온실가스 배출권거래제 운영을 위한 검증지침"
+      "history_key": "고시||2025-165|20251001|20251007||20251001||온실가스 배출권거래제 운영을 위한 검증지침",
+      "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필",
+      "change_detail": {
+        "before": {
+          "excerpt": null
+        },
+        "after": {
+          "excerpt": null
+        },
+        "changed_fields": [],
+        "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필"
+      }
     },
     {
       "status": "MOD",
@@ -558,7 +1020,18 @@
       "change_summary": "기준일(2021-01-01) 이후 누적 백필",
       "source": "backfill",
       "detected_at_utc": "2025-10-01T00:00:00Z",
-      "history_key": "고시||2025-165|20251001|20251007||20251001||운행자동차 배출가스저감장치·저공해엔진 인증방법 및 절차 등에 관한 규정"
+      "history_key": "고시||2025-165|20251001|20251007||20251001||운행자동차 배출가스저감장치·저공해엔진 인증방법 및 절차 등에 관한 규정",
+      "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필",
+      "change_detail": {
+        "before": {
+          "excerpt": null
+        },
+        "after": {
+          "excerpt": null
+        },
+        "changed_fields": [],
+        "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필"
+      }
     },
     {
       "status": "MOD",
@@ -571,7 +1044,18 @@
       "change_summary": "기준일(2021-01-01) 이후 누적 백필",
       "source": "backfill",
       "detected_at_utc": "2025-10-01T00:00:00Z",
-      "history_key": "고시||2025-165|20251001|20251007||20251001||운행차 배출가스 검사 시행요령 등에 관한 규정"
+      "history_key": "고시||2025-165|20251001|20251007||20251001||운행차 배출가스 검사 시행요령 등에 관한 규정",
+      "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필",
+      "change_detail": {
+        "before": {
+          "excerpt": null
+        },
+        "after": {
+          "excerpt": null
+        },
+        "changed_fields": [],
+        "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필"
+      }
     },
     {
       "status": "MOD",
@@ -584,7 +1068,18 @@
       "change_summary": "기준일(2021-01-01) 이후 누적 백필",
       "source": "backfill",
       "detected_at_utc": "2025-10-01T00:00:00Z",
-      "history_key": "고시||2025-165|20251001|20251007||20251001||유기성 폐자원의 배출량·처리량 및 바이오가스 생산량의 보고와 적합성 검토방법에 관한 고시"
+      "history_key": "고시||2025-165|20251001|20251007||20251001||유기성 폐자원의 배출량·처리량 및 바이오가스 생산량의 보고와 적합성 검토방법에 관한 고시",
+      "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필",
+      "change_detail": {
+        "before": {
+          "excerpt": null
+        },
+        "after": {
+          "excerpt": null
+        },
+        "changed_fields": [],
+        "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필"
+      }
     },
     {
       "status": "MOD",
@@ -597,7 +1092,18 @@
       "change_summary": "기준일(2021-01-01) 이후 누적 백필",
       "source": "backfill",
       "detected_at_utc": "2025-10-01T00:00:00Z",
-      "history_key": "고시||2025-165|20251001|20251007||20251001||자동차 배출가스 결함확인검사용 자동차 선정 등에 관한 규정"
+      "history_key": "고시||2025-165|20251001|20251007||20251001||자동차 배출가스 결함확인검사용 자동차 선정 등에 관한 규정",
+      "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필",
+      "change_detail": {
+        "before": {
+          "excerpt": null
+        },
+        "after": {
+          "excerpt": null
+        },
+        "changed_fields": [],
+        "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필"
+      }
     },
     {
       "status": "MOD",
@@ -610,7 +1116,18 @@
       "change_summary": "기준일(2021-01-01) 이후 누적 백필",
       "source": "backfill",
       "detected_at_utc": "2025-10-01T00:00:00Z",
-      "history_key": "고시||2025-165|20251001|20251007||20251001||자동차 배출가스 등급 산정방법에 관한 규정"
+      "history_key": "고시||2025-165|20251001|20251007||20251001||자동차 배출가스 등급 산정방법에 관한 규정",
+      "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필",
+      "change_detail": {
+        "before": {
+          "excerpt": null
+        },
+        "after": {
+          "excerpt": null
+        },
+        "changed_fields": [],
+        "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필"
+      }
     },
     {
       "status": "MOD",
@@ -623,7 +1140,18 @@
       "change_summary": "기준일(2021-01-01) 이후 누적 백필",
       "source": "backfill",
       "detected_at_utc": "2025-10-01T00:00:00Z",
-      "history_key": "고시||2025-165|20251001|20251007||20251001||자동차 평균에너지소비효율기준·온실가스 배출허용기준 및 기준의 적용·관리 등에 관한 고시"
+      "history_key": "고시||2025-165|20251001|20251007||20251001||자동차 평균에너지소비효율기준·온실가스 배출허용기준 및 기준의 적용·관리 등에 관한 고시",
+      "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필",
+      "change_detail": {
+        "before": {
+          "excerpt": null
+        },
+        "after": {
+          "excerpt": null
+        },
+        "changed_fields": [],
+        "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필"
+      }
     },
     {
       "status": "MOD",
@@ -636,7 +1164,18 @@
       "change_summary": "기준일(2021-01-01) 이후 누적 백필",
       "source": "backfill",
       "detected_at_utc": "2025-10-01T00:00:00Z",
-      "history_key": "고시||2025-165|20251001|20251001||20251001||통합관리 대상 배출시설등의 한계배출기준"
+      "history_key": "고시||2025-165|20251001|20251001||20251001||통합관리 대상 배출시설등의 한계배출기준",
+      "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필",
+      "change_detail": {
+        "before": {
+          "excerpt": null
+        },
+        "after": {
+          "excerpt": null
+        },
+        "changed_fields": [],
+        "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필"
+      }
     },
     {
       "status": "MOD",
@@ -649,7 +1188,18 @@
       "change_summary": "기준일(2021-01-01) 이후 누적 백필",
       "source": "backfill",
       "detected_at_utc": "2025-10-01T00:00:00Z",
-      "history_key": "고시||2025-165|20251001|20251001||20251001||통합허가대행업자 영업수행능력 평가에 관한 규정"
+      "history_key": "고시||2025-165|20251001|20251001||20251001||통합허가대행업자 영업수행능력 평가에 관한 규정",
+      "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필",
+      "change_detail": {
+        "before": {
+          "excerpt": null
+        },
+        "after": {
+          "excerpt": null
+        },
+        "changed_fields": [],
+        "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필"
+      }
     },
     {
       "status": "NEW",
@@ -662,7 +1212,18 @@
       "change_summary": "신규 감지",
       "source": "delta",
       "detected_at_utc": "2025-10-01T00:00:00Z",
-      "history_key": "고시||4|20251001|20251001||20251001||통합허가사업장의 배출 및 방지시설 운영·관리와 허가조건 이행관리를 위한 업무처리지침"
+      "history_key": "고시||4|20251001|20251001||20251001||통합허가사업장의 배출 및 방지시설 운영·관리와 허가조건 이행관리를 위한 업무처리지침",
+      "diff_excerpt": "신규 감지",
+      "change_detail": {
+        "before": {
+          "excerpt": null
+        },
+        "after": {
+          "excerpt": null
+        },
+        "changed_fields": [],
+        "diff_excerpt": "신규 감지"
+      }
     },
     {
       "status": "MOD",
@@ -675,7 +1236,18 @@
       "change_summary": "기준일(2021-01-01) 이후 누적 백필",
       "source": "backfill",
       "detected_at_utc": "2025-10-01T00:00:00Z",
-      "history_key": "고시||2025-165|20251001|20251001||20251001||통합환경관리정보공개 심의위원회 및 정보공개제도 운영에 관한 규정"
+      "history_key": "고시||2025-165|20251001|20251001||20251001||통합환경관리정보공개 심의위원회 및 정보공개제도 운영에 관한 규정",
+      "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필",
+      "change_detail": {
+        "before": {
+          "excerpt": null
+        },
+        "after": {
+          "excerpt": null
+        },
+        "changed_fields": [],
+        "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필"
+      }
     },
     {
       "status": "MOD",
@@ -688,7 +1260,18 @@
       "change_summary": "기준일(2021-01-01) 이후 누적 백필",
       "source": "backfill",
       "detected_at_utc": "2025-10-01T00:00:00Z",
-      "history_key": "고시||2025-165|20251001|20251007||20251001||휘발성 유기화합물 배출시설의 종류, 시설의 규모, 배출억제·방지시설의 설치 등에 관한 규정"
+      "history_key": "고시||2025-165|20251001|20251007||20251001||휘발성 유기화합물 배출시설의 종류, 시설의 규모, 배출억제·방지시설의 설치 등에 관한 규정",
+      "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필",
+      "change_detail": {
+        "before": {
+          "excerpt": null
+        },
+        "after": {
+          "excerpt": null
+        },
+        "changed_fields": [],
+        "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필"
+      }
     },
     {
       "status": "MOD",
@@ -701,7 +1284,18 @@
       "history_key": "법령||013458||20251001||대기관리권역의 대기환경개선에 관한 특별법",
       "status_ko": "변경",
       "source": "legacy",
-      "change_summary": "레거시 누적 법령 데이터(2025-10-01)입니다. 상세 비교필드가 없어 원문 링크 확인이 필요합니다."
+      "change_summary": "레거시 누적 법령 데이터(2025-10-01)입니다. 상세 비교필드가 없어 원문 링크 확인이 필요합니다.",
+      "diff_excerpt": "레거시 누적 법령 데이터(2025-10-01)입니다. 상세 비교필드가 없어 원문 링크 확인이 필요합니다.",
+      "change_detail": {
+        "before": {
+          "excerpt": null
+        },
+        "after": {
+          "excerpt": null
+        },
+        "changed_fields": [],
+        "diff_excerpt": "레거시 누적 법령 데이터(2025-10-01)입니다. 상세 비교필드가 없어 원문 링크 확인이 필요합니다."
+      }
     },
     {
       "status": "MOD",
@@ -714,7 +1308,18 @@
       "change_summary": "기준일(2021-01-01) 이후 누적 백필",
       "source": "backfill",
       "detected_at_utc": "2025-10-01T00:00:00Z",
-      "history_key": "법령||21065|20251001|타법개정||20251001||대기관리권역의 대기환경개선에 관한 특별법"
+      "history_key": "법령||21065|20251001|타법개정||20251001||대기관리권역의 대기환경개선에 관한 특별법",
+      "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필",
+      "change_detail": {
+        "before": {
+          "excerpt": null
+        },
+        "after": {
+          "excerpt": null
+        },
+        "changed_fields": [],
+        "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필"
+      }
     },
     {
       "status": "MOD",
@@ -727,7 +1332,18 @@
       "history_key": "법령||010302||20251001||환경분야 시험ㆍ검사 등에 관한 법률",
       "status_ko": "변경",
       "source": "legacy",
-      "change_summary": "레거시 누적 법령 데이터(2025-10-01)입니다. 상세 비교필드가 없어 원문 링크 확인이 필요합니다."
+      "change_summary": "레거시 누적 법령 데이터(2025-10-01)입니다. 상세 비교필드가 없어 원문 링크 확인이 필요합니다.",
+      "diff_excerpt": "레거시 누적 법령 데이터(2025-10-01)입니다. 상세 비교필드가 없어 원문 링크 확인이 필요합니다.",
+      "change_detail": {
+        "before": {
+          "excerpt": null
+        },
+        "after": {
+          "excerpt": null
+        },
+        "changed_fields": [],
+        "diff_excerpt": "레거시 누적 법령 데이터(2025-10-01)입니다. 상세 비교필드가 없어 원문 링크 확인이 필요합니다."
+      }
     },
     {
       "status": "MOD",
@@ -740,7 +1356,18 @@
       "change_summary": "기준일(2021-01-01) 이후 누적 백필",
       "source": "backfill",
       "detected_at_utc": "2025-10-01T00:00:00Z",
-      "history_key": "법령||21065|20251001|타법개정||20251001||환경분야 시험ㆍ검사 등에 관한 법률"
+      "history_key": "법령||21065|20251001|타법개정||20251001||환경분야 시험ㆍ검사 등에 관한 법률",
+      "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필",
+      "change_detail": {
+        "before": {
+          "excerpt": null
+        },
+        "after": {
+          "excerpt": null
+        },
+        "changed_fields": [],
+        "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필"
+      }
     },
     {
       "status": "MOD",
@@ -753,7 +1380,18 @@
       "history_key": "법령||010545||20251001||환경분야 시험ㆍ검사 등에 관한 법률 시행규칙",
       "status_ko": "변경",
       "source": "legacy",
-      "change_summary": "레거시 누적 법령 데이터(2025-10-01)입니다. 상세 비교필드가 없어 원문 링크 확인이 필요합니다."
+      "change_summary": "레거시 누적 법령 데이터(2025-10-01)입니다. 상세 비교필드가 없어 원문 링크 확인이 필요합니다.",
+      "diff_excerpt": "레거시 누적 법령 데이터(2025-10-01)입니다. 상세 비교필드가 없어 원문 링크 확인이 필요합니다.",
+      "change_detail": {
+        "before": {
+          "excerpt": null
+        },
+        "after": {
+          "excerpt": null
+        },
+        "changed_fields": [],
+        "diff_excerpt": "레거시 누적 법령 데이터(2025-10-01)입니다. 상세 비교필드가 없어 원문 링크 확인이 필요합니다."
+      }
     },
     {
       "status": "MOD",
@@ -766,7 +1404,18 @@
       "change_summary": "기준일(2021-01-01) 이후 누적 백필",
       "source": "backfill",
       "detected_at_utc": "2025-10-01T00:00:00Z",
-      "history_key": "법령||00001|20251001|타법개정||20251001||환경분야 시험ㆍ검사 등에 관한 법률 시행규칙"
+      "history_key": "법령||00001|20251001|타법개정||20251001||환경분야 시험ㆍ검사 등에 관한 법률 시행규칙",
+      "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필",
+      "change_detail": {
+        "before": {
+          "excerpt": null
+        },
+        "after": {
+          "excerpt": null
+        },
+        "changed_fields": [],
+        "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필"
+      }
     },
     {
       "status": "MOD",
@@ -779,7 +1428,18 @@
       "history_key": "법령||010530||20251001||환경분야 시험ㆍ검사 등에 관한 법률 시행령",
       "status_ko": "변경",
       "source": "legacy",
-      "change_summary": "레거시 누적 법령 데이터(2025-10-01)입니다. 상세 비교필드가 없어 원문 링크 확인이 필요합니다."
+      "change_summary": "레거시 누적 법령 데이터(2025-10-01)입니다. 상세 비교필드가 없어 원문 링크 확인이 필요합니다.",
+      "diff_excerpt": "레거시 누적 법령 데이터(2025-10-01)입니다. 상세 비교필드가 없어 원문 링크 확인이 필요합니다.",
+      "change_detail": {
+        "before": {
+          "excerpt": null
+        },
+        "after": {
+          "excerpt": null
+        },
+        "changed_fields": [],
+        "diff_excerpt": "레거시 누적 법령 데이터(2025-10-01)입니다. 상세 비교필드가 없어 원문 링크 확인이 필요합니다."
+      }
     },
     {
       "status": "MOD",
@@ -792,7 +1452,18 @@
       "history_key": "법령||012414||20251001||환경오염시설의 통합관리에 관한 법률",
       "status_ko": "변경",
       "source": "legacy",
-      "change_summary": "레거시 누적 법령 데이터(2025-10-01)입니다. 상세 비교필드가 없어 원문 링크 확인이 필요합니다."
+      "change_summary": "레거시 누적 법령 데이터(2025-10-01)입니다. 상세 비교필드가 없어 원문 링크 확인이 필요합니다.",
+      "diff_excerpt": "레거시 누적 법령 데이터(2025-10-01)입니다. 상세 비교필드가 없어 원문 링크 확인이 필요합니다.",
+      "change_detail": {
+        "before": {
+          "excerpt": null
+        },
+        "after": {
+          "excerpt": null
+        },
+        "changed_fields": [],
+        "diff_excerpt": "레거시 누적 법령 데이터(2025-10-01)입니다. 상세 비교필드가 없어 원문 링크 확인이 필요합니다."
+      }
     },
     {
       "status": "MOD",
@@ -805,7 +1476,18 @@
       "change_summary": "기준일(2021-01-01) 이후 누적 백필",
       "source": "backfill",
       "detected_at_utc": "2025-10-01T00:00:00Z",
-      "history_key": "법령||21065|20251001|타법개정||20251001||환경오염시설의 통합관리에 관한 법률"
+      "history_key": "법령||21065|20251001|타법개정||20251001||환경오염시설의 통합관리에 관한 법률",
+      "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필",
+      "change_detail": {
+        "before": {
+          "excerpt": null
+        },
+        "after": {
+          "excerpt": null
+        },
+        "changed_fields": [],
+        "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필"
+      }
     },
     {
       "status": "MOD",
@@ -818,7 +1500,18 @@
       "change_summary": "기준일(2021-01-01) 이후 누적 백필",
       "source": "backfill",
       "detected_at_utc": "2025-05-19T00:00:00Z",
-      "history_key": "고시||2025-245,2025-78,2025-90|20250519|20250519||20250519||자동차의 에너지소비효율 및 온실가스 배출량 시험방법 등에 관한 고시"
+      "history_key": "고시||2025-245,2025-78,2025-90|20250519|20250519||20250519||자동차의 에너지소비효율 및 온실가스 배출량 시험방법 등에 관한 고시",
+      "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필",
+      "change_detail": {
+        "before": {
+          "excerpt": null
+        },
+        "after": {
+          "excerpt": null
+        },
+        "changed_fields": [],
+        "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필"
+      }
     },
     {
       "status": "MOD",
@@ -831,7 +1524,18 @@
       "change_summary": "기준일(2021-01-01) 이후 누적 백필",
       "source": "backfill",
       "detected_at_utc": "2025-04-11T00:00:00Z",
-      "history_key": "고시||2025-64|20250411|20250411||20250411||온실가스 배출권거래제의 배출량 보고 및 인증에 관한 지침"
+      "history_key": "고시||2025-64|20250411|20250411||20250411||온실가스 배출권거래제의 배출량 보고 및 인증에 관한 지침",
+      "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필",
+      "change_detail": {
+        "before": {
+          "excerpt": null
+        },
+        "after": {
+          "excerpt": null
+        },
+        "changed_fields": [],
+        "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필"
+      }
     },
     {
       "status": "MOD",
@@ -844,7 +1548,18 @@
       "change_summary": "기준일(2021-01-01) 이후 누적 백필",
       "source": "backfill",
       "detected_at_utc": "2025-04-01T00:00:00Z",
-      "history_key": "고시||2025-58|20250401|20250401||20250401||2025년 자동차 배출가스 결함확인검사 대상 차종 고시"
+      "history_key": "고시||2025-58|20250401|20250401||20250401||2025년 자동차 배출가스 결함확인검사 대상 차종 고시",
+      "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필",
+      "change_detail": {
+        "before": {
+          "excerpt": null
+        },
+        "after": {
+          "excerpt": null
+        },
+        "changed_fields": [],
+        "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필"
+      }
     },
     {
       "status": "MOD",
@@ -857,7 +1572,18 @@
       "change_summary": "기준일(2021-01-01) 이후 누적 백필",
       "source": "backfill",
       "detected_at_utc": "2025-02-24T00:00:00Z",
-      "history_key": "고시||885|20250224|20250225||20250224||대기오염물질 배출계수 관리위원회 규정"
+      "history_key": "고시||885|20250224|20250225||20250224||대기오염물질 배출계수 관리위원회 규정",
+      "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필",
+      "change_detail": {
+        "before": {
+          "excerpt": null
+        },
+        "after": {
+          "excerpt": null
+        },
+        "changed_fields": [],
+        "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필"
+      }
     },
     {
       "status": "MOD",
@@ -870,7 +1596,18 @@
       "change_summary": "기준일(2021-01-01) 이후 누적 백필",
       "source": "backfill",
       "detected_at_utc": "2025-02-24T00:00:00Z",
-      "history_key": "고시||2025-3|20250224|20250225||20250224||대기오염물질 심사·평가위원회 운영, 절차 및 지정 등에 관한 규정"
+      "history_key": "고시||2025-3|20250224|20250225||20250224||대기오염물질 심사·평가위원회 운영, 절차 및 지정 등에 관한 규정",
+      "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필",
+      "change_detail": {
+        "before": {
+          "excerpt": null
+        },
+        "after": {
+          "excerpt": null
+        },
+        "changed_fields": [],
+        "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필"
+      }
     },
     {
       "status": "MOD",
@@ -883,7 +1620,18 @@
       "history_key": "의안||PRC_J2I3G1C1B2D1B1A0B5Z3I1G5F1E9E3||20240527||순환경제사회 전환 촉진법 일부개정법률안",
       "status_ko": "변경",
       "source": "legacy",
-      "change_summary": "레거시 누적 의안 데이터(2024-05-27)입니다. 상세 비교필드가 없어 원문 링크 확인이 필요합니다."
+      "change_summary": "레거시 누적 의안 데이터(2024-05-27)입니다. 상세 비교필드가 없어 원문 링크 확인이 필요합니다.",
+      "diff_excerpt": "레거시 누적 의안 데이터(2024-05-27)입니다. 상세 비교필드가 없어 원문 링크 확인이 필요합니다.",
+      "change_detail": {
+        "before": {
+          "excerpt": null
+        },
+        "after": {
+          "excerpt": null
+        },
+        "changed_fields": [],
+        "diff_excerpt": "레거시 누적 의안 데이터(2024-05-27)입니다. 상세 비교필드가 없어 원문 링크 확인이 필요합니다."
+      }
     },
     {
       "status": "MOD",
@@ -896,7 +1644,18 @@
       "change_summary": "기준일(2021-01-01) 이후 누적 백필",
       "source": "backfill",
       "detected_at_utc": "2023-06-29T00:00:00Z",
-      "history_key": "고시||2023-35|20230629|20230629||20230629||미세먼지 간이측정기 성능인증 등에 관한 고시"
+      "history_key": "고시||2023-35|20230629|20230629||20230629||미세먼지 간이측정기 성능인증 등에 관한 고시",
+      "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필",
+      "change_detail": {
+        "before": {
+          "excerpt": null
+        },
+        "after": {
+          "excerpt": null
+        },
+        "changed_fields": [],
+        "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필"
+      }
     },
     {
       "status": "MOD",
@@ -909,7 +1668,18 @@
       "change_summary": "기준일(2021-01-01) 이후 누적 백필",
       "source": "backfill",
       "detected_at_utc": "2021-08-31T00:00:00Z",
-      "history_key": "고시||2021-58|20210831|20210831||20210831||유효굴뚝높이 산정방법 고시"
+      "history_key": "고시||2021-58|20210831|20210831||20210831||유효굴뚝높이 산정방법 고시",
+      "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필",
+      "change_detail": {
+        "before": {
+          "excerpt": null
+        },
+        "after": {
+          "excerpt": null
+        },
+        "changed_fields": [],
+        "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필"
+      }
     },
     {
       "status": "MOD",
@@ -922,8 +1692,19 @@
       "change_summary": "기준일(2021-01-01) 이후 누적 백필",
       "source": "backfill",
       "detected_at_utc": "2021-07-13T00:00:00Z",
-      "history_key": "고시||2021-41|20210713|20210713||20210713||배출시설의 대기오염물질 배출계수 고시"
+      "history_key": "고시||2021-41|20210713|20210713||20210713||배출시설의 대기오염물질 배출계수 고시",
+      "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필",
+      "change_detail": {
+        "before": {
+          "excerpt": null
+        },
+        "after": {
+          "excerpt": null
+        },
+        "changed_fields": [],
+        "diff_excerpt": "기준일(2021-01-01) 이후 누적 백필"
+      }
     }
   ],
-  "last_generated_at_utc": "2026-02-15T11:14:05.389Z"
+  "last_generated_at_utc": "2026-02-15T11:19:26.957Z"
 }
