@@ -242,6 +242,12 @@ def save_history(history: Dict[str, Any]) -> None:
 
 
 def history_entry_from_item(item: Dict[str, Any], source: str, fallback_iso: str) -> Dict[str, Any]:
+    raw_detail = item.get("change_detail")
+    detail = raw_detail if isinstance(raw_detail, dict) else None
+    diff_excerpt = str(item.get("diff_excerpt", "") or "").strip()
+    if not diff_excerpt and detail:
+        diff_excerpt = str(detail.get("diff_excerpt", "") or "").strip()
+
     entry = {
         "status": str(item.get("status", "MOD")),
         "status_ko": str(item.get("status_ko", STATUS_KO.get(str(item.get("status", "MOD")), "변경"))),
@@ -251,11 +257,23 @@ def history_entry_from_item(item: Dict[str, Any], source: str, fallback_iso: str
         "id": str(item.get("id", "")),
         "diff_url": item.get("diff_url"),
         "change_summary": str(item.get("change_summary", "") or ""),
+        "diff_excerpt": diff_excerpt,
         "source": str(source or item.get("source", "") or "").strip() or "legacy",
         "detected_at_utc": normalize_detected_at_utc(item, fallback_iso),
     }
+    if detail:
+        entry["change_detail"] = detail
     entry["history_key"] = history_item_key(entry)
     ensure_change_summary(entry)
+    if not str(entry.get("diff_excerpt", "") or "").strip():
+        entry["diff_excerpt"] = str(entry.get("change_summary", "") or "").strip()
+    if not isinstance(entry.get("change_detail"), dict):
+        entry["change_detail"] = {
+            "before": {"excerpt": None},
+            "after": {"excerpt": None},
+            "changed_fields": [],
+            "diff_excerpt": entry["diff_excerpt"],
+        }
     return entry
 
 
@@ -279,6 +297,20 @@ def merge_history_items(
         if not item.get("status_ko"):
             item["status_ko"] = STATUS_KO.get(str(item.get("status", "MOD")), "변경")
         ensure_change_summary(item)
+        item["diff_excerpt"] = str(item.get("diff_excerpt", "") or "").strip()
+        if not item["diff_excerpt"] and isinstance(item.get("change_detail"), dict):
+            item["diff_excerpt"] = str(item["change_detail"].get("diff_excerpt", "") or "").strip()
+        if not item["diff_excerpt"]:
+            item["diff_excerpt"] = str(item.get("change_summary", "") or "").strip()
+        if not isinstance(item.get("change_detail"), dict):
+            item["change_detail"] = {
+                "before": {"excerpt": None},
+                "after": {"excerpt": None},
+                "changed_fields": [],
+                "diff_excerpt": item["diff_excerpt"],
+            }
+        else:
+            item["change_detail"]["diff_excerpt"] = str(item["change_detail"].get("diff_excerpt", "") or item["diff_excerpt"]).strip()
 
         date_num = safe_int_yyyymmdd(item.get("date", "")) or safe_int_yyyymmdd(yyyymmdd_from_iso(item["detected_at_utc"]))
         if date_num and date_num < cutoff:
