@@ -1,40 +1,43 @@
 <!doctype html>
 <html lang="ko">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>법령 알림 | 변경사항만</title>
   <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="/styles.css" />
   <script defer src='/assets/adsense.js'></script>
 
-<script>
+  <script>
     (function () {
-        const OPT_KEY = "analytics_opt_in";
-        const optRaw = localStorage.getItem(OPT_KEY);
-        const optIn = (optRaw === null || optRaw === "1");
-        window.dataLayer = window.dataLayer || [];
-        window.gtag = window.gtag || function () { dataLayer.push(arguments); };
-        if (!optIn) {
-            console.info("Analytics disabled (set localStorage.analytics_opt_in = "1" to enable).");
-            return;
-        }
-        const load = (src, onload) => {
-            const s = document.createElement("script");
-            s.async = true;
-            s.src = src;
-            s.onload = onload || null;
-            s.onerror = () => console.info("Analytics blocked:", src);
-            document.head.appendChild(s);
-        };
-        load("https://www.googletagmanager.com/gtag/js?id=G-TYB723GLDF", () => { gtag("js", new Date()); gtag("config", "G-TYB723GLDF"); });
-        load("https://www.clarity.ms/tag/v2u1vmbhil");
+      const OPT_KEY = "analytics_opt_in";
+      const optRaw = localStorage.getItem(OPT_KEY);
+      const optIn = (optRaw === null || optRaw === "1");
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = window.gtag || function () { dataLayer.push(arguments); };
+      if (!optIn) {
+        console.info('Analytics disabled (set localStorage.analytics_opt_in = "1" to enable).');
+        return;
+      }
+      const load = (src, onload) => {
+        const s = document.createElement("script");
+        s.async = true;
+        s.src = src;
+        s.onload = onload || null;
+        s.onerror = () => console.info("Analytics blocked:", src);
+        document.head.appendChild(s);
+      };
+      load("https://www.googletagmanager.com/gtag/js?id=G-TYB723GLDF", () => { gtag("js", new Date()); gtag("config", "G-TYB723GLDF"); });
+      load("https://www.clarity.ms/tag/v2u1vmbhil");
     })();
-</script>
+  </script>
   <link rel="stylesheet" href="/assets/sitemap.css" />
 </head>
+
 <body class="text-slate-100 soft-bg min-h-screen">
   <!-- 공통 헤더 시작 -->
   <header class="sticky top-0 z-50 backdrop-blur bg-black/20 border-b border-white/10">
@@ -58,7 +61,8 @@
           <a class="muted hover:text-white" href="/contact.html">Contact</a>
         </nav>
         <div class="flex items-center gap-2">
-          <a href="/app.html" class="hidden sm:inline-flex px-4 py-2 rounded-xl bg-emerald-500/90 hover:bg-emerald-500 text-black font-semibold">
+          <a href="/app.html"
+            class="hidden sm:inline-flex px-4 py-2 rounded-xl bg-emerald-500/90 hover:bg-emerald-500 text-black font-semibold">
             별첨서류 작성 열기
           </a>
           <button id="mBtn" class="md:hidden px-3 py-2 rounded-xl bg-white/10 border border-white/10">
@@ -95,11 +99,12 @@
 
     <section class="bg-gray-800 p-6 rounded-xl shadow-lg">
       <div class="mb-4 text-gray-400">
-        <span class="inline-block px-2 py-1 rounded-full border border-gray-600 bg-gray-700 text-xs font-bold mr-2">표기</span>
-        <span class="text-green-500 font-bold">NEW</span> 신규 ·
-        <span class="text-yellow-500 font-bold">MOD</span> 변경 ·
-        <span class="text-red-500 font-bold">DEL</span> 삭제/해제 ·
-        <span class="text-gray-400 font-bold">OK</span> 변화 없음
+        <span
+          class="inline-block px-2 py-1 rounded-full border border-gray-600 bg-gray-700 text-xs font-bold mr-2">표기</span>
+        <span class="text-green-500 font-bold">신규</span> 신규 ·
+        <span class="text-yellow-500 font-bold">변경</span> 변경 ·
+        <span class="text-red-500 font-bold">삭제</span> 삭제/해제 ·
+        <span class="text-gray-400 font-bold">유지</span> 변화 없음
       </div>
       <div class="overflow-x-auto">
         <table class="w-full border-collapse">
@@ -113,7 +118,9 @@
             </tr>
           </thead>
           <tbody id="tbody" class="divide-y divide-gray-700">
-            <tr><td colspan="5" class="p-3 text-gray-400">로딩 중…</td></tr>
+            <tr>
+              <td colspan="5" class="p-3 text-gray-400">로딩 중…</td>
+            </tr>
           </tbody>
         </table>
       </div>
@@ -138,36 +145,38 @@
   <!-- 공통 푸터 끝 -->
 
   <script>
-    const pad2 = (n)=>String(n).padStart(2,"0");
-    const pad3 = (n)=>String(n).padStart(3,"0");
-    const WEEK=["일","월","화","수","목","금","토"];
-    const esc = (s)=>String(s).replace(/[&<>'"`]/g,c=>({"&":"&amp;","<":"&lt;">":"&gt;","'":"&#39;","`":"&#96;","":"&quot;"}[c]));
-    function fmtKorean(iso){
-      const d=new Date(iso);
-      if(isNaN(d.getTime())) return {text:"-", d:null};
-      const y=d.getFullYear(), m=pad2(d.getMonth()+1), day=pad2(d.getDate()), w=WEEK[d.getDay()];
-      const hh=pad2(d.getHours()), mm=pad2(d.getMinutes()), ss=pad2(d.getSeconds()), ms=pad3(d.getMilliseconds());
-      return {text:`${y}년 ${m}월 ${day}일 (${w}) ${hh}:${mm}:${ss}.${ms}`, d};
+    const pad2 = (n) => String(n).padStart(2, "0");
+    const pad3 = (n) => String(n).padStart(3, "0");
+    const WEEK = ["일", "월", "화", "수", "목", "금", "토"];
+    const esc = (s) => String(s).replace(/[&<>'"`]/g, c => ({
+      "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", "`": "&#96;", "\"": "&quot;"
+    }[c]));
+    function fmtKorean(iso) {
+      const d = new Date(iso);
+      if (isNaN(d.getTime())) return { text: "-", d: null };
+      const y = d.getFullYear(), m = pad2(d.getMonth() + 1), day = pad2(d.getDate()), w = WEEK[d.getDay()];
+      const hh = pad2(d.getHours()), mm = pad2(d.getMinutes()), ss = pad2(d.getSeconds()), ms = pad3(d.getMilliseconds());
+      return { text: `${y}년 ${m}월 ${day}일 (${w}) ${hh}:${mm}:${ss}.${ms}`, d };
     }
-    function diffToHourZero(d){const z=new Date(d); z.setMinutes(0,0,0); return d-z;}
-    function humanDelay(ms){const sign=ms>=0?"+":"-"; ms=Math.abs(ms); const m=Math.floor(ms/60000); const s=Math.floor((ms%60000)/1000); const r=ms%1000; return `${sign}${m}분 ${s}초 ${pad3(r)}ms`;}
-    function humanSince(ms){const m=Math.floor(ms/60000); const s=Math.floor((ms%60000)/1000); return `${m}분 ${s}초`;}
+    function diffToHourZero(d) { const z = new Date(d); z.setMinutes(0, 0, 0); return d - z; }
+    function humanDelay(ms) { const sign = ms >= 0 ? "+" : "-"; ms = Math.abs(ms); const m = Math.floor(ms / 60000); const s = Math.floor((ms % 60000) / 1000); const r = ms % 1000; return `${sign}${m}분 ${s}초 ${pad3(r)}ms`; }
+    function humanSince(ms) { const m = Math.floor(ms / 60000); const s = Math.floor((ms % 60000) / 1000); return `${m}분 ${s}초`; }
 
-    (async function(){
+    (async function () {
       // Set footer year
       const yEl = document.getElementById("y");
-      if(yEl) yEl.textContent = new Date().getFullYear();
+      if (yEl) yEl.textContent = new Date().getFullYear();
 
-      const res=await fetch("https://jinsu133.github.io/airpermit-law-alert/changes.json?ts="+Date.now());
-      if(!res.ok) throw new Error("changes.json 로드 실패");
-      const data=await res.json();
-      const iso=data.generated_at_kst||data.generated_at_utc||"";
-      const f=fmtKorean(iso);
-      let delay="-", since="-", badge="";
-      if(f.d){
-        delay=humanDelay(diffToHourZero(f.d));
-        const now=new Date(); const sinceMs=now-f.d; since=humanSince(Math.max(0,sinceMs));
-        badge=(sinceMs>75*60*1000)
+      const res = await fetch("changes.json?ts=" + Date.now());
+      if (!res.ok) throw new Error("changes.json 로드 실패");
+      const data = await res.json();
+      const iso = data.generated_at_kst || data.generated_at_utc || "";
+      const f = fmtKorean(iso);
+      let delay = "-", since = "-", badge = "";
+      if (f.d) {
+        delay = humanDelay(diffToHourZero(f.d));
+        const now = new Date(); const sinceMs = now - f.d; since = humanSince(Math.max(0, sinceMs));
+        badge = (sinceMs > 75 * 60 * 1000)
           ? `<div class=\"text-red-500 mt-2 font-bold\">⚠ 갱신 지연/실패 의심: 마지막 성공 후 ${since}</div>`
           : `<div class=\"text-green-500 mt-2 font-bold\">✓ 정상: 마지막 성공 후 ${since}</div>`;
       }
@@ -175,32 +184,33 @@
         `<div><span class=\"inline-block px-2 py-1 rounded-full border border-gray-600 bg-gray-700 text-gray-400 text-xs font-bold mr-2\">갱신 시각(KST)</span> <b title="${iso}">${esc(f.text)}</b></div>
          <div><span class=\"inline-block px-2 py-1 rounded-full border border-gray-600 bg-gray-700 text-gray-400 text-xs font-bold mr-2\">정각 대비 지연</span> <b>${delay}</b></div>${badge}`;
 
-      const items=Array.isArray(data.items)?data.items:[];
-      const tb=document.getElementById("tbody");
-      if(!items.length){tb.innerHTML='<tr><td colspan="5" class="p-3 text-gray-400">표시할 데이터가 없습니다.</td></tr>';return;}
-      const rows=[];
-      for(const it of items){
-        const st=(it.status||"OK").toUpperCase();
-        let cls="text-gray-400"; // Default
-        if(st==="NEW") cls="text-green-500";
-        else if(st==="MOD") cls="text-yellow-500";
-        else if(st==="DEL") cls="text-red-500";
+      const items = Array.isArray(data.items) ? data.items : [];
+      const tb = document.getElementById("tbody");
+      if (!items.length) { tb.innerHTML = '<tr><td colspan="5" class="p-3 text-gray-400">표시할 데이터가 없습니다.</td></tr>'; return; }
+      const rows = [];
+      for (const it of items) {
+        const st = (it.status || "OK").toUpperCase();
+        let cls = "text-gray-400"; // Default
+        if (st === "NEW") cls = "text-green-500";
+        else if (st === "MOD") cls = "text-yellow-500";
+        else if (st === "DEL") cls = "text-red-500";
 
         rows.push(`<tr>
-          <td class="p-3"><span class="${cls} font-bold">${st}</span></td>
-          <td class="p-3">${esc(it.kind||"")}</td>
-          <td class="p-3">${esc(it.title||"")}</td>
-          <td class="p-3">${esc(it.date||"")}</td>
-          <td class="p-3 text-gray-400">${esc(it.id||"")}</td>
+          <td class="p-3"><span class="${cls} font-bold">${it.status_ko || st}</span></td>
+          <td class="p-3">${esc(it.kind || "")}</td>
+          <td class="p-3">${esc(it.title || "")}</td>
+          <td class="p-3">${esc(it.date || "")}</td>
+          <td class="p-3 text-gray-400">${esc(it.id || "")}</td>
         </tr>`);
       }
-      tb.innerHTML=rows.join("");
-    })().catch(err=>{
+      tb.innerHTML = rows.join("");
+    })().catch(err => {
       console.error(err);
-      document.getElementById("tbody").innerHTML='<tr><td colspan="5" class="p-3 text-red-500">로드 오류: '+esc(err.message||err)+'</td></tr>';
-      document.getElementById("meta").innerHTML='<div class="text-red-500 font-bold">⚠ 데이터를 불러오지 못했습니다.</div>';
+      document.getElementById("tbody").innerHTML = '<tr><td colspan="5" class="p-3 text-red-500">로드 오류: ' + esc(err.message || err) + '</td></tr>';
+      document.getElementById("meta").innerHTML = '<div class="text-red-500 font-bold">⚠ 데이터를 불러오지 못했습니다.</div>';
     });
   </script>
   <script defer src='/assets/layout.js'></script>
 </body>
+
 </html>
