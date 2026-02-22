@@ -1,18 +1,45 @@
 {
-  "generated_at_kst": "2026-02-23T03:29:51.567+09:00",
-  "generated_at_utc": "2026-02-22T18:29:51.568Z",
+  "generated_at_kst": "2026-02-23T03:52:51.782+09:00",
+  "generated_at_utc": "2026-02-22T18:52:51.782Z",
   "range_start_yyyymmdd": "20210101",
   "stats": {
     "count_by_kind": {
-      "법령": 24,
+      "법령": 25,
       "고시": 43,
       "의안": 4
     },
-    "delta_count_this_run": 0,
-    "total_cumulative": 71,
+    "delta_count_this_run": 1,
+    "total_cumulative": 72,
     "seeded_now": false
   },
   "items": [
+    {
+      "status": "MOD",
+      "status_ko": "변경",
+      "kind": "법령",
+      "title": "대기환경보전법 시행규칙",
+      "date": "20260223",
+      "id": "00023|20260223|일부개정",
+      "diff_url": "https://www.law.go.kr/lsSc.do?query=%EB%8C%80%EA%B8%B0%ED%99%98%EA%B2%BD%EB%B3%B4%EC%A0%84%EB%B2%95%20%EC%8B%9C%ED%96%89%EA%B7%9C%EC%B9%99",
+      "change_summary": "이전 수집본 대비 변경이 감지되었습니다.\n- 대상: 대기환경보전법 시행규칙\n- 변경 전: 공포일 2025-12-24 / 공포번호 00012 / 개정유형 일부개정\n- 변경 후: 공포일 2026-02-23 / 공포번호 00023 / 개정유형 일부개정\n- 변경 항목: 공포일, 공포번호",
+      "diff_excerpt": "변경 전: 공포일 2025-12-24 / 공포번호 00012 / 개정유형 일부개정\n변경 후: 공포일 2026-02-23 / 공포번호 00023 / 개정유형 일부개정",
+      "source": "delta",
+      "detected_at_utc": "2026-02-22T18:52:51.782Z",
+      "change_detail": {
+        "before": {
+          "excerpt": "공포일 2025-12-24 / 공포번호 00012 / 개정유형 일부개정"
+        },
+        "after": {
+          "excerpt": "공포일 2026-02-23 / 공포번호 00023 / 개정유형 일부개정"
+        },
+        "changed_fields": [
+          "공포일",
+          "공포번호"
+        ],
+        "diff_excerpt": "변경 전: 공포일 2025-12-24 / 공포번호 00012 / 개정유형 일부개정\n변경 후: 공포일 2026-02-23 / 공포번호 00023 / 개정유형 일부개정"
+      },
+      "history_key": "법령||00023|20260223|일부개정||20260223||대기환경보전법 시행규칙"
+    },
     {
       "status": "MOD",
       "status_ko": "변경",
