@@ -4,6 +4,33 @@
     {
       "status": "MOD",
       "status_ko": "변경",
+      "kind": "의안",
+      "title": "환경오염시설의 통합관리에 관한 법률 일부개정법률안(대안)",
+      "date": "20260223",
+      "id": "PRC_L2J6R0Y2E0X5L1Z3P4B8E3Q5T6E7S8",
+      "diff_url": "https://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_L2J6R0Y2E0X5L1Z3P4B8E3Q5T6E7S8",
+      "change_summary": "이전 수집본 대비 변경이 감지되었습니다.\n- 대상: 환경오염시설의 통합관리에 관한 법률 일부개정법률안(대안)\n- 변경 전: 제안일 2026-02-06 / 의안번호 DD20735\n- 변경 후: 제안일 2026-02-23 / 의안번호 2216963\n- 변경 항목: 제안일, 의안번호",
+      "diff_excerpt": "변경 전: 제안일 2026-02-06 / 의안번호 DD20735\n변경 후: 제안일 2026-02-23 / 의안번호 2216963",
+      "source": "delta",
+      "detected_at_utc": "2026-02-23T17:15:26.149Z",
+      "change_detail": {
+        "before": {
+          "excerpt": "제안일 2026-02-06 / 의안번호 DD20735"
+        },
+        "after": {
+          "excerpt": "제안일 2026-02-23 / 의안번호 2216963"
+        },
+        "changed_fields": [
+          "제안일",
+          "의안번호"
+        ],
+        "diff_excerpt": "변경 전: 제안일 2026-02-06 / 의안번호 DD20735\n변경 후: 제안일 2026-02-23 / 의안번호 2216963"
+      },
+      "history_key": "의안||PRC_L2J6R0Y2E0X5L1Z3P4B8E3Q5T6E7S8||20260223||환경오염시설의 통합관리에 관한 법률 일부개정법률안(대안)"
+    },
+    {
+      "status": "MOD",
+      "status_ko": "변경",
       "kind": "고시",
       "title": "미세먼지 간이측정기 성능인증 수수료",
       "date": "20251001",
@@ -1759,5 +1786,5 @@
       }
     }
   ],
-  "last_generated_at_utc": "2026-02-23T16:53:19.895Z"
+  "last_generated_at_utc": "2026-02-23T17:15:26.149Z"
 }
