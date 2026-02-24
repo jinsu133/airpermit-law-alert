@@ -1,18 +1,42 @@
 {
-  "generated_at_kst": "2026-02-24T15:11:32.720+09:00",
-  "generated_at_utc": "2026-02-24T06:11:32.720Z",
+  "generated_at_kst": "2026-02-24T15:57:53.294+09:00",
+  "generated_at_utc": "2026-02-24T06:57:53.294Z",
   "range_start_yyyymmdd": "20210101",
   "stats": {
     "count_by_kind": {
       "법령": 25,
-      "고시": 44,
+      "고시": 45,
       "의안": 5
     },
-    "delta_count_this_run": 0,
-    "total_cumulative": 74,
+    "delta_count_this_run": 1,
+    "total_cumulative": 75,
     "seeded_now": false
   },
   "items": [
+    {
+      "status": "NEW",
+      "status_ko": "신규",
+      "kind": "고시",
+      "title": "기술료 징수 및 관리에 관한 통합요령",
+      "date": "20260129",
+      "id": "2026-31|20260129|20260204",
+      "diff_url": "https://www.law.go.kr/admRulSc.do?query=%EA%B8%B0%EC%88%A0%EB%A3%8C%20%EC%A7%95%EC%88%98%20%EB%B0%8F%20%EA%B4%80%EB%A6%AC%EC%97%90%20%EA%B4%80%ED%95%9C%20%ED%86%B5%ED%95%A9%EC%9A%94%EB%A0%B9",
+      "change_summary": "신규 항목으로 감지되었습니다.\n- 대상: 기술료 징수 및 관리에 관한 통합요령\n- 변경 전: 기준 없음\n- 변경 후: 공포일 2026-01-29 / 시행일 2026-02-04 / 고시번호 2026-31 / 소관부처 기후에너지환경부",
+      "diff_excerpt": "신규 포착 | 공포일 2026-01-29 / 시행일 2026-02-04 / 고시번호 2026-31 / 소관부처 기후에너지환경부",
+      "source": "delta",
+      "detected_at_utc": "2026-02-24T06:57:53.294Z",
+      "change_detail": {
+        "before": {
+          "excerpt": null
+        },
+        "after": {
+          "excerpt": "공포일 2026-01-29 / 시행일 2026-02-04 / 고시번호 2026-31 / 소관부처 기후에너지환경부"
+        },
+        "changed_fields": [],
+        "diff_excerpt": "신규 포착 | 공포일 2026-01-29 / 시행일 2026-02-04 / 고시번호 2026-31 / 소관부처 기후에너지환경부"
+      },
+      "history_key": "고시||2026-31|20260129|20260204||20260129||기술료 징수 및 관리에 관한 통합요령"
+    },
     {
       "status": "MOD",
       "status_ko": "변경",
