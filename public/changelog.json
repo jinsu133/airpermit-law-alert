@@ -1,18 +1,42 @@
 {
-  "generated_at_kst": "2026-03-25T09:57:26.142+09:00",
-  "generated_at_utc": "2026-03-25T00:57:26.142Z",
+  "generated_at_kst": "2026-03-25T10:52:09.243+09:00",
+  "generated_at_utc": "2026-03-25T01:52:09.243Z",
   "range_start_yyyymmdd": "20210101",
   "stats": {
     "count_by_kind": {
       "법령": 29,
-      "고시": 50,
+      "고시": 51,
       "의안": 5
     },
-    "delta_count_this_run": 0,
-    "total_cumulative": 84,
+    "delta_count_this_run": 1,
+    "total_cumulative": 85,
     "seeded_now": false
   },
   "items": [
+    {
+      "status": "NEW",
+      "status_ko": "신규",
+      "kind": "고시",
+      "title": "대기오염물질 심사·평가위원회 운영, 절차 및 지정 등에 관한 규정",
+      "date": "20260325",
+      "id": "2026-9|20260325|20260325",
+      "diff_url": "https://www.law.go.kr/admRulSc.do?query=%EB%8C%80%EA%B8%B0%EC%98%A4%EC%97%BC%EB%AC%BC%EC%A7%88%20%EC%8B%AC%EC%82%AC%C2%B7%ED%8F%89%EA%B0%80%EC%9C%84%EC%9B%90%ED%9A%8C%20%EC%9A%B4%EC%98%81%2C%20%EC%A0%88%EC%B0%A8%20%EB%B0%8F%20%EC%A7%80%EC%A0%95%20%EB%93%B1%EC%97%90%20%EA%B4%80%ED%95%9C%20%EA%B7%9C%EC%A0%95",
+      "change_summary": "신규 항목으로 감지되었습니다.\n- 대상: 대기오염물질 심사·평가위원회 운영, 절차 및 지정 등에 관한 규정\n- 변경 전: 기준 없음\n- 변경 후: 공포일 2026-03-25 / 시행일 2026-03-25 / 고시번호 2026-9 / 소관부처 국립환경과학원",
+      "diff_excerpt": "신규 포착 | 공포일 2026-03-25 / 시행일 2026-03-25 / 고시번호 2026-9 / 소관부처 국립환경과학원",
+      "source": "delta",
+      "detected_at_utc": "2026-03-25T01:52:09.243Z",
+      "change_detail": {
+        "before": {
+          "excerpt": null
+        },
+        "after": {
+          "excerpt": "공포일 2026-03-25 / 시행일 2026-03-25 / 고시번호 2026-9 / 소관부처 국립환경과학원"
+        },
+        "changed_fields": [],
+        "diff_excerpt": "신규 포착 | 공포일 2026-03-25 / 시행일 2026-03-25 / 고시번호 2026-9 / 소관부처 국립환경과학원"
+      },
+      "history_key": "고시||2026-9|20260325|20260325||20260325||대기오염물질 심사·평가위원회 운영, 절차 및 지정 등에 관한 규정"
+    },
     {
       "status": "MOD",
       "status_ko": "변경",
