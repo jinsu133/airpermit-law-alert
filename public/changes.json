@@ -1,18 +1,42 @@
 {
-  "generated_at_kst": "2026-04-10T16:12:46.569+09:00",
-  "generated_at_utc": "2026-04-10T07:12:46.569Z",
+  "generated_at_kst": "2026-04-10T16:21:18.677+09:00",
+  "generated_at_utc": "2026-04-10T07:21:18.677Z",
   "range_start_yyyymmdd": "20210101",
   "stats": {
     "count_by_kind": {
       "법령": 29,
-      "고시": 51,
+      "고시": 52,
       "의안": 6
     },
-    "delta_count_this_run": 0,
-    "total_cumulative": 86,
+    "delta_count_this_run": 1,
+    "total_cumulative": 87,
     "seeded_now": false
   },
   "items": [
+    {
+      "status": "NEW",
+      "status_ko": "신규",
+      "kind": "고시",
+      "title": "수소 안전관리기준 통합고시",
+      "date": "20260408",
+      "id": "2025-61|20260408|20260414",
+      "diff_url": "https://www.law.go.kr/admRulSc.do?query=%EC%88%98%EC%86%8C%20%EC%95%88%EC%A0%84%EA%B4%80%EB%A6%AC%EA%B8%B0%EC%A4%80%20%ED%86%B5%ED%95%A9%EA%B3%A0%EC%8B%9C",
+      "change_summary": "신규 항목으로 감지되었습니다.\n- 대상: 수소 안전관리기준 통합고시\n- 변경 전: 기준 없음\n- 변경 후: 공포일 2026-04-08 / 시행일 2026-04-14 / 고시번호 2025-61 / 소관부처 기후에너지환경부",
+      "diff_excerpt": "신규 포착 | 공포일 2026-04-08 / 시행일 2026-04-14 / 고시번호 2025-61 / 소관부처 기후에너지환경부",
+      "source": "delta",
+      "detected_at_utc": "2026-04-10T07:21:18.677Z",
+      "change_detail": {
+        "before": {
+          "excerpt": null
+        },
+        "after": {
+          "excerpt": "공포일 2026-04-08 / 시행일 2026-04-14 / 고시번호 2025-61 / 소관부처 기후에너지환경부"
+        },
+        "changed_fields": [],
+        "diff_excerpt": "신규 포착 | 공포일 2026-04-08 / 시행일 2026-04-14 / 고시번호 2025-61 / 소관부처 기후에너지환경부"
+      },
+      "history_key": "고시||2025-61|20260408|20260414||20260408||수소 안전관리기준 통합고시"
+    },
     {
       "status": "NEW",
       "status_ko": "신규",
