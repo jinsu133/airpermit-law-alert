@@ -2,6 +2,30 @@
   "seeded_from": "20210101",
   "items": [
     {
+      "status": "NEW",
+      "status_ko": "신규",
+      "kind": "의안",
+      "title": "미세먼지 저감 및 관리에 관한 특별법 일부개정법률안",
+      "date": "20260515",
+      "id": "PRC_H2F6G0E5D1D3L0L9K3K6J1H9I2P3Q1",
+      "diff_url": "https://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_H2F6G0E5D1D3L0L9K3K6J1H9I2P3Q1",
+      "change_summary": "신규 항목으로 감지되었습니다.\n- 대상: 미세먼지 저감 및 관리에 관한 특별법 일부개정법률안\n- 변경 전: 기준 없음\n- 변경 후: 제안일 2026-05-15 / 의안번호 2218986",
+      "diff_excerpt": "신규 포착 | 제안일 2026-05-15 / 의안번호 2218986",
+      "source": "delta",
+      "detected_at_utc": "2026-05-15T21:31:02.523Z",
+      "change_detail": {
+        "before": {
+          "excerpt": null
+        },
+        "after": {
+          "excerpt": "제안일 2026-05-15 / 의안번호 2218986"
+        },
+        "changed_fields": [],
+        "diff_excerpt": "신규 포착 | 제안일 2026-05-15 / 의안번호 2218986"
+      },
+      "history_key": "의안||PRC_H2F6G0E5D1D3L0L9K3K6J1H9I2P3Q1||20260515||미세먼지 저감 및 관리에 관한 특별법 일부개정법률안"
+    },
+    {
       "status": "MOD",
       "status_ko": "변경",
       "kind": "고시",
@@ -2213,5 +2237,5 @@
       }
     }
   ],
-  "last_generated_at_utc": "2026-05-15T20:17:40.922Z"
+  "last_generated_at_utc": "2026-05-15T21:31:02.523Z"
 }
