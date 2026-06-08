@@ -4,6 +4,30 @@
     {
       "status": "NEW",
       "status_ko": "신규",
+      "kind": "법령",
+      "title": "환경오염시설의 통합관리에 관한 법률",
+      "date": "20260609",
+      "id": "21783|20260609|일부개정",
+      "diff_url": "https://www.law.go.kr/lsSc.do?query=%ED%99%98%EA%B2%BD%EC%98%A4%EC%97%BC%EC%8B%9C%EC%84%A4%EC%9D%98%20%ED%86%B5%ED%95%A9%EA%B4%80%EB%A6%AC%EC%97%90%20%EA%B4%80%ED%95%9C%20%EB%B2%95%EB%A5%A0",
+      "change_summary": "신규 항목으로 감지되었습니다.\n- 대상: 환경오염시설의 통합관리에 관한 법률\n- 변경 전: 기준 없음\n- 변경 후: 공포일 2026-06-09 / 공포번호 21783 / 개정유형 일부개정",
+      "diff_excerpt": "신규 포착 | 공포일 2026-06-09 / 공포번호 21783 / 개정유형 일부개정",
+      "source": "delta",
+      "detected_at_utc": "2026-06-08T19:49:51.584Z",
+      "change_detail": {
+        "before": {
+          "excerpt": null
+        },
+        "after": {
+          "excerpt": "공포일 2026-06-09 / 공포번호 21783 / 개정유형 일부개정"
+        },
+        "changed_fields": [],
+        "diff_excerpt": "신규 포착 | 공포일 2026-06-09 / 공포번호 21783 / 개정유형 일부개정"
+      },
+      "history_key": "법령||21783|20260609|일부개정||20260609||환경오염시설의 통합관리에 관한 법률"
+    },
+    {
+      "status": "NEW",
+      "status_ko": "신규",
       "kind": "고시",
       "title": "대기오염공정시험기준",
       "date": "20260608",
@@ -2261,5 +2285,5 @@
       }
     }
   ],
-  "last_generated_at_utc": "2026-06-08T17:48:57.953Z"
+  "last_generated_at_utc": "2026-06-08T19:49:51.584Z"
 }
