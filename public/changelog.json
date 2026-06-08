@@ -1,18 +1,42 @@
 {
-  "generated_at_kst": "2026-06-08T09:20:45.057+09:00",
-  "generated_at_utc": "2026-06-08T00:20:45.057Z",
+  "generated_at_kst": "2026-06-08T14:27:42.043+09:00",
+  "generated_at_utc": "2026-06-08T05:27:42.044Z",
   "range_start_yyyymmdd": "20210101",
   "stats": {
     "count_by_kind": {
       "법령": 29,
-      "고시": 55,
+      "고시": 56,
       "의안": 8
     },
-    "delta_count_this_run": 0,
-    "total_cumulative": 92,
+    "delta_count_this_run": 1,
+    "total_cumulative": 93,
     "seeded_now": false
   },
   "items": [
+    {
+      "status": "NEW",
+      "status_ko": "신규",
+      "kind": "고시",
+      "title": "대기오염공정시험기준",
+      "date": "20260608",
+      "id": "2026-17|20260608|20260608",
+      "diff_url": "https://www.law.go.kr/admRulSc.do?query=%EB%8C%80%EA%B8%B0%EC%98%A4%EC%97%BC%EA%B3%B5%EC%A0%95%EC%8B%9C%ED%97%98%EA%B8%B0%EC%A4%80",
+      "change_summary": "신규 항목으로 감지되었습니다.\n- 대상: 대기오염공정시험기준\n- 변경 전: 기준 없음\n- 변경 후: 공포일 2026-06-08 / 시행일 2026-06-08 / 고시번호 2026-17 / 소관부처 기후에너지환경부",
+      "diff_excerpt": "신규 포착 | 공포일 2026-06-08 / 시행일 2026-06-08 / 고시번호 2026-17 / 소관부처 기후에너지환경부",
+      "source": "delta",
+      "detected_at_utc": "2026-06-08T05:27:42.044Z",
+      "change_detail": {
+        "before": {
+          "excerpt": null
+        },
+        "after": {
+          "excerpt": "공포일 2026-06-08 / 시행일 2026-06-08 / 고시번호 2026-17 / 소관부처 기후에너지환경부"
+        },
+        "changed_fields": [],
+        "diff_excerpt": "신규 포착 | 공포일 2026-06-08 / 시행일 2026-06-08 / 고시번호 2026-17 / 소관부처 기후에너지환경부"
+      },
+      "history_key": "고시||2026-17|20260608|20260608||20260608||대기오염공정시험기준"
+    },
     {
       "status": "NEW",
       "status_ko": "신규",
