@@ -2746,7 +2746,15 @@
       "bill_name": "미세먼지 저감 및 관리에 관한 특별법 일부개정법률안",
       "propose_dt": "20260515",
       "proc_result": ""
+    },
+    "PRC_K2J6K0R6Q0P8X1U3T5B9B0Z2X7D0D8": {
+      "status_key": "2219289||20260616",
+      "bill_id": "PRC_K2J6K0R6Q0P8X1U3T5B9B0Z2X7D0D8",
+      "bill_no": "2219289",
+      "bill_name": "환경오염시설의 통합관리에 관한 법률 일부개정법률안",
+      "propose_dt": "20260616",
+      "proc_result": ""
     }
   },
-  "last_run": "2026-06-17T14:10:36.634+09:00"
+  "last_run": "2026-06-17T17:58:21.157+09:00"
 }

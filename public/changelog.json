@@ -1,18 +1,42 @@
 {
-  "generated_at_kst": "2026-06-17T14:10:36.634+09:00",
-  "generated_at_utc": "2026-06-17T05:10:36.634Z",
+  "generated_at_kst": "2026-06-17T17:58:21.157+09:00",
+  "generated_at_utc": "2026-06-17T08:58:21.157Z",
   "range_start_yyyymmdd": "20210101",
   "stats": {
     "count_by_kind": {
       "법령": 30,
       "고시": 56,
-      "의안": 8
+      "의안": 9
     },
-    "delta_count_this_run": 0,
-    "total_cumulative": 94,
+    "delta_count_this_run": 1,
+    "total_cumulative": 95,
     "seeded_now": false
   },
   "items": [
+    {
+      "status": "NEW",
+      "status_ko": "신규",
+      "kind": "의안",
+      "title": "환경오염시설의 통합관리에 관한 법률 일부개정법률안",
+      "date": "20260616",
+      "id": "PRC_K2J6K0R6Q0P8X1U3T5B9B0Z2X7D0D8",
+      "diff_url": "https://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_K2J6K0R6Q0P8X1U3T5B9B0Z2X7D0D8",
+      "change_summary": "신규 항목으로 감지되었습니다.\n- 대상: 환경오염시설의 통합관리에 관한 법률 일부개정법률안\n- 변경 전: 기준 없음\n- 변경 후: 제안일 2026-06-16 / 의안번호 2219289",
+      "diff_excerpt": "신규 포착 | 제안일 2026-06-16 / 의안번호 2219289",
+      "source": "delta",
+      "detected_at_utc": "2026-06-17T08:58:21.157Z",
+      "change_detail": {
+        "before": {
+          "excerpt": null
+        },
+        "after": {
+          "excerpt": "제안일 2026-06-16 / 의안번호 2219289"
+        },
+        "changed_fields": [],
+        "diff_excerpt": "신규 포착 | 제안일 2026-06-16 / 의안번호 2219289"
+      },
+      "history_key": "의안||PRC_K2J6K0R6Q0P8X1U3T5B9B0Z2X7D0D8||20260616||환경오염시설의 통합관리에 관한 법률 일부개정법률안"
+    },
     {
       "status": "NEW",
       "status_ko": "신규",
