@@ -2,6 +2,30 @@
   "seeded_from": "20210101",
   "items": [
     {
+      "status": "NEW",
+      "status_ko": "신규",
+      "kind": "고시",
+      "title": "통합허가 업무처리 규정",
+      "date": "20251001",
+      "id": "4|20251001|20251007",
+      "diff_url": "https://www.law.go.kr/admRulSc.do?query=%ED%86%B5%ED%95%A9%ED%97%88%EA%B0%80%20%EC%97%85%EB%AC%B4%EC%B2%98%EB%A6%AC%20%EA%B7%9C%EC%A0%95",
+      "change_summary": "신규 항목으로 감지되었습니다.\n- 대상: 통합허가 업무처리 규정\n- 변경 전: 기준 없음\n- 변경 후: 공포일 2025-10-01 / 시행일 2025-10-07 / 고시번호 4 / 소관부처 기후에너지환경부",
+      "diff_excerpt": "신규 포착 | 공포일 2025-10-01 / 시행일 2025-10-07 / 고시번호 4 / 소관부처 기후에너지환경부",
+      "source": "delta",
+      "detected_at_utc": "2026-07-02T06:56:47.771Z",
+      "change_detail": {
+        "before": {
+          "excerpt": null
+        },
+        "after": {
+          "excerpt": "공포일 2025-10-01 / 시행일 2025-10-07 / 고시번호 4 / 소관부처 기후에너지환경부"
+        },
+        "changed_fields": [],
+        "diff_excerpt": "신규 포착 | 공포일 2025-10-01 / 시행일 2025-10-07 / 고시번호 4 / 소관부처 기후에너지환경부"
+      },
+      "history_key": "고시||4|20251001|20251007||20251001||통합허가 업무처리 규정"
+    },
+    {
       "status": "MOD",
       "status_ko": "변경",
       "kind": "법령",
@@ -2495,5 +2519,5 @@
       }
     }
   ],
-  "last_generated_at_utc": "2026-07-02T06:36:58.212Z"
+  "last_generated_at_utc": "2026-07-02T06:56:47.771Z"
 }
