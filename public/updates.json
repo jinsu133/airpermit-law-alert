@@ -1,14 +1,14 @@
 {
-  "generated_at_kst": "2026-07-13T11:21:50.171+09:00",
-  "generated_at_utc": "2026-07-13T02:21:50.171Z",
+  "generated_at_kst": "2026-07-13T13:42:05.133+09:00",
+  "generated_at_utc": "2026-07-13T04:42:05.133Z",
   "stats": {
     "count_by_kind": {
-      "법령": 21,
+      "법령": 6,
       "고시": 61,
       "의안": 0
     },
     "fallback": {
-      "laws": true,
+      "laws": false,
       "admruls": true
     },
     "delta_count_this_run": 0,
@@ -23,18 +23,8 @@
       "title": "대기환경보전법",
       "date": "20260707",
       "id": "21843|20260707|일부개정",
-      "diff_url": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=287811&efYd=20260707",
-      "note": "법령 API 응답 누락으로 이전 성공 데이터를 표시합니다."
-    },
-    {
-      "status": "OK",
-      "status_ko": "유지",
-      "kind": "법령",
-      "title": "환경오염시설의 통합관리에 관한 법률",
-      "date": "20260707",
-      "id": "21851|20260707|일부개정",
-      "diff_url": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=287993&efYd=20260707",
-      "note": "법령 API 응답 누락으로 이전 성공 데이터를 표시합니다."
+      "diff_url": "https://www.law.go.kr/lsSc.do?query=%EB%8C%80%EA%B8%B0%ED%99%98%EA%B2%BD%EB%B3%B4%EC%A0%84%EB%B2%95",
+      "detected_at_utc": "2026-07-13T04:42:05.133Z"
     },
     {
       "status": "OK",
@@ -43,18 +33,8 @@
       "title": "대기환경보전법 시행규칙",
       "date": "20260626",
       "id": "00043|20260626|일부개정",
-      "diff_url": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=287723&efYd=20260626",
-      "note": "법령 API 응답 누락으로 이전 성공 데이터를 표시합니다."
-    },
-    {
-      "status": "OK",
-      "status_ko": "유지",
-      "kind": "법령",
-      "title": "대기관리권역의 대기환경개선에 관한 특별법 시행령",
-      "date": "20260623",
-      "id": "36423|20260623|타법개정",
-      "diff_url": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=287109&efYd=20260623",
-      "note": "법령 API 응답 누락으로 이전 성공 데이터를 표시합니다."
+      "diff_url": "https://www.law.go.kr/lsSc.do?query=%EB%8C%80%EA%B8%B0%ED%99%98%EA%B2%BD%EB%B3%B4%EC%A0%84%EB%B2%95%20%EC%8B%9C%ED%96%89%EA%B7%9C%EC%B9%99",
+      "detected_at_utc": "2026-07-13T04:42:05.133Z"
     },
     {
       "status": "OK",
@@ -63,8 +43,8 @@
       "title": "대기환경보전법 시행령",
       "date": "20260623",
       "id": "36423|20260623|타법개정",
-      "diff_url": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=287111&efYd=20260623",
-      "note": "법령 API 응답 누락으로 이전 성공 데이터를 표시합니다."
+      "diff_url": "https://www.law.go.kr/lsSc.do?query=%EB%8C%80%EA%B8%B0%ED%99%98%EA%B2%BD%EB%B3%B4%EC%A0%84%EB%B2%95%20%EC%8B%9C%ED%96%89%EB%A0%B9",
+      "detected_at_utc": "2026-07-13T04:42:05.133Z"
     },
     {
       "status": "OK",
@@ -73,18 +53,8 @@
       "title": "환경분야 시험ㆍ검사 등에 관한 법률 시행령",
       "date": "20260623",
       "id": "36424|20260623|타법개정",
-      "diff_url": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=287321&efYd=20260623",
-      "note": "법령 API 응답 누락으로 이전 성공 데이터를 표시합니다."
-    },
-    {
-      "status": "OK",
-      "status_ko": "유지",
-      "kind": "법령",
-      "title": "대기관리권역의 대기환경개선에 관한 특별법 시행규칙",
-      "date": "20260622",
-      "id": "00042|20260622|타법개정",
-      "diff_url": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=287421&efYd=20260622",
-      "note": "법령 API 응답 누락으로 이전 성공 데이터를 표시합니다."
+      "diff_url": "https://www.law.go.kr/lsSc.do?query=%ED%99%98%EA%B2%BD%EB%B6%84%EC%95%BC%20%EC%8B%9C%ED%97%98%E3%86%8D%EA%B2%80%EC%82%AC%20%EB%93%B1%EC%97%90%20%EA%B4%80%ED%95%9C%20%EB%B2%95%EB%A5%A0%20%EC%8B%9C%ED%96%89%EB%A0%B9",
+      "detected_at_utc": "2026-07-13T04:42:05.133Z"
     },
     {
       "status": "OK",
@@ -93,8 +63,8 @@
       "title": "환경분야 시험ㆍ검사 등에 관한 법률 시행규칙",
       "date": "20260622",
       "id": "00042|20260622|타법개정",
-      "diff_url": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=287453&efYd=20260622",
-      "note": "법령 API 응답 누락으로 이전 성공 데이터를 표시합니다."
+      "diff_url": "https://www.law.go.kr/lsSc.do?query=%ED%99%98%EA%B2%BD%EB%B6%84%EC%95%BC%20%EC%8B%9C%ED%97%98%E3%86%8D%EA%B2%80%EC%82%AC%20%EB%93%B1%EC%97%90%20%EA%B4%80%ED%95%9C%20%EB%B2%95%EB%A5%A0%20%EC%8B%9C%ED%96%89%EA%B7%9C%EC%B9%99",
+      "detected_at_utc": "2026-07-13T04:42:05.133Z"
     },
     {
       "status": "OK",
@@ -103,128 +73,8 @@
       "title": "환경오염시설의 통합관리에 관한 법률 시행령",
       "date": "20260127",
       "id": "36055|20260127|타법개정",
-      "diff_url": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=283023&efYd=20260127",
-      "note": "법령 API 응답 누락으로 이전 성공 데이터를 표시합니다."
-    },
-    {
-      "status": "OK",
-      "status_ko": "유지",
-      "kind": "법령",
-      "title": "환경오염시설의 통합관리에 관한 법률 시행령",
-      "date": "20260102",
-      "id": "35998|20260102|타법개정",
-      "diff_url": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=012747&efYd=20260102",
-      "note": "법령 API 응답 누락으로 이전 성공 데이터를 표시합니다."
-    },
-    {
-      "status": "OK",
-      "status_ko": "유지",
-      "kind": "법령",
-      "title": "대기관리권역의 대기환경개선에 관한 특별법 시행령",
-      "date": "20251230",
-      "id": "35947|20251230|타법개정",
-      "diff_url": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=013722&efYd=20251230",
-      "note": "법령 API 응답 누락으로 이전 성공 데이터를 표시합니다."
-    },
-    {
-      "status": "OK",
-      "status_ko": "유지",
-      "kind": "법령",
-      "title": "환경오염시설의 통합관리에 관한 법률 시행규칙",
-      "date": "20251230",
-      "id": "00019|20251230|일부개정",
-      "diff_url": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=282255&efYd=20251230",
-      "note": "법령 API 응답 누락으로 이전 성공 데이터를 표시합니다."
-    },
-    {
-      "status": "OK",
-      "status_ko": "유지",
-      "kind": "법령",
-      "title": "대기관리권역의 대기환경개선에 관한 특별법 시행규칙",
-      "date": "20251226",
-      "id": "00013|20251226|타법개정",
-      "diff_url": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=013725&efYd=20251226",
-      "note": "법령 API 응답 누락으로 이전 성공 데이터를 표시합니다."
-    },
-    {
-      "status": "OK",
-      "status_ko": "유지",
-      "kind": "법령",
-      "title": "대기환경보전법 시행규칙",
-      "date": "20251224",
-      "id": "00012|20251224|일부개정",
-      "diff_url": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=007038&efYd=20251224",
-      "note": "법령 API 응답 누락으로 이전 성공 데이터를 표시합니다."
-    },
-    {
-      "status": "OK",
-      "status_ko": "유지",
-      "kind": "법령",
-      "title": "대기환경보전법 시행령",
-      "date": "20251223",
-      "id": "35939|20251223|타법개정",
-      "diff_url": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=003302&efYd=20251223",
-      "note": "법령 API 응답 누락으로 이전 성공 데이터를 표시합니다."
-    },
-    {
-      "status": "OK",
-      "status_ko": "유지",
-      "kind": "법령",
-      "title": "대기환경보전법",
-      "date": "20251111",
-      "id": "21123|20251111|일부개정",
-      "diff_url": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=001773&efYd=20251111",
-      "note": "법령 API 응답 누락으로 이전 성공 데이터를 표시합니다."
-    },
-    {
-      "status": "OK",
-      "status_ko": "유지",
-      "kind": "법령",
-      "title": "대기관리권역의 대기환경개선에 관한 특별법",
-      "date": "20251001",
-      "id": "21065|20251001|타법개정",
-      "diff_url": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=013458&efYd=20251001",
-      "note": "법령 API 응답 누락으로 이전 성공 데이터를 표시합니다."
-    },
-    {
-      "status": "OK",
-      "status_ko": "유지",
-      "kind": "법령",
-      "title": "환경분야 시험ㆍ검사 등에 관한 법률",
-      "date": "20251001",
-      "id": "21065|20251001|타법개정",
-      "diff_url": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=010302&efYd=20251001",
-      "note": "법령 API 응답 누락으로 이전 성공 데이터를 표시합니다."
-    },
-    {
-      "status": "OK",
-      "status_ko": "유지",
-      "kind": "법령",
-      "title": "환경분야 시험ㆍ검사 등에 관한 법률 시행규칙",
-      "date": "20251001",
-      "id": "00001|20251001|타법개정",
-      "diff_url": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=010545&efYd=20251001",
-      "note": "법령 API 응답 누락으로 이전 성공 데이터를 표시합니다."
-    },
-    {
-      "status": "OK",
-      "status_ko": "유지",
-      "kind": "법령",
-      "title": "환경분야 시험ㆍ검사 등에 관한 법률 시행령",
-      "date": "20251001",
-      "id": "35804|20251001|타법개정",
-      "diff_url": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=010530&efYd=20251001",
-      "note": "법령 API 응답 누락으로 이전 성공 데이터를 표시합니다."
-    },
-    {
-      "status": "OK",
-      "status_ko": "유지",
-      "kind": "법령",
-      "title": "환경오염시설의 통합관리에 관한 법률",
-      "date": "20251001",
-      "id": "21065|20251001|타법개정",
-      "diff_url": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=012414&efYd=20251001",
-      "note": "법령 API 응답 누락으로 이전 성공 데이터를 표시합니다."
+      "diff_url": "https://www.law.go.kr/lsSc.do?query=%ED%99%98%EA%B2%BD%EC%98%A4%EC%97%BC%EC%8B%9C%EC%84%A4%EC%9D%98%20%ED%86%B5%ED%95%A9%EA%B4%80%EB%A6%AC%EC%97%90%20%EA%B4%80%ED%95%9C%20%EB%B2%95%EB%A5%A0%20%EC%8B%9C%ED%96%89%EB%A0%B9",
+      "detected_at_utc": "2026-07-13T04:42:05.133Z"
     },
     {
       "status": "OK",
