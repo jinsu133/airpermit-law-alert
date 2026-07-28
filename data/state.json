@@ -2798,7 +2798,23 @@
       "bill_name": "환경오염시설의 통합관리에 관한 법률 일부개정법률안",
       "propose_dt": "20260616",
       "proc_result": ""
+    },
+    "PRC_E2M6N0L7M2K1K1I3Y3Y4W4Y3W7W3U4": {
+      "status_key": "2220201||20260728",
+      "bill_id": "PRC_E2M6N0L7M2K1K1I3Y3Y4W4Y3W7W3U4",
+      "bill_no": "2220201",
+      "bill_name": "잔류성오염물질 관리법 일부개정법률안",
+      "propose_dt": "20260728",
+      "proc_result": ""
+    },
+    "PRC_D2D6C0C7B2B1Z1A3W3U6V2T8U3S6T2": {
+      "status_key": "2220198||20260728",
+      "bill_id": "PRC_D2D6C0C7B2B1Z1A3W3U6V2T8U3S6T2",
+      "bill_no": "2220198",
+      "bill_name": "대기환경보전법 일부개정법률안",
+      "propose_dt": "20260728",
+      "proc_result": ""
     }
   },
-  "last_run": "2026-07-29T05:12:38.515+09:00"
+  "last_run": "2026-07-29T06:29:15.186+09:00"
 }
