@@ -1,6 +1,6 @@
 {
-  "generated_at_kst": "2026-08-29T11:08:10.788+09:00",
-  "generated_at_utc": "2026-08-29T02:08:10.788Z",
+  "generated_at_kst": "2026-08-29T12:01:38.952+09:00",
+  "generated_at_utc": "2026-08-29T03:01:38.952Z",
   "range_start_yyyymmdd": "20210101",
   "stats": {
     "count_by_kind": {
@@ -8,7 +8,7 @@
       "고시": 60,
       "의안": 12
     },
-    "delta_count_this_run": 1,
+    "delta_count_this_run": 0,
     "total_cumulative": 111,
     "seeded_now": false
   },
