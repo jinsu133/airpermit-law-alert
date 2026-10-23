@@ -1,18 +1,42 @@
 {
-  "generated_at_kst": "2026-10-24T04:28:53.122+09:00",
-  "generated_at_utc": "2026-10-23T19:28:53.122Z",
+  "generated_at_kst": "2026-10-24T06:47:39.800+09:00",
+  "generated_at_utc": "2026-10-23T21:47:39.800Z",
   "range_start_yyyymmdd": "20210101",
   "stats": {
     "count_by_kind": {
       "법령": 41,
       "고시": 60,
-      "의안": 14
+      "의안": 15
     },
-    "delta_count_this_run": 0,
-    "total_cumulative": 115,
+    "delta_count_this_run": 1,
+    "total_cumulative": 116,
     "seeded_now": false
   },
   "items": [
+    {
+      "status": "NEW",
+      "status_ko": "신규",
+      "kind": "의안",
+      "title": "식품·의약품분야 시험·검사 등에 관한 법률 일부개정법률안",
+      "date": "20261023",
+      "id": "PRC_3565AC15028E499EAC1BE9E2B7CF56",
+      "diff_url": "https://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_3565AC15028E499EAC1BE9E2B7CF56",
+      "change_summary": "신규 항목으로 감지되었습니다.\n- 대상: 식품·의약품분야 시험·검사 등에 관한 법률 일부개정법률안\n- 변경 전: 기준 없음\n- 변경 후: 제안일 2026-10-23 / 의안번호 2222063",
+      "diff_excerpt": "신규 포착 | 제안일 2026-10-23 / 의안번호 2222063",
+      "source": "delta",
+      "detected_at_utc": "2026-10-23T21:47:39.800Z",
+      "change_detail": {
+        "before": {
+          "excerpt": null
+        },
+        "after": {
+          "excerpt": "제안일 2026-10-23 / 의안번호 2222063"
+        },
+        "changed_fields": [],
+        "diff_excerpt": "신규 포착 | 제안일 2026-10-23 / 의안번호 2222063"
+      },
+      "history_key": "의안||PRC_3565AC15028E499EAC1BE9E2B7CF56||20261023||식품·의약품분야 시험·검사 등에 관한 법률 일부개정법률안"
+    },
     {
       "status": "NEW",
       "status_ko": "신규",
