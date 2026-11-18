@@ -1,18 +1,42 @@
 {
-  "generated_at_kst": "2026-11-18T04:50:20.721+09:00",
-  "generated_at_utc": "2026-11-17T19:50:20.721Z",
+  "generated_at_kst": "2026-11-18T11:00:43.748+09:00",
+  "generated_at_utc": "2026-11-18T02:00:43.748Z",
   "range_start_yyyymmdd": "20210101",
   "stats": {
     "count_by_kind": {
       "법령": 44,
       "고시": 63,
-      "의안": 17
+      "의안": 18
     },
-    "delta_count_this_run": 0,
-    "total_cumulative": 124,
+    "delta_count_this_run": 1,
+    "total_cumulative": 125,
     "seeded_now": false
   },
   "items": [
+    {
+      "status": "NEW",
+      "status_ko": "신규",
+      "kind": "의안",
+      "title": "대기환경보전법 일부개정법률안",
+      "date": "20261117",
+      "id": "PRC_7DE850927C0B4851BE93F6A8C8CCB5",
+      "diff_url": "https://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_7DE850927C0B4851BE93F6A8C8CCB5",
+      "change_summary": "신규 항목으로 감지되었습니다.\n- 대상: 대기환경보전법 일부개정법률안\n- 변경 전: 기준 없음\n- 변경 후: 제안일 2026-11-17 / 의안번호 2222868",
+      "diff_excerpt": "신규 포착 | 제안일 2026-11-17 / 의안번호 2222868",
+      "source": "delta",
+      "detected_at_utc": "2026-11-18T02:00:43.748Z",
+      "change_detail": {
+        "before": {
+          "excerpt": null
+        },
+        "after": {
+          "excerpt": "제안일 2026-11-17 / 의안번호 2222868"
+        },
+        "changed_fields": [],
+        "diff_excerpt": "신규 포착 | 제안일 2026-11-17 / 의안번호 2222868"
+      },
+      "history_key": "의안||PRC_7DE850927C0B4851BE93F6A8C8CCB5||20261117||대기환경보전법 일부개정법률안"
+    },
     {
       "status": "MOD",
       "status_ko": "변경",
